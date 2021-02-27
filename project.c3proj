@@ -4,7 +4,7 @@
 	"name": "VoidHeart",
 	"runtime": "c3",
 	"useWorker": "auto",
-	"bundleAddons": false,
+	"bundleAddons": true,
 	"usedAddons": [
 		{
 			"type": "plugin",
@@ -212,7 +212,7 @@
 			"name": "Outline",
 			"author": "Richard Lems",
 			"version": "1.0.0.0",
-			"bundled": false
+			"bundled": true
 		}
 	],
 	"uniqueId": "vgwcd7yo1io",
