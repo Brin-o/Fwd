@@ -1,0 +1,86 @@
+{
+	"name": "oBullet_P",
+	"plugin-id": "Sprite",
+	"sid": 723803807319104,
+	"isGlobal": false,
+	"instanceVariables": [
+		{
+			"name": "dmg",
+			"type": "number",
+			"desc": "",
+			"sid": 627225441552498
+		},
+		{
+			"name": "targetX",
+			"type": "number",
+			"desc": "",
+			"sid": 737179045841188
+		},
+		{
+			"name": "targetY",
+			"type": "number",
+			"desc": "",
+			"sid": 164378152549382
+		}
+	],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Bullet",
+			"name": "Bullet",
+			"sid": 662518272125699
+		}
+	],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 14,
+						"height": 14,
+						"originX": 0.6785714285714286,
+						"originY": 0.4642857142857143,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 6301407,
+						"collisionPoly": {
+							"points": [
+								0.25,
+								0.17857142857142858,
+								0.8214285714285714,
+								0.17857142857142858,
+								0.8214285714285714,
+								0.75,
+								0.25,
+								0.75
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					},
+					{
+						"width": 8,
+						"height": 8,
+						"originX": 0.75,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 7003474,
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 355262637882692,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 20
+			}
+		],
+		"subfolders": []
+	}
+}

@@ -1,0 +1,55 @@
+{
+	"name": "eTargeting_Indicator",
+	"plugin-id": "Sprite",
+	"sid": 396384554505640,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Pin",
+			"name": "Pin",
+			"sid": 731995903428339
+		}
+	],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 14,
+						"height": 14,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 9942527,
+						"collisionPoly": {
+							"points": [
+								0.038461538461538464,
+								0.038461538461538464,
+								0.9615384615384616,
+								0.038461538461538464,
+								0.9615384615384616,
+								0.9615384615384616,
+								0.038461538461538464,
+								0.9615384615384616
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 671775249283168,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}

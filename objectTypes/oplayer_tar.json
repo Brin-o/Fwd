@@ -1,0 +1,70 @@
+{
+	"name": "oPlayer_Tar",
+	"plugin-id": "Sprite",
+	"sid": 231287124300719,
+	"isGlobal": false,
+	"instanceVariables": [
+		{
+			"name": "radius",
+			"type": "number",
+			"desc": "",
+			"sid": 152067064065322
+		}
+	],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Flash",
+			"name": "Flash",
+			"sid": 974042126358235
+		}
+	],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 228,
+						"height": 228,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 214665,
+						"collisionPoly": {
+							"points": [
+								0.14912280701754385,
+								0.14912280701754385,
+								0.5,
+								0.0043859649122807015,
+								0.8464912280701754,
+								0.14912280701754385,
+								0.9912280701754386,
+								0.5,
+								0.8464912280701754,
+								0.8464912280701754,
+								0.5,
+								0.9912280701754386,
+								0.14912280701754385,
+								0.8464912280701754,
+								0.0043859649122807015,
+								0.5
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 538812238262050,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}

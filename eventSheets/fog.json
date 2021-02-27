@@ -1,0 +1,564 @@
+{
+	"name": "Fog",
+	"events": [
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Pathfinding",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-created",
+							"objectClass": "Fog_Spawner",
+							"sid": 794617931228081
+						}
+					],
+					"actions": [
+						{
+							"id": "add-obstacle",
+							"objectClass": "Fog_Spawner",
+							"sid": 977159814688338,
+							"behaviorType": "Pathfinding",
+							"parameters": {
+								"obstacle": "Wall"
+							}
+						},
+						{
+							"id": "find-path",
+							"objectClass": "Fog_Spawner",
+							"sid": 915421443548204,
+							"behaviorType": "Pathfinding",
+							"parameters": {
+								"x": "WinArea.X",
+								"y": "WinArea.Y"
+							}
+						}
+					],
+					"sid": 254820882082710
+				},
+				{
+					"breakpoint": true,
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-path-found",
+							"objectClass": "Fog_Spawner",
+							"sid": 959417954045730,
+							"behaviorType": "Pathfinding"
+						}
+					],
+					"actions": [
+						{
+							"id": "move-along-path",
+							"objectClass": "Fog_Spawner",
+							"sid": 563792040037502,
+							"behaviorType": "Pathfinding"
+						}
+					],
+					"sid": 189073120687719
+				}
+			],
+			"sid": 243261532798530
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "FogPieces",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "variable",
+					"name": "graceTime",
+					"type": "number",
+					"initialValue": "0.4",
+					"comment": "amount of time the player needs to stay inside of the fog before dealing dmg",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 633930003867754
+				},
+				{
+					"eventType": "variable",
+					"name": "r",
+					"type": "number",
+					"initialValue": "71",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 669639335303654
+				},
+				{
+					"eventType": "variable",
+					"name": "g",
+					"type": "number",
+					"initialValue": "59",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 937637107744633
+				},
+				{
+					"eventType": "variable",
+					"name": "b",
+					"type": "number",
+					"initialValue": "90",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 521939930469764
+				},
+				{
+					"eventType": "variable",
+					"name": "h_min",
+					"type": "number",
+					"initialValue": "-5",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 447276642946175
+				},
+				{
+					"eventType": "variable",
+					"name": "h_max",
+					"type": "number",
+					"initialValue": "3",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 753870206525375
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-created",
+							"objectClass": "Fog_Spawn",
+							"sid": 935669048394097
+						}
+					],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Fog_Spawn",
+							"sid": 210779495947230,
+							"parameters": {
+								"instance-variable": "targetSize",
+								"value": "random(Fog_Spawner.minSize, Fog_Spawner.maxSize)"
+							}
+						},
+						{
+							"id": "set-size",
+							"objectClass": "Fog_Spawn",
+							"sid": 538219212388149,
+							"parameters": {
+								"width": "1",
+								"height": "1"
+							}
+						},
+						{
+							"id": "set-default-color",
+							"objectClass": "Fog_Spawn",
+							"sid": 796349334566266,
+							"parameters": {
+								"color": "rgb(r,g,b)"
+							}
+						},
+						{
+							"id": "tween-two-properties",
+							"objectClass": "Fog_Spawn",
+							"sid": 691945641142685,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"initGrow\"",
+								"property": "size",
+								"end-x": "Fog_Spawn.targetSize",
+								"end-y": "Fog_Spawn.targetSize",
+								"time": "Fog_Spawn.targetAcc",
+								"ease": "easeoutcubic",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no"
+							}
+						},
+						{
+							"id": "tween-value",
+							"objectClass": "Fog_Spawn",
+							"sid": 999979830554130,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"HSL\"",
+								"start-value": "0",
+								"end-value": "random(h_min, h_max)",
+								"time": "2",
+								"ease": "easeoutcubic",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no"
+							}
+						},
+						{
+							"id": "move-to-top",
+							"objectClass": "Fog_Spawn",
+							"sid": 503479117179966
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Fog_Spawn",
+							"sid": 775967221258772,
+							"parameters": {
+								"instance-variable": "targetAngle",
+								"value": "angle(Self.X, Self.Y, oPlayer.X, oPlayer.Y) + random(-45,45)"
+							}
+						},
+						{
+							"type": "comment",
+							"text": "Create a \"highlight shadow\""
+						},
+						{
+							"id": "spawn-another-object",
+							"objectClass": "Fog_Spawn",
+							"sid": 334677833479568,
+							"parameters": {
+								"object": "Fog_Spawn_Shadow",
+								"layer": "0",
+								"image-point": "0",
+								"create-hierarchy": false
+							}
+						},
+						{
+							"id": "move-to-top",
+							"objectClass": "Fog_Spawn_Shadow",
+							"sid": 308383565497786
+						},
+						{
+							"id": "move-to-top",
+							"objectClass": "Fog_Spawn",
+							"sid": 170066111776829
+						},
+						{
+							"id": "move-at-angle",
+							"objectClass": "Fog_Spawn_Shadow",
+							"sid": 408714644714207,
+							"parameters": {
+								"angle": "angle(Self.X, Self.Y, oPlayer.X, oPlayer.Y)",
+								"distance": "10"
+							}
+						},
+						{
+							"id": "set-size",
+							"objectClass": "Fog_Spawn_Shadow",
+							"sid": 339938304766642,
+							"parameters": {
+								"width": "1",
+								"height": "1"
+							}
+						},
+						{
+							"id": "tween-two-properties",
+							"objectClass": "Fog_Spawn_Shadow",
+							"sid": 544310556720547,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"shadowGrow\"",
+								"property": "size",
+								"end-x": "Fog_Spawn.targetSize",
+								"end-y": "Fog_Spawn.targetSize",
+								"time": "Fog_Spawn.targetAcc*0.9",
+								"ease": "easeoutcubic",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no"
+							}
+						}
+					],
+					"sid": 301989452391608
+				},
+				{
+					"eventType": "variable",
+					"name": "scaleRng",
+					"type": "number",
+					"initialValue": "1",
+					"comment": "how much the size will increase over the next 5 seconds",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 707579275578574
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-tweens-finished",
+							"objectClass": "Fog_Spawn",
+							"sid": 793401880596295,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"initGrow\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 892530170518201,
+							"parameters": {
+								"variable": "scaleRng",
+								"value": "random(1.1, 1.3)"
+							}
+						},
+						{
+							"id": "tween-two-properties",
+							"objectClass": "Fog_Spawn",
+							"sid": 888239849435391,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"\"",
+								"property": "size",
+								"end-x": "Fog_Spawn.targetSize*scaleRng",
+								"end-y": "Fog_Spawn.targetSize*scaleRng",
+								"time": "5",
+								"ease": "default",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no"
+							}
+						}
+					],
+					"sid": 659693776540313
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-tweens-finished",
+							"objectClass": "Fog_Spawn_Shadow",
+							"sid": 340927388329661,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"shadowGrow\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "tween-one-property",
+							"objectClass": "Fog_Spawn_Shadow",
+							"sid": 743673743393396,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"\"",
+								"property": "offsetOpacity",
+								"end-value": "0",
+								"time": "0.5",
+								"ease": "default",
+								"destroy-on-complete": "yes",
+								"loop": "no",
+								"ping-pong": "no"
+							}
+						}
+					],
+					"sid": 851934498330421
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-playing",
+							"objectClass": "Fog_Spawn",
+							"sid": 359187002722575,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"HSL\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-effect-parameter",
+							"objectClass": "Fog_Spawn",
+							"sid": 783887733646631,
+							"parameters": {
+								"effect": "\"HSL\"",
+								"parameter-index": "2",
+								"value": "100 + Fog_Spawn.Tween.Value(\"HSL\")"
+							}
+						}
+					],
+					"sid": 166561362478545
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 304974982950160,
+							"parameters": {
+								"object": "Fog_Spawn"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "move-at-angle",
+							"objectClass": "Fog_Spawn",
+							"sid": 250553576576980,
+							"parameters": {
+								"angle": "Fog_Spawn.targetAngle",
+								"distance": "20*dt"
+							}
+						}
+					],
+					"sid": 391213296644408
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "Fog_Spawn",
+							"sid": 817630379477929,
+							"parameters": {
+								"object": "oPlayer"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 898787482664769,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Fog_Spawn",
+									"sid": 744295626113740,
+									"parameters": {
+										"instance-variable": "graceCurrent",
+										"comparison": 5,
+										"value": "graceTime"
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "Player Take Damage",
+									"sid": 557365043614131
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 720932260448108,
+									"parameters": {
+										"seconds": "1"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Fog_Spawn",
+									"sid": 858704333087172,
+									"parameters": {
+										"instance-variable": "graceCurrent",
+										"value": "0"
+									}
+								}
+							],
+							"sid": 981068820502831
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 572056431382899
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Fog_Spawn",
+									"sid": 101433862605606,
+									"parameters": {
+										"instance-variable": "graceCurrent",
+										"value": "Self.graceCurrent+dt"
+									}
+								}
+							],
+							"sid": 872256743873154
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 414088794553978
+						}
+					],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Fog_Spawn",
+							"sid": 905721662549119,
+							"parameters": {
+								"instance-variable": "graceCurrent",
+								"value": "0"
+							}
+						}
+					],
+					"sid": 996263785443224
+				}
+			],
+			"sid": 466223764023495
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "ScaleWithSpeed",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "variable",
+					"name": "maxAmount",
+					"type": "number",
+					"initialValue": "100",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 550949222404920
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-tick",
+							"objectClass": "System",
+							"sid": 714728881279775
+						}
+					],
+					"actions": [
+						{
+							"id": "set-rate",
+							"objectClass": "Fog_Spawner",
+							"sid": 850147082810297,
+							"parameters": {
+								"rate": "(Self.Pathfinding.Speed/Self.Pathfinding.MaxSpeed)*maxAmount"
+							}
+						}
+					],
+					"sid": 733247727114078
+				}
+			],
+			"sid": 782657013389672
+		}
+	],
+	"sid": 793534722171760
+}

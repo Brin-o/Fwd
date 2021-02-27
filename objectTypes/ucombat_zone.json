@@ -1,0 +1,56 @@
+{
+	"name": "uCombat_Zone",
+	"plugin-id": "Sprite",
+	"sid": 783721295780949,
+	"isGlobal": false,
+	"instanceVariables": [
+		{
+			"name": "zoomRatio",
+			"type": "number",
+			"desc": "the ratio to which the zoom will be set to when you enter this position",
+			"sid": 777125655716108
+		},
+		{
+			"name": "locked",
+			"type": "boolean",
+			"desc": "",
+			"sid": 890600165768177
+		},
+		{
+			"name": "enemiesInside",
+			"type": "boolean",
+			"desc": "true until all enemies are kileld",
+			"sid": 586478200983795
+		}
+	],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 94,
+						"height": 94,
+						"originX": 0.5,
+						"originY": 0.5212765957446809,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 6250894,
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 815856387767718,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}

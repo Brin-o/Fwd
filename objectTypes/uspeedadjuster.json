@@ -1,0 +1,50 @@
+{
+	"name": "uSpeedAdjuster",
+	"plugin-id": "Sprite",
+	"sid": 782833794899764,
+	"isGlobal": false,
+	"instanceVariables": [
+		{
+			"name": "newMaxSpeed",
+			"type": "number",
+			"desc": "",
+			"sid": 818148407897785
+		},
+		{
+			"name": "backToDefault",
+			"type": "boolean",
+			"desc": "if checked it will reset the speed values back to the ones the player spawned with",
+			"sid": 463206112212067
+		}
+	],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 64,
+						"height": 64,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 2539785,
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 151683874790511,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}

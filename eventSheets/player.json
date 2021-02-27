@@ -1,0 +1,3262 @@
+{
+	"name": "Player",
+	"events": [
+		{
+			"eventType": "variable",
+			"name": "default_MAXSPEED",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "default speed of the player",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 992697984767441
+		},
+		{
+			"eventType": "variable",
+			"name": "default_TURNSPEED",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "default speed of the player",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 521301708477637
+		},
+		{
+			"eventType": "variable",
+			"name": "default_ACCELERATION",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "default acceleration of the player",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 907062165359066
+		},
+		{
+			"eventType": "variable",
+			"name": "default_TAR_SIZE",
+			"type": "number",
+			"initialValue": "120",
+			"comment": "default size of the raidus. Needs to be adjusted manually!",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 774368941314442
+		},
+		{
+			"eventType": "variable",
+			"name": "turnSpeedModifier",
+			"type": "number",
+			"initialValue": "1",
+			"comment": "modifies the strenght of turnspeed",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 388243671946936
+		},
+		{
+			"eventType": "variable",
+			"name": "dynamic_MAXSPEED",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "max speed for formulas where the max speed needs to be dynamic",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 605138451323607
+		},
+		{
+			"eventType": "variable",
+			"name": "HP_max",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "maximum hp",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 620231196809150
+		},
+		{
+			"eventType": "variable",
+			"name": "HP_regenProg",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "currentRegenProgress",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 498712543370805
+		},
+		{
+			"eventType": "variable",
+			"name": "immune",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "currentRegenProgress",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 508892356270775
+		},
+		{
+			"eventType": "variable",
+			"name": "turnMode",
+			"type": "string",
+			"initialValue": "minus",
+			"comment": "defines the way that right clicking affects turn mode, possible options [lock+, lock-, plus, minus]",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 895181896696110
+		},
+		{
+			"eventType": "variable",
+			"name": "zoomIn",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "enables or disables zoom in on enemy hit",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 545732176580139
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Creation",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-start-of-layout",
+							"objectClass": "System",
+							"sid": 678663669358982
+						}
+					],
+					"actions": [
+						{
+							"type": "comment",
+							"text": "Set default values for this sheet"
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 164111528161777,
+							"parameters": {
+								"variable": "default_MAXSPEED",
+								"value": "oPlayer.maxSpeed"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 968172783606785,
+							"parameters": {
+								"variable": "dynamic_MAXSPEED",
+								"value": "oPlayer.maxSpeed"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 775980465188678,
+							"parameters": {
+								"variable": "default_TURNSPEED",
+								"value": "oPlayer.turnSpeed"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 137294282933129,
+							"parameters": {
+								"variable": "default_ACCELERATION",
+								"value": "oPlayer.acceleration"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 385055940288507,
+							"parameters": {
+								"variable": "default_TAR_SIZE",
+								"value": "oPlayer_Tar.Height"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 346001922919380,
+							"parameters": {
+								"variable": "HP_max",
+								"value": "oPlayer.HP"
+							}
+						},
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 607881833759147,
+							"parameters": {
+								"variable": "immune",
+								"value": "false"
+							}
+						},
+						{
+							"type": "comment",
+							"text": "Setup mouse direction collision"
+						},
+						{
+							"id": "set-position",
+							"objectClass": "oPlayer_DirectionMouse",
+							"sid": 589689001321774,
+							"parameters": {
+								"x": "oPlayer.X",
+								"y": "oPlayer.Y"
+							}
+						},
+						{
+							"id": "pin-to-object-properties",
+							"objectClass": "oPlayer_DirectionMouse",
+							"sid": 319796345801979,
+							"behaviorType": "Pin",
+							"parameters": {
+								"pin-to": "oPlayer",
+								"x": true,
+								"y": true,
+								"angle": false,
+								"width-type": "no",
+								"height-type": "no",
+								"z": false
+							}
+						},
+						{
+							"id": "move-to-layer",
+							"objectClass": "oPlayer_DirectionMouse",
+							"sid": 726823592229891,
+							"parameters": {
+								"layer": "\"Gizmos\""
+							}
+						},
+						{
+							"type": "comment",
+							"text": "Set up wall collider"
+						},
+						{
+							"id": "set-position",
+							"objectClass": "oPlayerWallCollider",
+							"sid": 541940437338505,
+							"parameters": {
+								"x": "oPlayer.X",
+								"y": "oPlayer.Y"
+							}
+						},
+						{
+							"id": "move-to-layer",
+							"objectClass": "oPlayerWallCollider",
+							"sid": 257552881245945,
+							"parameters": {
+								"layer": "\"Gizmos\""
+							}
+						},
+						{
+							"id": "add-child",
+							"objectClass": "oPlayer",
+							"sid": 445862436669660,
+							"parameters": {
+								"child": "oPlayerWallCollider",
+								"transform-x": true,
+								"transform-y": true,
+								"transform-w": true,
+								"transform-h": true,
+								"transform-a": true,
+								"transform-z-elevation": true,
+								"destroy-with-parent": false
+							}
+						},
+						{
+							"type": "comment",
+							"text": "Set up mouse direction"
+						},
+						{
+							"id": "set-position",
+							"objectClass": "oPlayer_DirectionMovement",
+							"sid": 392636032036144,
+							"parameters": {
+								"x": "oPlayer.X",
+								"y": "oPlayer.Y"
+							}
+						},
+						{
+							"id": "pin-to-object-properties",
+							"objectClass": "oPlayer_DirectionMovement",
+							"sid": 365002869103162,
+							"behaviorType": "Pin",
+							"parameters": {
+								"pin-to": "oPlayer",
+								"x": true,
+								"y": true,
+								"angle": true,
+								"width-type": "no",
+								"height-type": "no",
+								"z": false
+							}
+						},
+						{
+							"id": "move-to-layer",
+							"objectClass": "oPlayer_DirectionMovement",
+							"sid": 456743475467251,
+							"parameters": {
+								"layer": "\"3D\""
+							}
+						},
+						{
+							"type": "comment",
+							"text": "Set up Targeter"
+						},
+						{
+							"id": "set-range",
+							"objectClass": "oPlayer",
+							"sid": 354574662102391,
+							"behaviorType": "LineOfSight",
+							"parameters": {
+								"range": "oPlayer_Tar.Width"
+							}
+						},
+						{
+							"id": "set-position",
+							"objectClass": "oPlayer_Tar",
+							"sid": 678217104906242,
+							"parameters": {
+								"x": "oPlayer.X",
+								"y": "oPlayer.Y"
+							}
+						},
+						{
+							"id": "add-child",
+							"objectClass": "oPlayer",
+							"sid": 111426559360704,
+							"parameters": {
+								"child": "oPlayer_Tar",
+								"transform-x": true,
+								"transform-y": true,
+								"transform-w": false,
+								"transform-h": false,
+								"transform-a": true,
+								"transform-z-elevation": false,
+								"destroy-with-parent": true
+							}
+						},
+						{
+							"type": "comment",
+							"text": "Set up wings"
+						}
+					],
+					"sid": 491193474086222
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-created",
+							"objectClass": "oDroneStack",
+							"sid": 988061515190606
+						}
+					],
+					"actions": [
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 433585015033148,
+							"parameters": {
+								"seconds": "0.02"
+							}
+						}
+					],
+					"sid": 377219245552047,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "oDroneStack",
+									"sid": 950465173787008,
+									"parameters": {
+										"instance-variable": "stackIndex",
+										"comparison": 0,
+										"value": "3"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "pin-to-object-imagepoint",
+									"objectClass": "oPlayerTrail",
+									"sid": 664706842920111,
+									"behaviorType": "Pin",
+									"parameters": {
+										"pin-to": "oPlayer",
+										"image-point": "1",
+										"angle": false,
+										"width-type": "no",
+										"height-type": "no",
+										"z": false
+									}
+								}
+							],
+							"sid": 630152358762212
+						}
+					]
+				}
+			],
+			"sid": 324027337993930
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Health System",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "variable",
+					"name": "regenTick",
+					"type": "number",
+					"initialValue": "10",
+					"comment": "timer that needs to be reached for regen to be triggered",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 220326646681233
+				},
+				{
+					"eventType": "variable",
+					"name": "enemyDMG",
+					"type": "number",
+					"initialValue": "1",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 256919609446028
+				},
+				{
+					"eventType": "variable",
+					"name": "immuTick",
+					"type": "number",
+					"initialValue": "1",
+					"comment": "how long the player is immune after being hit",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 801352439871332
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "Debug",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "every-tick",
+									"objectClass": "System",
+									"sid": 244901387768777
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "dbgT_HP",
+									"sid": 324006769153930,
+									"parameters": {
+										"text": "\"HP: \" & oPlayer.HP & \"/\" & hp_MAX"
+									}
+								},
+								{
+									"id": "set-text",
+									"objectClass": "dbgT_HP",
+									"sid": 448551127892311,
+									"parameters": {
+										"text": "dbgT_HP.Text & newline & \"imn: \" & immune"
+									}
+								},
+								{
+									"id": "set-text",
+									"objectClass": "dbgT_HP",
+									"sid": 729414594040862,
+									"parameters": {
+										"text": "dbgT_HP.Text & newline & \"regn: \" & Functions.RoundDec(HP_regenProg,2) & \"/\" & regenTick"
+									}
+								}
+							],
+							"sid": 327670730969369
+						}
+					],
+					"sid": 281312527736475
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-collision-with-another-object",
+							"objectClass": "oPlayer",
+							"sid": 288366518794986,
+							"parameters": {
+								"object": "eBullet"
+							}
+						},
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 311989857554264,
+							"parameters": {
+								"variable": "immune"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "Player Take Damage",
+							"sid": 874931017970456
+						}
+					],
+					"sid": 889337526503925,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "oPlayer",
+									"sid": 984968658540470,
+									"parameters": {
+										"instance-variable": "HP",
+										"comparison": 3,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 281029213565031
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "oPlayer",
+							"sid": 785369555860546,
+							"parameters": {
+								"instance-variable": "HP",
+								"comparison": 2,
+								"value": "hp_MAX"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 205043759050998,
+							"parameters": {
+								"variable": "HP_regenProg",
+								"value": "HP_regenProg+dt"
+							}
+						}
+					],
+					"sid": 350300611174136,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 314809630413367,
+									"parameters": {
+										"first-value": "HP_regenProg",
+										"comparison": 5,
+										"second-value": "regenTick"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "oPlayer",
+									"sid": 872773731712934,
+									"parameters": {
+										"instance-variable": "HP",
+										"value": "oPlayer.HP + 1"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 106327454829693,
+									"parameters": {
+										"variable": "HP_regenProg",
+										"value": "0"
+									}
+								}
+							],
+							"sid": 640456425275509
+						}
+					]
+				},
+				{
+					"functionName": "Player Take Damage",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 553474130335883,
+							"parameters": {
+								"variable": "immune"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "Player Immunity Activate",
+							"sid": 815897154791153
+						},
+						{
+							"id": "shake",
+							"objectClass": "Cam3D",
+							"sid": 827617473093334,
+							"behaviorType": "ScrollTo",
+							"parameters": {
+								"magnitude": "8",
+								"duration": "0.2",
+								"mode": "constant-magnitude"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "oPlayer",
+							"sid": 465834251359518,
+							"parameters": {
+								"instance-variable": "HP",
+								"value": "Self.HP-enemyDMG"
+							}
+						},
+						{
+							"id": "destroy",
+							"objectClass": "eBullet",
+							"sid": 364412095551534
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 613606990172035,
+							"parameters": {
+								"variable": "HP_regenProg",
+								"value": "0"
+							}
+						}
+					],
+					"sid": 430454362122039
+				},
+				{
+					"functionName": "Player Immunity Activate",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 318084586242576,
+							"parameters": {
+								"variable": "immune",
+								"value": "true"
+							}
+						},
+						{
+							"id": "set-opacity",
+							"objectClass": "oPlayer",
+							"sid": 750234162288069,
+							"parameters": {
+								"opacity": "20"
+							}
+						},
+						{
+							"id": "set-opacity",
+							"objectClass": "oPlayer_Tar",
+							"sid": 351634017674666,
+							"parameters": {
+								"opacity": "10"
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 339425096295854,
+							"parameters": {
+								"seconds": "immuTick"
+							}
+						},
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 953359907565907,
+							"parameters": {
+								"variable": "immune",
+								"value": "false"
+							}
+						},
+						{
+							"id": "set-opacity",
+							"objectClass": "oPlayer",
+							"sid": 931392315234672,
+							"parameters": {
+								"opacity": "100"
+							}
+						},
+						{
+							"id": "set-opacity",
+							"objectClass": "oPlayer_Tar",
+							"sid": 115090709548227,
+							"parameters": {
+								"opacity": "50"
+							}
+						}
+					],
+					"sid": 365689149208253
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 873837726157997,
+							"parameters": {
+								"variable": "immune"
+							}
+						},
+						{
+							"id": "every-x-seconds",
+							"objectClass": "System",
+							"sid": 893200787829327,
+							"parameters": {
+								"interval-seconds": "0.2"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-opacity",
+							"objectClass": "oPlayer",
+							"sid": 453760675318440,
+							"parameters": {
+								"opacity": "100"
+							}
+						},
+						{
+							"id": "set-opacity",
+							"objectClass": "oPlayer_Tar",
+							"sid": 471842065786207,
+							"parameters": {
+								"opacity": "50"
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 659444554124100,
+							"parameters": {
+								"seconds": "0.1"
+							}
+						},
+						{
+							"id": "set-opacity",
+							"objectClass": "oPlayer",
+							"sid": 549267470333566,
+							"parameters": {
+								"opacity": "20"
+							}
+						},
+						{
+							"id": "set-opacity",
+							"objectClass": "oPlayer_Tar",
+							"sid": 151359334233705,
+							"parameters": {
+								"opacity": "10"
+							}
+						}
+					],
+					"sid": 352208689573812
+				}
+			],
+			"sid": 219464059637726
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Movement",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "Acceleration/Breaking/Rotation",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "group",
+							"disabled": true,
+							"title": "Movement - Debugging",
+							"description": "",
+							"isActiveOnStart": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "every-tick",
+											"objectClass": "System",
+											"sid": 361977375308755
+										}
+									],
+									"actions": [
+										{
+											"id": "set-text",
+											"objectClass": "dbg_Player",
+											"sid": 152877330756537,
+											"parameters": {
+												"text": "\"trnMode: \" & turnMode "
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "dbg_Player",
+											"sid": 934942721045005,
+											"parameters": {
+												"text": "dbg_Player.Text & newline & \"spd: \" & round(oPlayer.Custom.Speed)  "
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "dbg_Player",
+											"sid": 827168297069967,
+											"disabled": true,
+											"parameters": {
+												"text": "dbg_Player.Text & newline & \"bstTime: \" & oPlayer.Timer.CurrentTime(\"speedBoost\")"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "dbg_Player",
+											"sid": 941377120113926,
+											"disabled": true,
+											"parameters": {
+												"text": "dbg_Player.Text & newline & \"trnSpd: \" & round(oPlayer.turnSpeed*10)/10"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "dbg_Player",
+											"sid": 661272562754388,
+											"disabled": true,
+											"parameters": {
+												"text": "dbg_Player.Text  & newline & \"spdPrc: \" & round(oPlayer.speedPercNormal*10)/10"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "dbg_Player",
+											"sid": 850540450571597,
+											"parameters": {
+												"text": "dbg_Player.Text  & newline & \"mxSped: \" & Functions.RoundDec(oPlayer.maxSpeed,1)"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "dbg_Player",
+											"sid": 152943038545757,
+											"parameters": {
+												"text": "dbg_Player.Text  & newline & \"dyMax: \" & Functions.RoundDec(dynamic_MAXSPEED,1)"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "dbg_Player",
+											"sid": 407602764385516,
+											"disabled": true,
+											"parameters": {
+												"text": "dbg_Player.Text  & newline & \"dfltTrn: \" & default_TURNSPEED"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "dbg_Player",
+											"sid": 258338531038775,
+											"disabled": true,
+											"parameters": {
+												"text": "dbg_Player.Text & newline & \"accSpd: \" & round(oPlayer.acceleration*10)/10"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "dbg_Player",
+											"sid": 527579733656167,
+											"disabled": true,
+											"parameters": {
+												"text": "dbg_Player.Text & newline & \"x: \" & Functions.RoundDec(oPlayer.X, 1) & newline & \"y: \" & Functions.RoundDec(oPlayer.Y, 1)"
+											}
+										}
+									],
+									"sid": 226740888884184,
+									"disabled": true
+								}
+							],
+							"sid": 571036628313347
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "mouse-button-is-down",
+									"objectClass": "Mouse",
+									"sid": 289971441858452,
+									"parameters": {
+										"mouse-button": "left"
+									}
+								},
+								{
+									"id": "compare-speed",
+									"objectClass": "oPlayer",
+									"sid": 624684910411459,
+									"behaviorType": "Custom",
+									"parameters": {
+										"which": "overall",
+										"comparison": 2,
+										"speed": "oPlayer.maxSpeed"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "accelerate-toward-angle",
+									"objectClass": "oPlayer",
+									"sid": 506852155740274,
+									"behaviorType": "Custom",
+									"parameters": {
+										"acceleration": "oPlayer.acceleration*dt*TARGET_FPS",
+										"angle": "angle(oPlayer.X, oPlayer.Y, Mouse.X, Mouse.Y)"
+									}
+								}
+							],
+							"sid": 488977627858216
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "every-tick",
+									"objectClass": "System",
+									"sid": 411173460972675
+								}
+							],
+							"actions": [
+								{
+									"type": "comment",
+									"text": "Mouse realted variables. Targeter angle -> Mouse angle, distance for dist check, diff -> difference in angle"
+								},
+								{
+									"id": "set-angle",
+									"objectClass": "oPlayer_DirectionMouse",
+									"sid": 643803837150353,
+									"parameters": {
+										"angle": "angle(oPlayer.X, oPlayer.Y , Mouse.X,Mouse.Y)"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "oPlayer",
+									"sid": 677283541271337,
+									"parameters": {
+										"instance-variable": "mouseDistance",
+										"value": "distance(Self.X,Self.Y, Mouse.X,Mouse.Y)"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "oPlayer",
+									"sid": 431302007530347,
+									"parameters": {
+										"instance-variable": "mouseAngleDiff",
+										"value": "anglediff(Self.Angle,angle(Self.X,Self.Y,Mouse.X,Mouse.Y))"
+									}
+								},
+								{
+									"type": "comment",
+									"text": "Rotate towards mouse angle, set angle of motion"
+								},
+								{
+									"id": "set-angle",
+									"objectClass": "oPlayer",
+									"sid": 720457927189442,
+									"parameters": {
+										"angle": "anglelerp(Self.Angle,oPlayer_DirectionMouse.Angle, Self.turnSpeed*dt)"
+									}
+								},
+								{
+									"id": "set-angle-of-motion",
+									"objectClass": "oPlayer",
+									"sid": 365057477435419,
+									"behaviorType": "Custom",
+									"parameters": {
+										"angle": "anglelerp(Self.Custom.MovingAngle, Self.Angle, Self.turnSpeed*dt)"
+									}
+								},
+								{
+									"type": "comment",
+									"text": "speed ratio on 0-1 based on the default Max speed"
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "oPlayer",
+									"sid": 302274367955751,
+									"parameters": {
+										"instance-variable": "speedPercNormal",
+										"value": "oPlayer.Custom.Speed/default_MAXSPEED"
+									}
+								}
+							],
+							"sid": 415400374734494
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-step",
+									"objectClass": "oPlayer",
+									"sid": 849781530688345,
+									"behaviorType": "Custom"
+								}
+							],
+							"actions": [
+								{
+									"type": "comment",
+									"text": "Limit speed to 0-currentMaxSpeed"
+								},
+								{
+									"id": "set-speed",
+									"objectClass": "oPlayer",
+									"sid": 909504277440611,
+									"behaviorType": "Custom",
+									"parameters": {
+										"which": "overall",
+										"speed": "clamp(oPlayer.Custom.Speed, 0, oPlayer.maxSpeed)"
+									}
+								}
+							],
+							"sid": 938337208720567
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "mouse-button-is-down",
+									"objectClass": "Mouse",
+									"sid": 862943340567695,
+									"parameters": {
+										"mouse-button": "right"
+									}
+								},
+								{
+									"id": "compare-speed",
+									"objectClass": "oPlayer",
+									"sid": 658868183849008,
+									"behaviorType": "Custom",
+									"parameters": {
+										"which": "overall",
+										"comparison": 4,
+										"speed": "oPlayer.minSpeed"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "accelerate",
+									"objectClass": "oPlayer",
+									"sid": 683902805773039,
+									"behaviorType": "Custom",
+									"parameters": {
+										"which": "forwards",
+										"acceleration": "-oPlayer.break*dt*TARGET_FPS"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 100968776996055,
+									"parameters": {
+										"variable": "turnSpeedModifier",
+										"value": "0"
+									}
+								}
+							],
+							"sid": 464944706819376,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 396738650206042,
+											"parameters": {
+												"first-value": "turnMode",
+												"comparison": 0,
+												"second-value": "\"lock\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 449662325857699,
+											"parameters": {
+												"variable": "turnSpeedModifier",
+												"value": "0"
+											}
+										}
+									],
+									"sid": 382099674759422
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 245105276198999,
+											"parameters": {
+												"first-value": "turnMode",
+												"comparison": 0,
+												"second-value": "\"plus\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 543473490335603,
+											"parameters": {
+												"variable": "turnSpeedModifier",
+												"value": "2"
+											}
+										}
+									],
+									"sid": 385216819208306
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 149405747116636,
+											"parameters": {
+												"first-value": "turnMode",
+												"comparison": 0,
+												"second-value": "\"minus\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 881662083868357,
+											"parameters": {
+												"variable": "turnSpeedModifier",
+												"value": "2"
+											}
+										}
+									],
+									"sid": 358521455197168
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "mouse-button-is-down",
+									"objectClass": "Mouse",
+									"sid": 553000148770616,
+									"parameters": {
+										"mouse-button": "left"
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "accelerate",
+									"objectClass": "oPlayer",
+									"sid": 772674202704808,
+									"behaviorType": "Custom",
+									"parameters": {
+										"which": "forwards",
+										"acceleration": "-(Self.deceleration*dt*TARGET_FPS)"
+									}
+								}
+							],
+							"sid": 858250529852654
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 915897130178921
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 693648711203419,
+									"parameters": {
+										"variable": "turnSpeedModifier",
+										"value": "1"
+									}
+								}
+							],
+							"sid": 501944121106581
+						}
+					],
+					"sid": 409789801760202
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "Acceleration Adjustmetn (Mouse Line)",
+					"description": "Draws a line to the mouse to more easily visualise the movement and adjusts the acceleration based on the distance from the mouse to the player.",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "group",
+							"disabled": true,
+							"title": "Debug - Acc Adjustment",
+							"description": "",
+							"isActiveOnStart": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "every-tick",
+											"objectClass": "System",
+											"sid": 502404710354791
+										}
+									],
+									"actions": [
+										{
+											"id": "set-text",
+											"objectClass": "dbg_Acc",
+											"sid": 798719272575769,
+											"parameters": {
+												"text": "\"accMod: \" & Functions.RoundDec(accelerationMod, 2)"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "dbg_Acc",
+											"sid": 794529512864414,
+											"parameters": {
+												"text": "dbg_Acc.Text & newline & \"acc: \" & Functions.RoundDec(oPlayer.acceleration,2)"
+											}
+										}
+									],
+									"sid": 338425813478262
+								}
+							],
+							"sid": 832884192712318
+						},
+						{
+							"eventType": "variable",
+							"name": "scrollSpeedLine",
+							"type": "number",
+							"initialValue": "50",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 160322996057406
+						},
+						{
+							"eventType": "variable",
+							"name": "default_ACC_MAXAMIZER",
+							"type": "number",
+							"initialValue": "160",
+							"comment": "The distance of the mosue to reach \"max\" acceleration. Based on screen size(?)",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 211751298570254
+						},
+						{
+							"eventType": "variable",
+							"name": "accelerationMod",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "Acceleration mod on the scale of 0-1",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 325402307980520
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-start-of-layout",
+									"objectClass": "System",
+									"sid": 605896579936091
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 678484855577422,
+									"parameters": {
+										"variable": "default_ACC_MAXAMIZER",
+										"value": "ViewportWidth(0)/2"
+									}
+								}
+							],
+							"sid": 911515586660907
+						},
+						{
+							"eventType": "comment",
+							"text": "Draw the line"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "every-tick",
+									"objectClass": "System",
+									"sid": 968073974839287
+								}
+							],
+							"actions": [
+								{
+									"id": "set-position",
+									"objectClass": "oPlayer_MouseLine",
+									"sid": 603714177920388,
+									"parameters": {
+										"x": "oPlayer.X",
+										"y": "oPlayer.Y"
+									}
+								},
+								{
+									"id": "set-width",
+									"objectClass": "oPlayer_MouseLine",
+									"sid": 947135548793219,
+									"parameters": {
+										"width": "oPlayer.mouseDistance"
+									}
+								},
+								{
+									"id": "set-angle",
+									"objectClass": "oPlayer_MouseLine",
+									"sid": 886164168168539,
+									"parameters": {
+										"angle": "oPlayer_DirectionMouse.Angle"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 359440084527581,
+									"parameters": {
+										"variable": "scrollSpeedLine",
+										"value": "10-(oPlayer.speedPercNormal*60)"
+									}
+								},
+								{
+									"id": "set-image-offset-x",
+									"objectClass": "oPlayer_MouseLine",
+									"sid": 568348836499664,
+									"parameters": {
+										"offset-x": "oPlayer_MouseLine.ImageOffsetX-(dt*scrollSpeedLine)"
+									}
+								}
+							],
+							"sid": 354213547151600
+						},
+						{
+							"eventType": "comment",
+							"text": "Adjust the acceleration speed of the player"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "every-tick",
+									"objectClass": "System",
+									"sid": 673049675908882
+								}
+							],
+							"actions": [
+								{
+									"type": "comment",
+									"text": "clamp on the range of 0-1"
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 922219347967662,
+									"parameters": {
+										"variable": "accelerationMod",
+										"value": "clamp(oPlayer.mouseDistance/default_ACC_MAXAMIZER,0,1)"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "oPlayer",
+									"sid": 568867864357735,
+									"parameters": {
+										"instance-variable": "acceleration",
+										"value": "default_ACCELERATION + oPlayer.accelerationSlider*accelerationMod"
+									}
+								}
+							],
+							"sid": 184244840786393
+						}
+					],
+					"sid": 169936859471759
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "Turn Speed Adjustments",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "variable",
+							"name": "turnSpeedSet",
+							"type": "boolean",
+							"initialValue": "false",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 565419016386517
+						},
+						{
+							"eventType": "group",
+							"disabled": false,
+							"title": "Swap Modes",
+							"description": "",
+							"isActiveOnStart": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-key-pressed",
+											"objectClass": "Keyboard",
+											"sid": 876290143422935,
+											"parameters": {
+												"key": 49
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 756973464300187,
+											"parameters": {
+												"variable": "turnMode",
+												"value": "\"lock\""
+											}
+										}
+									],
+									"sid": 566168215969280
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-key-pressed",
+											"objectClass": "Keyboard",
+											"sid": 199323188323180,
+											"parameters": {
+												"key": 50
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 588134753440380,
+											"parameters": {
+												"variable": "turnMode",
+												"value": "\"lock-\""
+											}
+										}
+									],
+									"sid": 886210410111125
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-key-pressed",
+											"objectClass": "Keyboard",
+											"sid": 837893197675703,
+											"parameters": {
+												"key": 51
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 596111690605587,
+											"parameters": {
+												"variable": "turnMode",
+												"value": "\"plus\""
+											}
+										}
+									],
+									"sid": 190156070064470
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-key-pressed",
+											"objectClass": "Keyboard",
+											"sid": 701762502893424,
+											"parameters": {
+												"key": 52
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 566682773885714,
+											"parameters": {
+												"variable": "turnMode",
+												"value": "\"minus\""
+											}
+										}
+									],
+									"sid": 373833127765706
+								}
+							],
+							"sid": 581384319083434
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "every-tick",
+									"objectClass": "System",
+									"sid": 948667695476979
+								}
+							],
+							"actions": [],
+							"sid": 110596045751913,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 566190312012042,
+											"parameters": {
+												"first-value": "turnMode",
+												"comparison": 0,
+												"second-value": "\"lock+\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "oPlayer",
+											"sid": 718036517692360,
+											"parameters": {
+												"instance-variable": "turnSpeed",
+												"value": "(default_TURNSPEED+(oPlayer.speedPercNormal*oPlayer.turnSpeedSlider))*turnSpeedModifier"
+											}
+										}
+									],
+									"sid": 240916643504714
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 491371142734508,
+											"parameters": {
+												"first-value": "turnMode",
+												"comparison": 0,
+												"second-value": "\"lock-\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "oPlayer",
+											"sid": 844228343471963,
+											"parameters": {
+												"instance-variable": "turnSpeed",
+												"value": "((default_TURNSPEED*3)-(oPlayer.speedPercNormal*oPlayer.turnSpeedSlider))*turnSpeedModifier"
+											}
+										}
+									],
+									"sid": 577552914564633
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 422542162726636,
+											"parameters": {
+												"first-value": "turnMode",
+												"comparison": 0,
+												"second-value": "\"plus\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "oPlayer",
+											"sid": 383279046457587,
+											"parameters": {
+												"instance-variable": "turnSpeed",
+												"value": "(default_TURNSPEED+(oPlayer.speedPercNormal*oPlayer.turnSpeedSlider))*turnSpeedModifier"
+											}
+										}
+									],
+									"sid": 108087852697840
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 341062935584880,
+											"parameters": {
+												"first-value": "turnMode",
+												"comparison": 0,
+												"second-value": "\"minus\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "oPlayer",
+											"sid": 443652127103621,
+											"parameters": {
+												"instance-variable": "turnSpeed",
+												"value": "default_TURNSPEED*3 - (oPlayer.speedPercNormal*oPlayer.turnSpeedSlider)"
+											}
+										}
+									],
+									"sid": 935295015405913
+								}
+							]
+						}
+					],
+					"sid": 615450291041954
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "Collision/Wall Friction",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "variable",
+							"name": "overlappingWallPlayer",
+							"type": "boolean",
+							"initialValue": "false",
+							"comment": "is true if the player is overlapping ANY kind of a wall",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 524415068951124
+						},
+						{
+							"eventType": "variable",
+							"name": "overlappingWallMouseDir",
+							"type": "boolean",
+							"initialValue": "false",
+							"comment": "is true if the player is overlapping ANY kind of a wall",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 538463177673797
+						},
+						{
+							"eventType": "group",
+							"disabled": false,
+							"title": "Overlap Calculation",
+							"description": "",
+							"isActiveOnStart": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-overlapping-another-object",
+											"objectClass": "oPlayerWallCollider",
+											"sid": 139082177570182,
+											"parameters": {
+												"object": "Walls"
+											}
+										},
+										{
+											"id": "is-overlapping-another-object",
+											"objectClass": "oPlayerWallCollider",
+											"sid": 652870057182843,
+											"parameters": {
+												"object": "Walls_9p"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 311057393246980,
+											"parameters": {
+												"variable": "overlappingWallPlayer",
+												"value": "true"
+											}
+										}
+									],
+									"sid": 557895179290271,
+									"isOrBlock": true
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-overlapping-another-object",
+											"objectClass": "oPlayerWallCollider",
+											"sid": 280373969264191,
+											"parameters": {
+												"object": "Walls"
+											},
+											"isInverted": true
+										},
+										{
+											"id": "is-overlapping-another-object",
+											"objectClass": "oPlayerWallCollider",
+											"sid": 662769550542767,
+											"parameters": {
+												"object": "Walls_9p"
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "set-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 593508840271269,
+											"parameters": {
+												"variable": "overlappingWallPlayer",
+												"value": "false"
+											}
+										}
+									],
+									"sid": 770186279172050
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-overlapping-another-object",
+											"objectClass": "oPlayer_DirectionMouse",
+											"sid": 358379440034159,
+											"parameters": {
+												"object": "Walls"
+											}
+										},
+										{
+											"id": "is-overlapping-another-object",
+											"objectClass": "oPlayer_DirectionMouse",
+											"sid": 877256851073691,
+											"parameters": {
+												"object": "Walls_9p"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 509836876058408,
+											"parameters": {
+												"variable": "overlappingWallMouseDir",
+												"value": "true"
+											}
+										}
+									],
+									"sid": 958623115541809,
+									"isOrBlock": true
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-overlapping-another-object",
+											"objectClass": "oPlayer_DirectionMouse",
+											"sid": 759864559960222,
+											"parameters": {
+												"object": "Walls"
+											},
+											"isInverted": true
+										},
+										{
+											"id": "is-overlapping-another-object",
+											"objectClass": "oPlayer_DirectionMouse",
+											"sid": 822107835748748,
+											"parameters": {
+												"object": "Walls_9p"
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "set-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 795857269131742,
+											"parameters": {
+												"variable": "overlappingWallMouseDir",
+												"value": "false"
+											}
+										}
+									],
+									"sid": 386824848117867
+								}
+							],
+							"sid": 408934496255233
+						},
+						{
+							"eventType": "group",
+							"disabled": true,
+							"title": "Wall Friction -  Debugging",
+							"description": "",
+							"isActiveOnStart": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "every-tick",
+											"objectClass": "System",
+											"sid": 847440741961155
+										}
+									],
+									"actions": [
+										{
+											"type": "comment",
+											"text": "Cos Wall Based Debuggs"
+										},
+										{
+											"id": "set-text",
+											"objectClass": "dbg_Walls",
+											"sid": 302891378382626,
+											"disabled": true,
+											"parameters": {
+												"text": "\"cosDiff: \" & Functions.RoundDec(cosDiff, 2) "
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "dbg_Walls",
+											"sid": 649978120368988,
+											"disabled": true,
+											"parameters": {
+												"text": "dbg_Walls.Text & newline &  \"spdMod: \" & Functions.RoundDec(dynamicFriction,2)"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "dbg_Walls",
+											"sid": 656722174382217,
+											"disabled": true,
+											"parameters": {
+												"text": "dbg_Walls.Text & newline & \"dynFrc\" & Functions.RoundDec(dynamicFriction,2)"
+											}
+										},
+										{
+											"type": "comment",
+											"text": "Slower dynamicMaxSpeed based "
+										},
+										{
+											"id": "set-text",
+											"objectClass": "dbg_Walls",
+											"sid": 335113166237554,
+											"parameters": {
+												"text": "\"dynMax: \" & Functions.RoundDec(dynamic_MAXSPEED, 2) "
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "dbg_Walls",
+											"sid": 858764165511975,
+											"parameters": {
+												"text": "dbg_Walls.Text & newline & \"spd: \" & Functions.RoundDec(oPlayer.maxSpeed, 2) "
+											}
+										},
+										{
+											"type": "comment",
+											"text": "Is overlapping?"
+										},
+										{
+											"id": "set-text",
+											"objectClass": "dbg_Walls",
+											"sid": 512796392193472,
+											"parameters": {
+												"text": "\"P_Overlap: \" & overlappingWallPlayer"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "dbg_Walls",
+											"sid": 760321746895243,
+											"parameters": {
+												"text": "dbg_Walls.Text & newline & \"M_Overlap: \" & overlappingWallMouseDir"
+											}
+										}
+									],
+									"sid": 736087205164401,
+									"disabled": true
+								}
+							],
+							"sid": 221427473248876
+						},
+						{
+							"eventType": "variable",
+							"name": "cosDiff",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "calculation on the -1 to 1 comparing the mouseLine angle to the surface normal. -1 if it's facing the surface, +1 if it's opposite of it.",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 667230559839825
+						},
+						{
+							"eventType": "variable",
+							"name": "dynamicFriction",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "friction based on the angle diff between the player direction and the wall that it hits",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 792990032132690
+						},
+						{
+							"eventType": "variable",
+							"name": "dynamicFrictionScale",
+							"type": "number",
+							"initialValue": "0.1",
+							"comment": "the high point of the dynamic friction scale. set on 1 will mean that the dynamic friction (pre clamp) will go from 0-1. putting it to 0.1 will make it go 0.9-1 etc.",
+							"isStatic": false,
+							"isConstant": true,
+							"sid": 457914634007990
+						},
+						{
+							"eventType": "variable",
+							"name": "dynamicFrictionHigh",
+							"type": "number",
+							"initialValue": "0.995",
+							"comment": "highest point on dynamic friction, putting this above 1 makes the player accelerate out of the wall",
+							"isStatic": false,
+							"isConstant": true,
+							"sid": 507094158028683
+						},
+						{
+							"eventType": "variable",
+							"name": "mouseOnWall",
+							"type": "boolean",
+							"initialValue": "false",
+							"comment": "is true if the mosuse direction is overlaping a wall",
+							"isStatic": false,
+							"isConstant": true,
+							"sid": 439724667108904
+						},
+						{
+							"eventType": "variable",
+							"name": "lerpOverlaping",
+							"type": "number",
+							"initialValue": "6",
+							"comment": "speed of the slowdown if you are overlaping with the wall",
+							"isStatic": false,
+							"isConstant": true,
+							"sid": 486526542457239
+						},
+						{
+							"eventType": "variable",
+							"name": "lerpNoOverlap",
+							"type": "number",
+							"initialValue": "2",
+							"comment": "speed of the slowdown if you are NOT overlaping with the wall",
+							"isStatic": false,
+							"isConstant": true,
+							"sid": 780846397191924
+						},
+						{
+							"eventType": "variable",
+							"name": "lowLimitOverlap",
+							"type": "number",
+							"initialValue": "0.2",
+							"comment": "perc based limit of current max speed",
+							"isStatic": false,
+							"isConstant": true,
+							"sid": 615889260862872
+						},
+						{
+							"eventType": "variable",
+							"name": "lowLimitNoOverlap",
+							"type": "number",
+							"initialValue": "0.4",
+							"comment": "perc based limit of current max speed",
+							"isStatic": false,
+							"isConstant": true,
+							"sid": 907465284089428
+						},
+						{
+							"eventType": "comment",
+							"text": "Slowdown when overlaping with a wall"
+						},
+						{
+							"eventType": "comment",
+							"text": "I can't get the cosDiff based one to work so I am slowing down the max speed of the player over time as you are touching a wall"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 310588476246975,
+									"parameters": {
+										"variable": "overlappingWallPlayer"
+									}
+								}
+							],
+							"actions": [
+								{
+									"type": "comment",
+									"text": "disabled code for cos and friction is bonkers, don't worry about it being disabled"
+								},
+								{
+									"type": "comment",
+									"text": "calculate the cos betweene the angles. returns -1 if the player is facing the wall, +1 if it's opposing the wall"
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 977367867517587,
+									"disabled": true,
+									"parameters": {
+										"variable": "cosDiff",
+										"value": "cos(anglediff(oPlayer_DirectionMovement.Angle, Walls.Angle))"
+									}
+								},
+								{
+									"type": "comment",
+									"text": "calculates the friction and applies it to the player"
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 848886550622882,
+									"disabled": true,
+									"parameters": {
+										"variable": "dynamicFriction",
+										"value": "clamp(1+(cosDiff*0.1), -1, dynamicFrictionHigh)"
+									}
+								},
+								{
+									"id": "set-speed",
+									"objectClass": "oPlayer",
+									"sid": 729120743368941,
+									"disabled": true,
+									"behaviorType": "Custom",
+									"parameters": {
+										"which": "overall",
+										"speed": "oPlayer.Custom.Speed*(1+dynamicFriction)"
+									}
+								}
+							],
+							"sid": 725846232586342,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 786658319308932,
+											"parameters": {
+												"variable": "overlappingWallMouseDir"
+											}
+										}
+									],
+									"actions": [
+										{
+											"type": "comment",
+											"text": "lerp max speed to prevent wall slide boosting"
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "oPlayer",
+											"sid": 921842348308904,
+											"parameters": {
+												"instance-variable": "maxSpeed",
+												"value": "lerp(oPlayer.maxSpeed, dynamic_MAXSPEED*lowLimitOverlap, lerpOverlaping*dt)"
+											}
+										}
+									],
+									"sid": 348290199465785,
+									"isOrBlock": true
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 622432500187346,
+											"parameters": {
+												"variable": "overlappingWallMouseDir"
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"type": "comment",
+											"text": "Lerp towards the new minimum speed"
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "oPlayer",
+											"sid": 673033429044538,
+											"parameters": {
+												"instance-variable": "maxSpeed",
+												"value": "lerp(oPlayer.maxSpeed, dynamic_MAXSPEED*lowLimitNoOverlap, lerpNoOverlap*dt)"
+											}
+										}
+									],
+									"sid": 815682174041164,
+									"isOrBlock": true
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-step",
+											"objectClass": "oPlayer",
+											"sid": 888068460750169,
+											"behaviorType": "Custom"
+										}
+									],
+									"actions": [
+										{
+											"id": "push-out-solid",
+											"objectClass": "oPlayer",
+											"sid": 398492128332293,
+											"behaviorType": "Custom",
+											"parameters": {
+												"direction": "nearest"
+											}
+										}
+									],
+									"sid": 468747005597862
+								}
+							],
+							"isOrBlock": true
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "oPlayerWallCollider",
+									"sid": 159380965173185,
+									"parameters": {
+										"object": "Walls"
+									},
+									"isInverted": true
+								},
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "oPlayerWallCollider",
+									"sid": 342572118686489,
+									"parameters": {
+										"object": "Walls_9p"
+									},
+									"isInverted": true
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "oPlayer",
+									"sid": 497887722990517,
+									"parameters": {
+										"instance-variable": "maxSpeed",
+										"comparison": 2,
+										"value": "default_MAXSPEED"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "oPlayer",
+									"sid": 874177497892657,
+									"parameters": {
+										"instance-variable": "maxSpeed",
+										"value": "lerp(oPlayer.maxSpeed, dynamic_MAXSPEED, 10*dt)"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "oPlayer",
+									"sid": 218609095984453,
+									"disabled": true,
+									"parameters": {
+										"instance-variable": "maxSpeed",
+										"value": "dynamic_MAXSPEED"
+									}
+								}
+							],
+							"sid": 296415931253730
+						}
+					],
+					"sid": 477285663403497
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "Speed Boosts",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "variable",
+							"name": "currentBoostValue",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 671620541006082
+						},
+						{
+							"eventType": "comment",
+							"text": "TODO: Dokončno implementiraj speed booste! Trenutno se NE stackajo! Mogoče bi se lahko s simultanimi tweeni? kako bi to delovalo? no fucking clue"
+						},
+						{
+							"functionName": "PlayerSpeedBoost",
+							"functionDescription": "",
+							"functionCategory": "",
+							"functionReturnType": "none",
+							"functionIsAsync": false,
+							"functionParameters": [
+								{
+									"name": "speedTime",
+									"type": "number",
+									"initialValue": "2",
+									"comment": "",
+									"sid": 350085850832050
+								},
+								{
+									"name": "speedAmount",
+									"type": "number",
+									"initialValue": "100",
+									"comment": "",
+									"sid": 533035857597452
+								}
+							],
+							"eventType": "function-block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "oPlayer",
+									"sid": 808314753218297,
+									"parameters": {
+										"instance-variable": "maxSpeed",
+										"value": "Self.maxSpeed+speedAmount"
+									}
+								},
+								{
+									"id": "set-speed",
+									"objectClass": "oPlayer",
+									"sid": 921123774557021,
+									"behaviorType": "Custom",
+									"parameters": {
+										"which": "overall",
+										"speed": "Self.Custom.Speed+speedAmount"
+									}
+								}
+							],
+							"sid": 566992439806808,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-playing",
+											"objectClass": "oPlayer",
+											"sid": 470322878266960,
+											"behaviorType": "Tween",
+											"parameters": {
+												"tags": "\"speedBoost\""
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "tween-value",
+											"objectClass": "oPlayer",
+											"sid": 356196122982344,
+											"behaviorType": "Tween",
+											"parameters": {
+												"tags": "\"speedBoost\"",
+												"start-value": "currentBoostValue",
+												"end-value": "speedAmount",
+												"time": "speedTime",
+												"ease": "SpeedBoost",
+												"destroy-on-complete": "no",
+												"loop": "no",
+												"ping-pong": "no"
+											}
+										}
+									],
+									"sid": 609713516308913
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-playing",
+											"objectClass": "oPlayer",
+											"sid": 590692704583078,
+											"behaviorType": "Tween",
+											"parameters": {
+												"tags": "\"speedBoost\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "stop-tweens",
+											"objectClass": "oPlayer",
+											"sid": 548297124157708,
+											"behaviorType": "Tween",
+											"parameters": {
+												"tags": "\"speedBoost\""
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 471834852579889,
+											"parameters": {
+												"variable": "currentBoostValue",
+												"value": "0"
+											}
+										},
+										{
+											"id": "tween-value",
+											"objectClass": "oPlayer",
+											"sid": 167347837149075,
+											"behaviorType": "Tween",
+											"parameters": {
+												"tags": "\"speedBoost\"",
+												"start-value": "currentBoostValue",
+												"end-value": "speedAmount",
+												"time": "speedTime",
+												"ease": "SpeedBoost",
+												"destroy-on-complete": "no",
+												"loop": "no",
+												"ping-pong": "no"
+											}
+										}
+									],
+									"sid": 678329605946103
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-playing",
+									"objectClass": "oPlayer",
+									"sid": 249619184358207,
+									"behaviorType": "Tween",
+									"parameters": {
+										"tags": "\"speedBoost\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 231332921387968,
+									"parameters": {
+										"variable": "currentBoostValue",
+										"value": "oPlayer.Tween.Value(\"speedBoost\")"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "oPlayer",
+									"sid": 177157502119912,
+									"parameters": {
+										"instance-variable": "maxSpeed",
+										"value": "default_MAXSPEED+currentBoostValue"
+									}
+								}
+							],
+							"sid": 746384439420659
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-tweens-finished",
+									"objectClass": "oPlayer",
+									"sid": 989469997297331,
+									"behaviorType": "Tween",
+									"parameters": {
+										"tags": "\"speedBoost\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "oPlayer",
+									"sid": 304574461046527,
+									"parameters": {
+										"instance-variable": "maxSpeed",
+										"value": "default_MAXSPEED"
+									}
+								}
+							],
+							"sid": 669780010954405
+						}
+					],
+					"sid": 266778787365515
+				}
+			],
+			"sid": 697600415825187
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Attacks",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "variable",
+					"name": "rngRangeMin",
+					"type": "number",
+					"initialValue": "3",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 919712077696077
+				},
+				{
+					"eventType": "variable",
+					"name": "rngRangeMax",
+					"type": "number",
+					"initialValue": "8",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 203304748021482
+				},
+				{
+					"functionName": "PlayerShoot",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "startX",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 599019435126643
+						},
+						{
+							"name": "startY",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 629107954291155
+						},
+						{
+							"name": "endX",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 336124901089572
+						},
+						{
+							"name": "endY",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 351410906145863
+						},
+						{
+							"name": "amount",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 261232352409117
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [
+						{
+							"id": "repeat",
+							"objectClass": "System",
+							"sid": 925893712406426,
+							"parameters": {
+								"count": "amount"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 526440587134289,
+							"parameters": {
+								"object-to-create": "oBullet_P",
+								"layer": "oPlayer.LayerName",
+								"x": "startX",
+								"y": "startY",
+								"create-hierarchy": false
+							}
+						},
+						{
+							"id": "set-position",
+							"objectClass": "oBullet_P",
+							"sid": 106551579098372,
+							"parameters": {
+								"x": "Self.X + random(rngRangeMin,rngRangeMax)*sign(random(-1,1))",
+								"y": "Self.Y + random(rngRangeMin,rngRangeMax)*sign(random(-1,1))"
+							}
+						},
+						{
+							"id": "set-angle-of-motion",
+							"objectClass": "oBullet_P",
+							"sid": 843737719854873,
+							"disabled": true,
+							"behaviorType": "Bullet",
+							"parameters": {
+								"angle": "angle(startX,startY,endX,endY)+random(80,140)*sign(random(-1,1))"
+							}
+						},
+						{
+							"id": "set-angle-of-motion",
+							"objectClass": "oBullet_P",
+							"sid": 342337009548478,
+							"behaviorType": "Bullet",
+							"parameters": {
+								"angle": "oPlayer.Angle+random(120, 170)*sign(random(-1,1))"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "oBullet_P",
+							"sid": 708468158297076,
+							"parameters": {
+								"instance-variable": "dmg",
+								"value": "oPlayer.currentDmg"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "oBullet_P",
+							"sid": 578046748404289,
+							"parameters": {
+								"instance-variable": "targetX",
+								"value": "endX"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "oBullet_P",
+							"sid": 438047164834079,
+							"parameters": {
+								"instance-variable": "targetY",
+								"value": "endY"
+							}
+						},
+						{
+							"id": "set-speed",
+							"objectClass": "oBullet_P",
+							"sid": 821665001150029,
+							"behaviorType": "Bullet",
+							"parameters": {
+								"speed": "Self.Bullet.Speed*random(0.98, 1.02)"
+							}
+						}
+					],
+					"sid": 612367797418878
+				},
+				{
+					"eventType": "comment",
+					"text": "This is the code that makes it look cool, it probablly needs to be modified!"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-tick",
+							"objectClass": "System",
+							"sid": 315424561200340
+						}
+					],
+					"actions": [
+						{
+							"id": "rotate-toward-position",
+							"objectClass": "oBullet_P",
+							"sid": 944164680271423,
+							"parameters": {
+								"degrees": "10",
+								"x": "Self.targetX",
+								"y": "Self.targetY"
+							}
+						},
+						{
+							"id": "set-angle-of-motion",
+							"objectClass": "oBullet_P",
+							"sid": 450695821347533,
+							"behaviorType": "Bullet",
+							"parameters": {
+								"angle": "oBullet_P.Angle"
+							}
+						}
+					],
+					"sid": 494980784514485
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "Shoot Calculation",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "variable",
+							"name": "btk",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "bullets to kill the enemy",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 620309207767878
+						},
+						{
+							"eventType": "comment",
+							"text": "Enter collision"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "oPlayer_Tar",
+									"sid": 943783255903494,
+									"parameters": {
+										"object": "fEnemies"
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "fEnemies",
+									"sid": 183851533855372,
+									"parameters": {
+										"instance-variable": "eHP",
+										"comparison": 4,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "fEnemies",
+									"sid": 697903711320319,
+									"parameters": {
+										"instance-variable": "targeted",
+										"value": "true"
+									}
+								}
+							],
+							"sid": 243551963333598,
+							"children": [
+								{
+									"eventType": "comment",
+									"text": "Trigger when target comes into LOS"
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "has-los-to-object",
+											"objectClass": "oPlayer",
+											"sid": 453419153746670,
+											"behaviorType": "LineOfSight",
+											"parameters": {
+												"object": "fEnemies",
+												"image-point": "0"
+											}
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "fEnemies",
+											"sid": 468319778724745,
+											"parameters": {
+												"instance-variable": "wasAttacked"
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "fEnemies",
+											"sid": 421846970119020,
+											"parameters": {
+												"instance-variable": "wasAttacked",
+												"value": "true"
+											}
+										},
+										{
+											"callFunction": "SlowMo",
+											"sid": 111788056537062,
+											"parameters": [
+												"0.4",
+												"0.1",
+												"\"default\""
+											]
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 316665179342929,
+											"parameters": {
+												"variable": "btk",
+												"value": "fEnemies.HP/oPlayer.bulletAmount"
+											}
+										}
+									],
+									"sid": 969099947954895,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "is-boolean-instance-variable-set",
+													"objectClass": "Cam3D",
+													"sid": 573330699587628,
+													"parameters": {
+														"instance-variable": "locked"
+													},
+													"isInverted": true
+												}
+											],
+											"actions": [
+												{
+													"type": "comment",
+													"text": "only trigger this if the camera is not locked at a zoom level"
+												},
+												{
+													"id": "tween-value",
+													"objectClass": "Cam3D",
+													"sid": 100424082983099,
+													"behaviorType": "Tween",
+													"parameters": {
+														"tags": "\"zoom\"",
+														"start-value": "Cam3D.zoom",
+														"end-value": "1.15",
+														"time": "0.075",
+														"ease": "default",
+														"destroy-on-complete": "no",
+														"loop": "no",
+														"ping-pong": "yes"
+													}
+												}
+											],
+											"sid": 709509366404907
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 354912226715246,
+													"parameters": {
+														"first-value": "btk",
+														"comparison": 4,
+														"second-value": "oPlayer.bulletAmount"
+													}
+												}
+											],
+											"actions": [
+												{
+													"type": "comment",
+													"text": "set eHP instantly so that the shooting does not happen again"
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "fEnemies",
+													"sid": 994569602283194,
+													"parameters": {
+														"instance-variable": "eHP",
+														"value": "Self.eHP - (oPlayer.bulletAmount*oPlayer.currentDmg)"
+													}
+												},
+												{
+													"callFunction": "PlayerShoot",
+													"sid": 704258062595885,
+													"parameters": [
+														"oPlayer.X",
+														"oPlayer.Y",
+														"fEnemies.X",
+														"fEnemies.Y",
+														"oPlayer.bulletAmount"
+													]
+												}
+											],
+											"sid": 682644427229568
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 688022079849903
+												}
+											],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "fEnemies",
+													"sid": 302278278412358,
+													"parameters": {
+														"instance-variable": "eHP",
+														"value": "Self.eHP - (floor(btk)*oPlayer.currentDmg)"
+													}
+												},
+												{
+													"callFunction": "PlayerShoot",
+													"sid": 980872307116215,
+													"parameters": [
+														"oPlayer.X",
+														"oPlayer.Y",
+														"fEnemies.X",
+														"fEnemies.Y",
+														"floor(btk)"
+													]
+												}
+											],
+											"sid": 356554649395008
+										}
+									]
+								}
+							]
+						},
+						{
+							"eventType": "comment",
+							"text": "Exit collision"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "fEnemies",
+									"sid": 814804785497667,
+									"parameters": {
+										"object": "oPlayer_Tar"
+									},
+									"isInverted": true
+								},
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "fEnemies",
+									"sid": 958269127953608,
+									"parameters": {
+										"instance-variable": "targeted"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "fEnemies",
+									"sid": 458620494656176,
+									"parameters": {
+										"instance-variable": "wasAttacked",
+										"value": "false"
+									}
+								},
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "fEnemies",
+									"sid": 844661530274885,
+									"parameters": {
+										"instance-variable": "targeted",
+										"value": "false"
+									}
+								}
+							],
+							"sid": 614433769367441
+						}
+					],
+					"sid": 358492316751387
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-collision-with-another-object",
+							"objectClass": "oBullet_P",
+							"sid": 518515253051333,
+							"parameters": {
+								"object": "fEnemies"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "fEnemies",
+							"sid": 418015701940155,
+							"parameters": {
+								"instance-variable": "HP",
+								"value": "Self.HP - oBullet_P.dmg"
+							}
+						},
+						{
+							"id": "spawn-another-object",
+							"objectClass": "oBullet_P",
+							"sid": 749752935208355,
+							"parameters": {
+								"object": "GenericImpact",
+								"layer": "oBullet_P.LayerName",
+								"image-point": "0",
+								"create-hierarchy": false
+							}
+						},
+						{
+							"id": "move-at-angle",
+							"objectClass": "GenericImpact",
+							"sid": 162517335086805,
+							"parameters": {
+								"angle": "angle(oBullet_P.X, oBullet_P.Y, fEnemies.X, fEnemies.Y)",
+								"distance": "random(3)"
+							}
+						},
+						{
+							"id": "set-z-elevation",
+							"objectClass": "GenericImpact",
+							"sid": 109126594289966,
+							"parameters": {
+								"z": "random(3)"
+							}
+						},
+						{
+							"id": "destroy",
+							"objectClass": "oBullet_P",
+							"sid": 253118998456725
+						}
+					],
+					"sid": 480531628768132
+				}
+			],
+			"sid": 642356136768375
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-speed",
+					"objectClass": "oPlayer",
+					"sid": 646050250712860,
+					"behaviorType": "Custom",
+					"parameters": {
+						"which": "overall",
+						"comparison": 4,
+						"speed": "20"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-rate",
+					"objectClass": "oPlayerTrail",
+					"sid": 147176371760748,
+					"parameters": {
+						"rate": "Self.defaultRate + (oPlayer.Custom.Speed*0.5)"
+					}
+				},
+				{
+					"id": "set-spraying",
+					"objectClass": "oPlayerTrail",
+					"sid": 612660745340892,
+					"parameters": {
+						"state": "spraying"
+					}
+				}
+			],
+			"sid": 166547745852468
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-speed",
+					"objectClass": "oPlayer",
+					"sid": 567257024840675,
+					"behaviorType": "Custom",
+					"parameters": {
+						"which": "overall",
+						"comparison": 2,
+						"speed": "20"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-spraying",
+					"objectClass": "oPlayerTrail",
+					"sid": 237886631273195,
+					"parameters": {
+						"state": "not-spraying"
+					}
+				}
+			],
+			"sid": 555214382164621
+		},
+		{
+			"eventType": "group",
+			"disabled": true,
+			"title": "Targeter Adjustement",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "variable",
+					"name": "tarSizeMod",
+					"type": "number",
+					"initialValue": "0.2",
+					"comment": "how much the targeter can shrink on a scale of 0-1. 0 = no shrink, 1 = targeter is 0x0",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 120874903863469
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-tick",
+							"objectClass": "System",
+							"sid": 429988401994533
+						}
+					],
+					"actions": [
+						{
+							"id": "set-size",
+							"objectClass": "oPlayer_Tar",
+							"sid": 541212863508354,
+							"parameters": {
+								"width": "default_TAR_SIZE*(1 - tarSizeMod*oPlayer.speedPercNormal)",
+								"height": "default_TAR_SIZE*(1 - tarSizeMod*oPlayer.speedPercNormal)"
+							}
+						}
+					],
+					"sid": 560050799731977
+				}
+			],
+			"sid": 508544218388023
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Collisions",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-collision-with-another-object",
+							"objectClass": "oPlayer",
+							"sid": 296662849754961,
+							"parameters": {
+								"object": "uSpeedAdjuster"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "oPlayer",
+							"sid": 610775019578886,
+							"parameters": {
+								"instance-variable": "maxSpeed",
+								"value": "uSpeedAdjuster.newMaxSpeed"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 219027082993224,
+							"parameters": {
+								"variable": "dynamic_MAXSPEED",
+								"value": "uSpeedAdjuster.newMaxSpeed"
+							}
+						}
+					],
+					"sid": 404333805957265,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "uSpeedAdjuster",
+									"sid": 541967695169511,
+									"parameters": {
+										"instance-variable": "backToDefault"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "oPlayer",
+									"sid": 364433345220747,
+									"parameters": {
+										"instance-variable": "maxSpeed",
+										"value": "default_MAXSPEED"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 453146455862535,
+									"parameters": {
+										"variable": "dynamic_MAXSPEED",
+										"value": "default_MAXSPEED"
+									}
+								}
+							],
+							"sid": 695841265251602
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-collision-with-another-object",
+							"objectClass": "oPlayer",
+							"sid": 884002075959490,
+							"parameters": {
+								"object": "WinArea"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "LoadNextLevel",
+							"sid": 996396764045819
+						}
+					],
+					"sid": 617092156526737
+				}
+			],
+			"sid": 398771979947874
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Animations",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-tick",
+							"objectClass": "System",
+							"sid": 554744859452933
+						}
+					],
+					"actions": [],
+					"sid": 921600324425155
+				}
+			],
+			"sid": 220588409333374
+		}
+	],
+	"sid": 734859508305436
+}

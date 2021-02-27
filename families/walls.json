@@ -1,0 +1,12 @@
+{
+	"name": "Walls",
+	"plugin-id": "Sprite",
+	"sid": 552320997173833,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"members": [
+		"primCube_P",
+		"Wall"
+	]
+}

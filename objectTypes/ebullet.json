@@ -1,0 +1,84 @@
+{
+	"name": "eBullet",
+	"plugin-id": "Sprite",
+	"sid": 657407581044569,
+	"isGlobal": false,
+	"instanceVariables": [
+		{
+			"name": "minSpeed",
+			"type": "number",
+			"desc": "",
+			"sid": 532061066010735
+		},
+		{
+			"name": "killTime",
+			"type": "number",
+			"desc": "",
+			"sid": 205483005166629
+		},
+		{
+			"name": "bounced",
+			"type": "boolean",
+			"desc": "",
+			"sid": 804661840673438
+		}
+	],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Bullet",
+			"name": "Bullet",
+			"sid": 671073048835704
+		},
+		{
+			"behaviorId": "destroy",
+			"name": "DestroyOutsideLayout",
+			"sid": 725349230216696
+		},
+		{
+			"behaviorId": "Timer",
+			"name": "Timer",
+			"sid": 859088411902099
+		}
+	],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 14,
+						"height": 14,
+						"originX": 0.5357142857142857,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 3406403,
+						"collisionPoly": {
+							"points": [
+								0.34374999999999983,
+								0.28125,
+								0.7187499999999994,
+								0.28571428571428553,
+								0.7254464285714285,
+								0.7209821428571427,
+								0.3526785714285715,
+								0.7075892857142859
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 383842512865862,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}

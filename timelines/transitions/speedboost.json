@@ -1,0 +1,45 @@
+{
+	"name": "SpeedBoost",
+	"transitionKeyframes": [
+		{
+			"x": 0,
+			"y": 0,
+			"sax": 0.02,
+			"say": 1.068,
+			"eax": 0,
+			"eay": 0,
+			"se": true,
+			"ee": false
+		},
+		{
+			"x": 0.15,
+			"y": 1,
+			"sax": 0.063,
+			"say": -0.009,
+			"eax": -0.03,
+			"eay": -0.009,
+			"se": true,
+			"ee": true
+		},
+		{
+			"x": 1,
+			"y": 0,
+			"sax": 0,
+			"say": 0,
+			"eax": -0.346,
+			"eay": 0.758,
+			"se": true,
+			"ee": true
+		},
+		{
+			"x": 1,
+			"y": 1,
+			"sax": 0,
+			"say": 0,
+			"eax": 0,
+			"eay": 0.442,
+			"se": false,
+			"ee": true
+		}
+	]
+}

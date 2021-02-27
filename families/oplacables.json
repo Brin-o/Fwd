@@ -1,0 +1,15 @@
+{
+	"name": "oPlacables",
+	"plugin-id": "Sprite",
+	"sid": 647162322890594,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"members": [
+		"oExample_P",
+		"oPlayer",
+		"primTris_P",
+		"primCube_P",
+		"Enemy_P"
+	]
+}

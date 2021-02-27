@@ -1,0 +1,554 @@
+{
+	"projectFormatVersion": 1,
+	"savedWithRelease": 23404,
+	"name": "VoidHeart",
+	"runtime": "c3",
+	"useWorker": "auto",
+	"bundleAddons": false,
+	"usedAddons": [
+		{
+			"type": "plugin",
+			"id": "Mouse",
+			"name": "Mouse",
+			"author": "Scirra",
+			"version": "r234.4",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Keyboard",
+			"name": "Keyboard",
+			"author": "Scirra",
+			"version": "r234.4",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Sprite",
+			"name": "Sprite",
+			"author": "Scirra",
+			"version": "r234.4",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Browser",
+			"name": "Browser",
+			"author": "Scirra",
+			"version": "r234.4",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Particles",
+			"name": "Particles",
+			"author": "Scirra",
+			"version": "r234.4",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "TiledBg",
+			"name": "Tiled Background",
+			"author": "Scirra",
+			"version": "r234.4",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Text",
+			"name": "Text",
+			"author": "Scirra",
+			"version": "r234.4",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Button",
+			"name": "Button",
+			"author": "Scirra",
+			"version": "r234.4",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "TextBox",
+			"name": "Text input",
+			"author": "Scirra",
+			"version": "r234.4",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "NinePatch",
+			"name": "9-patch",
+			"author": "Scirra",
+			"version": "r234.4",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Audio",
+			"name": "Audio",
+			"author": "Scirra",
+			"version": "r234.4",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "scrollto",
+			"name": "Scroll To",
+			"author": "Scirra",
+			"version": "r234.4",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "Tween",
+			"name": "Tween",
+			"author": "Scirra",
+			"version": "r234.4",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "solid",
+			"name": "Solid",
+			"author": "Scirra",
+			"version": "r234.4",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "Pathfinding",
+			"name": "Pathfinding",
+			"author": "Scirra",
+			"version": "r234.4",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "Bullet",
+			"name": "Bullet",
+			"author": "Scirra",
+			"version": "r234.4",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "destroy",
+			"name": "Destroy outside layout",
+			"author": "Scirra",
+			"version": "r234.4",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "Timer",
+			"name": "Timer",
+			"author": "Scirra",
+			"version": "r234.4",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "Pin",
+			"name": "Pin",
+			"author": "Scirra",
+			"version": "r234.4",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "custom",
+			"name": "Custom",
+			"author": "Scirra",
+			"version": "r234.4",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "LOS",
+			"name": "Line of sight",
+			"author": "Scirra",
+			"version": "r234.4",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "Flash",
+			"name": "Flash",
+			"author": "Scirra",
+			"version": "r234.4",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "Sin",
+			"name": "Sine",
+			"author": "Scirra",
+			"version": "r234.4",
+			"bundled": false
+		},
+		{
+			"type": "effect",
+			"id": "hsladjust",
+			"name": "Adjust HSL",
+			"author": "Scirra",
+			"version": "r234.4",
+			"bundled": false
+		},
+		{
+			"type": "effect",
+			"id": "scanlines",
+			"name": "Scan lines",
+			"author": "Scirra",
+			"version": "r234.4",
+			"bundled": false
+		},
+		{
+			"type": "effect",
+			"id": "outline",
+			"name": "Outline",
+			"author": "Richard Lems",
+			"version": "1.0.0.0",
+			"bundled": false
+		}
+	],
+	"uniqueId": "vgwcd7yo1io",
+	"objectTypes": {
+		"items": [
+			"Background",
+			"Wall",
+			"WinArea",
+			"GameManager",
+			"UI_Timer",
+			"uCombat_Laser",
+			"uCombat_Zone",
+			"Audio",
+			"TiledBackground",
+			"Wall_Moving"
+		],
+		"subfolders": [
+			{
+				"items": [
+					"Mouse",
+					"Keyboard",
+					"Cam3D",
+					"M_Cursor",
+					"Browser"
+				],
+				"subfolders": [],
+				"name": "System"
+			},
+			{
+				"items": [
+					"eGenericShadow",
+					"primTris_Stack",
+					"oExampleStack",
+					"oExample_P",
+					"primTris_P",
+					"primCube_P",
+					"primCube_Stack"
+				],
+				"subfolders": [],
+				"name": "Primitives"
+			},
+			{
+				"items": [
+					"eCrosser",
+					"eBullet",
+					"Enemy_P",
+					"eTargeting_Indicator",
+					"eTurret_Stack_Body",
+					"Enemy_Stack"
+				],
+				"subfolders": [
+					{
+						"items": [
+							"Fog_Spawn",
+							"Fog_Spawner",
+							"Fog_Spawn_Shadow"
+						],
+						"subfolders": [],
+						"name": "Fog"
+					}
+				],
+				"name": "Enemies"
+			},
+			{
+				"items": [
+					"oPlayer",
+					"oDroneStack",
+					"oPlayer_DirectionMouse",
+					"oPlayer_Tar",
+					"oPlayerWallCollider",
+					"oPlayer_DirectionMovement",
+					"oBullet_P",
+					"oPlayer_MouseLine"
+				],
+				"subfolders": [],
+				"name": "Player"
+			},
+			{
+				"items": [
+					"UI_MidText",
+					"PlayerHP"
+				],
+				"subfolders": [
+					{
+						"items": [
+							"dbg_Acc",
+							"dbgT_HP",
+							"dbg_Player",
+							"dbg_Walls",
+							"LoadLvl",
+							"LvlInput"
+						],
+						"subfolders": [],
+						"name": "Debug"
+					}
+				],
+				"name": "UI"
+			},
+			{
+				"items": [
+					"oDust_P",
+					"oDust_Stack",
+					"oPlayerTrail",
+					"GenericImpact"
+				],
+				"subfolders": [],
+				"name": "Particles"
+			},
+			{
+				"items": [
+					"uSpeedAdjuster"
+				],
+				"subfolders": [],
+				"name": "Bunnies"
+			}
+		]
+	},
+	"autosaveData": null,
+	"containers": [
+		{
+			"members": [
+				"oPlayer",
+				"oPlayer_DirectionMouse",
+				"oPlayer_DirectionMovement",
+				"oPlayer_Tar",
+				"oPlayerWallCollider"
+			],
+			"selectMode": "normal"
+		},
+		{
+			"members": [
+				"uCombat_Laser",
+				"uCombat_Zone"
+			],
+			"selectMode": "normal"
+		}
+	],
+	"families": {
+		"items": [
+			"oSlices",
+			"oPlacables",
+			"Walls",
+			"fEnemies",
+			"DebuggingTXT",
+			"Walls_9p"
+		],
+		"subfolders": []
+	},
+	"layouts": {
+		"items": [
+			"BlockRepository",
+			"ObjectRepository",
+			"Circle",
+			"0_Loader",
+			"1_Level_Selector"
+		],
+		"subfolders": [
+			{
+				"items": [
+					"A_Hanger",
+					"B_Escape",
+					"C_HardTurns",
+					"D_Combat",
+					"E_Combat2"
+				],
+				"subfolders": [],
+				"name": "Levels"
+			}
+		]
+	},
+	"eventSheets": {
+		"items": [
+			"3D_Camera",
+			"Main",
+			"Player",
+			"Enemies",
+			"UI",
+			"Player_Box2D",
+			"Fog",
+			"SFXMusic",
+			"0_Loader"
+		],
+		"subfolders": []
+	},
+	"rootFileFolders": {
+		"script": {
+			"items": [],
+			"subfolders": []
+		},
+		"sound": {
+			"items": [],
+			"subfolders": []
+		},
+		"music": {
+			"items": [
+				{
+					"name": "Draft.mp3",
+					"type": "audio/mpeg",
+					"sid": 937308550109447
+				}
+			],
+			"subfolders": []
+		},
+		"video": {
+			"items": [],
+			"subfolders": []
+		},
+		"font": {
+			"items": [],
+			"subfolders": []
+		},
+		"icon": {
+			"items": [
+				{
+					"name": "icon-16.png",
+					"type": "image/png",
+					"sid": 347412121355904,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
+				},
+				{
+					"name": "icon-32.png",
+					"type": "image/png",
+					"sid": 788589387254165,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
+				},
+				{
+					"name": "icon-64.png",
+					"type": "image/png",
+					"sid": 617689495880517,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
+				},
+				{
+					"name": "icon-128.png",
+					"type": "image/png",
+					"sid": 645603107443927,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
+				},
+				{
+					"name": "icon-512.png",
+					"type": "image/png",
+					"sid": 745143867213082,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
+				},
+				{
+					"name": "loading-logo.png",
+					"type": "image/png",
+					"sid": 388486888065805,
+					"icon-info": {
+						"purpose": "loading-logo"
+					}
+				},
+				{
+					"name": "icon-256.png",
+					"type": "image/png",
+					"sid": 740644287292753,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
+				}
+			],
+			"subfolders": []
+		},
+		"general": {
+			"items": [],
+			"subfolders": []
+		}
+	},
+	"timelines": {
+		"items": [],
+		"subfolders": [
+			{
+				"items": [
+					"SpeedBoost"
+				],
+				"subfolders": []
+			}
+		]
+	},
+	"properties": {
+		"description": "",
+		"version": "0.1.0.0",
+		"author": "Brin",
+		"authorEmail": "brin@zvan.cc",
+		"authorWebsite": "",
+		"appId": "",
+		"pixelRounding": true,
+		"useLoaderLayout": true,
+		"fullscreenMode": "letterbox-integer-scale",
+		"fullscreenQuality": "low",
+		"viewportFit": "auto",
+		"backgroundColor": [
+			0.10588235294117647,
+			0.12549019607843137,
+			0.1607843137254902,
+			0
+		],
+		"splashColor": [
+			1,
+			1,
+			1,
+			0
+		],
+		"useThemeColor": false,
+		"themeColor": [
+			1,
+			1,
+			1,
+			0
+		],
+		"useHighDpi": true,
+		"orientations": "any",
+		"enableWebGL": true,
+		"gpuPreference": "high-performance",
+		"scriptsType": "module",
+		"framerateMode": "vsync",
+		"compositingMode": "standard",
+		"sampling": "nearest",
+		"downscaling": "medium",
+		"maxSpriteSheetSize": 2048,
+		"loaderStyle": "percent",
+		"preloadSounds": true,
+		"clearBackground": true,
+		"enhancedAccelerationPrecision": true,
+		"cordovaiOSScheme": "app"
+	},
+	"viewportWidth": 320,
+	"viewportHeight": 240,
+	"firstLayout": "0_Loader"
+}

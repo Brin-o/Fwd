@@ -1,0 +1,111 @@
+{
+	"name": "Fog_Spawn",
+	"plugin-id": "Sprite",
+	"sid": 649655434849875,
+	"isGlobal": false,
+	"instanceVariables": [
+		{
+			"name": "targetSize",
+			"type": "number",
+			"desc": "",
+			"sid": 282640353167216
+		},
+		{
+			"name": "targetAcc",
+			"type": "number",
+			"desc": "",
+			"sid": 208498131826444
+		},
+		{
+			"name": "targetX",
+			"type": "number",
+			"desc": "player x when spawned",
+			"sid": 616104179544917
+		},
+		{
+			"name": "targetY",
+			"type": "number",
+			"desc": "player y when spawned",
+			"sid": 337495657332155
+		},
+		{
+			"name": "angleRng",
+			"type": "number",
+			"desc": "",
+			"sid": 625672898793193
+		},
+		{
+			"name": "targetAngle",
+			"type": "number",
+			"desc": "",
+			"sid": 205417343655260
+		},
+		{
+			"name": "graceCurrent",
+			"type": "number",
+			"desc": "",
+			"sid": 233537171371716
+		}
+	],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Tween",
+			"name": "Tween",
+			"sid": 318771393039663
+		}
+	],
+	"effectTypes": [
+		{
+			"effectId": "hsladjust",
+			"name": "HSL"
+		}
+	],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 208,
+						"height": 208,
+						"originX": 0.5,
+						"originY": 0.5240384615384616,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 6832613,
+						"collisionPoly": {
+							"points": [
+								0.14903846153846154,
+								0.14903846153846154,
+								0.5,
+								0.004807692307692308,
+								0.8461538461538461,
+								0.14903846153846154,
+								0.9903846153846154,
+								0.5,
+								0.8461538461538461,
+								0.8461538461538461,
+								0.5,
+								0.9903846153846154,
+								0.14903846153846154,
+								0.8461538461538461,
+								0.004807692307692308,
+								0.5
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 679690589734621,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}

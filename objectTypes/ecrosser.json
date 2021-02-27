@@ -1,0 +1,62 @@
+{
+	"name": "eCrosser",
+	"plugin-id": "Sprite",
+	"sid": 699118010526683,
+	"isGlobal": false,
+	"instanceVariables": [
+		{
+			"name": "bulletSpeed",
+			"type": "number",
+			"desc": "",
+			"sid": 145905376258892
+		},
+		{
+			"name": "bulletAcc",
+			"type": "number",
+			"desc": "",
+			"sid": 787801372893332
+		},
+		{
+			"name": "bulletMinSpeed",
+			"type": "number",
+			"desc": "",
+			"sid": 856905917777260
+		},
+		{
+			"name": "turnSpeed",
+			"type": "number",
+			"desc": "",
+			"sid": 482951843220406
+		}
+	],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 27,
+						"height": 27,
+						"originX": 0.48148148148148145,
+						"originY": 0.48148148148148145,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 119174,
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 360578623138082,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}

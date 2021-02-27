@@ -1,0 +1,50 @@
+{
+	"name": "Wall_Moving",
+	"plugin-id": "NinePatch",
+	"sid": 600283564608618,
+	"isGlobal": false,
+	"instanceVariables": [
+		{
+			"name": "moveAtAngle",
+			"type": "boolean",
+			"desc": "",
+			"sid": 467813474653756
+		}
+	],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Sin",
+			"name": "Sine",
+			"sid": 984584924345611
+		},
+		{
+			"behaviorId": "solid",
+			"name": "Solid",
+			"sid": 727076737825167
+		}
+	],
+	"effectTypes": [],
+	"image": {
+		"width": 14,
+		"height": 14,
+		"originX": 0.5,
+		"originY": 0.5,
+		"originalSource": "",
+		"exportFormat": "png",
+		"exportQuality": 0.8,
+		"imageSpriteId": 5036291,
+		"collisionPoly": {
+			"points": [
+				0.03571428571428571,
+				0.03571428571428571,
+				0.9642857142857143,
+				0.03571428571428571,
+				0.9642857142857143,
+				0.9642857142857143,
+				0.03571428571428571,
+				0.9642857142857143
+			]
+		},
+		"useCollisionPoly": true
+	}
+}

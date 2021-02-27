@@ -1,0 +1,1430 @@
+{
+	"name": "3D_Camera",
+	"events": [
+		{
+			"eventType": "variable",
+			"name": "default_CAMSPEEDCOMPARE",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 800478845756855
+		},
+		{
+			"eventType": "variable",
+			"name": "default_CAMERA_SPEED",
+			"type": "number",
+			"initialValue": "5",
+			"comment": "speed for X/Y travel of the camera",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 842247222374209
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "3D Object Creation",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "Enemy",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-created",
+									"objectClass": "Enemy_P",
+									"sid": 159787236060252
+								},
+								{
+									"id": "repeat",
+									"objectClass": "System",
+									"sid": 677132424667060,
+									"parameters": {
+										"count": "Enemy_Stack.AnimationFrameCount"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 882436857123005,
+									"parameters": {
+										"object-to-create": "Enemy_Stack",
+										"layer": "Enemy_P.LayerName",
+										"x": "Enemy_P.X",
+										"y": "Enemy_P.Y",
+										"create-hierarchy": false
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Enemy_Stack",
+									"sid": 283558505979723,
+									"parameters": {
+										"instance-variable": "stackIndex",
+										"value": "loopindex"
+									}
+								},
+								{
+									"id": "set-animation-frame",
+									"objectClass": "Enemy_Stack",
+									"sid": 864826761495778,
+									"parameters": {
+										"frame-number": "loopindex"
+									}
+								},
+								{
+									"id": "set-z-elevation",
+									"objectClass": "Enemy_Stack",
+									"sid": 671474896124074,
+									"parameters": {
+										"z": "Enemy_P.ZElevation + Self.stackIndex *Cam3D.zScale"
+									}
+								},
+								{
+									"id": "set-angle",
+									"objectClass": "Enemy_Stack",
+									"sid": 918473991633698,
+									"parameters": {
+										"angle": "Enemy_P.Angle"
+									}
+								},
+								{
+									"id": "pin-to-object-properties",
+									"objectClass": "Enemy_Stack",
+									"sid": 915316849949221,
+									"behaviorType": "Pin",
+									"parameters": {
+										"pin-to": "Enemy_P",
+										"x": false,
+										"y": false,
+										"angle": true,
+										"width-type": "no",
+										"height-type": "no",
+										"z": false
+									}
+								},
+								{
+									"id": "add-child",
+									"objectClass": "Enemy_P",
+									"sid": 988005001702109,
+									"parameters": {
+										"child": "Enemy_Stack",
+										"transform-x": false,
+										"transform-y": false,
+										"transform-w": false,
+										"transform-h": false,
+										"transform-a": false,
+										"transform-z-elevation": false,
+										"destroy-with-parent": true
+									}
+								}
+							],
+							"sid": 884587664539332
+						}
+					],
+					"sid": 336264056889241
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "Dust",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-created",
+									"objectClass": "oDust_P",
+									"sid": 622185714441723
+								},
+								{
+									"id": "repeat",
+									"objectClass": "System",
+									"sid": 981031297034223,
+									"parameters": {
+										"count": "oDust_Stack.AnimationFrameCount"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 124537190073261,
+									"parameters": {
+										"object-to-create": "oDust_Stack",
+										"layer": "oDust_P.LayerName",
+										"x": "oDust_P.X",
+										"y": "oDust_P.Y",
+										"create-hierarchy": false
+									}
+								},
+								{
+									"id": "set-animation-frame",
+									"objectClass": "oDust_Stack",
+									"sid": 790884185069350,
+									"parameters": {
+										"frame-number": "loopindex"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "oDust_Stack",
+									"sid": 774066157249855,
+									"parameters": {
+										"instance-variable": "stackIndex",
+										"value": "loopindex"
+									}
+								},
+								{
+									"id": "set-z-elevation",
+									"objectClass": "oDust_Stack",
+									"sid": 202889558621581,
+									"parameters": {
+										"z": "oDust_P.ZElevation + (Self.stackIndex*Cam3D.zScale)"
+									}
+								},
+								{
+									"id": "set-angle",
+									"objectClass": "oDust_Stack",
+									"sid": 340370711169289,
+									"parameters": {
+										"angle": "oDust_P.Angle"
+									}
+								},
+								{
+									"id": "pin-to-object-properties",
+									"objectClass": "oDust_Stack",
+									"sid": 398557763780802,
+									"behaviorType": "Pin",
+									"parameters": {
+										"pin-to": "oDust_P",
+										"x": false,
+										"y": false,
+										"angle": true,
+										"width-type": "no",
+										"height-type": "no",
+										"z": false
+									}
+								}
+							],
+							"sid": 126439263810147
+						}
+					],
+					"sid": 617955047674442
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "Example",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-created",
+									"objectClass": "oExample_P",
+									"sid": 198895015143903
+								},
+								{
+									"id": "repeat",
+									"objectClass": "System",
+									"sid": 224120844522645,
+									"parameters": {
+										"count": "oExampleStack.AnimationFrameCount"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "spawn-another-object",
+									"objectClass": "oExample_P",
+									"sid": 411816176860046,
+									"parameters": {
+										"object": "oExampleStack",
+										"layer": "0",
+										"image-point": "0",
+										"create-hierarchy": false
+									}
+								},
+								{
+									"id": "set-animation-frame",
+									"objectClass": "oExampleStack",
+									"sid": 563086650548729,
+									"parameters": {
+										"frame-number": "loopindex"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "oExampleStack",
+									"sid": 526720161020188,
+									"parameters": {
+										"instance-variable": "stackIndex",
+										"value": "loopindex"
+									}
+								},
+								{
+									"id": "set-z-elevation",
+									"objectClass": "oExampleStack",
+									"sid": 232283105971310,
+									"parameters": {
+										"z": "oExample_P.ZElevation + (self.stackIndex*Cam3D.zScale)"
+									}
+								},
+								{
+									"id": "set-angle",
+									"objectClass": "oExampleStack",
+									"sid": 278702248106510,
+									"parameters": {
+										"angle": "oExample_P.Angle"
+									}
+								},
+								{
+									"id": "pin-to-object-properties",
+									"objectClass": "oExampleStack",
+									"sid": 824511548841513,
+									"behaviorType": "Pin",
+									"parameters": {
+										"pin-to": "oExample_P",
+										"x": false,
+										"y": false,
+										"angle": true,
+										"width-type": "no",
+										"height-type": "no",
+										"z": false
+									}
+								}
+							],
+							"sid": 691651777867126
+						}
+					],
+					"sid": 455587854301613
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-created",
+							"objectClass": "oSlices",
+							"sid": 130508272670267
+						}
+					],
+					"actions": [
+						{
+							"id": "stop-animation",
+							"objectClass": "oSlices",
+							"sid": 920385621787824
+						}
+					],
+					"sid": 612453929251914
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "Drone",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-created",
+									"objectClass": "oPlayer",
+									"sid": 946260320521152
+								},
+								{
+									"id": "repeat",
+									"objectClass": "System",
+									"sid": 666558511630044,
+									"parameters": {
+										"count": "oDroneStack.AnimationFrameCount"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 968623571409063,
+									"parameters": {
+										"object-to-create": "oDroneStack",
+										"layer": "\"3D\"",
+										"x": "oPlayer.X",
+										"y": "oPlayer.Y",
+										"create-hierarchy": false
+									}
+								},
+								{
+									"id": "set-animation-frame",
+									"objectClass": "oDroneStack",
+									"sid": 814413218293876,
+									"parameters": {
+										"frame-number": "loopindex"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "oDroneStack",
+									"sid": 187645045346140,
+									"parameters": {
+										"instance-variable": "stackIndex",
+										"value": "loopindex"
+									}
+								},
+								{
+									"id": "set-z-elevation",
+									"objectClass": "oDroneStack",
+									"sid": 349542127147561,
+									"parameters": {
+										"z": "oPlayer.ZElevation + (self.stackIndex*Cam3D.zScale)"
+									}
+								},
+								{
+									"id": "set-angle",
+									"objectClass": "oDroneStack",
+									"sid": 906010154827373,
+									"parameters": {
+										"angle": "oPlayer.Angle"
+									}
+								},
+								{
+									"id": "pin-to-object-properties",
+									"objectClass": "oDroneStack",
+									"sid": 854316295854419,
+									"behaviorType": "Pin",
+									"parameters": {
+										"pin-to": "oPlayer",
+										"x": false,
+										"y": false,
+										"angle": true,
+										"width-type": "no",
+										"height-type": "no",
+										"z": false
+									}
+								}
+							],
+							"sid": 770416380536353
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-created",
+									"objectClass": "oPlayer",
+									"sid": 351184711961792
+								}
+							],
+							"actions": [
+								{
+									"id": "spawn-another-object",
+									"objectClass": "oPlayer",
+									"sid": 684406421500374,
+									"parameters": {
+										"object": "eGenericShadow",
+										"layer": "\"Effects\"",
+										"image-point": "0",
+										"create-hierarchy": false
+									}
+								},
+								{
+									"id": "add-child",
+									"objectClass": "oPlayer",
+									"sid": 661076030119801,
+									"parameters": {
+										"child": "eGenericShadow",
+										"transform-x": true,
+										"transform-y": true,
+										"transform-w": true,
+										"transform-h": true,
+										"transform-a": true,
+										"transform-z-elevation": true,
+										"destroy-with-parent": false
+									}
+								}
+							],
+							"sid": 253181222572525
+						}
+					],
+					"sid": 550132953831081
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "Primitive - Cube",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-created",
+									"objectClass": "primCube_P",
+									"sid": 342085809330191
+								},
+								{
+									"id": "repeat",
+									"objectClass": "System",
+									"sid": 556864255213162,
+									"parameters": {
+										"count": "primCube_Stack.AnimationFrameCount"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 790658023849368,
+									"parameters": {
+										"object-to-create": "primCube_Stack",
+										"layer": "primCube_P.LayerName",
+										"x": "primCube_P.X",
+										"y": "primCube_P.Y",
+										"create-hierarchy": false
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "primCube_Stack",
+									"sid": 231626702805085,
+									"parameters": {
+										"instance-variable": "stackIndex",
+										"value": "loopindex"
+									}
+								},
+								{
+									"id": "set-animation-frame",
+									"objectClass": "primCube_Stack",
+									"sid": 616783975779523,
+									"parameters": {
+										"frame-number": "loopindex"
+									}
+								},
+								{
+									"id": "set-z-elevation",
+									"objectClass": "primCube_Stack",
+									"sid": 540798706367033,
+									"parameters": {
+										"z": "primCube_P.ZElevation + Self.stackIndex*Cam3D.zScale"
+									}
+								},
+								{
+									"id": "set-angle",
+									"objectClass": "primCube_Stack",
+									"sid": 942430088380662,
+									"parameters": {
+										"angle": "primCube_P.Angle"
+									}
+								},
+								{
+									"id": "pin-to-object-properties",
+									"objectClass": "primCube_Stack",
+									"sid": 476229337742231,
+									"behaviorType": "Pin",
+									"parameters": {
+										"pin-to": "primCube_P",
+										"x": false,
+										"y": false,
+										"angle": true,
+										"width-type": "no",
+										"height-type": "no",
+										"z": false
+									}
+								}
+							],
+							"sid": 632254537748097
+						}
+					],
+					"sid": 240655412544043
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "Primitive - Tris",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-created",
+									"objectClass": "primTris_P",
+									"sid": 492880243403292
+								},
+								{
+									"id": "repeat",
+									"objectClass": "System",
+									"sid": 186336720275857,
+									"parameters": {
+										"count": "primTris_Stack.AnimationFrameCount"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 118993352988780,
+									"parameters": {
+										"object-to-create": "primTris_Stack",
+										"layer": "primTris_P.LayerName",
+										"x": "primTris_P.X",
+										"y": "primTris_P.Y",
+										"create-hierarchy": false
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "primTris_Stack",
+									"sid": 680213912165767,
+									"parameters": {
+										"instance-variable": "stackIndex",
+										"value": "loopindex"
+									}
+								},
+								{
+									"id": "set-animation-frame",
+									"objectClass": "primTris_Stack",
+									"sid": 217969747081207,
+									"parameters": {
+										"frame-number": "loopindex"
+									}
+								},
+								{
+									"id": "set-z-elevation",
+									"objectClass": "primTris_Stack",
+									"sid": 668789439315809,
+									"parameters": {
+										"z": "primTris_P.ZElevation+(Self.stackIndex*Cam3D.zScale)"
+									}
+								},
+								{
+									"id": "set-angle",
+									"objectClass": "primTris_Stack",
+									"sid": 131845012310985,
+									"parameters": {
+										"angle": "primTris_P.Angle"
+									}
+								},
+								{
+									"id": "pin-to-object-properties",
+									"objectClass": "primTris_Stack",
+									"sid": 129902441861280,
+									"behaviorType": "Pin",
+									"parameters": {
+										"pin-to": "primTris_P",
+										"x": false,
+										"y": false,
+										"angle": true,
+										"width-type": "no",
+										"height-type": "no",
+										"z": false
+									}
+								},
+								{
+									"id": "add-child",
+									"objectClass": "primTris_P",
+									"sid": 184846829865409,
+									"parameters": {
+										"child": "primTris_Stack",
+										"transform-x": false,
+										"transform-y": false,
+										"transform-w": false,
+										"transform-h": false,
+										"transform-a": false,
+										"transform-z-elevation": false,
+										"destroy-with-parent": true
+									}
+								}
+							],
+							"sid": 662209022240244
+						}
+					],
+					"sid": 156361787543023
+				}
+			],
+			"sid": 359153676585770
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Cam3D Controller",
+			"description": "Based of Salman's 3D sprite stacking technique.",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "Camera Debug",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "variable",
+							"name": "moveSpeed",
+							"type": "number",
+							"initialValue": "200",
+							"comment": "debug move speed",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 168471417310931
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "Cam3D",
+									"sid": 516355166228316,
+									"parameters": {
+										"instance-variable": "debug"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "Cam3D",
+									"sid": 770908070501438,
+									"parameters": {
+										"visibility": "visible"
+									}
+								}
+							],
+							"sid": 899681868087788,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "mouse-button-is-down",
+											"objectClass": "Mouse",
+											"sid": 304137022550338,
+											"parameters": {
+												"mouse-button": "middle"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "move-at-angle",
+											"objectClass": "Cam3D",
+											"sid": 527362970098544,
+											"parameters": {
+												"angle": "angle(Self.X, Self.Y, Mouse.X, Mouse.Y)",
+												"distance": "moveSpeed*dt"
+											}
+										}
+									],
+									"sid": 270576079894365
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "key-is-down",
+											"objectClass": "Keyboard",
+											"sid": 962709109844008,
+											"parameters": {
+												"key": 81
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-angle",
+											"objectClass": "Cam3D",
+											"sid": 687790203025953,
+											"parameters": {
+												"angle": "Self.Angle-5"
+											}
+										}
+									],
+									"sid": 789450849339007
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "key-is-down",
+											"objectClass": "Keyboard",
+											"sid": 327445235855373,
+											"parameters": {
+												"key": 82
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-angle",
+											"objectClass": "Cam3D",
+											"sid": 152922225175598,
+											"parameters": {
+												"angle": "Self.Angle+5"
+											}
+										}
+									],
+									"sid": 810784854008229
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-mouse-wheel",
+											"objectClass": "Mouse",
+											"sid": 296873483273868,
+											"parameters": {
+												"direction": "up"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Cam3D",
+											"sid": 988358438468854,
+											"parameters": {
+												"instance-variable": "zScale",
+												"value": "Self.zScale+0.4"
+											}
+										}
+									],
+									"sid": 262882763873981
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-mouse-wheel",
+											"objectClass": "Mouse",
+											"sid": 326791963283584,
+											"parameters": {
+												"direction": "down"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Cam3D",
+											"sid": 842337352035403,
+											"parameters": {
+												"instance-variable": "zScale",
+												"value": "Self.zScale-0.4"
+											}
+										}
+									],
+									"sid": 844483930561425
+								}
+							]
+						}
+					],
+					"sid": 662661191273782
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 517925807430045,
+							"parameters": {
+								"first-value": "Cam3D.Angle",
+								"comparison": 1,
+								"second-value": "LayoutAngle"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-layout-angle",
+							"objectClass": "System",
+							"sid": 774872108008768,
+							"parameters": {
+								"angle": "Cam3D.Angle"
+							}
+						}
+					],
+					"sid": 196969543264866
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-tick",
+							"objectClass": "System",
+							"sid": 612711925486750
+						},
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 868794911429252,
+							"parameters": {
+								"object": "oSlices"
+							}
+						},
+						{
+							"id": "pick-by-unique-id",
+							"objectClass": "oPlacables",
+							"sid": 243593695701014,
+							"parameters": {
+								"unique-id": "oSlices.Pin.PinnedUID"
+							}
+						},
+						{
+							"id": "is-on-screen",
+							"objectClass": "oPlacables",
+							"sid": 711290160525463
+						}
+					],
+					"actions": [
+						{
+							"id": "set-position",
+							"objectClass": "oSlices",
+							"sid": 203361174695675,
+							"parameters": {
+								"x": "oPlacables.X + cos(LayoutAngle-90) * (Self.stackIndex*Cam3D.viewAngle)",
+								"y": "oPlacables.Y+sin(LayoutAngle-90)*(Self.stackIndex*Cam3D.viewAngle)"
+							}
+						},
+						{
+							"id": "set-z-elevation",
+							"objectClass": "oSlices",
+							"sid": 299556593414721,
+							"parameters": {
+								"z": "oPlacables.ZElevation+Self.stackIndex*Cam3D.zScale "
+							}
+						},
+						{
+							"id": "set-default-color",
+							"objectClass": "oSlices",
+							"sid": 144465493791748,
+							"parameters": {
+								"color": "oPlacables.ColorValue"
+							}
+						},
+						{
+							"id": "set-opacity",
+							"objectClass": "oSlices",
+							"sid": 701858762072760,
+							"parameters": {
+								"opacity": "oPlacables.Opacity"
+							}
+						}
+					],
+					"sid": 474199937867762
+				}
+			],
+			"sid": 584342107633721
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "ScrollingBG",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "variable",
+					"name": "bgSpeed",
+					"type": "number",
+					"initialValue": "4",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 849305027150204
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-tick",
+							"objectClass": "System",
+							"sid": 597516301353982
+						}
+					],
+					"actions": [
+						{
+							"id": "set-image-offset-x",
+							"objectClass": "Background",
+							"sid": 476171943334655,
+							"parameters": {
+								"offset-x": "Self.ImageOffsetX+(bgSpeed*dt)"
+							}
+						},
+						{
+							"id": "set-image-offset-y",
+							"objectClass": "Background",
+							"sid": 492390646801140,
+							"parameters": {
+								"offset-y": "Self.ImageOffsetY+(bgSpeed*dt)"
+							}
+						}
+					],
+					"sid": 439566473089474
+				}
+			],
+			"sid": 683018029061953
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-playing",
+					"objectClass": "Cam3D",
+					"sid": 478448015468986,
+					"behaviorType": "Tween",
+					"parameters": {
+						"tags": "\"zoom\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-instvar-value",
+					"objectClass": "Cam3D",
+					"sid": 363161382465137,
+					"parameters": {
+						"instance-variable": "zoom",
+						"value": "Cam3D.Tween.Value(\"zoom\")"
+					}
+				}
+			],
+			"sid": 815713865427348
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Follow Player",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "variable",
+					"name": "midX",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 327972258864260
+				},
+				{
+					"eventType": "variable",
+					"name": "midY",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 243865684868765
+				},
+				{
+					"eventType": "variable",
+					"name": "cameraRange",
+					"type": "number",
+					"initialValue": "150",
+					"comment": "range around the player that the camera can move around",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 934525962921129
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "Cam3D",
+							"sid": 224570263232893,
+							"parameters": {
+								"instance-variable": "locked"
+							},
+							"isInverted": true
+						},
+						{
+							"id": "every-tick",
+							"objectClass": "System",
+							"sid": 301396853365594
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 599553310987438,
+							"disabled": true,
+							"parameters": {
+								"variable": "midX",
+								"value": "(oPlayer.X + Mouse.X)/2"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Cam3D",
+							"sid": 410322325834807,
+							"parameters": {
+								"instance-variable": "targetX",
+								"value": "clamp((oPlayer.X + Mouse.X)/2, oPlayer.x- cameraRange, oPlayer.X + cameraRange)"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Cam3D",
+							"sid": 866969468667749,
+							"parameters": {
+								"instance-variable": "targetY",
+								"value": "clamp((oPlayer.Y + Mouse.Y)/2, oPlayer.Y - cameraRange, oPlayer.Y + cameraRange)"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Cam3D",
+							"sid": 541401136276692,
+							"disabled": true,
+							"parameters": {
+								"instance-variable": "targetX",
+								"value": "Fog_Spawner.X"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Cam3D",
+							"sid": 879189064426019,
+							"disabled": true,
+							"parameters": {
+								"instance-variable": "targetY",
+								"value": "Fog_Spawner.Y"
+							}
+						},
+						{
+							"id": "set-position",
+							"objectClass": "Cam3D",
+							"sid": 261197922536387,
+							"disabled": true,
+							"parameters": {
+								"x": "clamp(lerp(Self.X, midX, dt*cameraSpeed), oPlayer.X - cameraRange, oPlayer.X + cameraRange)",
+								"y": "clamp(lerp(Self.Y, midY, dt*cameraSpeed), oPlayer.Y - cameraRange, oPlayer.Y + cameraRange)"
+							}
+						}
+					],
+					"sid": 587257725412988
+				}
+			],
+			"sid": 480097266371019
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Zoom Speed",
+			"description": "Sets target zoom based on players speed",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "variable",
+					"name": "zoomMod",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 736646982609427
+				},
+				{
+					"eventType": "variable",
+					"name": "camZoomPerc",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 909217672207242
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-start-of-layout",
+							"objectClass": "System",
+							"sid": 838161867989807
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 125654278194623,
+							"parameters": {
+								"variable": "default_CAMSPEEDCOMPARE",
+								"value": "oPlayer.maxSpeed"
+							}
+						}
+					],
+					"sid": 773285703786123
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-tick",
+							"objectClass": "System",
+							"sid": 843260049207403
+						},
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "Cam3D",
+							"sid": 124300694390972,
+							"parameters": {
+								"instance-variable": "locked"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 340323973055613,
+							"parameters": {
+								"variable": "camZoomPerc",
+								"value": "oPlayer.Custom.Speed/default_CAMSPEEDCOMPARE"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 574667611435888,
+							"parameters": {
+								"variable": "zoomMod",
+								"value": "(camZoomPerc*0.1)*2"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Cam3D",
+							"sid": 346565306595149,
+							"parameters": {
+								"instance-variable": "zoomTarget",
+								"value": "1-zoomMod"
+							}
+						}
+					],
+					"sid": 240301083248942
+				}
+			],
+			"sid": 261013039129309
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Locked Behaviour",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"functionName": "CameraUnlock",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "Cam3D",
+							"sid": 465016369190237,
+							"parameters": {
+								"instance-variable": "locked",
+								"value": "false"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 968061963521819,
+							"parameters": {
+								"variable": "cameraSpeed",
+								"value": "default_CAMERA_SPEED"
+							}
+						}
+					],
+					"sid": 820491457716373
+				},
+				{
+					"functionName": "CameraLock",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "targetX",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 359655103116881
+						},
+						{
+							"name": "targetY",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 266779721082565
+						},
+						{
+							"name": "zoom",
+							"type": "number",
+							"initialValue": "1",
+							"comment": "",
+							"sid": 391781856381086
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Cam3D",
+							"sid": 322962439400421,
+							"parameters": {
+								"instance-variable": "targetX",
+								"value": "targetX"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Cam3D",
+							"sid": 575219682991086,
+							"parameters": {
+								"instance-variable": "targetY",
+								"value": "targetY"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Cam3D",
+							"sid": 889144086506508,
+							"parameters": {
+								"instance-variable": "zoomTarget",
+								"value": "zoom"
+							}
+						},
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "Cam3D",
+							"sid": 829381330646344,
+							"parameters": {
+								"instance-variable": "locked",
+								"value": "true"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 157453790701129,
+							"parameters": {
+								"variable": "cameraSpeed",
+								"value": "3"
+							}
+						}
+					],
+					"sid": 383552109918442
+				}
+			],
+			"sid": 822280191858622
+		},
+		{
+			"eventType": "variable",
+			"name": "cameraSpeed",
+			"type": "number",
+			"initialValue": "5",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 298737154163196
+		},
+		{
+			"eventType": "comment",
+			"text": "Controlls camera movement (go to targetXY) and zooming to scale when \"zoom\" tweens are not present"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "every-tick",
+					"objectClass": "System",
+					"sid": 480678856822526
+				}
+			],
+			"actions": [
+				{
+					"id": "set-layout-scale",
+					"objectClass": "System",
+					"sid": 713397831633252,
+					"parameters": {
+						"scale": "Cam3D.zoom"
+					}
+				},
+				{
+					"id": "set-position",
+					"objectClass": "Cam3D",
+					"sid": 296140759525521,
+					"parameters": {
+						"x": "lerp(Self.X, Self.targetX, dt*cameraSpeed)",
+						"y": "lerp(Self.Y, Self.targetY, dt*cameraSpeed)"
+					}
+				}
+			],
+			"sid": 745775342116865,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-playing",
+							"objectClass": "Cam3D",
+							"sid": 688539341248962,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"zoom\""
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Cam3D",
+							"sid": 278631881693070,
+							"parameters": {
+								"instance-variable": "zoom",
+								"value": "lerp(LayoutScale, Cam3D.zoomTarget, Cam3D.zoomSpeed*dt)"
+							}
+						}
+					],
+					"sid": 964312603334515
+				}
+			]
+		}
+	],
+	"sid": 726705351619414
+}

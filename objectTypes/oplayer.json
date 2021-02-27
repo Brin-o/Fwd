@@ -1,0 +1,204 @@
+{
+	"name": "oPlayer",
+	"plugin-id": "Sprite",
+	"sid": 432740973622636,
+	"isGlobal": false,
+	"instanceVariables": [
+		{
+			"name": "minSpeed",
+			"type": "number",
+			"desc": "",
+			"sid": 117877963058306
+		},
+		{
+			"name": "maxSpeed",
+			"type": "number",
+			"desc": "",
+			"sid": 247998571976150
+		},
+		{
+			"name": "bonusSpeed",
+			"type": "number",
+			"desc": "",
+			"sid": 661962059970755
+		},
+		{
+			"name": "deceleration",
+			"type": "number",
+			"desc": "",
+			"sid": 824038755799284
+		},
+		{
+			"name": "acceleration",
+			"type": "number",
+			"desc": "",
+			"sid": 285326206964314
+		},
+		{
+			"name": "accelerationSlider",
+			"type": "number",
+			"desc": "",
+			"sid": 325764357718105
+		},
+		{
+			"name": "break",
+			"type": "number",
+			"desc": "",
+			"sid": 664169674519142
+		},
+		{
+			"name": "speedPercNormal",
+			"type": "number",
+			"desc": "normalised speed perc that does NOT extend above 1",
+			"sid": 147247239591620
+		},
+		{
+			"name": "speedPercAbs",
+			"type": "number",
+			"desc": "absolute speed perc that goes over 1 in case of speedups",
+			"sid": 698175169961506
+		},
+		{
+			"name": "turnSpeed",
+			"type": "number",
+			"desc": "",
+			"sid": 237602917247317
+		},
+		{
+			"name": "turnSpeedMax",
+			"type": "number",
+			"desc": "",
+			"sid": 112404306278015
+		},
+		{
+			"name": "turnSpeedSlider",
+			"type": "number",
+			"desc": "",
+			"sid": 677274229048111
+		},
+		{
+			"name": "HP",
+			"type": "number",
+			"desc": "",
+			"sid": 834135401366170
+		},
+		{
+			"name": "currentDmg",
+			"type": "number",
+			"desc": "",
+			"sid": 984665056998602
+		},
+		{
+			"name": "bulletAmount",
+			"type": "number",
+			"desc": "",
+			"sid": 682556153066185
+		},
+		{
+			"name": "mouseMoveMin",
+			"type": "number",
+			"desc": "The minimum distance between the player and mouse for the rotation to take into effect",
+			"sid": 149961768848633
+		},
+		{
+			"name": "mouseDistance",
+			"type": "number",
+			"desc": "",
+			"sid": 165799937088949
+		},
+		{
+			"name": "mouseAngleDiff",
+			"type": "number",
+			"desc": "angle difference between the player and mouse",
+			"sid": 100766150150968
+		}
+	],
+	"behaviorTypes": [
+		{
+			"behaviorId": "custom",
+			"name": "Custom",
+			"sid": 108809422837811
+		},
+		{
+			"behaviorId": "Timer",
+			"name": "Timer",
+			"sid": 590137576627989
+		},
+		{
+			"behaviorId": "LOS",
+			"name": "LineOfSight",
+			"sid": 979783397631987
+		},
+		{
+			"behaviorId": "Tween",
+			"name": "Tween",
+			"sid": 825394294900177
+		}
+	],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 10,
+						"height": 9,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 8322215,
+						"collisionPoly": {
+							"points": [
+								0.6,
+								0.2222222222222222,
+								0.903125,
+								0.4548611111111113,
+								0.9015625,
+								0.6684027777777778,
+								0.5984375000000002,
+								0.8802083333333335,
+								0.39999999999999947,
+								0.8906249999999994,
+								0.103125,
+								0.6822916666666665,
+								0.10312500000000027,
+								0.440972222222223,
+								0.40468749999999953,
+								0.22395833333333304
+							]
+						},
+						"useCollisionPoly": true,
+						"imagePoints": [
+							{
+								"name": "Image Point 1",
+								"x": 0,
+								"y": 0.5555555555555556
+							},
+							{
+								"name": "Image Point 2",
+								"x": 0.4,
+								"y": 0.2222222222222222
+							},
+							{
+								"name": "Image Point 3",
+								"x": 0.4,
+								"y": 0.7777777777777778
+							}
+						],
+						"duration": 1
+					}
+				],
+				"sid": 357403760473229,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}

@@ -1,0 +1,45 @@
+{
+	"name": "oPlayerTrail",
+	"plugin-id": "Particles",
+	"sid": 398203057547370,
+	"isGlobal": false,
+	"instanceVariables": [
+		{
+			"name": "defaultRate",
+			"type": "number",
+			"desc": "",
+			"sid": 449794053241892
+		}
+	],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Pin",
+			"name": "Pin",
+			"sid": 104152656436382
+		}
+	],
+	"effectTypes": [],
+	"image": {
+		"width": 29,
+		"height": 29,
+		"originX": 0.4482758620689655,
+		"originY": 0.4482758620689655,
+		"originalSource": "",
+		"exportFormat": "png",
+		"exportQuality": 0.8,
+		"imageSpriteId": 2347695,
+		"collisionPoly": {
+			"points": [
+				0.3620689655172414,
+				0.3620689655172414,
+				0.5344827586206896,
+				0.3620689655172414,
+				0.5344827586206896,
+				0.5344827586206896,
+				0.3620689655172414,
+				0.5344827586206896
+			]
+		},
+		"useCollisionPoly": true
+	}
+}

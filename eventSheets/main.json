@@ -1,0 +1,699 @@
+{
+	"name": "Main",
+	"events": [
+		{
+			"eventType": "variable",
+			"name": "TARGET_FPS",
+			"type": "number",
+			"initialValue": "60",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": true,
+			"sid": 370110501780982
+		},
+		{
+			"eventType": "include",
+			"includeSheet": "3D_Camera"
+		},
+		{
+			"eventType": "include",
+			"includeSheet": "Enemies"
+		},
+		{
+			"eventType": "include",
+			"includeSheet": "UI"
+		},
+		{
+			"eventType": "include",
+			"includeSheet": "Player"
+		},
+		{
+			"eventType": "include",
+			"includeSheet": "Fog"
+		},
+		{
+			"eventType": "include",
+			"includeSheet": "SFXMusic"
+		},
+		{
+			"functionName": "Generic Impact",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "create-object",
+					"objectClass": "System",
+					"sid": 915094327160985,
+					"parameters": {
+						"object-to-create": "GenericImpact",
+						"layer": "0",
+						"x": "0",
+						"y": "0",
+						"create-hierarchy": false
+					}
+				}
+			],
+			"sid": 296403968173820
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-key-pressed",
+					"objectClass": "Keyboard",
+					"sid": 107865022824489,
+					"parameters": {
+						"key": 82
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "restart-layout",
+					"objectClass": "System",
+					"sid": 675058772508595
+				},
+				{
+					"id": "set-time-scale",
+					"objectClass": "System",
+					"sid": 384569235239614,
+					"parameters": {
+						"time-scale": "1"
+					}
+				}
+			],
+			"sid": 965468859785745
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-key-pressed",
+					"objectClass": "Keyboard",
+					"sid": 712626199796987,
+					"parameters": {
+						"key": 27
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-time-scale",
+					"objectClass": "System",
+					"sid": 173153270323153,
+					"parameters": {
+						"time-scale": "1"
+					}
+				},
+				{
+					"id": "go-to-layout",
+					"objectClass": "System",
+					"sid": 235468493872375,
+					"parameters": {
+						"layout": "0_Loader"
+					}
+				}
+			],
+			"sid": 768907304641744
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Defeat",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "oPlayer",
+							"sid": 864133690904184,
+							"parameters": {
+								"instance-variable": "HP",
+								"comparison": 3,
+								"value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-visible",
+							"objectClass": "UI_MidText",
+							"sid": 274134298340576,
+							"parameters": {
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-time-scale",
+							"objectClass": "System",
+							"sid": 938870770245315,
+							"parameters": {
+								"time-scale": "0.2"
+							}
+						}
+					],
+					"sid": 296331944375739
+				}
+			],
+			"sid": 700692535099285
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Functions",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "Math",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"functionName": "lenght_dir_x",
+							"functionDescription": "",
+							"functionCategory": "",
+							"functionReturnType": "number",
+							"functionIsAsync": false,
+							"functionParameters": [
+								{
+									"name": "lenght",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "the lenght of where you are going",
+									"sid": 576445205666360
+								},
+								{
+									"name": "direction",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "direction that will get radianed and then sined",
+									"sid": 327655984372918
+								}
+							],
+							"eventType": "function-block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-function-return-value",
+									"objectClass": "Functions",
+									"sid": 857205441564995,
+									"parameters": {
+										"value": "lenght*cos(direction*(pi/180))"
+									}
+								}
+							],
+							"sid": 764756498906534
+						},
+						{
+							"functionName": "lenght_dir_y",
+							"functionDescription": "",
+							"functionCategory": "",
+							"functionReturnType": "number",
+							"functionIsAsync": false,
+							"functionParameters": [
+								{
+									"name": "lenght",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "the lenght of where you are going",
+									"sid": 542761235980450
+								},
+								{
+									"name": "direction",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "direction that will get radianed and then sined",
+									"sid": 344127898954473
+								}
+							],
+							"eventType": "function-block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-function-return-value",
+									"objectClass": "Functions",
+									"sid": 854706594525394,
+									"parameters": {
+										"value": "lenght*-sin(direction*(pi/180))"
+									}
+								}
+							],
+							"sid": 857597156511583
+						},
+						{
+							"functionName": "RoundDec",
+							"functionDescription": "Rounds to decimals",
+							"functionCategory": "Math",
+							"functionReturnType": "number",
+							"functionIsAsync": false,
+							"functionParameters": [
+								{
+									"name": "givenNum",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"sid": 977389062978140
+								},
+								{
+									"name": "decNum",
+									"type": "number",
+									"initialValue": "1",
+									"comment": "",
+									"sid": 127311016831225
+								}
+							],
+							"eventType": "function-block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-function-return-value",
+									"objectClass": "Functions",
+									"sid": 500498777200770,
+									"parameters": {
+										"value": "round(givenNum*10*decNum)/(10*decNum)"
+									}
+								}
+							],
+							"sid": 715370696159893
+						},
+						{
+							"functionName": "Deg2Rad",
+							"functionDescription": "Converts deg to rads",
+							"functionCategory": "Math",
+							"functionReturnType": "number",
+							"functionIsAsync": false,
+							"functionParameters": [
+								{
+									"name": "deg",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"sid": 457623125593442
+								}
+							],
+							"eventType": "function-block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-function-return-value",
+									"objectClass": "Functions",
+									"sid": 735028592664510,
+									"parameters": {
+										"value": "deg*pi/180"
+									}
+								}
+							],
+							"sid": 859236609507838
+						}
+					],
+					"sid": 273602833800681
+				},
+				{
+					"functionName": "SlowMo",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "slowMoAmount",
+							"type": "number",
+							"initialValue": "0.5",
+							"comment": "",
+							"sid": 568295815869428
+						},
+						{
+							"name": "timeInSlowMo",
+							"type": "number",
+							"initialValue": "0.2",
+							"comment": "",
+							"sid": 369354779926412
+						},
+						{
+							"name": "tag",
+							"type": "string",
+							"initialValue": "default",
+							"comment": "the tag that the timer sends out",
+							"sid": 561345848894496
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-time-scale",
+							"objectClass": "System",
+							"sid": 289136949435634,
+							"parameters": {
+								"time-scale": "slowMoAmount"
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 375624134851927,
+							"parameters": {
+								"seconds": "slowMoAmount*timeInSlowMo"
+							}
+						},
+						{
+							"id": "set-time-scale",
+							"objectClass": "System",
+							"sid": 329706446666776,
+							"parameters": {
+								"time-scale": "1"
+							}
+						},
+						{
+							"id": "start-timer",
+							"objectClass": "GameManager",
+							"sid": 472440284689937,
+							"behaviorType": "Timer",
+							"parameters": {
+								"duration": "0.001",
+								"type": "once",
+								"tag": "\"slowMo\" & tag"
+							}
+						}
+					],
+					"sid": 603855054413407
+				}
+			],
+			"sid": 914834893471525
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-created",
+					"objectClass": "DebuggingTXT",
+					"sid": 682604479684233
+				}
+			],
+			"actions": [
+				{
+					"type": "comment",
+					"text": "Clears out default debug messages"
+				},
+				{
+					"id": "set-text",
+					"objectClass": "DebuggingTXT",
+					"sid": 179417114882966,
+					"parameters": {
+						"text": "\"\""
+					}
+				}
+			],
+			"sid": 552310730564534
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Game Manager",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "Completion Time",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "every-tick",
+									"objectClass": "System",
+									"sid": 943455674803539
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "GameManager",
+									"sid": 272095894992729,
+									"parameters": {
+										"instance-variable": "currentTime",
+										"value": "Self.currentTime+dt"
+									}
+								},
+								{
+									"id": "set-text",
+									"objectClass": "UI_Timer",
+									"sid": 830744416975575,
+									"parameters": {
+										"text": "Functions.RoundDec(GameManager.currentTime,1)"
+									}
+								}
+							],
+							"sid": 332547579667714
+						}
+					],
+					"sid": 888500893049678
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "Level Loading",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-start-of-layout",
+									"objectClass": "System",
+									"sid": 126444537130840
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "UI_MidText",
+									"sid": 283467406945497,
+									"parameters": {
+										"text": "\"Starting level: \" & newline & GameManager.levelName"
+									}
+								},
+								{
+									"callFunction": "SlowMo",
+									"sid": 366382653737226,
+									"parameters": [
+										"0.1",
+										"2",
+										"\"Enter\""
+									]
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "UI_MidText",
+									"sid": 349628391815021,
+									"parameters": {
+										"visibility": "visible"
+									}
+								}
+							],
+							"sid": 761032255584011
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-timer",
+									"objectClass": "GameManager",
+									"sid": 645485101827809,
+									"behaviorType": "Timer",
+									"parameters": {
+										"tag": "\"slowMoEnter\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "tween-one-property",
+									"objectClass": "UI_MidText",
+									"sid": 931458023124240,
+									"behaviorType": "Tween",
+									"parameters": {
+										"tags": "\"\"",
+										"property": "offsetOpacity",
+										"end-value": "0",
+										"time": "0.3",
+										"ease": "default",
+										"destroy-on-complete": "no",
+										"loop": "no",
+										"ping-pong": "no"
+									}
+								}
+							],
+							"sid": 658483038619692
+						},
+						{
+							"functionName": "LoadNextLevel",
+							"functionDescription": "",
+							"functionCategory": "",
+							"functionReturnType": "none",
+							"functionIsAsync": false,
+							"functionParameters": [],
+							"eventType": "function-block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "go-to-layout-by-name",
+									"objectClass": "System",
+									"sid": 811831231798518,
+									"parameters": {
+										"layout": "GameManager.nextLevel"
+									}
+								}
+							],
+							"sid": 681716807818407
+						}
+					],
+					"sid": 125708187799006
+				}
+			],
+			"sid": 122921208097431
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Mouse",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-tick",
+							"objectClass": "System",
+							"sid": 472171943887270
+						}
+					],
+					"actions": [
+						{
+							"id": "set-position",
+							"objectClass": "M_Cursor",
+							"sid": 227202894088220,
+							"parameters": {
+								"x": "Mouse.X(\"UI_World\")",
+								"y": "Mouse.Y(\"UI_World\")"
+							}
+						}
+					],
+					"sid": 754629648812394
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-start-of-layout",
+							"objectClass": "System",
+							"sid": 347080088585883
+						}
+					],
+					"actions": [
+						{
+							"id": "set-cursor-style",
+							"objectClass": "Mouse",
+							"sid": 657553055399021,
+							"parameters": {
+								"cursor-style": "none"
+							}
+						},
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 771349515026439,
+							"parameters": {
+								"object-to-create": "M_Cursor",
+								"layer": "\"UI_World\"",
+								"x": "0",
+								"y": "0",
+								"create-hierarchy": false
+							}
+						},
+						{
+							"id": "set-cursor-from-sprite",
+							"objectClass": "Mouse",
+							"sid": 553163237021278,
+							"disabled": true,
+							"parameters": {
+								"sprite": "M_Cursor"
+							}
+						}
+					],
+					"sid": 456620066753629
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "mouse-button-is-down",
+							"objectClass": "Mouse",
+							"sid": 337618796327986,
+							"parameters": {
+								"mouse-button": "left"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "M_Cursor",
+							"sid": 355370089080060,
+							"parameters": {
+								"animation": "\"Held\"",
+								"from": "beginning"
+							}
+						}
+					],
+					"sid": 325988486319225
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "mouse-button-is-down",
+							"objectClass": "Mouse",
+							"sid": 369198738582404,
+							"parameters": {
+								"mouse-button": "left"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "M_Cursor",
+							"sid": 157910590097776,
+							"parameters": {
+								"animation": "\"Released\"",
+								"from": "beginning"
+							}
+						}
+					],
+					"sid": 456112310109619
+				}
+			],
+			"sid": 845359889601874
+		}
+	],
+	"sid": 458086170270198
+}

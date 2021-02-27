@@ -1,0 +1,107 @@
+{
+	"name": "fEnemies",
+	"plugin-id": "Sprite",
+	"sid": 988574620661130,
+	"instanceVariables": [
+		{
+			"name": "attackTimer",
+			"type": "number",
+			"desc": "",
+			"sid": 955793834650468
+		},
+		{
+			"name": "actionTimer",
+			"type": "number",
+			"desc": "",
+			"sid": 602823314673115
+		},
+		{
+			"name": "pauseTime",
+			"type": "number",
+			"desc": "for how long the enemy pauses from shooting",
+			"sid": 421707330716440
+		},
+		{
+			"name": "actionRNG",
+			"type": "number",
+			"desc": "",
+			"sid": 178232664623709
+		},
+		{
+			"name": "HP",
+			"type": "number",
+			"desc": "",
+			"sid": 637479295198505
+		},
+		{
+			"name": "eHP",
+			"type": "number",
+			"desc": "effective hp that is used to calculate if the players shoots at the enemy",
+			"sid": 472088633362370
+		},
+		{
+			"name": "bullSpeed",
+			"type": "number",
+			"desc": "speed of the bullet it spawns",
+			"sid": 210275753181827
+		},
+		{
+			"name": "bullAcc",
+			"type": "number",
+			"desc": "acceleration of the spawned bullet",
+			"sid": 256138047012448
+		},
+		{
+			"name": "bullMin",
+			"type": "number",
+			"desc": "minimum speed for the bullet",
+			"sid": 324999336722584
+		},
+		{
+			"name": "targeted",
+			"type": "boolean",
+			"desc": "",
+			"sid": 386303698683045
+		},
+		{
+			"name": "wasAttacked",
+			"type": "boolean",
+			"desc": "",
+			"sid": 778504665430400
+		},
+		{
+			"name": "hit",
+			"type": "boolean",
+			"desc": "",
+			"sid": 610919577940303
+		}
+	],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Timer",
+			"name": "Timer",
+			"sid": 168039031842225
+		},
+		{
+			"behaviorId": "Tween",
+			"name": "Tween",
+			"sid": 858444349146401
+		},
+		{
+			"behaviorId": "Flash",
+			"name": "Flash",
+			"sid": 817071970881269
+		},
+		{
+			"behaviorId": "Sin",
+			"name": "Sine",
+			"sid": 626700454227964
+		}
+	],
+	"effectTypes": [],
+	"members": [
+		"eCrosser",
+		"primTris_P",
+		"Enemy_P"
+	]
+}

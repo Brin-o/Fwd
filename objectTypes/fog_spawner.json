@@ -1,0 +1,51 @@
+{
+	"name": "Fog_Spawner",
+	"plugin-id": "Particles",
+	"sid": 976107875818051,
+	"isGlobal": false,
+	"instanceVariables": [
+		{
+			"name": "minSize",
+			"type": "number",
+			"desc": "",
+			"sid": 614167182731116
+		},
+		{
+			"name": "maxSize",
+			"type": "number",
+			"desc": "",
+			"sid": 263809006556624
+		},
+		{
+			"name": "minSpeed",
+			"type": "number",
+			"desc": "",
+			"sid": 666758219334861
+		},
+		{
+			"name": "maxSpeed",
+			"type": "number",
+			"desc": "",
+			"sid": 900387653563699
+		}
+	],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Pathfinding",
+			"name": "Pathfinding",
+			"sid": 605619270539471
+		}
+	],
+	"effectTypes": [],
+	"image": {
+		"width": 162,
+		"height": 162,
+		"originX": 0.4691358024691358,
+		"originY": 0.5123456790123457,
+		"originalSource": "",
+		"exportFormat": "png",
+		"exportQuality": 0.8,
+		"imageSpriteId": 7448347,
+		"useCollisionPoly": true
+	}
+}

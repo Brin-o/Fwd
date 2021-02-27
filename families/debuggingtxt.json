@@ -1,0 +1,14 @@
+{
+	"name": "DebuggingTXT",
+	"plugin-id": "Text",
+	"sid": 643676257253877,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"members": [
+		"dbg_Acc",
+		"dbg_Walls",
+		"dbg_Player",
+		"dbgT_HP"
+	]
+}

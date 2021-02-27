@@ -1,0 +1,1214 @@
+{
+	"name": "Enemies",
+	"events": [
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Creation Code",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-created",
+							"objectClass": "fEnemies",
+							"sid": 709362111444665
+						}
+					],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "fEnemies",
+							"sid": 706958980126724,
+							"parameters": {
+								"instance-variable": "eHP",
+								"value": "fEnemies.HP"
+							}
+						}
+					],
+					"sid": 659506486865224
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-created",
+							"objectClass": "fEnemies",
+							"sid": 615105776323486
+						}
+					],
+					"actions": [
+						{
+							"id": "start-timer",
+							"objectClass": "fEnemies",
+							"sid": 537907812664652,
+							"behaviorType": "Timer",
+							"parameters": {
+								"duration": "Self.attackTimer",
+								"type": "regular",
+								"tag": "\"tickAttack\""
+							}
+						},
+						{
+							"id": "start-timer",
+							"objectClass": "fEnemies",
+							"sid": 605726131505008,
+							"behaviorType": "Timer",
+							"parameters": {
+								"duration": "Self.actionTimer",
+								"type": "regular",
+								"tag": "\"tickAction\""
+							}
+						}
+					],
+					"sid": 562830151175669
+				}
+			],
+			"sid": 780304976676467
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Bullet",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-collision-with-another-object",
+							"objectClass": "eBullet",
+							"sid": 114909595306352,
+							"parameters": {
+								"object": "fEnemies"
+							}
+						},
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "eBullet",
+							"sid": 783818535951090,
+							"parameters": {
+								"instance-variable": "bounced"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "fEnemies",
+							"sid": 849535112463089,
+							"parameters": {
+								"instance-variable": "HP",
+								"value": "Self.HP-5"
+							}
+						},
+						{
+							"id": "destroy",
+							"objectClass": "eBullet",
+							"sid": 691486612621004
+						},
+						{
+							"id": "spawn-another-object",
+							"objectClass": "fEnemies",
+							"sid": 754857374984625,
+							"parameters": {
+								"object": "GenericImpact",
+								"layer": "\"Effects\"",
+								"image-point": "0",
+								"create-hierarchy": false
+							}
+						}
+					],
+					"sid": 554983589893499
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "Dead Timer",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-on-screen",
+									"objectClass": "eBullet",
+									"sid": 947863818419747,
+									"isInverted": true
+								},
+								{
+									"id": "is-timer-running",
+									"objectClass": "eBullet",
+									"sid": 788203461414303,
+									"disabled": true,
+									"behaviorType": "Timer",
+									"parameters": {
+										"tag": "\"death\""
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "start-timer",
+									"objectClass": "eBullet",
+									"sid": 442709981860487,
+									"behaviorType": "Timer",
+									"parameters": {
+										"duration": "1.0",
+										"type": "once",
+										"tag": "\"death\""
+									}
+								}
+							],
+							"sid": 102047073092780,
+							"disabled": true
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-timer",
+									"objectClass": "eBullet",
+									"sid": 168780454162879,
+									"behaviorType": "Timer",
+									"parameters": {
+										"tag": "\"death\"\n\n"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "destroy",
+									"objectClass": "eBullet",
+									"sid": 894107197780733
+								}
+							],
+							"sid": 633030461252003,
+							"disabled": true
+						}
+					],
+					"sid": 640138833378277
+				},
+				{
+					"functionName": "ShootBullets",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "startX",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 266964710643592
+						},
+						{
+							"name": "startY",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 848819747897084
+						},
+						{
+							"name": "spawnLayer",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 824751085282612
+						},
+						{
+							"name": "moveOffset",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 368175819405270
+						},
+						{
+							"name": "amount",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 341497684753251
+						},
+						{
+							"name": "angleStart",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 274845480273771
+						},
+						{
+							"name": "angleIncirments",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 435880840709942
+						},
+						{
+							"name": "speed",
+							"type": "number",
+							"initialValue": "300",
+							"comment": "",
+							"sid": 446004651985981
+						},
+						{
+							"name": "acceleration",
+							"type": "number",
+							"initialValue": "-10",
+							"comment": "",
+							"sid": 810044090661828
+						},
+						{
+							"name": "minSpeed",
+							"type": "number",
+							"initialValue": "10",
+							"comment": "",
+							"sid": 930562735870079
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [
+						{
+							"id": "repeat",
+							"objectClass": "System",
+							"sid": 920942716852827,
+							"parameters": {
+								"count": "amount"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 125181646835075,
+							"parameters": {
+								"object-to-create": "eBullet",
+								"layer": "spawnLayer",
+								"x": "startX",
+								"y": "startY",
+								"create-hierarchy": false
+							}
+						},
+						{
+							"id": "move-forward",
+							"objectClass": "eBullet",
+							"sid": 472609304500208,
+							"disabled": true,
+							"parameters": {
+								"distance": "moveOffset"
+							}
+						},
+						{
+							"id": "move-at-angle",
+							"objectClass": "eBullet",
+							"sid": 770789098253898,
+							"parameters": {
+								"angle": "angleStart+(angleIncirments*loopindex)",
+								"distance": "moveOffset"
+							}
+						},
+						{
+							"id": "set-angle",
+							"objectClass": "eBullet",
+							"sid": 895762668754203,
+							"parameters": {
+								"angle": "angleStart+(angleIncirments*loopindex)"
+							}
+						},
+						{
+							"id": "set-acceleration",
+							"objectClass": "eBullet",
+							"sid": 250019266857376,
+							"behaviorType": "Bullet",
+							"parameters": {
+								"acceleration": "acceleration"
+							}
+						},
+						{
+							"id": "set-speed",
+							"objectClass": "eBullet",
+							"sid": 984506746587785,
+							"behaviorType": "Bullet",
+							"parameters": {
+								"speed": "speed"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "eBullet",
+							"sid": 182758423709953,
+							"parameters": {
+								"instance-variable": "minSpeed",
+								"value": "minSpeed"
+							}
+						},
+						{
+							"id": "set-angle-of-motion",
+							"objectClass": "eBullet",
+							"sid": 564873821690288,
+							"behaviorType": "Bullet",
+							"parameters": {
+								"angle": "Self.Angle"
+							}
+						},
+						{
+							"id": "set-enabled",
+							"objectClass": "eBullet",
+							"sid": 669111581015351,
+							"behaviorType": "Bullet",
+							"parameters": {
+								"state": "enabled"
+							}
+						}
+					],
+					"sid": 701256077206494
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-step",
+							"objectClass": "eBullet",
+							"sid": 248736127415644,
+							"behaviorType": "Bullet"
+						}
+					],
+					"actions": [],
+					"sid": 621742714044173,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-speed",
+									"objectClass": "eBullet",
+									"sid": 262226275165560,
+									"behaviorType": "Bullet",
+									"parameters": {
+										"comparison": 3,
+										"speed": "Self.minSpeed"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-acceleration",
+									"objectClass": "eBullet",
+									"sid": 168152610804368,
+									"behaviorType": "Bullet",
+									"parameters": {
+										"acceleration": "0"
+									}
+								},
+								{
+									"id": "set-speed",
+									"objectClass": "eBullet",
+									"sid": 757557020395013,
+									"behaviorType": "Bullet",
+									"parameters": {
+										"speed": "Self.minSpeed"
+									}
+								}
+							],
+							"sid": 198534849140712
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-created",
+							"objectClass": "eBullet",
+							"sid": 285201349017761
+						}
+					],
+					"actions": [
+						{
+							"id": "set-position",
+							"objectClass": "eBullet",
+							"sid": 203224421095908,
+							"parameters": {
+								"x": "Self.X + random(-2,2)",
+								"y": "Self.Y + random(-2,2)"
+							}
+						}
+					],
+					"sid": 444413456493015
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-collision-with-another-object",
+							"objectClass": "eBullet",
+							"sid": 242912789114624,
+							"parameters": {
+								"object": "Walls"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "destroy",
+							"objectClass": "eBullet",
+							"sid": 485366399045426
+						}
+					],
+					"sid": 986061825719398
+				}
+			],
+			"sid": 704784864370946
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "fEnemies",
+					"sid": 508874871703989,
+					"parameters": {
+						"instance-variable": "HP",
+						"comparison": 3,
+						"value": "0"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "spawn-another-object",
+					"objectClass": "fEnemies",
+					"sid": 565241950668789,
+					"parameters": {
+						"object": "GenericImpact",
+						"layer": "fEnemies.LayerName",
+						"image-point": "0",
+						"create-hierarchy": false
+					}
+				},
+				{
+					"id": "set-rate",
+					"objectClass": "GenericImpact",
+					"sid": 498479995658958,
+					"parameters": {
+						"rate": "50"
+					}
+				},
+				{
+					"id": "destroy",
+					"objectClass": "fEnemies",
+					"sid": 922909904830108
+				},
+				{
+					"callFunction": "PlayerSpeedBoost",
+					"sid": 286518949940751,
+					"parameters": [
+						"1",
+						"50"
+					]
+				}
+			],
+			"sid": 855390983084713
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "4-Way-Shooter",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-timer",
+							"objectClass": "eCrosser",
+							"sid": 554859377569195,
+							"behaviorType": "Timer",
+							"parameters": {
+								"tag": "\"tickAttack\""
+							}
+						},
+						{
+							"id": "is-playing",
+							"objectClass": "eCrosser",
+							"sid": 162524987700590,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"move\""
+							},
+							"isInverted": true
+						},
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 403382819535319,
+							"parameters": {
+								"object": "eCrosser"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "ShootBullets",
+							"sid": 463839023982434,
+							"parameters": [
+								"eCrosser.X",
+								"eCrosser.Y",
+								"eCrosser.LayerNumber",
+								"10",
+								"1",
+								"eCrosser.Angle",
+								"90",
+								"eCrosser.bulletSpeed",
+								"eCrosser.bulletAcc",
+								"eCrosser.bulletMinSpeed"
+							]
+						},
+						{
+							"type": "comment",
+							"text": "Cool pattern tukaj "
+						},
+						{
+							"callFunction": "ShootBullets",
+							"sid": 442034824258091,
+							"disabled": true,
+							"parameters": [
+								"eCrosser.X",
+								"eCrosser.Y",
+								"eCrosser.LayerNumber",
+								"10",
+								"2",
+								"eCrosser.Angle-20",
+								"180",
+								"eCrosser.bulletSpeed",
+								"eCrosser.bulletAcc",
+								"eCrosser.bulletMinSpeed"
+							]
+						},
+						{
+							"callFunction": "ShootBullets",
+							"sid": 751107193104740,
+							"disabled": true,
+							"parameters": [
+								"eCrosser.X",
+								"eCrosser.Y",
+								"eCrosser.LayerNumber",
+								"10",
+								"4",
+								"eCrosser.Angle+20",
+								"180",
+								"eCrosser.bulletSpeed",
+								"eCrosser.bulletAcc",
+								"eCrosser.bulletMinSpeed"
+							]
+						}
+					],
+					"sid": 250586435809210
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-timer",
+							"objectClass": "eCrosser",
+							"sid": 818973716229694,
+							"behaviorType": "Timer",
+							"parameters": {
+								"tag": "\"tickAction\""
+							}
+						},
+						{
+							"id": "is-playing",
+							"objectClass": "eCrosser",
+							"sid": 641442293819648,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"move\""
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "tween-one-property",
+							"objectClass": "eCrosser",
+							"sid": 392376894718628,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"move\"",
+								"property": "offsetAngle",
+								"end-value": "Self.Angle + 45",
+								"time": "1",
+								"ease": "noease",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no"
+							}
+						}
+					],
+					"sid": 495881608045860
+				}
+			],
+			"sid": 780181558246096
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Simple Shooter",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-timer",
+							"objectClass": "Enemy_P",
+							"sid": 823013698325654,
+							"behaviorType": "Timer",
+							"parameters": {
+								"tag": "\"tickAttack\""
+							}
+						},
+						{
+							"id": "is-timer-running",
+							"objectClass": "Enemy_P",
+							"sid": 173978053225853,
+							"behaviorType": "Timer",
+							"parameters": {
+								"tag": "\"pause\""
+							},
+							"isInverted": true
+						},
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 757185433434243,
+							"parameters": {
+								"object": "Enemy_P"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "ShootBullets",
+							"sid": 268575713752187,
+							"parameters": [
+								"Enemy_P.X",
+								"Enemy_P.Y",
+								"Enemy_P.LayerNumber",
+								"Enemy_P.Width/2",
+								"1",
+								"Enemy_P.Angle",
+								"0",
+								"Enemy_P.bullSpeed",
+								"Enemy_P.bullAcc",
+								"Enemy_P.bullMin"
+							]
+						}
+					],
+					"sid": 157955121644870
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-timer",
+							"objectClass": "Enemy_P",
+							"sid": 335300658844591,
+							"behaviorType": "Timer",
+							"parameters": {
+								"tag": "\"tickAction\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "start-timer",
+							"objectClass": "Enemy_P",
+							"sid": 762006397851610,
+							"behaviorType": "Timer",
+							"parameters": {
+								"duration": "Self.pauseTime",
+								"type": "once",
+								"tag": "\"pause\""
+							}
+						},
+						{
+							"id": "set-active",
+							"objectClass": "Enemy_P",
+							"sid": 173753679491825,
+							"behaviorType": "Sine",
+							"parameters": {
+								"state": "active"
+							}
+						},
+						{
+							"id": "pause-resume-timer",
+							"objectClass": "Enemy_P",
+							"sid": 300478456470565,
+							"behaviorType": "Timer",
+							"parameters": {
+								"tag": "\"tickAction\"",
+								"state": "paused"
+							}
+						}
+					],
+					"sid": 425707988152041
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-timer",
+							"objectClass": "Enemy_P",
+							"sid": 532674240008236,
+							"behaviorType": "Timer",
+							"parameters": {
+								"tag": "\"pause\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-active",
+							"objectClass": "Enemy_P",
+							"sid": 100978650607786,
+							"behaviorType": "Sine",
+							"parameters": {
+								"state": "inactive"
+							}
+						},
+						{
+							"id": "pause-resume-timer",
+							"objectClass": "Enemy_P",
+							"sid": 316899440699071,
+							"behaviorType": "Timer",
+							"parameters": {
+								"tag": "\"tickAction\"",
+								"state": "resumed"
+							}
+						}
+					],
+					"sid": 432966626564894
+				}
+			],
+			"sid": 442235126428083
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Combat Zone",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-collision-with-another-object",
+							"objectClass": "uCombat_Zone",
+							"sid": 933742741398287,
+							"parameters": {
+								"object": "oPlayer"
+							}
+						},
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "uCombat_Zone",
+							"sid": 917776763118219,
+							"parameters": {
+								"instance-variable": "locked"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "uCombat_Zone",
+							"sid": 780927444867360,
+							"parameters": {
+								"instance-variable": "locked",
+								"value": "true"
+							}
+						},
+						{
+							"callFunction": "CameraLock",
+							"sid": 235922977879253,
+							"parameters": [
+								"uCombat_Zone.X",
+								"uCombat_Zone.Y",
+								"uCombat_Zone.zoomRatio"
+							]
+						},
+						{
+							"type": "comment",
+							"text": "Output the X and Y for debug"
+						},
+						{
+							"id": "set-text",
+							"objectClass": "dbg_Walls",
+							"sid": 505608534887894,
+							"disabled": true,
+							"parameters": {
+								"text": "\"x: \" & uCombat_Zone.X & newline & \"y: \" & uCombat_Zone.Y"
+							}
+						}
+					],
+					"sid": 582533787769044
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "uCombat_Zone",
+							"sid": 195737799201076,
+							"parameters": {
+								"instance-variable": "locked"
+							}
+						},
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "uCombat_Zone",
+							"sid": 663627216890555,
+							"parameters": {
+								"object": "oPlayer"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "uCombat_Zone",
+							"sid": 111979575850823,
+							"parameters": {
+								"instance-variable": "locked",
+								"value": "false"
+							}
+						},
+						{
+							"callFunction": "CameraUnlock",
+							"sid": 798719120982119
+						}
+					],
+					"sid": 309297665224973
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "uCombat_Zone",
+							"sid": 923606803753363,
+							"parameters": {
+								"object": "fEnemies"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "destroy",
+							"objectClass": "uCombat_Laser",
+							"sid": 904462553638945,
+							"disabled": true
+						},
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "uCombat_Zone",
+							"sid": 674381917187991,
+							"parameters": {
+								"instance-variable": "enemiesInside",
+								"value": "false"
+							}
+						}
+					],
+					"sid": 104697531790063
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-destroyed",
+							"objectClass": "uCombat_Zone",
+							"sid": 544430920973092
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "CameraUnlock",
+							"sid": 833877352160480
+						}
+					],
+					"sid": 214485481041371
+				},
+				{
+					"eventType": "comment",
+					"text": "Disable the wall"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "uCombat_Zone",
+							"sid": 620951049432711,
+							"parameters": {
+								"instance-variable": "enemiesInside"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "set-enabled",
+							"objectClass": "uCombat_Laser",
+							"sid": 346995795855445,
+							"behaviorType": "Solid",
+							"parameters": {
+								"state": "disabled"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "uCombat_Laser",
+							"sid": 294650677082428,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						}
+					],
+					"sid": 375028360478825
+				}
+			],
+			"sid": 948095345456248
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Targeting Indicators",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "fEnemies",
+							"sid": 541477553578479,
+							"parameters": {
+								"instance-variable": "targeted"
+							}
+						},
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "fEnemies",
+							"sid": 682660937922415,
+							"parameters": {
+								"instance-variable": "hit"
+							},
+							"isInverted": true
+						},
+						{
+							"id": "pick-children",
+							"objectClass": "fEnemies",
+							"sid": 178979814513682,
+							"parameters": {
+								"child": "eTargeting_Indicator",
+								"which": "own"
+							}
+						}
+					],
+					"actions": [
+						{
+							"type": "comment",
+							"text": "Create a targeting indicator if it it is not yet created"
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "eTargeting_Indicator",
+							"sid": 720692812664064,
+							"parameters": {
+								"visibility": "visible"
+							}
+						}
+					],
+					"sid": 592606810503422
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "fEnemies",
+							"sid": 642508838116881,
+							"parameters": {
+								"instance-variable": "targeted"
+							},
+							"isInverted": true
+						},
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "fEnemies",
+							"sid": 358040822097289,
+							"parameters": {
+								"instance-variable": "hit"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 408865766644369,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-children",
+									"objectClass": "fEnemies",
+									"sid": 531458475251328,
+									"parameters": {
+										"child": "eTargeting_Indicator",
+										"which": "own"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "eTargeting_Indicator",
+									"sid": 286117318422590,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								}
+							],
+							"sid": 697284326965113
+						}
+					],
+					"isOrBlock": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-created",
+							"objectClass": "fEnemies",
+							"sid": 129070221906556
+						}
+					],
+					"actions": [
+						{
+							"id": "spawn-another-object",
+							"objectClass": "fEnemies",
+							"sid": 913646250825978,
+							"parameters": {
+								"object": "eTargeting_Indicator",
+								"layer": "\"UI_World\"",
+								"image-point": "0",
+								"create-hierarchy": false
+							}
+						},
+						{
+							"id": "add-child",
+							"objectClass": "fEnemies",
+							"sid": 307930244118902,
+							"parameters": {
+								"child": "eTargeting_Indicator",
+								"transform-x": true,
+								"transform-y": true,
+								"transform-w": false,
+								"transform-h": false,
+								"transform-a": false,
+								"transform-z-elevation": true,
+								"destroy-with-parent": true
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "eTargeting_Indicator",
+							"sid": 183586523121210,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						}
+					],
+					"sid": 885148599340815
+				}
+			],
+			"sid": 802850572982572
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Moving Walls",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-created",
+							"objectClass": "Wall_Moving",
+							"sid": 779369402997900
+						},
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "Wall_Moving",
+							"sid": 692615586887520,
+							"parameters": {
+								"instance-variable": "moveAtAngle"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-movement",
+							"objectClass": "Wall_Moving",
+							"sid": 739882021191490,
+							"behaviorType": "Sine",
+							"parameters": {
+								"movement": "value-only"
+							}
+						}
+					],
+					"sid": 442214437240096
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "Wall_Moving",
+							"sid": 624078113005846,
+							"parameters": {
+								"instance-variable": "moveAtAngle"
+							}
+						}
+					],
+					"actions": [
+						{
+							"type": "comment",
+							"text": "TODO - Pogruntaj kak narediti movement, ki gre lahko tudi diagonalno??\n"
+						}
+					],
+					"sid": 355326596329705
+				}
+			],
+			"sid": 590537606104792
+		}
+	],
+	"sid": 625380407266723
+}

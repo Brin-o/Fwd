@@ -1,0 +1,29 @@
+{
+	"name": "oSlices",
+	"plugin-id": "Sprite",
+	"sid": 985487098954740,
+	"instanceVariables": [
+		{
+			"name": "stackIndex",
+			"type": "number",
+			"desc": "",
+			"sid": 741482856725212
+		}
+	],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Pin",
+			"name": "Pin",
+			"sid": 275056301966949
+		}
+	],
+	"effectTypes": [],
+	"members": [
+		"oExampleStack",
+		"oDroneStack",
+		"primTris_Stack",
+		"primCube_Stack",
+		"oDust_Stack",
+		"Enemy_Stack"
+	]
+}

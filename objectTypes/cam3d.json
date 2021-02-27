@@ -1,0 +1,103 @@
+{
+	"name": "Cam3D",
+	"plugin-id": "Sprite",
+	"sid": 942949981390086,
+	"isGlobal": false,
+	"instanceVariables": [
+		{
+			"name": "debug",
+			"type": "boolean",
+			"desc": "",
+			"sid": 210864831599095
+		},
+		{
+			"name": "zScale",
+			"type": "number",
+			"desc": "Default amount of distance between the slices",
+			"sid": 732654386245282
+		},
+		{
+			"name": "viewAngle",
+			"type": "number",
+			"desc": "Kind of the camera angle. 1 ~= around 60 deg view",
+			"sid": 310170677872097
+		},
+		{
+			"name": "targetX",
+			"type": "number",
+			"desc": "x position the camera will lerp to",
+			"sid": 429168865586186
+		},
+		{
+			"name": "targetY",
+			"type": "number",
+			"desc": "y position the camera will lerp to",
+			"sid": 110950310531012
+		},
+		{
+			"name": "locked",
+			"type": "boolean",
+			"desc": "",
+			"sid": 106890760372176
+		},
+		{
+			"name": "zoom",
+			"type": "number",
+			"desc": "",
+			"sid": 846803171936830
+		},
+		{
+			"name": "zoomTarget",
+			"type": "number",
+			"desc": "lerps to this zoom level",
+			"sid": 808936596859992
+		},
+		{
+			"name": "zoomSpeed",
+			"type": "number",
+			"desc": "",
+			"sid": 302444562389368
+		}
+	],
+	"behaviorTypes": [
+		{
+			"behaviorId": "scrollto",
+			"name": "ScrollTo",
+			"sid": 567120482470244
+		},
+		{
+			"behaviorId": "Tween",
+			"name": "Tween",
+			"sid": 557903486898397
+		}
+	],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 16,
+						"height": 16,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 6208196,
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 295139872394856,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}

@@ -1,0 +1,84 @@
+{
+	"name": "M_Cursor",
+	"plugin-id": "Sprite",
+	"sid": 996648440632389,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 12,
+						"height": 12,
+						"originX": 0.5,
+						"originY": 0.5833333333333334,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 3429569,
+						"collisionPoly": {
+							"points": [
+								0,
+								0.04487179487179488,
+								1,
+								0.04487179487179488,
+								1,
+								1,
+								0,
+								1
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 973714502556111,
+				"name": "Released",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			},
+			{
+				"frames": [
+					{
+						"width": 12,
+						"height": 12,
+						"originX": 0.5,
+						"originY": 0.5833333333333334,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 6954057,
+						"collisionPoly": {
+							"points": [
+								0,
+								0.04487179487179488,
+								1,
+								0.04487179487179488,
+								1,
+								1,
+								0,
+								1
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 165149641596725,
+				"name": "Held",
+				"isLooping": true,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 8
+			}
+		],
+		"subfolders": []
+	}
+}

@@ -1,0 +1,12 @@
+{
+	"name": "Walls_9p",
+	"plugin-id": "NinePatch",
+	"sid": 490260195063556,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"members": [
+		"Wall_Moving",
+		"uCombat_Laser"
+	]
+}
