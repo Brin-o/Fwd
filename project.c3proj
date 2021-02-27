@@ -365,9 +365,10 @@
 		"items": [
 			"BlockRepository",
 			"ObjectRepository",
-			"Circle",
+			"LevelCombat",
 			"0_Loader",
-			"1_Level_Selector"
+			"1_Level_Selector",
+			"Cricle"
 		],
 		"subfolders": [
 			{

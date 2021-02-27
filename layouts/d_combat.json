@@ -171,7 +171,8 @@
 					"instanceVariables": {
 						"zoomRatio": 0.75,
 						"locked": false,
-						"enemiesInside": true
+						"enemiesInside": true,
+						"unlockAfterEnemies": true
 					},
 					"behaviors": {},
 					"world": {

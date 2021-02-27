@@ -989,7 +989,38 @@
 							}
 						}
 					],
-					"sid": 375028360478825
+					"sid": 375028360478825,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "uCombat_Zone",
+									"sid": 498713035228159,
+									"parameters": {
+										"instance-variable": "unlockAfterEnemies"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "uCombat_Zone",
+									"sid": 772267343206905,
+									"parameters": {
+										"instance-variable": "locked",
+										"value": "false"
+									}
+								},
+								{
+									"callFunction": "CameraUnlock",
+									"sid": 568171880059008
+								}
+							],
+							"sid": 330479712992196
+						}
+					]
 				}
 			],
 			"sid": 948095345456248

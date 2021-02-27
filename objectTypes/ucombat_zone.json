@@ -21,6 +21,12 @@
 			"type": "boolean",
 			"desc": "true until all enemies are kileld",
 			"sid": 586478200983795
+		},
+		{
+			"name": "unlockAfterEnemies",
+			"type": "boolean",
+			"desc": "unlocks the camera after all enemies are defated if true",
+			"sid": 595964594922810
 		}
 	],
 	"behaviorTypes": [],
