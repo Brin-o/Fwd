@@ -396,6 +396,22 @@
 										"height-type": "no",
 										"z": false
 									}
+								},
+								{
+									"id": "set-angle",
+									"objectClass": "oPlayerTrail",
+									"sid": 300755081681275,
+									"parameters": {
+										"angle": "oPlayer.Angle-180"
+									}
+								},
+								{
+									"id": "set-spray-cone",
+									"objectClass": "oPlayerTrail",
+									"sid": 570710885575103,
+									"parameters": {
+										"spray-cone": "20"
+									}
 								}
 							],
 							"sid": 630152358762212

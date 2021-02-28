@@ -227,7 +227,8 @@
 			"uCombat_Zone",
 			"Audio",
 			"TiledBackground",
-			"Wall_Moving"
+			"Wall_Moving",
+			"uFogTrigger"
 		],
 		"subfolders": [
 			{
@@ -388,14 +389,14 @@
 					"Level3",
 					"Level4",
 					"Level6",
+					"Level5_Combat",
 					"Level7",
 					"Level8",
 					"Level9",
 					"Level10",
 					"Level11",
 					"Level12",
-					"Level13",
-					"Level5_Combat"
+					"Level13"
 				],
 				"subfolders": [],
 				"name": "Levels"

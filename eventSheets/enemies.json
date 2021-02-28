@@ -1239,6 +1239,88 @@
 				}
 			],
 			"sid": 590537606104792
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Fog Trigger",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-collision-with-another-object",
+							"objectClass": "uFogTrigger",
+							"sid": 211551638585747,
+							"parameters": {
+								"object": "oPlayer"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 575373760254168,
+							"parameters": {
+								"seconds": "0.3"
+							}
+						},
+						{
+							"callFunction": "SpawnFog",
+							"sid": 708282722765978
+						}
+					],
+					"sid": 720423069181015
+				},
+				{
+					"functionName": "SpawnFog",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 176781281082173,
+							"parameters": {
+								"first-value": "Fog_Spawner.Count",
+								"comparison": 0,
+								"second-value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "spawn-another-object",
+							"objectClass": "uFogTrigger",
+							"sid": 878502425730583,
+							"parameters": {
+								"object": "Fog_Spawner",
+								"layer": "\"Effects\"",
+								"image-point": "0",
+								"create-hierarchy": false
+							}
+						},
+						{
+							"id": "set-speed",
+							"objectClass": "Fog_Spawner",
+							"sid": 438549962922001,
+							"behaviorType": "Pathfinding",
+							"parameters": {
+								"speed": "uFogTrigger.fogSpeed"
+							}
+						}
+					],
+					"sid": 847749542450523
+				}
+			],
+			"sid": 157175107585260
 		}
 	],
 	"sid": 625380407266723
