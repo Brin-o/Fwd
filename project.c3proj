@@ -365,23 +365,9 @@
 		"items": [
 			"BlockRepository",
 			"ObjectRepository",
-			"LevelCombat",
 			"0_Loader",
 			"1_Level_Selector",
-			"Cricle",
-			"Level1",
-			"Level2",
-			"Level3",
-			"Level4",
-			"Level5",
-			"Level6",
-			"Level7",
-			"Level8",
-			"Level9",
-			"Level10",
-			"Level11",
-			"Level12",
-			"Level13"
+			"Cricle"
 		],
 		"subfolders": [
 			{
@@ -391,6 +377,25 @@
 					"C_HardTurns",
 					"D_Combat",
 					"E_Combat2"
+				],
+				"subfolders": [],
+				"name": "OldLevels"
+			},
+			{
+				"items": [
+					"Level1",
+					"Level2",
+					"Level3",
+					"Level4",
+					"Level6",
+					"Level7",
+					"Level8",
+					"Level9",
+					"Level10",
+					"Level11",
+					"Level12",
+					"Level13",
+					"Level5_Combat"
 				],
 				"subfolders": [],
 				"name": "Levels"

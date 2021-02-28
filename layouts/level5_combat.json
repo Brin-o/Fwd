@@ -1,5 +1,5 @@
 {
-	"name": "LevelCombat",
+	"name": "Level5_Combat",
 	"layers": [
 		{
 			"name": "Background",
@@ -1244,39 +1244,6 @@
 							1
 						],
 						"angle": 0,
-						"zElevation": 0
-					}
-				},
-				{
-					"type": "WinArea",
-					"properties": {
-						"left-margin": 8,
-						"right-margin": 8,
-						"top-margin": 8,
-						"bottom-margin": 8,
-						"edges": "tile",
-						"fill": "tile",
-						"initially-visible": true,
-						"origin": "center",
-						"seams": "exact"
-					},
-					"uid": 585,
-					"instanceVariables": {},
-					"behaviors": {},
-					"world": {
-						"x": 2057,
-						"y": 2574,
-						"width": 96,
-						"height": 334.3236019614054,
-						"originX": 0.5,
-						"originY": 0.5,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"angle": 1.2863436520596137,
 						"zElevation": 0
 					}
 				},
@@ -5032,6 +4999,39 @@
 						"angle": 4.454690127159385,
 						"zElevation": 0
 					}
+				},
+				{
+					"type": "WinArea",
+					"properties": {
+						"left-margin": 8,
+						"right-margin": 8,
+						"top-margin": 8,
+						"bottom-margin": 8,
+						"edges": "tile",
+						"fill": "tile",
+						"initially-visible": true,
+						"origin": "center",
+						"seams": "exact"
+					},
+					"uid": 585,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 2057,
+						"y": 2574,
+						"width": 96,
+						"height": 334.3236019614054,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 1.2863436520596137,
+						"zElevation": 0
+					}
 				}
 			],
 			"sid": 494434865189025,
@@ -5822,7 +5822,7 @@
 				{
 					"type": "uCombat_Zone",
 					"properties": {
-						"initially-visible": true,
+						"initially-visible": false,
 						"initial-animation": "Animation 1",
 						"initial-frame": 0,
 						"enable-collisions": true,
@@ -5896,7 +5896,7 @@
 				{
 					"type": "uCombat_Zone",
 					"properties": {
-						"initially-visible": true,
+						"initially-visible": false,
 						"initial-animation": "Animation 1",
 						"initial-frame": 0,
 						"enable-collisions": true,
@@ -5970,7 +5970,7 @@
 				{
 					"type": "uCombat_Zone",
 					"properties": {
-						"initially-visible": true,
+						"initially-visible": false,
 						"initial-animation": "Animation 1",
 						"initial-frame": 0,
 						"enable-collisions": true,
