@@ -75,7 +75,7 @@
 					"eventType": "variable",
 					"name": "graceTime",
 					"type": "number",
-					"initialValue": "0.4",
+					"initialValue": "0.2",
 					"comment": "amount of time the player needs to stay inside of the fog before dealing dmg",
 					"isStatic": false,
 					"isConstant": false,
@@ -406,10 +406,10 @@
 						{
 							"id": "move-at-angle",
 							"objectClass": "Fog_Spawn",
-							"sid": 250553576576980,
+							"sid": 957545636741193,
 							"parameters": {
 								"angle": "Fog_Spawn.targetAngle",
-								"distance": "20*dt"
+								"distance": "Self.speed*dt"
 							}
 						}
 					],
@@ -514,6 +514,54 @@
 						}
 					],
 					"sid": 996263785443224
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-collision-with-another-object",
+							"objectClass": "Fog_Spawn",
+							"sid": 129970597468119,
+							"parameters": {
+								"object": "Walls"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Fog_Spawn",
+							"sid": 959252726963338,
+							"parameters": {
+								"instance-variable": "speed",
+								"value": "0"
+							}
+						},
+						{
+							"id": "stop-all-tweens",
+							"objectClass": "Fog_Spawn",
+							"sid": 701925706925993,
+							"behaviorType": "Tween"
+						},
+						{
+							"id": "tween-two-properties",
+							"objectClass": "Fog_Spawn",
+							"sid": 501165196680165,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"wallStopper\"",
+								"property": "size",
+								"end-x": "Self.Width*0.7",
+								"end-y": "Self.Height*0.7",
+								"time": "5",
+								"ease": "easeoutquint",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no"
+							}
+						}
+					],
+					"sid": 252089810222657
 				}
 			],
 			"sid": 466223764023495

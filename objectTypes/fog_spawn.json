@@ -45,6 +45,12 @@
 			"type": "number",
 			"desc": "",
 			"sid": 233537171371716
+		},
+		{
+			"name": "speed",
+			"type": "number",
+			"desc": "",
+			"sid": 534738590502105
 		}
 	],
 	"behaviorTypes": [

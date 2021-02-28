@@ -508,10 +508,10 @@
 				},
 				{
 					"callFunction": "PlayerSpeedBoost",
-					"sid": 286518949940751,
+					"sid": 578506790402649,
 					"parameters": [
-						"1",
-						"50"
+						"2",
+						"65"
 					]
 				}
 			],

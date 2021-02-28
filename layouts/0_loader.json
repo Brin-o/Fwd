@@ -157,7 +157,7 @@
 						"horizontal-alignment": "center",
 						"vertical-alignment": "center",
 						"wrapping": "word",
-						"initially-visible": false,
+						"initially-visible": true,
 						"origin": "center"
 					},
 					"uid": 500,
@@ -173,7 +173,7 @@
 						"x": 159.50078831160815,
 						"y": 130.8332156889506,
 						"width": 320,
-						"height": 54.550458394326995,
+						"height": 38.32341364123994,
 						"originX": 0.5,
 						"originY": 0.5,
 						"color": [

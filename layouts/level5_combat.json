@@ -288,7 +288,8 @@
 						"targetY": 0,
 						"angleRng": 0,
 						"targetAngle": 0,
-						"graceCurrent": 0
+						"graceCurrent": 0,
+						"speed": 20
 					},
 					"behaviors": {
 						"Tween": {
