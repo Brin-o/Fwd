@@ -388,8 +388,8 @@
 					"Level2",
 					"Level3",
 					"Level4",
+					"Level5",
 					"Level6",
-					"Level5_Combat",
 					"Level7",
 					"Level8",
 					"Level9",
@@ -423,7 +423,78 @@
 			"subfolders": []
 		},
 		"sound": {
-			"items": [],
+			"items": [
+				{
+					"name": "Long Break.mp3",
+					"type": "audio/mpeg",
+					"sid": 859615623674845
+				},
+				{
+					"name": "Motor v1.mp3",
+					"type": "audio/mpeg",
+					"sid": 521769429246509
+				},
+				{
+					"name": "Motor v2.mp3",
+					"type": "audio/mpeg",
+					"sid": 763797387968054
+				},
+				{
+					"name": "Motor v3.mp3",
+					"type": "audio/mpeg",
+					"sid": 756413442042291
+				},
+				{
+					"name": "Player Hit.mp3",
+					"type": "audio/mpeg",
+					"sid": 909710413384239
+				},
+				{
+					"name": "Player Shoot.mp3",
+					"type": "audio/mpeg",
+					"sid": 967480791602583
+				},
+				{
+					"name": "Short Break.mp3",
+					"type": "audio/mpeg",
+					"sid": 537257085816526
+				},
+				{
+					"name": "Target Enemy.mp3",
+					"type": "audio/mpeg",
+					"sid": 303385352604486
+				},
+				{
+					"name": "UI_Error.mp3",
+					"type": "audio/mpeg",
+					"sid": 320203461520962
+				},
+				{
+					"name": "UI_SelectLevel.mp3",
+					"type": "audio/mpeg",
+					"sid": 232894894810870
+				},
+				{
+					"name": "Enemy Shooting.mp3",
+					"type": "audio/mpeg",
+					"sid": 692797408183836
+				},
+				{
+					"name": "Enemy_Destroyed.mp3",
+					"type": "audio/mpeg",
+					"sid": 548125220347021
+				},
+				{
+					"name": "Enemy_Rotating.mp3",
+					"type": "audio/mpeg",
+					"sid": 683157378502397
+				},
+				{
+					"name": "Enemy_ShootingSingle.mp3",
+					"type": "audio/mpeg",
+					"sid": 308867872828104
+				}
+			],
 			"subfolders": []
 		},
 		"music": {

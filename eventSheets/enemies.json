@@ -368,7 +368,30 @@
 							}
 						}
 					],
-					"sid": 701256077206494
+					"sid": 701256077206494,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-on-screen",
+									"objectClass": "eBullet",
+									"sid": 689989468619929
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "Enemy - Shoot",
+									"sid": 746131715537249,
+									"parameters": [
+										"startX",
+										"startY"
+									]
+								}
+							],
+							"sid": 790692076837715
+						}
+					]
 				},
 				{
 					"eventType": "block",
@@ -513,13 +536,17 @@
 						"2",
 						"65"
 					]
+				},
+				{
+					"callFunction": "Enemy - Destroyed",
+					"sid": 963847241635404
 				}
 			],
 			"sid": 855390983084713
 		},
 		{
 			"eventType": "group",
-			"disabled": false,
+			"disabled": true,
 			"title": "4-Way-Shooter",
 			"description": "",
 			"isActiveOnStart": true,
@@ -611,7 +638,8 @@
 							]
 						}
 					],
-					"sid": 250586435809210
+					"sid": 250586435809210,
+					"disabled": true
 				},
 				{
 					"eventType": "block",
@@ -654,7 +682,8 @@
 							}
 						}
 					],
-					"sid": 495881608045860
+					"sid": 495881608045860,
+					"disabled": true
 				}
 			],
 			"sid": 780181558246096
@@ -1076,7 +1105,39 @@
 							}
 						}
 					],
-					"sid": 592606810503422
+					"sid": 592606810503422,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "fEnemies",
+									"sid": 523438901476157,
+									"parameters": {
+										"instance-variable": "targetSFX"
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "Player Target Acq.",
+									"sid": 878429996074723
+								},
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "fEnemies",
+									"sid": 731535991753463,
+									"parameters": {
+										"instance-variable": "targetSFX",
+										"value": "true"
+									}
+								}
+							],
+							"sid": 194296669198661
+						}
+					]
 				},
 				{
 					"eventType": "block",
@@ -1122,6 +1183,15 @@
 									"sid": 286117318422590,
 									"parameters": {
 										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "fEnemies",
+									"sid": 708486049833467,
+									"parameters": {
+										"instance-variable": "targetSFX",
+										"value": "false"
 									}
 								}
 							],

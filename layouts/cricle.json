@@ -1138,10 +1138,11 @@
 						"eHP": 0,
 						"bullSpeed": 200,
 						"bullAcc": -300,
-						"bullMin": 75,
+						"bullMin": 120,
 						"targeted": false,
 						"wasAttacked": false,
 						"hit": false,
+						"targetSFX": false,
 						"bodyType": "static"
 					},
 					"behaviors": {
@@ -1493,7 +1494,8 @@
 						"bullMin": 75,
 						"targeted": false,
 						"wasAttacked": false,
-						"hit": false
+						"hit": false,
+						"targetSFX": false
 					},
 					"behaviors": {
 						"Timer": {
@@ -1574,7 +1576,8 @@
 						"bullMin": 75,
 						"targeted": false,
 						"wasAttacked": false,
-						"hit": false
+						"hit": false,
+						"targetSFX": false
 					},
 					"behaviors": {
 						"Timer": {
@@ -1655,7 +1658,8 @@
 						"bullMin": 75,
 						"targeted": false,
 						"wasAttacked": false,
-						"hit": false
+						"hit": false,
+						"targetSFX": false
 					},
 					"behaviors": {
 						"Timer": {
@@ -1736,7 +1740,8 @@
 						"bullMin": 75,
 						"targeted": false,
 						"wasAttacked": false,
-						"hit": false
+						"hit": false,
+						"targetSFX": false
 					},
 					"behaviors": {
 						"Timer": {
@@ -1817,7 +1822,8 @@
 						"bullMin": 75,
 						"targeted": false,
 						"wasAttacked": false,
-						"hit": false
+						"hit": false,
+						"targetSFX": false
 					},
 					"behaviors": {
 						"Timer": {
@@ -1898,7 +1904,8 @@
 						"bullMin": 75,
 						"targeted": false,
 						"wasAttacked": false,
-						"hit": false
+						"hit": false,
+						"targetSFX": false
 					},
 					"behaviors": {
 						"Timer": {
@@ -1979,7 +1986,8 @@
 						"bullMin": 75,
 						"targeted": false,
 						"wasAttacked": false,
-						"hit": false
+						"hit": false,
+						"targetSFX": false
 					},
 					"behaviors": {
 						"Timer": {
@@ -2060,7 +2068,8 @@
 						"bullMin": 75,
 						"targeted": false,
 						"wasAttacked": false,
-						"hit": false
+						"hit": false,
+						"targetSFX": false
 					},
 					"behaviors": {
 						"Timer": {
@@ -2141,7 +2150,8 @@
 						"bullMin": 75,
 						"targeted": false,
 						"wasAttacked": false,
-						"hit": false
+						"hit": false,
+						"targetSFX": false
 					},
 					"behaviors": {
 						"Timer": {
@@ -2222,7 +2232,8 @@
 						"bullMin": 75,
 						"targeted": false,
 						"wasAttacked": false,
-						"hit": false
+						"hit": false,
+						"targetSFX": false
 					},
 					"behaviors": {
 						"Timer": {
@@ -2366,10 +2377,11 @@
 						"eHP": 0,
 						"bullSpeed": 200,
 						"bullAcc": -300,
-						"bullMin": 75,
+						"bullMin": 120,
 						"targeted": false,
 						"wasAttacked": false,
 						"hit": false,
+						"targetSFX": false,
 						"bodyType": "static"
 					},
 					"behaviors": {

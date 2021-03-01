@@ -992,6 +992,7 @@
 						"targeted": false,
 						"wasAttacked": false,
 						"hit": false,
+						"targetSFX": false,
 						"bodyType": "static"
 					},
 					"behaviors": {
@@ -1332,7 +1333,7 @@
 						"enable-collisions": true,
 						"live-preview": false
 					},
-					"uid": 886,
+					"uid": 1406,
 					"instanceVariables": {},
 					"behaviors": {
 						"Solid": {
@@ -1368,7 +1369,7 @@
 						"enable-collisions": true,
 						"live-preview": false
 					},
-					"uid": 887,
+					"uid": 1385,
 					"instanceVariables": {},
 					"behaviors": {
 						"Solid": {
@@ -1584,7 +1585,7 @@
 						"enable-collisions": true,
 						"live-preview": false
 					},
-					"uid": 888,
+					"uid": 1386,
 					"instanceVariables": {},
 					"behaviors": {
 						"Solid": {
@@ -1620,7 +1621,7 @@
 						"enable-collisions": true,
 						"live-preview": false
 					},
-					"uid": 889,
+					"uid": 1387,
 					"instanceVariables": {},
 					"behaviors": {
 						"Solid": {
@@ -1656,7 +1657,7 @@
 						"enable-collisions": true,
 						"live-preview": false
 					},
-					"uid": 890,
+					"uid": 1409,
 					"instanceVariables": {},
 					"behaviors": {
 						"Solid": {
@@ -1728,7 +1729,7 @@
 						"enable-collisions": true,
 						"live-preview": false
 					},
-					"uid": 892,
+					"uid": 1375,
 					"instanceVariables": {},
 					"behaviors": {
 						"Solid": {
@@ -1764,7 +1765,7 @@
 						"enable-collisions": true,
 						"live-preview": false
 					},
-					"uid": 893,
+					"uid": 1400,
 					"instanceVariables": {},
 					"behaviors": {
 						"Solid": {
@@ -1836,7 +1837,7 @@
 						"enable-collisions": true,
 						"live-preview": false
 					},
-					"uid": 894,
+					"uid": 1390,
 					"instanceVariables": {},
 					"behaviors": {
 						"Solid": {
@@ -1860,6 +1861,42 @@
 							1
 						],
 						"angle": 4.886921905584122,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Wall",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 792,
+					"instanceVariables": {},
+					"behaviors": {
+						"Solid": {
+							"properties": {
+								"enabled": true,
+								"tags": ""
+							}
+						}
+					},
+					"world": {
+						"x": 866.2758529471207,
+						"y": 229.8645350921663,
+						"width": 238.75901218781746,
+						"height": 285.10134299163144,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 3.841772833987417,
 						"zElevation": 0
 					}
 				}
@@ -2084,6 +2121,7 @@
 						"targeted": false,
 						"wasAttacked": false,
 						"hit": false,
+						"targetSFX": false,
 						"bodyType": "static"
 					},
 					"behaviors": {
@@ -2310,8 +2348,8 @@
 					"uid": 703,
 					"instanceVariables": {
 						"currentTime": 0,
-						"nextLevel": "Circle",
-						"levelName": "The Circle"
+						"nextLevel": "Level2",
+						"levelName": "Hanger"
 					},
 					"behaviors": {
 						"Timer": {
@@ -2382,10 +2420,10 @@
 					},
 					"behaviors": {},
 					"world": {
-						"x": 1247.5026296018032,
-						"y": 763.0157776108189,
-						"width": 167.3553719008264,
-						"height": 46.64462809917336,
+						"x": 891.252629601802,
+						"y": 420.51577761081774,
+						"width": 127.35537190082641,
+						"height": 10.811294765839989,
 						"originX": 0.5,
 						"originY": 0.5,
 						"color": [
@@ -2394,7 +2432,7 @@
 							1,
 							1
 						],
-						"angle": 0,
+						"angle": 4.71238898038469,
 						"zElevation": 0
 					}
 				},
@@ -2414,8 +2452,8 @@
 					},
 					"behaviors": {},
 					"world": {
-						"x": 1244.2641385293787,
-						"y": 718.8761107565342,
+						"x": 913.6421780283943,
+						"y": 421.4999999999999,
 						"width": 30.81923890751267,
 						"height": 171.80991735537197,
 						"originX": 0.5,
@@ -2426,7 +2464,7 @@
 							1,
 							0.5
 						],
-						"angle": 1.5389844971600386,
+						"angle": 0,
 						"zElevation": 0
 					}
 				}

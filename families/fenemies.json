@@ -74,6 +74,12 @@
 			"type": "boolean",
 			"desc": "",
 			"sid": 610919577940303
+		},
+		{
+			"name": "targetSFX",
+			"type": "boolean",
+			"desc": "",
+			"sid": 898407406523643
 		}
 	],
 	"behaviorTypes": [

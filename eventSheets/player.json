@@ -643,6 +643,10 @@
 							"sid": 815897154791153
 						},
 						{
+							"callFunction": "Player Hit",
+							"sid": 934766324048219
+						},
+						{
 							"id": "shake",
 							"objectClass": "Cam3D",
 							"sid": 827617473093334,
@@ -674,6 +678,16 @@
 							"parameters": {
 								"variable": "HP_regenProg",
 								"value": "0"
+							}
+						},
+						{
+							"id": "set-speed",
+							"objectClass": "oPlayer",
+							"sid": 837089482014369,
+							"behaviorType": "Custom",
+							"parameters": {
+								"which": "overall",
+								"speed": "oPlayer.Custom.Speed - 100"
 							}
 						}
 					],
@@ -2591,6 +2605,14 @@
 						}
 					],
 					"actions": [
+						{
+							"type": "comment",
+							"text": "TODO - Sound effect for shooting might be weird?"
+						},
+						{
+							"callFunction": "Player Shooting",
+							"sid": 370020113654674
+						},
 						{
 							"id": "create-object",
 							"objectClass": "System",

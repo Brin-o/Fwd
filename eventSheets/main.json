@@ -315,6 +315,63 @@
 								}
 							],
 							"sid": 859236609507838
+						},
+						{
+							"functionName": "Remap",
+							"functionDescription": "",
+							"functionCategory": "",
+							"functionReturnType": "number",
+							"functionIsAsync": false,
+							"functionParameters": [
+								{
+									"name": "value",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"sid": 324994261769714
+								},
+								{
+									"name": "low1",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"sid": 953687917332235
+								},
+								{
+									"name": "high1",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"sid": 858002684092793
+								},
+								{
+									"name": "low2",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"sid": 486082713500179
+								},
+								{
+									"name": "high2",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"sid": 742117124605992
+								}
+							],
+							"eventType": "function-block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-function-return-value",
+									"objectClass": "Functions",
+									"sid": 674961914993016,
+									"parameters": {
+										"value": "low2+(value-low1)*(high2-low2)/(high1-low1)"
+									}
+								}
+							],
+							"sid": 121038172919454
 						}
 					],
 					"sid": 273602833800681
@@ -693,6 +750,27 @@
 				}
 			],
 			"sid": 845359889601874
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 624192145410501
+				}
+			],
+			"actions": [
+				{
+					"id": "set-listener-object",
+					"objectClass": "Audio",
+					"sid": 742086351057362,
+					"parameters": {
+						"object": "Cam3D"
+					}
+				}
+			],
+			"sid": 454655963219854
 		}
 	],
 	"sid": 458086170270198

@@ -2,6 +2,26 @@
 	"name": "SFXMusic",
 	"events": [
 		{
+			"eventType": "variable",
+			"name": "Vol_SFX",
+			"type": "number",
+			"initialValue": "-18",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 219520911603071
+		},
+		{
+			"eventType": "variable",
+			"name": "Vol_Music",
+			"type": "number",
+			"initialValue": "-10",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 416403591807597
+		},
+		{
 			"eventType": "block",
 			"conditions": [
 				{
@@ -43,6 +63,442 @@
 					"sid": 192089019572429
 				}
 			]
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "SFX Functions",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"functionName": "Player Shooting",
+					"functionDescription": "",
+					"functionCategory": "SFX",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 953912790741330,
+							"parameters": {
+								"audio-file": "Player Shoot",
+								"loop": "not-looping",
+								"volume": "Vol_SFX-5",
+								"tag-optional": "\"shoot\""
+							}
+						},
+						{
+							"id": "set-playback-rate",
+							"objectClass": "Audio",
+							"sid": 458426407518378,
+							"parameters": {
+								"tag": "\"shoot\"",
+								"playback-rate": "random(0.9,1.1)"
+							}
+						}
+					],
+					"sid": 834654732444852
+				},
+				{
+					"functionName": "Player Hit",
+					"functionDescription": "",
+					"functionCategory": "SFX",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 766090479427118,
+							"parameters": {
+								"audio-file": "Player Hit",
+								"loop": "not-looping",
+								"volume": "Vol_SFX+5",
+								"tag-optional": "\"hit\""
+							}
+						},
+						{
+							"id": "set-playback-rate",
+							"objectClass": "Audio",
+							"sid": 206829788427503,
+							"parameters": {
+								"tag": "\"hit\"",
+								"playback-rate": "random(0.9,1.1)"
+							}
+						}
+					],
+					"sid": 627794634918812
+				},
+				{
+					"functionName": "Player Target Acq.",
+					"functionDescription": "",
+					"functionCategory": "SFX",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 635725396891291,
+							"parameters": {
+								"audio-file": "Target Enemy",
+								"loop": "not-looping",
+								"volume": "Vol_SFX",
+								"tag-optional": "\"target\""
+							}
+						},
+						{
+							"id": "set-playback-rate",
+							"objectClass": "Audio",
+							"sid": 681537412657315,
+							"parameters": {
+								"tag": "\"target\"",
+								"playback-rate": "random(0.9,1.1)"
+							}
+						}
+					],
+					"sid": 660156569203036
+				},
+				{
+					"functionName": "Player Break",
+					"functionDescription": "",
+					"functionCategory": "SFX",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 860980513996827,
+							"parameters": {
+								"audio-file": "Long Break",
+								"loop": "not-looping",
+								"volume": "0",
+								"tag-optional": "\"\""
+							}
+						}
+					],
+					"sid": 771480085156412
+				},
+				{
+					"functionName": "Player Acceleration",
+					"functionDescription": "ž",
+					"functionCategory": "SFX",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [],
+					"sid": 543291553514644
+				},
+				{
+					"functionName": "Enemy - Shoot",
+					"functionDescription": "",
+					"functionCategory": "SFX",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "currentX",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 650822921962858
+						},
+						{
+							"name": "currentY",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 533385344624696
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 875163025173182,
+							"parameters": {
+								"audio-file": "Enemy_ShootingSingle",
+								"loop": "not-looping",
+								"volume": "Vol_SFX",
+								"tag-optional": "\"eShoot\""
+							}
+						},
+						{
+							"id": "set-playback-rate",
+							"objectClass": "Audio",
+							"sid": 545346267757947,
+							"parameters": {
+								"tag": "\"eShoot\"",
+								"playback-rate": "random(0.95, 1.05)"
+							}
+						}
+					],
+					"sid": 458309784779886
+				},
+				{
+					"functionName": "Enemy - Rotating",
+					"functionDescription": "",
+					"functionCategory": "SFX",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 526862685295688,
+							"parameters": {
+								"audio-file": "Enemy_Rotating",
+								"loop": "not-looping",
+								"volume": "Vol_SFX",
+								"tag-optional": "\"eRotating\""
+							}
+						}
+					],
+					"sid": 777749256502439
+				},
+				{
+					"functionName": "Enemy - Destroyed",
+					"functionDescription": "",
+					"functionCategory": "SFX",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 856586402209194,
+							"parameters": {
+								"audio-file": "Enemy_Destroyed",
+								"loop": "not-looping",
+								"volume": "Vol_SFX",
+								"tag-optional": "\"destroy\""
+							}
+						},
+						{
+							"id": "set-playback-rate",
+							"objectClass": "Audio",
+							"sid": 558973788525560,
+							"parameters": {
+								"tag": "\"destroy\"",
+								"playback-rate": "random(0.95,1.05)"
+							}
+						}
+					],
+					"sid": 549433489997519
+				},
+				{
+					"functionName": "UI - Error",
+					"functionDescription": "",
+					"functionCategory": "SFX",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 279027683638747,
+							"parameters": {
+								"audio-file": "UI_Error",
+								"loop": "not-looping",
+								"volume": "Vol_SFX",
+								"tag-optional": "\"err\""
+							}
+						},
+						{
+							"id": "set-playback-rate",
+							"objectClass": "Audio",
+							"sid": 923874421307265,
+							"parameters": {
+								"tag": "\"err\"",
+								"playback-rate": "random(0.9,1)"
+							}
+						}
+					],
+					"sid": 661789695198817
+				},
+				{
+					"functionName": "UI - Select Level",
+					"functionDescription": "",
+					"functionCategory": "SFX",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 895256193282334,
+							"parameters": {
+								"audio-file": "UI_SelectLevel",
+								"loop": "not-looping",
+								"volume": "Vol_SFX",
+								"tag-optional": "\"select\""
+							}
+						}
+					],
+					"sid": 864637590313886
+				}
+			],
+			"sid": 572123979328932
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Acceleration Sound",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "variable",
+					"name": "motorVolume",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 370579103162783
+				},
+				{
+					"eventType": "variable",
+					"name": "motorSpeed",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 529557003206931
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-speed",
+							"objectClass": "oPlayer",
+							"sid": 775673022036418,
+							"behaviorType": "Custom",
+							"parameters": {
+								"which": "overall",
+								"comparison": 4,
+								"speed": "20"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 292313216346605
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-created",
+							"objectClass": "oPlayer",
+							"sid": 941839519399075
+						}
+					],
+					"actions": [
+						{
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 833987753103262,
+							"parameters": {
+								"audio-file": "Motor v1",
+								"loop": "looping",
+								"volume": "0",
+								"tag-optional": "\"motor\""
+							}
+						}
+					],
+					"sid": 338746512546384
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-tick",
+							"objectClass": "System",
+							"sid": 418461514383073
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 648210960092480,
+							"parameters": {
+								"variable": "motorVolume",
+								"value": "Functions.Remap(oPlayer.speedPercNormal, 0, 1, -20, -10)"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 352755470850437,
+							"parameters": {
+								"variable": "motorSpeed",
+								"value": "0.75 + oPlayer.speedPercNormal"
+							}
+						},
+						{
+							"id": "set-volume",
+							"objectClass": "Audio",
+							"sid": 652911086748187,
+							"parameters": {
+								"tag": "\"motor\"",
+								"db": "motorVolume"
+							}
+						},
+						{
+							"id": "set-playback-rate",
+							"objectClass": "Audio",
+							"sid": 967042767244826,
+							"parameters": {
+								"tag": "\"motor\"",
+								"playback-rate": "motorSpeed"
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "dbg_Player",
+							"sid": 510032811265642,
+							"parameters": {
+								"text": "motorVolume"
+							}
+						}
+					],
+					"sid": 329004094409791
+				}
+			],
+			"sid": 455647147715062
 		}
 	],
 	"sid": 725877451486781

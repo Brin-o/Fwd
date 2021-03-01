@@ -225,7 +225,8 @@
 						"bullMin": 75,
 						"targeted": false,
 						"wasAttacked": false,
-						"hit": false
+						"hit": false,
+						"targetSFX": false
 					},
 					"behaviors": {
 						"Timer": {
@@ -4244,7 +4245,8 @@
 						"bullMin": 75,
 						"targeted": false,
 						"wasAttacked": false,
-						"hit": false
+						"hit": false,
+						"targetSFX": false
 					},
 					"behaviors": {
 						"Timer": {
@@ -4363,6 +4365,7 @@
 						"targeted": false,
 						"wasAttacked": false,
 						"hit": false,
+						"targetSFX": false,
 						"bulletSpeed": 150,
 						"bulletAcc": -20,
 						"bulletMinSpeed": 40,
@@ -4448,6 +4451,7 @@
 						"targeted": false,
 						"wasAttacked": false,
 						"hit": false,
+						"targetSFX": false,
 						"bulletSpeed": 150,
 						"bulletAcc": -20,
 						"bulletMinSpeed": 40,
@@ -4533,6 +4537,7 @@
 						"targeted": false,
 						"wasAttacked": false,
 						"hit": false,
+						"targetSFX": false,
 						"bulletSpeed": 150,
 						"bulletAcc": -20,
 						"bulletMinSpeed": 40,
@@ -4618,6 +4623,7 @@
 						"targeted": false,
 						"wasAttacked": false,
 						"hit": false,
+						"targetSFX": false,
 						"bulletSpeed": 150,
 						"bulletAcc": -20,
 						"bulletMinSpeed": 40,
@@ -4702,7 +4708,8 @@
 						"bullMin": 75,
 						"targeted": false,
 						"wasAttacked": false,
-						"hit": false
+						"hit": false,
+						"targetSFX": false
 					},
 					"behaviors": {
 						"Timer": {
@@ -4784,6 +4791,7 @@
 						"targeted": false,
 						"wasAttacked": false,
 						"hit": false,
+						"targetSFX": false,
 						"bulletSpeed": 150,
 						"bulletAcc": -20,
 						"bulletMinSpeed": 40,
@@ -4869,6 +4877,7 @@
 						"targeted": false,
 						"wasAttacked": false,
 						"hit": false,
+						"targetSFX": false,
 						"bulletSpeed": 150,
 						"bulletAcc": -20,
 						"bulletMinSpeed": 40,
@@ -4954,6 +4963,7 @@
 						"targeted": false,
 						"wasAttacked": false,
 						"hit": false,
+						"targetSFX": false,
 						"bulletSpeed": 150,
 						"bulletAcc": -20,
 						"bulletMinSpeed": 40,
@@ -5039,6 +5049,7 @@
 						"targeted": false,
 						"wasAttacked": false,
 						"hit": false,
+						"targetSFX": false,
 						"bulletSpeed": 150,
 						"bulletAcc": -20,
 						"bulletMinSpeed": 40,
@@ -5123,7 +5134,8 @@
 						"bullMin": 75,
 						"targeted": false,
 						"wasAttacked": false,
-						"hit": false
+						"hit": false,
+						"targetSFX": false
 					},
 					"behaviors": {
 						"Timer": {
@@ -5204,7 +5216,8 @@
 						"bullMin": 75,
 						"targeted": false,
 						"wasAttacked": false,
-						"hit": false
+						"hit": false,
+						"targetSFX": false
 					},
 					"behaviors": {
 						"Timer": {
@@ -5285,7 +5298,8 @@
 						"bullMin": 75,
 						"targeted": false,
 						"wasAttacked": false,
-						"hit": false
+						"hit": false,
+						"targetSFX": false
 					},
 					"behaviors": {
 						"Timer": {
@@ -5366,7 +5380,8 @@
 						"bullMin": 75,
 						"targeted": false,
 						"wasAttacked": false,
-						"hit": false
+						"hit": false,
+						"targetSFX": false
 					},
 					"behaviors": {
 						"Timer": {
@@ -5447,7 +5462,8 @@
 						"bullMin": 75,
 						"targeted": false,
 						"wasAttacked": false,
-						"hit": false
+						"hit": false,
+						"targetSFX": false
 					},
 					"behaviors": {
 						"Timer": {
@@ -5528,7 +5544,8 @@
 						"bullMin": 75,
 						"targeted": false,
 						"wasAttacked": false,
-						"hit": false
+						"hit": false,
+						"targetSFX": false
 					},
 					"behaviors": {
 						"Timer": {
@@ -5831,6 +5848,7 @@
 						"targeted": false,
 						"wasAttacked": false,
 						"hit": false,
+						"targetSFX": false,
 						"bulletSpeed": 150,
 						"bulletAcc": -20,
 						"bulletMinSpeed": 40,

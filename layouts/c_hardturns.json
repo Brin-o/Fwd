@@ -4780,6 +4780,7 @@
 						"targeted": false,
 						"wasAttacked": false,
 						"hit": false,
+						"targetSFX": false,
 						"bodyType": "static"
 					},
 					"behaviors": {
@@ -4849,6 +4850,7 @@
 						"targeted": false,
 						"wasAttacked": false,
 						"hit": false,
+						"targetSFX": false,
 						"bodyType": "static"
 					},
 					"behaviors": {
@@ -4918,6 +4920,7 @@
 						"targeted": false,
 						"wasAttacked": false,
 						"hit": false,
+						"targetSFX": false,
 						"bodyType": "static"
 					},
 					"behaviors": {
@@ -4987,6 +4990,7 @@
 						"targeted": false,
 						"wasAttacked": false,
 						"hit": false,
+						"targetSFX": false,
 						"bodyType": "static"
 					},
 					"behaviors": {
@@ -5056,6 +5060,7 @@
 						"targeted": false,
 						"wasAttacked": false,
 						"hit": false,
+						"targetSFX": false,
 						"bodyType": "static"
 					},
 					"behaviors": {
@@ -5125,6 +5130,7 @@
 						"targeted": false,
 						"wasAttacked": false,
 						"hit": false,
+						"targetSFX": false,
 						"bodyType": "static"
 					},
 					"behaviors": {
@@ -5194,6 +5200,7 @@
 						"targeted": false,
 						"wasAttacked": false,
 						"hit": false,
+						"targetSFX": false,
 						"bodyType": "static"
 					},
 					"behaviors": {
@@ -5263,6 +5270,7 @@
 						"targeted": false,
 						"wasAttacked": false,
 						"hit": false,
+						"targetSFX": false,
 						"bodyType": "static"
 					},
 					"behaviors": {
@@ -5332,6 +5340,7 @@
 						"targeted": false,
 						"wasAttacked": false,
 						"hit": false,
+						"targetSFX": false,
 						"bodyType": "static"
 					},
 					"behaviors": {
@@ -5400,7 +5409,8 @@
 						"bullMin": 75,
 						"targeted": false,
 						"wasAttacked": false,
-						"hit": false
+						"hit": false,
+						"targetSFX": false
 					},
 					"behaviors": {
 						"Timer": {
@@ -5481,7 +5491,8 @@
 						"bullMin": 75,
 						"targeted": false,
 						"wasAttacked": false,
-						"hit": false
+						"hit": false,
+						"targetSFX": false
 					},
 					"behaviors": {
 						"Timer": {
@@ -5562,7 +5573,8 @@
 						"bullMin": 75,
 						"targeted": false,
 						"wasAttacked": false,
-						"hit": false
+						"hit": false,
+						"targetSFX": false
 					},
 					"behaviors": {
 						"Timer": {
@@ -5643,7 +5655,8 @@
 						"bullMin": 75,
 						"targeted": false,
 						"wasAttacked": false,
-						"hit": false
+						"hit": false,
+						"targetSFX": false
 					},
 					"behaviors": {
 						"Timer": {

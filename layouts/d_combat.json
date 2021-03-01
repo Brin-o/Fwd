@@ -1355,6 +1355,7 @@
 						"targeted": false,
 						"wasAttacked": false,
 						"hit": false,
+						"targetSFX": false,
 						"bodyType": "static"
 					},
 					"behaviors": {
@@ -1464,6 +1465,7 @@
 						"targeted": false,
 						"wasAttacked": false,
 						"hit": false,
+						"targetSFX": false,
 						"bodyType": "static"
 					},
 					"behaviors": {
@@ -1533,6 +1535,7 @@
 						"targeted": false,
 						"wasAttacked": false,
 						"hit": false,
+						"targetSFX": false,
 						"bodyType": "static"
 					},
 					"behaviors": {

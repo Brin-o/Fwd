@@ -2,7 +2,7 @@
 	"name": "GameManager",
 	"plugin-id": "Sprite",
 	"sid": 102348355332166,
-	"isGlobal": true,
+	"isGlobal": false,
 	"instanceVariables": [
 		{
 			"name": "currentTime",
