@@ -3626,7 +3626,7 @@
 						"turnSpeed": 4,
 						"turnSpeedMax": 14,
 						"turnSpeedSlider": 6,
-						"HP": 3,
+						"HP": 2,
 						"currentDmg": 5,
 						"bulletAmount": 4,
 						"mouseMoveMin": 30,

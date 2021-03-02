@@ -36,12 +36,19 @@
 								"x": "WinArea.X",
 								"y": "WinArea.Y"
 							}
+						},
+						{
+							"id": "set-rate",
+							"objectClass": "Fog_Spawner",
+							"sid": 931115576356685,
+							"parameters": {
+								"rate": "50"
+							}
 						}
 					],
 					"sid": 254820882082710
 				},
 				{
-					"breakpoint": true,
 					"eventType": "block",
 					"conditions": [
 						{
@@ -71,6 +78,86 @@
 			"description": "",
 			"isActiveOnStart": true,
 			"children": [
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "Offscreen Killer",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-on-screen",
+									"objectClass": "Fog_Spawn",
+									"sid": 396683988146393,
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Fog_Spawn",
+									"sid": 851683690532995,
+									"parameters": {
+										"instance-variable": "offScreenTime",
+										"value": "Self.offScreenTime+dt"
+									}
+								}
+							],
+							"sid": 945166765468345,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Fog_Spawn",
+											"sid": 168068983203143,
+											"parameters": {
+												"instance-variable": "offScreenTime",
+												"comparison": 5,
+												"value": "1"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "destroy",
+											"objectClass": "Fog_Spawn",
+											"sid": 920512123302594
+										}
+									],
+									"sid": 281350050757798
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-on-screen",
+									"objectClass": "Fog_Spawn",
+									"sid": 287476891240012
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Fog_Spawn",
+									"sid": 802575112493146,
+									"parameters": {
+										"instance-variable": "offScreenTime",
+										"value": "0"
+									}
+								}
+							],
+							"sid": 825936543001686
+						}
+					],
+					"sid": 831235005954524
+				},
 				{
 					"eventType": "variable",
 					"name": "graceTime",
@@ -188,6 +275,7 @@
 							"id": "tween-value",
 							"objectClass": "Fog_Spawn",
 							"sid": 999979830554130,
+							"disabled": true,
 							"behaviorType": "Tween",
 							"parameters": {
 								"tags": "\"HSL\"",
@@ -212,66 +300,6 @@
 							"parameters": {
 								"instance-variable": "targetAngle",
 								"value": "angle(Self.X, Self.Y, oPlayer.X, oPlayer.Y) + random(-45,45)"
-							}
-						},
-						{
-							"type": "comment",
-							"text": "Create a \"highlight shadow\""
-						},
-						{
-							"id": "spawn-another-object",
-							"objectClass": "Fog_Spawn",
-							"sid": 334677833479568,
-							"parameters": {
-								"object": "Fog_Spawn_Shadow",
-								"layer": "0",
-								"image-point": "0",
-								"create-hierarchy": false
-							}
-						},
-						{
-							"id": "move-to-top",
-							"objectClass": "Fog_Spawn_Shadow",
-							"sid": 308383565497786
-						},
-						{
-							"id": "move-to-top",
-							"objectClass": "Fog_Spawn",
-							"sid": 170066111776829
-						},
-						{
-							"id": "move-at-angle",
-							"objectClass": "Fog_Spawn_Shadow",
-							"sid": 408714644714207,
-							"parameters": {
-								"angle": "angle(Self.X, Self.Y, oPlayer.X, oPlayer.Y)",
-								"distance": "10"
-							}
-						},
-						{
-							"id": "set-size",
-							"objectClass": "Fog_Spawn_Shadow",
-							"sid": 339938304766642,
-							"parameters": {
-								"width": "1",
-								"height": "1"
-							}
-						},
-						{
-							"id": "tween-two-properties",
-							"objectClass": "Fog_Spawn_Shadow",
-							"sid": 544310556720547,
-							"behaviorType": "Tween",
-							"parameters": {
-								"tags": "\"shadowGrow\"",
-								"property": "size",
-								"end-x": "Fog_Spawn.targetSize",
-								"end-y": "Fog_Spawn.targetSize",
-								"time": "Fog_Spawn.targetAcc*0.9",
-								"ease": "easeoutcubic",
-								"destroy-on-complete": "no",
-								"loop": "no",
-								"ping-pong": "no"
 							}
 						}
 					],
@@ -334,39 +362,6 @@
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "on-tweens-finished",
-							"objectClass": "Fog_Spawn_Shadow",
-							"sid": 340927388329661,
-							"behaviorType": "Tween",
-							"parameters": {
-								"tags": "\"shadowGrow\""
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "tween-one-property",
-							"objectClass": "Fog_Spawn_Shadow",
-							"sid": 743673743393396,
-							"behaviorType": "Tween",
-							"parameters": {
-								"tags": "\"\"",
-								"property": "offsetOpacity",
-								"end-value": "0",
-								"time": "0.5",
-								"ease": "default",
-								"destroy-on-complete": "yes",
-								"loop": "no",
-								"ping-pong": "no"
-							}
-						}
-					],
-					"sid": 851934498330421
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
 							"id": "is-playing",
 							"objectClass": "Fog_Spawn",
 							"sid": 359187002722575,
@@ -388,7 +383,8 @@
 							}
 						}
 					],
-					"sid": 166561362478545
+					"sid": 166561362478545,
+					"disabled": true
 				},
 				{
 					"eventType": "block",
@@ -413,7 +409,8 @@
 							}
 						}
 					],
-					"sid": 391213296644408
+					"sid": 391213296644408,
+					"disabled": true
 				},
 				{
 					"eventType": "block",
@@ -547,6 +544,7 @@
 							"id": "tween-two-properties",
 							"objectClass": "Fog_Spawn",
 							"sid": 501165196680165,
+							"disabled": true,
 							"behaviorType": "Tween",
 							"parameters": {
 								"tags": "\"wallStopper\"",
@@ -589,14 +587,20 @@
 						{
 							"id": "every-tick",
 							"objectClass": "System",
-							"sid": 714728881279775
+							"sid": 714728881279775,
+							"disabled": true
 						}
 					],
 					"actions": [
 						{
+							"type": "comment",
+							"text": "Off due to perfomance issues"
+						},
+						{
 							"id": "set-rate",
 							"objectClass": "Fog_Spawner",
-							"sid": 850147082810297,
+							"sid": 172059925323042,
+							"disabled": true,
 							"parameters": {
 								"rate": "(Self.Pathfinding.Speed/Self.Pathfinding.MaxSpeed)*maxAmount"
 							}
@@ -606,6 +610,27 @@
 				}
 			],
 			"sid": 782657013389672
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "every-tick",
+					"objectClass": "System",
+					"sid": 432210974948411
+				}
+			],
+			"actions": [
+				{
+					"id": "set-text",
+					"objectClass": "dbg_Player",
+					"sid": 344564462664241,
+					"parameters": {
+						"text": "fps"
+					}
+				}
+			],
+			"sid": 306116660611031
 		}
 	],
 	"sid": 793534722171760

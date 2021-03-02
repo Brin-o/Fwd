@@ -6,7 +6,7 @@
 			"overriden": 0,
 			"instances": [
 				{
-					"type": "GameManager",
+					"type": "LevelSettings",
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "Animation 1",
@@ -18,7 +18,8 @@
 					"instanceVariables": {
 						"currentTime": 0,
 						"nextLevel": "B_Escape",
-						"levelName": "Escape"
+						"levelName": "Escape",
+						"levelNum": 1
 					},
 					"behaviors": {
 						"Timer": {
@@ -5776,7 +5777,7 @@
 						"turnSpeed": 4,
 						"turnSpeedMax": 14,
 						"turnSpeedSlider": 6,
-						"HP": 3,
+						"HP": 2,
 						"currentDmg": 5,
 						"bulletAmount": 4,
 						"mouseMoveMin": 30,
@@ -6232,7 +6233,14 @@
 		}
 	],
 	"sid": 536198433810405,
-	"nonworld-instances": [],
+	"nonworld-instances": [
+		{
+			"type": "GameData",
+			"properties": {},
+			"uid": 1428,
+			"instanceVariables": {}
+		}
+	],
 	"effectTypes": [],
 	"width": 3000,
 	"height": 1440,

@@ -36,29 +36,47 @@
 			"includeSheet": "SFXMusic"
 		},
 		{
-			"functionName": "Generic Impact",
-			"functionDescription": "",
-			"functionCategory": "",
-			"functionReturnType": "none",
-			"functionIsAsync": false,
-			"functionParameters": [],
-			"eventType": "function-block",
-			"conditions": [],
-			"actions": [
+			"eventType": "group",
+			"disabled": false,
+			"title": "Set Up",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
 				{
-					"id": "create-object",
-					"objectClass": "System",
-					"sid": 915094327160985,
-					"parameters": {
-						"object-to-create": "GenericImpact",
-						"layer": "0",
-						"x": "0",
-						"y": "0",
-						"create-hierarchy": false
-					}
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-start-of-layout",
+							"objectClass": "System",
+							"sid": 430844355441250
+						}
+					],
+					"actions": [
+						{
+							"id": "set-listener-object",
+							"objectClass": "Audio",
+							"sid": 677885499658054,
+							"parameters": {
+								"object": "Cam3D"
+							}
+						},
+						{
+							"type": "comment",
+							"text": "Clears out default debug messages"
+						},
+						{
+							"id": "set-text",
+							"objectClass": "DebuggingTXT",
+							"sid": 504984771952987,
+							"parameters": {
+								"text": "\"\""
+							}
+						}
+					],
+					"sid": 191892460045298
 				}
 			],
-			"sid": 296403968173820
+			"sid": 354885233789874
 		},
 		{
 			"eventType": "block",
@@ -115,8 +133,12 @@
 					"objectClass": "System",
 					"sid": 235468493872375,
 					"parameters": {
-						"layout": "0_Loader"
+						"layout": "Start"
 					}
+				},
+				{
+					"callFunction": "SFX - Stop Motor",
+					"sid": 903552769866140
 				}
 			],
 			"sid": 768907304641744
@@ -172,6 +194,31 @@
 			"description": "",
 			"isActiveOnStart": true,
 			"children": [
+				{
+					"functionName": "Generic Impact",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 481521633666855,
+							"parameters": {
+								"object-to-create": "GenericImpact",
+								"layer": "0",
+								"x": "0",
+								"y": "0",
+								"create-hierarchy": false
+							}
+						}
+					],
+					"sid": 581405046384687
+				},
 				{
 					"eventType": "group",
 					"disabled": false,
@@ -434,7 +481,7 @@
 						},
 						{
 							"id": "start-timer",
-							"objectClass": "GameManager",
+							"objectClass": "LevelSettings",
 							"sid": 472440284689937,
 							"behaviorType": "Timer",
 							"parameters": {
@@ -448,31 +495,6 @@
 				}
 			],
 			"sid": 914834893471525
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "on-created",
-					"objectClass": "DebuggingTXT",
-					"sid": 682604479684233
-				}
-			],
-			"actions": [
-				{
-					"type": "comment",
-					"text": "Clears out default debug messages"
-				},
-				{
-					"id": "set-text",
-					"objectClass": "DebuggingTXT",
-					"sid": 179417114882966,
-					"parameters": {
-						"text": "\"\""
-					}
-				}
-			],
-			"sid": 552310730564534
 		},
 		{
 			"eventType": "group",
@@ -500,7 +522,7 @@
 							"actions": [
 								{
 									"id": "set-instvar-value",
-									"objectClass": "GameManager",
+									"objectClass": "LevelSettings",
 									"sid": 272095894992729,
 									"parameters": {
 										"instance-variable": "currentTime",
@@ -512,7 +534,7 @@
 									"objectClass": "UI_Timer",
 									"sid": 830744416975575,
 									"parameters": {
-										"text": "Functions.RoundDec(GameManager.currentTime,1)"
+										"text": "Functions.RoundDec(LevelSettings.currentTime,1)"
 									}
 								}
 							],
@@ -543,7 +565,7 @@
 									"objectClass": "UI_MidText",
 									"sid": 283467406945497,
 									"parameters": {
-										"text": "\"Starting level: \" & newline & GameManager.levelName"
+										"text": "\"Starting level: \" & newline & LevelSettings.levelName"
 									}
 								},
 								{
@@ -571,7 +593,7 @@
 							"conditions": [
 								{
 									"id": "on-timer",
-									"objectClass": "GameManager",
+									"objectClass": "LevelSettings",
 									"sid": 645485101827809,
 									"behaviorType": "Timer",
 									"parameters": {
@@ -614,7 +636,7 @@
 									"objectClass": "System",
 									"sid": 811831231798518,
 									"parameters": {
-										"layout": "GameManager.nextLevel"
+										"layout": "LevelSettings.nextLevel"
 									}
 								}
 							],
@@ -750,27 +772,6 @@
 				}
 			],
 			"sid": 845359889601874
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "on-start-of-layout",
-					"objectClass": "System",
-					"sid": 624192145410501
-				}
-			],
-			"actions": [
-				{
-					"id": "set-listener-object",
-					"objectClass": "Audio",
-					"sid": 742086351057362,
-					"parameters": {
-						"object": "Cam3D"
-					}
-				}
-			],
-			"sid": 454655963219854
 		}
 	],
 	"sid": 458086170270198

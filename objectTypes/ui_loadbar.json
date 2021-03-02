@@ -1,0 +1,51 @@
+{
+	"name": "UI_LoadBar",
+	"plugin-id": "TiledBg",
+	"sid": 381220242086952,
+	"isGlobal": false,
+	"instanceVariables": [
+		{
+			"name": "maxSize",
+			"type": "number",
+			"desc": "",
+			"sid": 304946787611085
+		},
+		{
+			"name": "unFillSpeed",
+			"type": "number",
+			"desc": "",
+			"sid": 540928202622714
+		},
+		{
+			"name": "fillSpeed",
+			"type": "number",
+			"desc": "",
+			"sid": 264096227059755
+		},
+		{
+			"name": "complete",
+			"type": "boolean",
+			"desc": "",
+			"sid": 387166349775545
+		}
+	],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Tween",
+			"name": "Tween",
+			"sid": 515217198799307
+		}
+	],
+	"effectTypes": [],
+	"image": {
+		"width": 20,
+		"height": 16,
+		"originX": 0.5,
+		"originY": 0.5,
+		"originalSource": "",
+		"exportFormat": "png",
+		"exportQuality": 0.8,
+		"imageSpriteId": 5237769,
+		"useCollisionPoly": true
+	}
+}

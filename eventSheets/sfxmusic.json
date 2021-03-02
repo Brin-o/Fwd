@@ -453,10 +453,10 @@
 						{
 							"id": "set-eventvar-value",
 							"objectClass": "System",
-							"sid": 648210960092480,
+							"sid": 563439273251956,
 							"parameters": {
 								"variable": "motorVolume",
-								"value": "Functions.Remap(oPlayer.speedPercNormal, 0, 1, -20, -10)"
+								"value": "Functions.Remap(oPlayer.speedPercNormal, 0, 1, -28, -10)"
 							}
 						},
 						{
@@ -485,17 +485,33 @@
 								"tag": "\"motor\"",
 								"playback-rate": "motorSpeed"
 							}
-						},
-						{
-							"id": "set-text",
-							"objectClass": "dbg_Player",
-							"sid": 510032811265642,
-							"parameters": {
-								"text": "motorVolume"
-							}
 						}
 					],
 					"sid": 329004094409791
+				},
+				{
+					"functionName": "SFX - Stop Motor",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "fade-volume",
+							"objectClass": "Audio",
+							"sid": 947455460405965,
+							"parameters": {
+								"tag": "\"motor\"",
+								"db": "-100",
+								"duration": "1",
+								"ending": "stop"
+							}
+						}
+					],
+					"sid": 509369248839761
 				}
 			],
 			"sid": 455647147715062

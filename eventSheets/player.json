@@ -339,10 +339,6 @@
 								"transform-z-elevation": false,
 								"destroy-with-parent": true
 							}
-						},
-						{
-							"type": "comment",
-							"text": "Set up wings"
 						}
 					],
 					"sid": 491193474086222

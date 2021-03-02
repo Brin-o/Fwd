@@ -437,7 +437,8 @@
 						"angleRng": 0,
 						"targetAngle": 0,
 						"graceCurrent": 0,
-						"speed": 20
+						"speed": 20,
+						"offScreenTime": 0
 					},
 					"behaviors": {
 						"Tween": {

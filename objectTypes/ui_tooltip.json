@@ -1,0 +1,20 @@
+{
+	"name": "UI_Tooltip",
+	"plugin-id": "NinePatch",
+	"sid": 281049485482805,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"image": {
+		"width": 40,
+		"height": 40,
+		"originX": 0.5,
+		"originY": 0.5,
+		"originalSource": "",
+		"exportFormat": "png",
+		"exportQuality": 0.8,
+		"imageSpriteId": 1025994,
+		"useCollisionPoly": true
+	}
+}

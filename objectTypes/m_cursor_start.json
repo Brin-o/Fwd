@@ -1,0 +1,49 @@
+{
+	"name": "M_Cursor_Start",
+	"plugin-id": "Sprite",
+	"sid": 382237365168599,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 19,
+						"height": 21,
+						"originX": 0.15789473684210525,
+						"originY": 0.14285714285714285,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 164095,
+						"collisionPoly": {
+							"points": [
+								0,
+								0.05,
+								1,
+								0.05,
+								1,
+								1,
+								0,
+								1
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 569985733916003,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}

@@ -40,6 +40,22 @@
 		},
 		{
 			"type": "plugin",
+			"id": "LocalStorage",
+			"name": "Local storage",
+			"author": "Scirra",
+			"version": "r234.4",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Dictionary",
+			"name": "Dictionary",
+			"author": "Scirra",
+			"version": "r234.4",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
 			"id": "Particles",
 			"name": "Particles",
 			"author": "Scirra",
@@ -95,6 +111,14 @@
 			"bundled": false
 		},
 		{
+			"type": "plugin",
+			"id": "Spritefont2",
+			"name": "Sprite font",
+			"author": "Scirra",
+			"version": "r234.4",
+			"bundled": false
+		},
+		{
 			"type": "behavior",
 			"id": "scrollto",
 			"name": "Scroll To",
@@ -106,6 +130,14 @@
 			"type": "behavior",
 			"id": "Tween",
 			"name": "Tween",
+			"author": "Scirra",
+			"version": "r234.4",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "Timer",
+			"name": "Timer",
 			"author": "Scirra",
 			"version": "r234.4",
 			"bundled": false
@@ -138,14 +170,6 @@
 			"type": "behavior",
 			"id": "destroy",
 			"name": "Destroy outside layout",
-			"author": "Scirra",
-			"version": "r234.4",
-			"bundled": false
-		},
-		{
-			"type": "behavior",
-			"id": "Timer",
-			"name": "Timer",
 			"author": "Scirra",
 			"version": "r234.4",
 			"bundled": false
@@ -221,14 +245,26 @@
 			"Background",
 			"Wall",
 			"WinArea",
-			"GameManager",
 			"UI_Timer",
 			"uCombat_Laser",
 			"uCombat_Zone",
 			"Audio",
 			"TiledBackground",
 			"Wall_Moving",
-			"uFogTrigger"
+			"uFogTrigger",
+			"UI_Text_StartTOP",
+			"UI_LoadingBorder",
+			"TiledBackground2",
+			"UI_LoadBar",
+			"UI_Text_StartMiddle",
+			"UI_LevelPoint",
+			"UI_LevelPointSelected",
+			"UI_LevelPoint_Trail",
+			"UI_Text_LVL_Top",
+			"9patch",
+			"Sprite",
+			"UI_Tooltip_Time",
+			"UI_Tooltip"
 		],
 		"subfolders": [
 			{
@@ -237,7 +273,12 @@
 					"Keyboard",
 					"Cam3D",
 					"M_Cursor",
-					"Browser"
+					"Browser",
+					"M_Cursor_Start",
+					"LevelSettings",
+					"LocalStorage",
+					"GameData",
+					"MenuSettings"
 				],
 				"subfolders": [],
 				"name": "System"
@@ -331,7 +372,10 @@
 			}
 		]
 	},
-	"autosaveData": null,
+	"autosaveData": {
+		"mode": "webfs-local-folder",
+		"name": "Fwd/"
+	},
 	"containers": [
 		{
 			"members": [
@@ -347,6 +391,14 @@
 			"members": [
 				"uCombat_Laser",
 				"uCombat_Zone"
+			],
+			"selectMode": "normal"
+		},
+		{
+			"members": [
+				"UI_LevelPoint",
+				"UI_LevelPoint_Trail",
+				"UI_LevelPointSelected"
 			],
 			"selectMode": "normal"
 		}
@@ -366,9 +418,10 @@
 		"items": [
 			"BlockRepository",
 			"ObjectRepository",
-			"0_Loader",
+			"Start",
 			"1_Level_Selector",
-			"Cricle"
+			"Cricle",
+			"Layout 1"
 		],
 		"subfolders": [
 			{
@@ -413,7 +466,7 @@
 			"Player_Box2D",
 			"Fog",
 			"SFXMusic",
-			"0_Loader"
+			"StartMenu"
 		],
 		"subfolders": []
 	},
@@ -577,7 +630,13 @@
 			"subfolders": []
 		},
 		"general": {
-			"items": [],
+			"items": [
+				{
+					"name": "InitalLevelData.json",
+					"type": "application/json",
+					"sid": 666799027198252
+				}
+			],
 			"subfolders": []
 		}
 	},
@@ -641,5 +700,5 @@
 	},
 	"viewportWidth": 320,
 	"viewportHeight": 240,
-	"firstLayout": "0_Loader"
+	"firstLayout": "Start"
 }

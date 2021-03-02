@@ -1,0 +1,1175 @@
+{
+	"name": "StartMenu",
+	"events": [
+		{
+			"eventType": "variable",
+			"name": "menu_STATE",
+			"type": "string",
+			"initialValue": "START",
+			"comment": "pick between (START, LEVEL, CREDIT)",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 741662201991584
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-clicked",
+					"objectClass": "LoadLvl",
+					"sid": 288332318625145
+				}
+			],
+			"actions": [
+				{
+					"id": "go-to-layout-by-name",
+					"objectClass": "System",
+					"sid": 283319980965514,
+					"parameters": {
+						"layout": "LvlInput.Text"
+					}
+				}
+			],
+			"sid": 291269315207705
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 424779947268538
+				}
+			],
+			"actions": [
+				{
+					"callFunction": "CreateManager",
+					"sid": 148211103167114
+				},
+				{
+					"id": "set-text",
+					"objectClass": "DebuggingTXT",
+					"sid": 435138124071751,
+					"parameters": {
+						"text": "\"\""
+					}
+				},
+				{
+					"id": "set-width",
+					"objectClass": "UI_LoadBar",
+					"sid": 304840750688721,
+					"parameters": {
+						"width": "0"
+					}
+				},
+				{
+					"id": "set-cursor-style",
+					"objectClass": "Mouse",
+					"sid": 111681552852997,
+					"parameters": {
+						"cursor-style": "none"
+					}
+				},
+				{
+					"id": "create-object",
+					"objectClass": "System",
+					"sid": 797198311102718,
+					"parameters": {
+						"object-to-create": "M_Cursor_Start",
+						"layer": "\"Start Screen\"",
+						"x": "Mouse.X",
+						"y": "Mouse.Y",
+						"create-hierarchy": false
+					}
+				},
+				{
+					"callFunction": "GameUI_Deactivate",
+					"sid": 749665689792378
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "UI_LoadingBorder",
+					"sid": 782368055488629,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "UI_Text_StartMiddle",
+					"sid": 261834371363385,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "UI_Text_StartTOP",
+					"sid": 469019300723620,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "check-item-exists",
+					"objectClass": "LocalStorage",
+					"sid": 817991125317281,
+					"parameters": {
+						"key": "\"levelsData\""
+					}
+				}
+			],
+			"sid": 854601553035486,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "MenuSettings",
+							"sid": 566192501292190,
+							"parameters": {
+								"instance-variable": "menuState",
+								"comparison": 0,
+								"value": "\"START\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "Start - Set up",
+							"sid": 261158614887280
+						}
+					],
+					"sid": 697809589279525
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "MenuSettings",
+							"sid": 236620602620090,
+							"parameters": {
+								"instance-variable": "menuState",
+								"comparison": 0,
+								"value": "\"LEVEL\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "LevelSelect - Set up",
+							"sid": 385813027110801
+						}
+					],
+					"sid": 493576813564848
+				}
+			]
+		},
+		{
+			"breakpoint": true,
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-item-exists",
+					"objectClass": "LocalStorage",
+					"sid": 173703357666319,
+					"parameters": {
+						"key": "\"levelsData\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "load",
+					"objectClass": "GameData",
+					"sid": 758461425372257,
+					"parameters": {
+						"json": "LocalStorage.ItemValue"
+					}
+				}
+			],
+			"sid": 538747777530012
+		},
+		{
+			"breakpoint": true,
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-item-missing",
+					"objectClass": "LocalStorage",
+					"sid": 280665414373908,
+					"parameters": {
+						"key": "\"levelsData\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "add-key",
+					"objectClass": "GameData",
+					"sid": 868993536055456,
+					"parameters": {
+						"key": "\"levelsCompleted\"",
+						"value": "4"
+					}
+				},
+				{
+					"id": "set-item",
+					"objectClass": "LocalStorage",
+					"sid": 858601518639505,
+					"parameters": {
+						"key": "GameData.AsJSON",
+						"value": "\"levelsData\""
+					}
+				}
+			],
+			"sid": 467199900406134
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Open Game",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "mouse-button-is-down",
+							"objectClass": "Mouse",
+							"sid": 826478830496372,
+							"parameters": {
+								"mouse-button": "left"
+							}
+						},
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "UI_LoadBar",
+							"sid": 744275743866856,
+							"parameters": {
+								"instance-variable": "complete"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "set-width",
+							"objectClass": "UI_LoadBar",
+							"sid": 464583606592994,
+							"parameters": {
+								"width": "lerp(Self.Width, Self.maxSize+20, dt*4)"
+							}
+						}
+					],
+					"sid": 623112046789359
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 107763313408076
+						},
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "UI_LoadBar",
+							"sid": 285310911970933,
+							"parameters": {
+								"instance-variable": "complete"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "set-width",
+							"objectClass": "UI_LoadBar",
+							"sid": 783950127071201,
+							"parameters": {
+								"width": "Self.Width - (dt*Self.unFillSpeed)"
+							}
+						}
+					],
+					"sid": 348112540625321
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-width",
+							"objectClass": "UI_LoadBar",
+							"sid": 588378170316529,
+							"parameters": {
+								"comparison": 5,
+								"width": "Self.maxSize"
+							}
+						},
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "UI_LoadBar",
+							"sid": 965290016779946,
+							"parameters": {
+								"instance-variable": "complete"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "UI_LoadBar",
+							"sid": 505301586902522,
+							"parameters": {
+								"instance-variable": "complete",
+								"value": "true"
+							}
+						},
+						{
+							"callFunction": "Start - Hide",
+							"sid": 376139687947523
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 826516424159181,
+							"parameters": {
+								"seconds": "0.3"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 470769760953716,
+							"disabled": true,
+							"parameters": {
+								"variable": "menu_STATE",
+								"value": "\"LEVEL\""
+							}
+						},
+						{
+							"callFunction": "LevelSelect - Set up",
+							"sid": 340100908559583
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "MenuSettings",
+							"sid": 669803504729456,
+							"parameters": {
+								"instance-variable": "menuState",
+								"value": "\"LEVEL\""
+							}
+						}
+					],
+					"sid": 319621928727981
+				}
+			],
+			"sid": 393599527098402
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Level Selection",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "variable",
+					"name": "trailSpeed",
+					"type": "number",
+					"initialValue": "8",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 429160401870462
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-created",
+							"objectClass": "UI_LevelPoint_Trail",
+							"sid": 978073824393171
+						}
+					],
+					"actions": [
+						{
+							"id": "set-width",
+							"objectClass": "UI_LevelPoint_Trail",
+							"sid": 245942089310838,
+							"parameters": {
+								"width": "0"
+							}
+						},
+						{
+							"id": "set-position",
+							"objectClass": "UI_LevelPoint_Trail",
+							"sid": 831003663472803,
+							"parameters": {
+								"x": "UI_LevelPoint.X",
+								"y": "UI_LevelPoint.Y"
+							}
+						},
+						{
+							"id": "set-position",
+							"objectClass": "UI_LevelPointSelected",
+							"sid": 550771474621411,
+							"parameters": {
+								"x": "UI_LevelPoint.X",
+								"y": "UI_LevelPoint.Y"
+							}
+						},
+						{
+							"id": "set-opacity",
+							"objectClass": "UI_LevelPointSelected",
+							"sid": 714292815975224,
+							"parameters": {
+								"opacity": "0"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "UI_LevelPoint_Trail",
+							"sid": 550919101694894,
+							"parameters": {
+								"instance-variable": "maxDistance",
+								"value": "distance(Self.X,Self.Y, UI_LevelPoint(UI_LevelPoint.nextLvl).x, UI_LevelPoint(UI_LevelPoint.nextLvl).y) - 20"
+							}
+						},
+						{
+							"id": "move-at-angle",
+							"objectClass": "UI_LevelPoint_Trail",
+							"sid": 649942657286568,
+							"parameters": {
+								"angle": "angle(Self.X, Self.Y,UI_LevelPoint(UI_LevelPoint.nextLvl).x, UI_LevelPoint(UI_LevelPoint.nextLvl).y)",
+								"distance": "10"
+							}
+						},
+						{
+							"id": "set-opacity",
+							"objectClass": "UI_LevelPoint",
+							"sid": 542111573941507,
+							"parameters": {
+								"opacity": "0"
+							}
+						}
+					],
+					"sid": 806980647471247,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "has-key",
+									"objectClass": "GameData",
+									"sid": 398364197718074,
+									"parameters": {
+										"key": "GameData.Get(\"level\" & UI_LevelPoint.levelToLoad & \"time\")"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 327456668200369,
+									"parameters": {
+										"seconds": "0.1"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "UI_LevelPoint",
+									"sid": 393138927675632,
+									"parameters": {
+										"instance-variable": "bestTime",
+										"value": "GameData.Get(\"level\" & UI_LevelPoint.levelToLoad & \"time\")"
+									}
+								}
+							],
+							"sid": 843640628918265
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "MenuSettings",
+							"sid": 799571641378476,
+							"parameters": {
+								"instance-variable": "menuState",
+								"comparison": 0,
+								"value": "\"LEVEL\""
+							}
+						}
+					],
+					"actions": [],
+					"sid": 659254760208823,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for-each",
+									"objectClass": "System",
+									"sid": 768646071796443,
+									"parameters": {
+										"object": "UI_LevelPoint"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 115773016722267,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "UI_LevelPoint",
+											"sid": 807347742434899,
+											"parameters": {
+												"instance-variable": "levelToLoad",
+												"comparison": 4,
+												"value": "GameData.Get(\"levelsCompleted\")"
+											}
+										}
+									],
+									"actions": [
+										{
+											"type": "comment",
+											"text": "Do this to all uncompleted levels"
+										},
+										{
+											"id": "set-animation",
+											"objectClass": "UI_LevelPoint",
+											"sid": 876232535497822,
+											"parameters": {
+												"animation": "\"Uncompleted\"",
+												"from": "beginning"
+											}
+										},
+										{
+											"id": "set-opacity",
+											"objectClass": "UI_LevelPoint",
+											"sid": 141143293164199,
+											"parameters": {
+												"opacity": "50"
+											}
+										},
+										{
+											"id": "set-opacity",
+											"objectClass": "UI_LevelPoint_Trail",
+											"sid": 267991636670546,
+											"parameters": {
+												"opacity": "50"
+											}
+										},
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "UI_LevelPoint",
+											"sid": 338733655002747,
+											"parameters": {
+												"instance-variable": "canEnter",
+												"value": "false"
+											}
+										}
+									],
+									"sid": 488276224399240
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "UI_LevelPoint",
+											"sid": 400501612757264,
+											"parameters": {
+												"instance-variable": "levelToLoad",
+												"comparison": 2,
+												"value": "GameData.Get(\"levelsCompleted\")"
+											}
+										}
+									],
+									"actions": [
+										{
+											"type": "comment",
+											"text": "Do this to all levels that have been completed"
+										},
+										{
+											"id": "set-animation",
+											"objectClass": "UI_LevelPoint",
+											"sid": 581303192506187,
+											"parameters": {
+												"animation": "\"Completed\"",
+												"from": "beginning"
+											}
+										},
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "UI_LevelPoint",
+											"sid": 312213509476199,
+											"parameters": {
+												"instance-variable": "canEnter",
+												"value": "true"
+											}
+										}
+									],
+									"sid": 836642628152555
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "UI_LevelPoint",
+											"sid": 394092643297797,
+											"parameters": {
+												"instance-variable": "levelToLoad",
+												"comparison": 0,
+												"value": "GameData.Get(\"levelsCompleted\") "
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "UI_LevelPoint",
+											"sid": 408541413920350,
+											"parameters": {
+												"instance-variable": "canEnter",
+												"value": "true"
+											}
+										},
+										{
+											"id": "set-opacity",
+											"objectClass": "UI_LevelPoint",
+											"sid": 366471118768149,
+											"parameters": {
+												"opacity": "100"
+											}
+										},
+										{
+											"id": "set-opacity",
+											"objectClass": "UI_LevelPoint_Trail",
+											"sid": 170871754987347,
+											"parameters": {
+												"opacity": "50"
+											}
+										}
+									],
+									"sid": 813109375191853
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for-each",
+									"objectClass": "System",
+									"sid": 961220409666634,
+									"parameters": {
+										"object": "UI_LevelPoint"
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "UI_LevelPoint",
+									"sid": 436253565094882,
+									"parameters": {
+										"instance-variable": "levelToLoad",
+										"comparison": 1,
+										"value": "10"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-width",
+									"objectClass": "UI_LevelPoint_Trail",
+									"sid": 865290473635180,
+									"parameters": {
+										"width": "lerp(Self.Width, Self.maxDistance, dt*(trailSpeed - (0.5*UI_LevelPoint.levelToLoad)))"
+									}
+								},
+								{
+									"id": "set-angle",
+									"objectClass": "UI_LevelPoint_Trail",
+									"sid": 392086216654651,
+									"parameters": {
+										"angle": "angle(Self.X, Self.Y, UI_LevelPoint(UI_LevelPoint.nextLvl).x, UI_LevelPoint(UI_LevelPoint.nextLvl).y)"
+									}
+								}
+							],
+							"sid": 405832404132615,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "UI_LevelPoint",
+											"sid": 941361129672108,
+											"parameters": {
+												"instance-variable": "completed"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-opacity",
+											"objectClass": "UI_LevelPoint_Trail",
+											"sid": 964884580311436,
+											"parameters": {
+												"opacity": "100"
+											}
+										}
+									],
+									"sid": 832412415739029,
+									"disabled": true
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "UI_LevelPoint",
+											"sid": 967022852779528,
+											"parameters": {
+												"instance-variable": "completed"
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "set-opacity",
+											"objectClass": "UI_LevelPoint_Trail",
+											"sid": 470582971153197,
+											"parameters": {
+												"opacity": "20"
+											}
+										}
+									],
+									"sid": 146804646779529,
+									"disabled": true
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "cursor-is-over-object",
+									"objectClass": "Mouse",
+									"sid": 413598260695551,
+									"parameters": {
+										"object": "UI_LevelPoint"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-opacity",
+									"objectClass": "UI_LevelPointSelected",
+									"sid": 249342757316863,
+									"parameters": {
+										"opacity": "100"
+									}
+								}
+							],
+							"sid": 550338439642698
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "cursor-is-over-object",
+									"objectClass": "Mouse",
+									"sid": 691907369178799,
+									"parameters": {
+										"object": "UI_LevelPoint"
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "set-opacity",
+									"objectClass": "UI_LevelPointSelected",
+									"sid": 207165618257425,
+									"parameters": {
+										"opacity": "0"
+									}
+								}
+							],
+							"sid": 524122341771203
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-object-clicked",
+									"objectClass": "Mouse",
+									"sid": 234058707025964,
+									"parameters": {
+										"mouse-button": "left",
+										"click-type": "clicked",
+										"object-clicked": "UI_LevelPoint"
+									}
+								},
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "UI_LevelPoint",
+									"sid": 449300956548856,
+									"parameters": {
+										"instance-variable": "canEnter"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "go-to-layout-by-name",
+									"objectClass": "System",
+									"sid": 938875419155193,
+									"parameters": {
+										"layout": "\"Level\" & UI_LevelPoint.levelToLoad"
+									}
+								},
+								{
+									"callFunction": "GameUI_Activate",
+									"sid": 759117830096180
+								}
+							],
+							"sid": 842898488781033
+						}
+					]
+				}
+			],
+			"sid": 816638940217657
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Mosue - Start",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-tick",
+							"objectClass": "System",
+							"sid": 496717134964528
+						}
+					],
+					"actions": [
+						{
+							"id": "set-position",
+							"objectClass": "M_Cursor_Start",
+							"sid": 138719560709986,
+							"parameters": {
+								"x": "Mouse.X",
+								"y": "Mouse.Y"
+							}
+						}
+					],
+					"sid": 309806559786282
+				}
+			],
+			"sid": 673808243668743
+		},
+		{
+			"functionName": "GameUI_Activate",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "set-layer-visible",
+					"objectClass": "System",
+					"sid": 635466311018044,
+					"parameters": {
+						"layer": "\"DebugInfo\"",
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "set-layer-visible",
+					"objectClass": "System",
+					"sid": 468176097191129,
+					"parameters": {
+						"layer": "\"UI\"",
+						"visibility": "visible"
+					}
+				}
+			],
+			"sid": 550806163889358
+		},
+		{
+			"functionName": "GameUI_Deactivate",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "set-layer-visible",
+					"objectClass": "System",
+					"sid": 440945511436935,
+					"parameters": {
+						"layer": "\"DebugInfo\"",
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-layer-visible",
+					"objectClass": "System",
+					"sid": 601199293243567,
+					"parameters": {
+						"layer": "\"UI\"",
+						"visibility": "invisible"
+					}
+				}
+			],
+			"sid": 700083814090680
+		},
+		{
+			"functionName": "CreateManager",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [],
+			"sid": 791877809294459
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Transition Animations",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"functionName": "LevelSelect - Set up",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "tween-one-property",
+							"objectClass": "UI_Text_LVL_Top",
+							"sid": 979854516253800,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"\"",
+								"property": "offsetY",
+								"end-value": "24",
+								"time": "0.7 + random(0.1)",
+								"ease": "easeoutback",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no"
+							}
+						}
+					],
+					"sid": 770797163667252,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for-each",
+									"objectClass": "System",
+									"sid": 985978975080597,
+									"parameters": {
+										"object": "UI_LevelPoint"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "tween-one-property",
+									"objectClass": "UI_LevelPoint",
+									"sid": 519282714216450,
+									"behaviorType": "Tween",
+									"parameters": {
+										"tags": "\"\"",
+										"property": "offsetOpacity",
+										"end-value": "100",
+										"time": "0.2 + random(0, 0.05)",
+										"ease": "default",
+										"destroy-on-complete": "no",
+										"loop": "no",
+										"ping-pong": "no"
+									}
+								},
+								{
+									"id": "tween-two-properties",
+									"objectClass": "UI_LevelPoint",
+									"sid": 377821823985729,
+									"behaviorType": "Tween",
+									"parameters": {
+										"tags": "\"\"",
+										"property": "scale",
+										"end-x": "1.25",
+										"end-y": "1.25",
+										"time": "0.1 + random(0, 0.1)",
+										"ease": "easeoutback",
+										"destroy-on-complete": "no",
+										"loop": "no",
+										"ping-pong": "yes"
+									}
+								},
+								{
+									"id": "tween-one-property",
+									"objectClass": "UI_LevelPoint",
+									"sid": 206539753593739,
+									"behaviorType": "Tween",
+									"parameters": {
+										"tags": "\"\"",
+										"property": "offsetAngle",
+										"end-value": "Self.Angle + 180 +180*floor(random(3))",
+										"time": "0.15 + random(0, 0.1)",
+										"ease": "easeoutback",
+										"destroy-on-complete": "no",
+										"loop": "no",
+										"ping-pong": "no"
+									}
+								},
+								{
+									"id": "move-to-top",
+									"objectClass": "M_Cursor_Start",
+									"sid": 418125058761364
+								}
+							],
+							"sid": 889012979405671
+						}
+					]
+				},
+				{
+					"functionName": "Start - Set up",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-visible",
+							"objectClass": "UI_LoadingBorder",
+							"sid": 147185885273153,
+							"parameters": {
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "UI_Text_StartMiddle",
+							"sid": 398188046950545,
+							"parameters": {
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "UI_Text_StartTOP",
+							"sid": 287293519936678,
+							"parameters": {
+								"visibility": "visible"
+							}
+						}
+					],
+					"sid": 381468036725765
+				},
+				{
+					"functionName": "Start - Hide",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "tween-one-property",
+							"objectClass": "UI_LoadingBorder",
+							"sid": 823637494902436,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"\"",
+								"property": "offsetY",
+								"end-value": "Self.Y + 100",
+								"time": "0.45",
+								"ease": "easeinback",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no"
+							}
+						},
+						{
+							"id": "tween-one-property",
+							"objectClass": "UI_Text_StartMiddle",
+							"sid": 841523588007828,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"transition\"",
+								"property": "offsetY",
+								"end-value": "300",
+								"time": "0.55",
+								"ease": "easeinback",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no"
+							}
+						},
+						{
+							"id": "tween-one-property",
+							"objectClass": "UI_Text_StartTOP",
+							"sid": 819195106734119,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"\"",
+								"property": "offsetY",
+								"end-value": "300",
+								"time": "0.65",
+								"ease": "easeinback",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no"
+							}
+						}
+					],
+					"sid": 635707224897864
+				}
+			],
+			"sid": 615404550021500
+		}
+	],
+	"sid": 328680817600631
+}

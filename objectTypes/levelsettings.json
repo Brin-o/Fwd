@@ -1,5 +1,5 @@
 {
-	"name": "GameManager",
+	"name": "LevelSettings",
 	"plugin-id": "Sprite",
 	"sid": 102348355332166,
 	"isGlobal": false,
@@ -21,6 +21,12 @@
 			"type": "string",
 			"desc": "",
 			"sid": 326313465373521
+		},
+		{
+			"name": "levelNum",
+			"type": "number",
+			"desc": "",
+			"sid": 293917641868484
 		}
 	],
 	"behaviorTypes": [
@@ -43,7 +49,7 @@
 						"originalSource": "",
 						"exportFormat": "png",
 						"exportQuality": 0.8,
-						"imageSpriteId": 8206667,
+						"imageSpriteId": 3624159,
 						"useCollisionPoly": true,
 						"duration": 1
 					}

@@ -51,6 +51,12 @@
 			"type": "number",
 			"desc": "",
 			"sid": 534738590502105
+		},
+		{
+			"name": "offScreenTime",
+			"type": "number",
+			"desc": "countTimeWhenOffscreen",
+			"sid": 543283541675232
 		}
 	],
 	"behaviorTypes": [

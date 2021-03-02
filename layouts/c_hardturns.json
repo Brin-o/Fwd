@@ -5854,7 +5854,7 @@
 						"turnSpeed": 4,
 						"turnSpeedMax": 14,
 						"turnSpeedSlider": 6,
-						"HP": 3,
+						"HP": 2,
 						"currentDmg": 5,
 						"bulletAmount": 4,
 						"mouseMoveMin": 30,
@@ -5904,7 +5904,7 @@
 					}
 				},
 				{
-					"type": "GameManager",
+					"type": "LevelSettings",
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "Animation 1",
@@ -5916,7 +5916,8 @@
 					"instanceVariables": {
 						"currentTime": 0,
 						"nextLevel": "Circle",
-						"levelName": "The Twist"
+						"levelName": "The Twist",
+						"levelNum": 1
 					},
 					"behaviors": {
 						"Timer": {
