@@ -216,7 +216,7 @@
 						"life-speed-randomiser": 0,
 						"opacity-randomiser": 0,
 						"destroy-mode": "timeout-expired",
-						"timeout": 5
+						"timeout": 20
 					},
 					"uid": 329,
 					"instanceVariables": {
@@ -5481,8 +5481,8 @@
 						}
 					},
 					"world": {
-						"x": 2217.465015612176,
-						"y": 706.855801873461,
+						"x": 2154.032888218271,
+						"y": 677.4934082017344,
 						"width": 22,
 						"height": 22,
 						"originX": 0.5,
@@ -5493,7 +5493,7 @@
 							1,
 							1
 						],
-						"angle": 2.356194490192345,
+						"angle": 1.8657231323336587,
 						"zElevation": 0
 					}
 				},
@@ -6005,12 +6005,12 @@
 						"zoomRatio": 0.5,
 						"locked": false,
 						"enemiesInside": true,
-						"unlockAfterEnemies": true
+						"unlockAfterEnemies": false
 					},
 					"behaviors": {},
 					"world": {
-						"x": 2200.843786318869,
-						"y": 1215.865957882843,
+						"x": 2217,
+						"y": 1199,
 						"width": 583.0648546772371,
 						"height": 386.0569307711969,
 						"originX": 0.5,
@@ -6021,7 +6021,7 @@
 							1,
 							0.2
 						],
-						"angle": 0.6421222396951015,
+						"angle": 0.47829419942336676,
 						"zElevation": 0
 					}
 				}

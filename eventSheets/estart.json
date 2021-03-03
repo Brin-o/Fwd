@@ -71,18 +71,6 @@
 					}
 				},
 				{
-					"id": "create-object",
-					"objectClass": "System",
-					"sid": 797198311102718,
-					"parameters": {
-						"object-to-create": "M_Cursor_Start",
-						"layer": "\"Start Screen\"",
-						"x": "Mouse.X",
-						"y": "Mouse.Y",
-						"create-hierarchy": false
-					}
-				},
-				{
 					"callFunction": "GameUI_Deactivate",
 					"sid": 749665689792378
 				},
@@ -196,7 +184,7 @@
 			"actions": [
 				{
 					"id": "load",
-					"objectClass": "TipsArray",
+					"objectClass": "StringArray",
 					"sid": 222532794918896,
 					"parameters": {
 						"json": "AJAX.LastData"
@@ -1050,11 +1038,46 @@
 									}
 								},
 								{
+									"callFunction": "UI - Select Level",
+									"sid": 455541430807156
+								},
+								{
 									"callFunction": "GameUI_Activate",
 									"sid": 759117830096180
 								}
 							],
 							"sid": 842898488781033
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-object-clicked",
+									"objectClass": "Mouse",
+									"sid": 225377370782087,
+									"parameters": {
+										"mouse-button": "left",
+										"click-type": "clicked",
+										"object-clicked": "UI_LevelPoint"
+									}
+								},
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "UI_LevelPoint",
+									"sid": 245087206182676,
+									"parameters": {
+										"instance-variable": "canEnter"
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "UI - Error",
+									"sid": 420996752810149
+								}
+							],
+							"sid": 792027210025276
 						}
 					]
 				}

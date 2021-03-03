@@ -1,5 +1,5 @@
 {
-	"name": "Enemies",
+	"name": "eEnemies",
 	"events": [
 		{
 			"eventType": "group",
@@ -966,23 +966,6 @@
 					"sid": 104697531790063
 				},
 				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-destroyed",
-							"objectClass": "uCombat_Zone",
-							"sid": 544430920973092
-						}
-					],
-					"actions": [
-						{
-							"callFunction": "CameraUnlock",
-							"sid": 833877352160480
-						}
-					],
-					"sid": 214485481041371
-				},
-				{
 					"eventType": "comment",
 					"text": "Disable the wall"
 				},
@@ -1029,6 +1012,14 @@
 									"sid": 498713035228159,
 									"parameters": {
 										"instance-variable": "unlockAfterEnemies"
+									}
+								},
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "uCombat_Zone",
+									"sid": 348624325695516,
+									"parameters": {
+										"instance-variable": "locked"
 									}
 								}
 							],

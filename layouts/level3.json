@@ -3222,7 +3222,7 @@
 					"instanceVariables": {
 						"currentTime": 0,
 						"nextLevel": "Level4",
-						"levelName": "The Enemy",
+						"levelName": "The Ambush",
 						"levelNum": 3
 					},
 					"behaviors": {

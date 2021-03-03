@@ -114,11 +114,11 @@
 										{
 											"id": "compare-instance-variable",
 											"objectClass": "Fog_Spawn",
-											"sid": 168068983203143,
+											"sid": 466499681332718,
 											"parameters": {
 												"instance-variable": "offScreenTime",
 												"comparison": 5,
-												"value": "1"
+												"value": "5"
 											}
 										}
 									],

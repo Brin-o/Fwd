@@ -1,7 +1,7 @@
 {
 	"projectFormatVersion": 1,
 	"savedWithRelease": 23404,
-	"name": "VoidHeart",
+	"name": "fwd",
 	"runtime": "c3",
 	"useWorker": "auto",
 	"bundleAddons": true,
@@ -287,7 +287,10 @@
 			"UI_Load_Text1",
 			"UI_Load_Text2",
 			"UI_Load_Text3",
-			"TipsArray"
+			"StringArray",
+			"GameManager",
+			"uMusic_Transition",
+			"UI_MiddleText"
 		],
 		"subfolders": [
 			{
@@ -443,9 +446,7 @@
 			"BlockRepository",
 			"ObjectRepository",
 			"Start",
-			"1_Level_Selector",
 			"Cricle",
-			"Layout 1",
 			"Credits"
 		],
 		"subfolders": [
@@ -486,7 +487,7 @@
 			"e3D_Camera",
 			"eMain",
 			"ePlayer",
-			"Enemies",
+			"eEnemies",
 			"eUI",
 			"eFog",
 			"eSFXMusic",
@@ -503,74 +504,124 @@
 		"sound": {
 			"items": [
 				{
-					"name": "Long Break.mp3",
+					"name": "OLD_Long Break.mp3",
 					"type": "audio/mpeg",
 					"sid": 859615623674845
 				},
 				{
-					"name": "Motor v1.mp3",
+					"name": "OLD_Motor v1.mp3",
 					"type": "audio/mpeg",
 					"sid": 521769429246509
 				},
 				{
-					"name": "Motor v2.mp3",
-					"type": "audio/mpeg",
-					"sid": 763797387968054
-				},
-				{
-					"name": "Motor v3.mp3",
-					"type": "audio/mpeg",
-					"sid": 756413442042291
-				},
-				{
-					"name": "Player Hit.mp3",
+					"name": "OLD_Player Hit.mp3",
 					"type": "audio/mpeg",
 					"sid": 909710413384239
 				},
 				{
-					"name": "Player Shoot.mp3",
+					"name": "OLD_Player Shoot.mp3",
 					"type": "audio/mpeg",
 					"sid": 967480791602583
 				},
 				{
-					"name": "Short Break.mp3",
+					"name": "OLD_Short Break.mp3",
 					"type": "audio/mpeg",
 					"sid": 537257085816526
 				},
 				{
-					"name": "Target Enemy.mp3",
+					"name": "OLD_Target Enemy.mp3",
 					"type": "audio/mpeg",
 					"sid": 303385352604486
 				},
 				{
-					"name": "UI_Error.mp3",
+					"name": "OLD_UI_Error.mp3",
 					"type": "audio/mpeg",
 					"sid": 320203461520962
 				},
 				{
-					"name": "UI_SelectLevel.mp3",
+					"name": "OLD_UI_SelectLevel.mp3",
 					"type": "audio/mpeg",
 					"sid": 232894894810870
 				},
 				{
-					"name": "Enemy Shooting.mp3",
+					"name": "OLD_Enemy Shooting.mp3",
 					"type": "audio/mpeg",
 					"sid": 692797408183836
 				},
 				{
-					"name": "Enemy_Destroyed.mp3",
+					"name": "OLD_Enemy_Destroyed.mp3",
 					"type": "audio/mpeg",
 					"sid": 548125220347021
 				},
 				{
-					"name": "Enemy_Rotating.mp3",
+					"name": "old_Enemy_Rotating.mp3",
 					"type": "audio/mpeg",
 					"sid": 683157378502397
 				},
 				{
-					"name": "Enemy_ShootingSingle.mp3",
+					"name": "OLD_Enemy_ShootingSingle.mp3",
 					"type": "audio/mpeg",
 					"sid": 308867872828104
+				},
+				{
+					"name": "EnemyRotation.mp3",
+					"type": "audio/mpeg",
+					"sid": 847531300910254
+				},
+				{
+					"name": "EnemyShoot.mp3",
+					"type": "audio/mpeg",
+					"sid": 977629160394464
+				},
+				{
+					"name": "PlayerBreak.mp3",
+					"type": "audio/mpeg",
+					"sid": 581189203767977
+				},
+				{
+					"name": "PlayerBreak_Short.mp3",
+					"type": "audio/mpeg",
+					"sid": 498652812992620
+				},
+				{
+					"name": "PlayerCrash.mp3",
+					"type": "audio/mpeg",
+					"sid": 922737294133453
+				},
+				{
+					"name": "PlayerHit.mp3",
+					"type": "audio/mpeg",
+					"sid": 193346199559945
+				},
+				{
+					"name": "PlayerMotor.mp3",
+					"type": "audio/mpeg",
+					"sid": 347703147574749
+				},
+				{
+					"name": "PlayerShoot.mp3",
+					"type": "audio/mpeg",
+					"sid": 355013672966055
+				},
+				{
+					"name": "PlayerTargetAcq.mp3",
+					"type": "audio/mpeg",
+					"sid": 728545130070819
+				},
+				{
+					"name": "UI_Error.mp3",
+					"type": "audio/mpeg",
+					"sid": 401808950127735
+				},
+				{
+					"name": "UI_Select.mp3",
+					"type": "audio/mpeg",
+					"sid": 434902527600482
+				},
+				{
+					"name": "EnemyDestroyed.mp3",
+					"type": "audio/mpeg",
+					"sid": 895506476792801
 				}
 			],
 			"subfolders": []
@@ -581,6 +632,16 @@
 					"name": "Draft.mp3",
 					"type": "audio/mpeg",
 					"sid": 937308550109447
+				},
+				{
+					"name": "Music_Main.mp3",
+					"type": "audio/mpeg",
+					"sid": 272527541291930
+				},
+				{
+					"name": "Music_Hanger.mp3",
+					"type": "audio/mpeg",
+					"sid": 357734020513205
 				}
 			],
 			"subfolders": []

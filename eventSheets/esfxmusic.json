@@ -22,6 +22,16 @@
 			"sid": 416403591807597
 		},
 		{
+			"eventType": "variable",
+			"name": "musicEffect",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 662461785796081
+		},
+		{
 			"eventType": "block",
 			"conditions": [
 				{
@@ -37,32 +47,260 @@
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "is-tag-playing",
-							"objectClass": "Audio",
-							"sid": 452313448266615,
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 300898310997475,
 							"parameters": {
-								"tag": "\"music\""
-							},
-							"isInverted": true
-						}
-					],
-					"actions": [
-						{
-							"id": "play-by-name",
-							"objectClass": "Audio",
-							"sid": 948300377428462,
-							"parameters": {
-								"folder": "music",
-								"audio-file-name": "\"Draft\"",
-								"loop": "looping",
-								"volume": "-15",
-								"tag-optional": "\"music\""
+								"first-value": "LayoutName",
+								"comparison": 0,
+								"second-value": "\"Level1\""
 							}
 						}
 					],
-					"sid": 192089019572429
+					"actions": [],
+					"sid": 376445931038323,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-tag-playing",
+									"objectClass": "Audio",
+									"sid": 939339965989792,
+									"parameters": {
+										"tag": "\"music\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "fade-volume",
+									"objectClass": "Audio",
+									"sid": 725149115179436,
+									"parameters": {
+										"tag": "\"music\"",
+										"db": "Vol_SFX",
+										"duration": "1",
+										"ending": "keep-playing"
+									}
+								}
+							],
+							"sid": 779558664289856
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-tag-playing",
+									"objectClass": "Audio",
+									"sid": 917212575070567,
+									"parameters": {
+										"tag": "\"musicHanger\""
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "play-by-name",
+									"objectClass": "Audio",
+									"sid": 870944777292800,
+									"parameters": {
+										"folder": "music",
+										"audio-file-name": "\"Music_Hanger\"",
+										"loop": "looping",
+										"volume": "Vol_Music",
+										"tag-optional": "\"musicHanger\""
+									}
+								}
+							],
+							"sid": 464453029032111
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 499067346178501,
+							"parameters": {
+								"first-value": "LayoutName",
+								"comparison": 1,
+								"second-value": "\"Level1\""
+							}
+						},
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 323068001017509,
+							"parameters": {
+								"first-value": "LayoutName",
+								"comparison": 1,
+								"second-value": "\"Start\""
+							}
+						}
+					],
+					"actions": [],
+					"sid": 192089019572429,
+					"disabled": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-tag-playing",
+									"objectClass": "Audio",
+									"sid": 352116440871722,
+									"parameters": {
+										"tag": "\"music\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "fade-volume",
+									"objectClass": "Audio",
+									"sid": 850050567444524,
+									"parameters": {
+										"tag": "\"music\"",
+										"db": "Vol_Music",
+										"duration": "1",
+										"ending": "stop"
+									}
+								}
+							],
+							"sid": 500581930859454,
+							"disabled": true
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-tag-playing",
+									"objectClass": "Audio",
+									"sid": 697273986548741,
+									"parameters": {
+										"tag": "\"music\""
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "play-by-name",
+									"objectClass": "Audio",
+									"sid": 958350096825025,
+									"parameters": {
+										"folder": "music",
+										"audio-file-name": "\"Music_Main\"",
+										"loop": "looping",
+										"volume": "-15",
+										"tag-optional": "\"music\""
+									}
+								}
+							],
+							"sid": 485917278536948,
+							"disabled": true
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 190904043082241,
+							"parameters": {
+								"first-value": "LayoutName",
+								"comparison": 0,
+								"second-value": "\"Start\""
+							}
+						}
+					],
+					"actions": [],
+					"sid": 224967409519814,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-tag-playing",
+									"objectClass": "Audio",
+									"sid": 968531236647441,
+									"parameters": {
+										"tag": "\"music\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "fade-volume",
+									"objectClass": "Audio",
+									"sid": 267311673623226,
+									"parameters": {
+										"tag": "\"music\"",
+										"db": "-20",
+										"duration": "1",
+										"ending": "keep-playing"
+									}
+								}
+							],
+							"sid": 955332070809876
+						}
+					]
 				}
 			]
+		},
+		{
+			"functionName": "Music - Transition",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "fade-volume",
+					"objectClass": "Audio",
+					"sid": 619867973668204,
+					"parameters": {
+						"tag": "\"musicHanger\"",
+						"db": "-100",
+						"duration": "0.5",
+						"ending": "stop"
+					}
+				},
+				{
+					"id": "play-by-name",
+					"objectClass": "Audio",
+					"sid": 667611640198501,
+					"parameters": {
+						"folder": "music",
+						"audio-file-name": "\"Music_Main\"",
+						"loop": "looping",
+						"volume": "Vol_Music",
+						"tag-optional": "\"music\""
+					}
+				},
+				{
+					"id": "fade-volume",
+					"objectClass": "Audio",
+					"sid": 389292131908594,
+					"disabled": true,
+					"parameters": {
+						"tag": "\"music\"",
+						"db": "Vol_Music",
+						"duration": "0.5",
+						"ending": "keep-playing"
+					}
+				}
+			],
+			"sid": 689517034614918
 		},
 		{
 			"eventType": "group",
@@ -82,11 +320,12 @@
 					"conditions": [],
 					"actions": [
 						{
-							"id": "play",
+							"id": "play-by-name",
 							"objectClass": "Audio",
-							"sid": 953912790741330,
+							"sid": 907453861543232,
 							"parameters": {
-								"audio-file": "Player Shoot",
+								"folder": "sounds",
+								"audio-file-name": "\"PlayerShoot\"",
 								"loop": "not-looping",
 								"volume": "Vol_SFX-5",
 								"tag-optional": "\"shoot\""
@@ -115,13 +354,14 @@
 					"conditions": [],
 					"actions": [
 						{
-							"id": "play",
+							"id": "play-by-name",
 							"objectClass": "Audio",
-							"sid": 766090479427118,
+							"sid": 244596927607293,
 							"parameters": {
-								"audio-file": "Player Hit",
+								"folder": "sounds",
+								"audio-file-name": "\"PlayerHit\"",
 								"loop": "not-looping",
-								"volume": "Vol_SFX+5",
+								"volume": "Vol_SFX",
 								"tag-optional": "\"hit\""
 							}
 						},
@@ -148,11 +388,12 @@
 					"conditions": [],
 					"actions": [
 						{
-							"id": "play",
+							"id": "play-by-name",
 							"objectClass": "Audio",
-							"sid": 635725396891291,
+							"sid": 798035687157058,
 							"parameters": {
-								"audio-file": "Target Enemy",
+								"folder": "sounds",
+								"audio-file-name": "\"PlayerTarget\"",
 								"loop": "not-looping",
 								"volume": "Vol_SFX",
 								"tag-optional": "\"target\""
@@ -185,7 +426,7 @@
 							"objectClass": "Audio",
 							"sid": 860980513996827,
 							"parameters": {
-								"audio-file": "Long Break",
+								"audio-file": "OLD_Long Break",
 								"loop": "not-looping",
 								"volume": "0",
 								"tag-optional": "\"\""
@@ -232,11 +473,12 @@
 					"conditions": [],
 					"actions": [
 						{
-							"id": "play",
+							"id": "play-by-name",
 							"objectClass": "Audio",
-							"sid": 875163025173182,
+							"sid": 717783929057883,
 							"parameters": {
-								"audio-file": "Enemy_ShootingSingle",
+								"folder": "sounds",
+								"audio-file-name": "\"EnemyShoot\"",
 								"loop": "not-looping",
 								"volume": "Vol_SFX",
 								"tag-optional": "\"eShoot\""
@@ -265,14 +507,15 @@
 					"conditions": [],
 					"actions": [
 						{
-							"id": "play",
+							"id": "play-by-name",
 							"objectClass": "Audio",
-							"sid": 526862685295688,
+							"sid": 909236610621114,
 							"parameters": {
-								"audio-file": "Enemy_Rotating",
+								"folder": "sounds",
+								"audio-file-name": "\"EnemyRotation\"",
 								"loop": "not-looping",
 								"volume": "Vol_SFX",
-								"tag-optional": "\"eRotating\""
+								"tag-optional": "\"\""
 							}
 						}
 					],
@@ -289,11 +532,12 @@
 					"conditions": [],
 					"actions": [
 						{
-							"id": "play",
+							"id": "play-by-name",
 							"objectClass": "Audio",
-							"sid": 856586402209194,
+							"sid": 514296778979739,
 							"parameters": {
-								"audio-file": "Enemy_Destroyed",
+								"folder": "sounds",
+								"audio-file-name": "\"EnemyDestroyed\"",
 								"loop": "not-looping",
 								"volume": "Vol_SFX",
 								"tag-optional": "\"destroy\""
@@ -322,11 +566,12 @@
 					"conditions": [],
 					"actions": [
 						{
-							"id": "play",
+							"id": "play-by-name",
 							"objectClass": "Audio",
-							"sid": 279027683638747,
+							"sid": 128290729274666,
 							"parameters": {
-								"audio-file": "UI_Error",
+								"folder": "sounds",
+								"audio-file-name": "\"UI_Error\"",
 								"loop": "not-looping",
 								"volume": "Vol_SFX",
 								"tag-optional": "\"err\""
@@ -355,14 +600,15 @@
 					"conditions": [],
 					"actions": [
 						{
-							"id": "play",
+							"id": "play-by-name",
 							"objectClass": "Audio",
-							"sid": 895256193282334,
+							"sid": 479439324620985,
 							"parameters": {
-								"audio-file": "UI_SelectLevel",
+								"folder": "sounds",
+								"audio-file-name": "\"UI_Select\"",
 								"loop": "not-looping",
 								"volume": "Vol_SFX",
-								"tag-optional": "\"select\""
+								"tag-optional": "\"\""
 							}
 						}
 					],
@@ -427,11 +673,12 @@
 					],
 					"actions": [
 						{
-							"id": "play",
+							"id": "play-by-name",
 							"objectClass": "Audio",
-							"sid": 833987753103262,
+							"sid": 113344798472172,
 							"parameters": {
-								"audio-file": "Motor v1",
+								"folder": "sounds",
+								"audio-file-name": "\"PlayerMotor\"",
 								"loop": "looping",
 								"volume": "0",
 								"tag-optional": "\"motor\""
@@ -453,10 +700,10 @@
 						{
 							"id": "set-eventvar-value",
 							"objectClass": "System",
-							"sid": 563439273251956,
+							"sid": 447419317622474,
 							"parameters": {
 								"variable": "motorVolume",
-								"value": "Functions.Remap(oPlayer.speedPercNormal, 0, 1, -28, -10)"
+								"value": "Functions.Remap(oPlayer.speedPercNormal, 0, 1, -22, -5)"
 							}
 						},
 						{
@@ -515,6 +762,26 @@
 				}
 			],
 			"sid": 455647147715062
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-collision-with-another-object",
+					"objectClass": "uMusic_Transition",
+					"sid": 229267185147164,
+					"parameters": {
+						"object": "oPlayer"
+					}
+				}
+			],
+			"actions": [
+				{
+					"callFunction": "Music - Transition",
+					"sid": 410391038557474
+				}
+			],
+			"sid": 757254762776124
 		}
 	],
 	"sid": 725877451486781

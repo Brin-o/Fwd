@@ -239,7 +239,7 @@
 							"objectClass": "UI_Load_Text1",
 							"sid": 365572484246341,
 							"parameters": {
-								"text": "TipsArray.At(0,tipPicker)"
+								"text": "StringArray.At(0,tipPicker)"
 							}
 						},
 						{

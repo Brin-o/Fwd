@@ -1,0 +1,62 @@
+{
+	"name": "GameManager",
+	"plugin-id": "Sprite",
+	"sid": 674357021758293,
+	"isGlobal": true,
+	"instanceVariables": [
+		{
+			"name": "currentTime",
+			"type": "number",
+			"desc": "",
+			"sid": 363033367961668
+		},
+		{
+			"name": "nextLevel",
+			"type": "string",
+			"desc": "string name of the level to load after this one",
+			"sid": 893393955422737
+		},
+		{
+			"name": "levelName",
+			"type": "string",
+			"desc": "",
+			"sid": 230665047055707
+		}
+	],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Timer",
+			"name": "Timer",
+			"sid": 878196148728517
+		}
+	],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 20,
+						"height": 20,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 8554956,
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 542322613325213,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}

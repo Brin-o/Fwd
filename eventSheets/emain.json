@@ -17,7 +17,7 @@
 		},
 		{
 			"eventType": "include",
-			"includeSheet": "Enemies"
+			"includeSheet": "eEnemies"
 		},
 		{
 			"eventType": "include",
@@ -645,27 +645,27 @@
 							"actions": [
 								{
 									"id": "set-text",
-									"objectClass": "UI_MidText",
-									"sid": 283467406945497,
+									"objectClass": "UI_MiddleText",
+									"sid": 876134761528674,
 									"parameters": {
-										"text": "\"Starting level: \" & newline & LevelSettings.levelName"
+										"text": "LevelSettings.levelName"
 									}
 								},
 								{
 									"callFunction": "SlowMo",
-									"sid": 366382653737226,
+									"sid": 375609139726996,
 									"parameters": [
 										"0.1",
-										"2",
+										"1",
 										"\"Enter\""
 									]
 								},
 								{
-									"id": "set-visible",
-									"objectClass": "UI_MidText",
-									"sid": 349628391815021,
+									"id": "set-opacity",
+									"objectClass": "UI_MiddleText",
+									"sid": 849285012101207,
 									"parameters": {
-										"visibility": "visible"
+										"opacity": "100"
 									}
 								}
 							],
@@ -695,6 +695,22 @@
 										"property": "offsetOpacity",
 										"end-value": "0",
 										"time": "0.3",
+										"ease": "default",
+										"destroy-on-complete": "no",
+										"loop": "no",
+										"ping-pong": "no"
+									}
+								},
+								{
+									"id": "tween-one-property",
+									"objectClass": "UI_MiddleText",
+									"sid": 425482922974503,
+									"behaviorType": "Tween",
+									"parameters": {
+										"tags": "\"\"",
+										"property": "offsetOpacity",
+										"end-value": "0",
+										"time": "0.5",
 										"ease": "default",
 										"destroy-on-complete": "no",
 										"loop": "no",

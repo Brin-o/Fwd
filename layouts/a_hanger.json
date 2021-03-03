@@ -6241,7 +6241,7 @@
 			"instanceVariables": {}
 		},
 		{
-			"type": "TipsArray",
+			"type": "StringArray",
 			"properties": {
 				"width": 10,
 				"height": 1,
