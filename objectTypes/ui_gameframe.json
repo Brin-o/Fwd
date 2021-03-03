@@ -1,0 +1,53 @@
+{
+	"name": "UI_GameFrame",
+	"plugin-id": "Sprite",
+	"sid": 619300514143321,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 320,
+						"height": 240,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "D:\\Desktop\\Fwd_Art\\void_ui_farming.png",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 8190505,
+						"collisionPoly": {
+							"points": [
+								0.03125,
+								0.041666666666666664,
+								0.5,
+								0.020833333333333332,
+								0.965625,
+								0.041666666666666664,
+								0.965625,
+								0.9541666666666667,
+								0.5,
+								0.975,
+								0.03125,
+								0.9541666666666667
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 544361663667081,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}

@@ -3416,7 +3416,7 @@
 			],
 			"isTransparent": true,
 			"parallaxX": 0,
-			"parallaxY": 1,
+			"parallaxY": 0,
 			"scaleRate": 0,
 			"forceOwnTexture": false,
 			"useRenderCells": false,
@@ -3594,6 +3594,34 @@
 			"useRenderCells": false,
 			"blendMode": "normal",
 			"global": false
+		},
+		{
+			"name": "UI_MidLevels",
+			"overriden": 1,
+			"instances": [],
+			"sid": 147802056273852,
+			"effectTypes": [],
+			"isInitiallyVisible": false,
+			"color": [
+				1,
+				1,
+				1,
+				1
+			],
+			"backgroundColor": [
+				0.3686274509803922,
+				0.3686274509803922,
+				0.3686274509803922,
+				1
+			],
+			"isTransparent": true,
+			"parallaxX": 0,
+			"parallaxY": 0,
+			"scaleRate": 0,
+			"forceOwnTexture": false,
+			"useRenderCells": false,
+			"blendMode": "normal",
+			"global": false
 		}
 	],
 	"sid": 410796495811957,
@@ -3602,5 +3630,5 @@
 	"width": 5000,
 	"height": 5000,
 	"unboundedScrolling": false,
-	"eventSheet": "Main"
+	"eventSheet": "eMain"
 }

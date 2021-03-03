@@ -6052,7 +6052,7 @@
 			],
 			"isTransparent": true,
 			"parallaxX": 0,
-			"parallaxY": 1,
+			"parallaxY": 0,
 			"scaleRate": 0,
 			"forceOwnTexture": false,
 			"useRenderCells": false,
@@ -6245,5 +6245,5 @@
 	"width": 3000,
 	"height": 1440,
 	"unboundedScrolling": false,
-	"eventSheet": "Main"
+	"eventSheet": "eMain"
 }

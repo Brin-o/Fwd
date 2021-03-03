@@ -33,6 +33,18 @@
 			"type": "number",
 			"desc": "",
 			"sid": 190247227047908
+		},
+		{
+			"name": "offsetX",
+			"type": "number",
+			"desc": "",
+			"sid": 580703836472085
+		},
+		{
+			"name": "offsetY",
+			"type": "number",
+			"desc": "",
+			"sid": 889117353532906
 		}
 	],
 	"behaviorTypes": [

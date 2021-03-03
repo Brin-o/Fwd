@@ -1,5 +1,5 @@
 {
-	"name": "Main",
+	"name": "eMain",
 	"events": [
 		{
 			"eventType": "variable",
@@ -13,7 +13,7 @@
 		},
 		{
 			"eventType": "include",
-			"includeSheet": "3D_Camera"
+			"includeSheet": "e3D_Camera"
 		},
 		{
 			"eventType": "include",
@@ -21,19 +21,19 @@
 		},
 		{
 			"eventType": "include",
-			"includeSheet": "UI"
+			"includeSheet": "eUI"
 		},
 		{
 			"eventType": "include",
-			"includeSheet": "Player"
+			"includeSheet": "ePlayer"
 		},
 		{
 			"eventType": "include",
-			"includeSheet": "Fog"
+			"includeSheet": "eFog"
 		},
 		{
 			"eventType": "include",
-			"includeSheet": "SFXMusic"
+			"includeSheet": "eSFXMusic"
 		},
 		{
 			"eventType": "group",
@@ -71,6 +71,10 @@
 							"parameters": {
 								"text": "\"\""
 							}
+						},
+						{
+							"callFunction": "Mid Level UI - Close",
+							"sid": 299183072652725
 						}
 					],
 					"sid": 191892460045298
@@ -419,9 +423,83 @@
 								}
 							],
 							"sid": 121038172919454
+						},
+						{
+							"functionName": "DecimalDisplay",
+							"functionDescription": "",
+							"functionCategory": "",
+							"functionReturnType": "string",
+							"functionIsAsync": false,
+							"functionParameters": [
+								{
+									"name": "number",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"sid": 946072334620230
+								},
+								{
+									"name": "decAmount",
+									"type": "number",
+									"initialValue": "2",
+									"comment": "",
+									"sid": 571177761511674
+								},
+								{
+									"name": "numberString",
+									"type": "string",
+									"initialValue": "",
+									"comment": "",
+									"sid": 204092944221705
+								}
+							],
+							"eventType": "function-block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 818166211203666,
+									"parameters": {
+										"variable": "numberString",
+										"value": "number"
+									}
+								},
+								{
+									"id": "set-function-return-value",
+									"objectClass": "Functions",
+									"sid": 823917788501499,
+									"parameters": {
+										"value": "left(numberString, len(numberString) - decAmount) & \".\" & right(numberString, decAmount)"
+									}
+								}
+							],
+							"sid": 732854128885575
 						}
 					],
 					"sid": 273602833800681
+				},
+				{
+					"functionName": "Save GameData",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-item",
+							"objectClass": "LocalStorage",
+							"sid": 792764715872449,
+							"parameters": {
+								"key": "\"gameData\"",
+								"value": "GameData.AsJSON"
+							}
+						}
+					],
+					"sid": 533259534449069
 				},
 				{
 					"functionName": "SlowMo",
@@ -622,25 +700,121 @@
 							"sid": 658483038619692
 						},
 						{
-							"functionName": "LoadNextLevel",
+							"functionName": "Finish Level",
 							"functionDescription": "",
 							"functionCategory": "",
 							"functionReturnType": "none",
 							"functionIsAsync": false,
 							"functionParameters": [],
+							"breakpoint": true,
 							"eventType": "function-block",
 							"conditions": [],
 							"actions": [
 								{
-									"id": "go-to-layout-by-name",
-									"objectClass": "System",
-									"sid": 811831231798518,
-									"parameters": {
-										"layout": "LevelSettings.nextLevel"
-									}
+									"callFunction": "Mid Level UI - Open",
+									"sid": 664777967011506,
+									"parameters": [
+										"\"WIN\""
+									]
+								},
+								{
+									"id": "stop",
+									"objectClass": "Fog_Spawner",
+									"sid": 680080867337422,
+									"behaviorType": "Pathfinding"
 								}
 							],
-							"sid": 681716807818407
+							"sid": 681716807818407,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "has-key",
+											"objectClass": "GameData",
+											"sid": 123884068789827,
+											"parameters": {
+												"key": "\"level\" & LevelSettings.levelNum & \"time\""
+											}
+										},
+										{
+											"id": "compare-value",
+											"objectClass": "GameData",
+											"sid": 219246468635602,
+											"parameters": {
+												"key": "\"level\" & LevelSettings.levelNum & \"time\"",
+												"comparison": 4,
+												"value": "LevelSettings.currentTime"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "add-key",
+											"objectClass": "GameData",
+											"sid": 616715720361193,
+											"parameters": {
+												"key": "\"level\" & LevelSettings.levelNum & \"time\"",
+												"value": "Functions.RoundDec(LevelSettings.currentTime,2)"
+											}
+										}
+									],
+									"sid": 376706249727396
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "has-key",
+											"objectClass": "GameData",
+											"sid": 960288004386333,
+											"parameters": {
+												"key": "\"level\" & LevelSettings.levelNum & \"time\""
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "add-key",
+											"objectClass": "GameData",
+											"sid": 411156438850739,
+											"parameters": {
+												"key": "\"level\" & LevelSettings.levelNum & \"time\"",
+												"value": "Functions.RoundDec(LevelSettings.currentTime,2)"
+											}
+										}
+									],
+									"sid": 284303682151327
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-value",
+											"objectClass": "GameData",
+											"sid": 582961300582644,
+											"parameters": {
+												"key": "\"levelsCompleted\"",
+												"comparison": 0,
+												"value": "LevelSettings.levelNum"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "add-key",
+											"objectClass": "GameData",
+											"sid": 505485578427945,
+											"parameters": {
+												"key": "\"levelsCompleted\"",
+												"value": "GameData.Get(\"levelsCompleted\") + 1"
+											}
+										}
+									],
+									"sid": 111913820372865
+								}
+							]
 						}
 					],
 					"sid": 125708187799006
@@ -772,6 +946,34 @@
 				}
 			],
 			"sid": 845359889601874
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-created",
+					"objectClass": "MenuSettings",
+					"sid": 655893361338462
+				},
+				{
+					"id": "compare-two-values",
+					"objectClass": "System",
+					"sid": 821675350322821,
+					"parameters": {
+						"first-value": "MenuSettings.Count",
+						"comparison": 4,
+						"second-value": "1"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "destroy",
+					"objectClass": "MenuSettings",
+					"sid": 276071434398738
+				}
+			],
+			"sid": 512957399410663
 		}
 	],
 	"sid": 458086170270198

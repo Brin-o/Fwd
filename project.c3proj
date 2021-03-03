@@ -254,17 +254,23 @@
 			"uFogTrigger",
 			"UI_Text_StartTOP",
 			"UI_LoadingBorder",
-			"TiledBackground2",
+			"UI_GameSpeed",
 			"UI_LoadBar",
 			"UI_Text_StartMiddle",
 			"UI_LevelPoint",
 			"UI_LevelPointSelected",
 			"UI_LevelPoint_Trail",
 			"UI_Text_LVL_Top",
-			"9patch",
-			"Sprite",
 			"UI_Tooltip_Time",
-			"UI_Tooltip"
+			"UI_Tooltip",
+			"UI_Tooltip_Name",
+			"UI_HealthBar",
+			"UI_MidBar_L",
+			"UI_MidBar_R",
+			"UI_Mid_Text_Top",
+			"UI_Load_Text1",
+			"UI_Load_Text2",
+			"UI_Load_Text3"
 		],
 		"subfolders": [
 			{
@@ -327,7 +333,8 @@
 					"oPlayerWallCollider",
 					"oPlayer_DirectionMovement",
 					"oBullet_P",
-					"oPlayer_MouseLine"
+					"oPlayer_MouseLine",
+					"oPlayer_CamPoint"
 				],
 				"subfolders": [],
 				"name": "Player"
@@ -335,7 +342,9 @@
 			{
 				"items": [
 					"UI_MidText",
-					"PlayerHP"
+					"PlayerHP",
+					"UI_GameFrame",
+					"TiledBackground3"
 				],
 				"subfolders": [
 					{
@@ -372,10 +381,7 @@
 			}
 		]
 	},
-	"autosaveData": {
-		"mode": "webfs-local-folder",
-		"name": "Fwd/"
-	},
+	"autosaveData": null,
 	"containers": [
 		{
 			"members": [
@@ -458,15 +464,14 @@
 	},
 	"eventSheets": {
 		"items": [
-			"3D_Camera",
-			"Main",
-			"Player",
+			"e3D_Camera",
+			"eMain",
+			"ePlayer",
 			"Enemies",
-			"UI",
-			"Player_Box2D",
-			"Fog",
-			"SFXMusic",
-			"StartMenu"
+			"eUI",
+			"eFog",
+			"eSFXMusic",
+			"eStart"
 		],
 		"subfolders": []
 	},

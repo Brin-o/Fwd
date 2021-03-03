@@ -1,5 +1,5 @@
 {
-	"name": "StartMenu",
+	"name": "eStart",
 	"events": [
 		{
 			"eventType": "variable",
@@ -43,7 +43,7 @@
 			],
 			"actions": [
 				{
-					"callFunction": "CreateManager",
+					"callFunction": "SpawnMenuState",
 					"sid": 148211103167114
 				},
 				{
@@ -111,12 +111,8 @@
 					}
 				},
 				{
-					"id": "check-item-exists",
-					"objectClass": "LocalStorage",
-					"sid": 817991125317281,
-					"parameters": {
-						"key": "\"levelsData\""
-					}
+					"callFunction": "Mid Level UI - Close",
+					"sid": 499574630353801
 				}
 			],
 			"sid": 854601553035486,
@@ -168,15 +164,41 @@
 			]
 		},
 		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 361291621503136
+				},
+				{
+					"id": "is-empty",
+					"objectClass": "GameData",
+					"sid": 216360230851140
+				}
+			],
+			"actions": [
+				{
+					"id": "check-item-exists",
+					"objectClass": "LocalStorage",
+					"sid": 816458360154730,
+					"parameters": {
+						"key": "\"gameData\""
+					}
+				}
+			],
+			"sid": 555190631266007
+		},
+		{
 			"breakpoint": true,
 			"eventType": "block",
 			"conditions": [
 				{
 					"id": "on-item-exists",
 					"objectClass": "LocalStorage",
-					"sid": 173703357666319,
+					"sid": 336580792044275,
 					"parameters": {
-						"key": "\"levelsData\""
+						"key": "\"gameData\""
 					}
 				}
 			],
@@ -199,9 +221,9 @@
 				{
 					"id": "on-item-missing",
 					"objectClass": "LocalStorage",
-					"sid": 280665414373908,
+					"sid": 921582740930203,
 					"parameters": {
-						"key": "\"levelsData\""
+						"key": "\"gameData\""
 					}
 				}
 			],
@@ -209,19 +231,19 @@
 				{
 					"id": "add-key",
 					"objectClass": "GameData",
-					"sid": 868993536055456,
+					"sid": 987415920069895,
 					"parameters": {
 						"key": "\"levelsCompleted\"",
-						"value": "4"
+						"value": "1"
 					}
 				},
 				{
 					"id": "set-item",
 					"objectClass": "LocalStorage",
-					"sid": 858601518639505,
+					"sid": 533222478920849,
 					"parameters": {
 						"key": "GameData.AsJSON",
-						"value": "\"levelsData\""
+						"value": "\"gameData\""
 					}
 				}
 			],
@@ -378,6 +400,137 @@
 			"isActiveOnStart": true,
 			"children": [
 				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "Tooltip",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "MenuSettings",
+									"sid": 553489549144644,
+									"parameters": {
+										"instance-variable": "menuState",
+										"comparison": 0,
+										"value": "\"LEVEL\""
+									}
+								}
+							],
+							"actions": [],
+							"sid": 203856757459760,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "cursor-is-over-object",
+											"objectClass": "Mouse",
+											"sid": 588762335040886,
+											"parameters": {
+												"object": "UI_LevelPoint"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-opacity",
+											"objectClass": "UI_Tooltip",
+											"sid": 167374081995440,
+											"parameters": {
+												"opacity": "100"
+											}
+										},
+										{
+											"id": "set-opacity",
+											"objectClass": "UI_Tooltip_Time",
+											"sid": 990502755685224,
+											"parameters": {
+												"opacity": "100"
+											}
+										},
+										{
+											"id": "set-opacity",
+											"objectClass": "UI_Tooltip_Name",
+											"sid": 453588164747570,
+											"parameters": {
+												"opacity": "100"
+											}
+										},
+										{
+											"id": "set-position",
+											"objectClass": "UI_Tooltip",
+											"sid": 870892511983447,
+											"parameters": {
+												"x": "UI_LevelPoint.X + UI_LevelPoint.offsetX",
+												"y": "UI_LevelPoint.Y - 10"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "UI_Tooltip_Time",
+											"sid": 613886460704850,
+											"parameters": {
+												"text": "\"Best time: \" & UI_LevelPoint.bestTime"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "UI_Tooltip_Name",
+											"sid": 195213415189573,
+											"parameters": {
+												"text": "\"Level \" & UI_LevelPoint.levelToLoad"
+											}
+										}
+									],
+									"sid": 719913200065000
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 359398232961579
+								}
+							],
+							"actions": [
+								{
+									"id": "set-opacity",
+									"objectClass": "UI_Tooltip",
+									"sid": 588893834146865,
+									"parameters": {
+										"opacity": "0"
+									}
+								},
+								{
+									"id": "set-opacity",
+									"objectClass": "UI_Tooltip_Time",
+									"sid": 372818955662415,
+									"parameters": {
+										"opacity": "0"
+									}
+								},
+								{
+									"id": "set-opacity",
+									"objectClass": "UI_Tooltip_Name",
+									"sid": 236810840699290,
+									"parameters": {
+										"opacity": "0"
+									}
+								}
+							],
+							"sid": 460474847716829
+						}
+					],
+					"sid": 483077954556170
+				},
+				{
 					"eventType": "variable",
 					"name": "trailSpeed",
 					"type": "number",
@@ -456,44 +609,18 @@
 							"parameters": {
 								"opacity": "0"
 							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "UI_LevelPoint",
+							"sid": 660691990222434,
+							"parameters": {
+								"instance-variable": "bestTime",
+								"value": "GameData.Get(\"level\" & UI_LevelPoint.levelToLoad & \"time\")"
+							}
 						}
 					],
-					"sid": 806980647471247,
-					"children": [
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "has-key",
-									"objectClass": "GameData",
-									"sid": 398364197718074,
-									"parameters": {
-										"key": "GameData.Get(\"level\" & UI_LevelPoint.levelToLoad & \"time\")"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "wait",
-									"objectClass": "System",
-									"sid": 327456668200369,
-									"parameters": {
-										"seconds": "0.1"
-									}
-								},
-								{
-									"id": "set-instvar-value",
-									"objectClass": "UI_LevelPoint",
-									"sid": 393138927675632,
-									"parameters": {
-										"instance-variable": "bestTime",
-										"value": "GameData.Get(\"level\" & UI_LevelPoint.levelToLoad & \"time\")"
-									}
-								}
-							],
-							"sid": 843640628918265
-						}
-					]
+					"sid": 806980647471247
 				},
 				{
 					"eventType": "block",
@@ -950,15 +1077,39 @@
 			"sid": 700083814090680
 		},
 		{
-			"functionName": "CreateManager",
+			"functionName": "SpawnMenuState",
 			"functionDescription": "",
 			"functionCategory": "",
 			"functionReturnType": "none",
 			"functionIsAsync": false,
 			"functionParameters": [],
 			"eventType": "function-block",
-			"conditions": [],
-			"actions": [],
+			"conditions": [
+				{
+					"id": "compare-two-values",
+					"objectClass": "System",
+					"sid": 590282508645120,
+					"parameters": {
+						"first-value": "MenuSettings.Count",
+						"comparison": 0,
+						"second-value": "0"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "create-object",
+					"objectClass": "System",
+					"sid": 635373608049647,
+					"parameters": {
+						"object-to-create": "MenuSettings",
+						"layer": "\"UI\"",
+						"x": "-50",
+						"y": "-50",
+						"create-hierarchy": false
+					}
+				}
+			],
 			"sid": 791877809294459
 		},
 		{

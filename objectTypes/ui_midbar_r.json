@@ -1,0 +1,51 @@
+{
+	"name": "UI_MidBar_R",
+	"plugin-id": "TiledBg",
+	"sid": 815868011844342,
+	"isGlobal": false,
+	"instanceVariables": [
+		{
+			"name": "maxSize",
+			"type": "number",
+			"desc": "",
+			"sid": 407239098825467
+		},
+		{
+			"name": "unFillSpeed",
+			"type": "number",
+			"desc": "",
+			"sid": 507760266550067
+		},
+		{
+			"name": "fillSpeed",
+			"type": "number",
+			"desc": "",
+			"sid": 408376775095259
+		},
+		{
+			"name": "complete",
+			"type": "boolean",
+			"desc": "",
+			"sid": 439036162741709
+		}
+	],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Tween",
+			"name": "Tween",
+			"sid": 332440895581641
+		}
+	],
+	"effectTypes": [],
+	"image": {
+		"width": 20,
+		"height": 16,
+		"originX": 0.5,
+		"originY": 0.5,
+		"originalSource": "",
+		"exportFormat": "png",
+		"exportQuality": 0.8,
+		"imageSpriteId": 8272712,
+		"useCollisionPoly": true
+	}
+}

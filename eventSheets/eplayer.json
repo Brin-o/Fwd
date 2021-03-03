@@ -1,5 +1,5 @@
 {
-	"name": "Player",
+	"name": "ePlayer",
 	"events": [
 		{
 			"eventType": "variable",
@@ -339,6 +339,45 @@
 								"transform-z-elevation": false,
 								"destroy-with-parent": true
 							}
+						},
+						{
+							"type": "comment",
+							"text": "Set up Camera Point"
+						},
+						{
+							"id": "spawn-another-object",
+							"objectClass": "oPlayer",
+							"sid": 303797626066445,
+							"parameters": {
+								"object": "oPlayer_CamPoint",
+								"layer": "oPlayer.LayerName",
+								"image-point": "0",
+								"create-hierarchy": false
+							}
+						},
+						{
+							"id": "pin-to-object-properties",
+							"objectClass": "oPlayer_CamPoint",
+							"sid": 651291484090136,
+							"disabled": true,
+							"behaviorType": "Pin",
+							"parameters": {
+								"pin-to": "oPlayer",
+								"x": true,
+								"y": true,
+								"angle": true,
+								"width-type": "no",
+								"height-type": "no",
+								"z": false
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "oPlayer_CamPoint",
+							"sid": 496515414424203,
+							"parameters": {
+								"visibility": "invisible"
+							}
 						}
 					],
 					"sid": 491193474086222
@@ -456,7 +495,7 @@
 				},
 				{
 					"eventType": "group",
-					"disabled": false,
+					"disabled": true,
 					"title": "Debug",
 					"description": "",
 					"isActiveOnStart": true,
@@ -496,7 +535,8 @@
 									}
 								}
 							],
-							"sid": 327670730969369
+							"sid": 327670730969369,
+							"disabled": true
 						}
 					],
 					"sid": 281312527736475
@@ -565,6 +605,10 @@
 					],
 					"actions": [
 						{
+							"type": "comment",
+							"text": "Regenerate HP"
+						},
+						{
 							"id": "set-eventvar-value",
 							"objectClass": "System",
 							"sid": 205043759050998,
@@ -575,6 +619,7 @@
 						}
 					],
 					"sid": 350300611174136,
+					"disabled": true,
 					"children": [
 						{
 							"eventType": "block",
@@ -610,7 +655,8 @@
 									}
 								}
 							],
-							"sid": 640456425275509
+							"sid": 640456425275509,
+							"disabled": true
 						}
 					]
 				},
@@ -3260,7 +3306,7 @@
 					],
 					"actions": [
 						{
-							"callFunction": "LoadNextLevel",
+							"callFunction": "Finish Level",
 							"sid": 996396764045819
 						}
 					],

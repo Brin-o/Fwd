@@ -1,42 +1,36 @@
 {
-	"name": "MenuSettings",
+	"name": "UI_HealthBar",
 	"plugin-id": "Sprite",
-	"sid": 552765090598103,
-	"isGlobal": true,
+	"sid": 860693248269014,
+	"isGlobal": false,
 	"instanceVariables": [
 		{
-			"name": "menuState",
-			"type": "string",
+			"name": "healthID",
+			"type": "number",
 			"desc": "",
-			"sid": 135893332600178
+			"sid": 753577695779615
 		}
 	],
-	"behaviorTypes": [
-		{
-			"behaviorId": "Timer",
-			"name": "Timer",
-			"sid": 400781610051600
-		}
-	],
+	"behaviorTypes": [],
 	"effectTypes": [],
 	"animations": {
 		"items": [
 			{
 				"frames": [
 					{
-						"width": 20,
-						"height": 20,
+						"width": 40,
+						"height": 40,
 						"originX": 0.5,
 						"originY": 0.5,
 						"originalSource": "",
 						"exportFormat": "png",
 						"exportQuality": 0.8,
-						"imageSpriteId": 4567783,
+						"imageSpriteId": 9895662,
 						"useCollisionPoly": true,
 						"duration": 1
 					}
 				],
-				"sid": 543978391134065,
+				"sid": 639164631551617,
 				"name": "Animation 1",
 				"isLooping": false,
 				"isPingPong": false,

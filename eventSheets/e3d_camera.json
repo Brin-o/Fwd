@@ -1,5 +1,5 @@
 {
-	"name": "3D_Camera",
+	"name": "e3D_Camera",
 	"events": [
 		{
 			"eventType": "variable",
@@ -1041,11 +1041,62 @@
 					"eventType": "variable",
 					"name": "cameraRange",
 					"type": "number",
-					"initialValue": "150",
+					"initialValue": "100",
 					"comment": "range around the player that the camera can move around",
 					"isStatic": false,
 					"isConstant": false,
 					"sid": 934525962921129
+				},
+				{
+					"eventType": "variable",
+					"name": "cameraSpeedAdjustment",
+					"type": "number",
+					"initialValue": "100",
+					"comment": "range of how much the player cam point will move forward  from the player",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 585966847925661
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "Player CameraPoint",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "every-tick",
+									"objectClass": "System",
+									"sid": 234599586175437
+								}
+							],
+							"actions": [
+								{
+									"id": "set-position",
+									"objectClass": "oPlayer_CamPoint",
+									"sid": 631234422751404,
+									"parameters": {
+										"x": "oPlayer.X",
+										"y": "oPlayer.Y"
+									}
+								},
+								{
+									"id": "move-at-angle",
+									"objectClass": "oPlayer_CamPoint",
+									"sid": 765072642103402,
+									"parameters": {
+										"angle": "oPlayer.Angle",
+										"distance": "oPlayer.speedPercNormal*cameraSpeedAdjustment"
+									}
+								}
+							],
+							"sid": 313183020160025
+						}
+					],
+					"sid": 947956197354909
 				},
 				{
 					"eventType": "block",
@@ -1079,19 +1130,19 @@
 						{
 							"id": "set-instvar-value",
 							"objectClass": "Cam3D",
-							"sid": 410322325834807,
+							"sid": 469320964117483,
 							"parameters": {
 								"instance-variable": "targetX",
-								"value": "clamp((oPlayer.X + Mouse.X)/2, oPlayer.x- cameraRange, oPlayer.X + cameraRange)"
+								"value": "clamp((oPlayer_CamPoint.X + Mouse.X)/2, oPlayer_CamPoint.x- cameraRange, oPlayer_CamPoint.X + cameraRange)"
 							}
 						},
 						{
 							"id": "set-instvar-value",
 							"objectClass": "Cam3D",
-							"sid": 866969468667749,
+							"sid": 623885159038568,
 							"parameters": {
 								"instance-variable": "targetY",
-								"value": "clamp((oPlayer.Y + Mouse.Y)/2, oPlayer.Y - cameraRange, oPlayer.Y + cameraRange)"
+								"value": "clamp((oPlayer_CamPoint.Y + Mouse.Y)/2, oPlayer_CamPoint.Y - cameraRange, oPlayer_CamPoint.Y + cameraRange)"
 							}
 						},
 						{

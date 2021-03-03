@@ -1,0 +1,26 @@
+{
+	"name": "UI_Mid_Text_Top",
+	"plugin-id": "Spritefont2",
+	"sid": 986053254879100,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Tween",
+			"name": "Tween",
+			"sid": 558108162494324
+		}
+	],
+	"effectTypes": [],
+	"image": {
+		"width": 208,
+		"height": 64,
+		"originX": 0.5,
+		"originY": 0.5,
+		"originalSource": "D:\\Workshop\\1. Resources\\Font-Sprites\\Monospaced\\away-v1\\away-v1-white.png",
+		"exportFormat": "png",
+		"exportQuality": 0.8,
+		"imageSpriteId": 3118616,
+		"useCollisionPoly": true
+	}
+}
