@@ -75,6 +75,15 @@
 						{
 							"callFunction": "Mid Level UI - Close",
 							"sid": 299183072652725
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 240233648241930,
+							"parameters": {
+								"layer": "\"UI\"",
+								"visibility": "visible"
+							}
 						}
 					],
 					"sid": 191892460045298
@@ -166,24 +175,20 @@
 								"comparison": 3,
 								"value": "0"
 							}
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 841553590450079
 						}
 					],
 					"actions": [
 						{
-							"id": "set-visible",
-							"objectClass": "UI_MidText",
-							"sid": 274134298340576,
-							"parameters": {
-								"visibility": "visible"
-							}
-						},
-						{
-							"id": "set-time-scale",
-							"objectClass": "System",
-							"sid": 938870770245315,
-							"parameters": {
-								"time-scale": "0.2"
-							}
+							"callFunction": "Mid Level UI - Open",
+							"sid": 168639981846744,
+							"parameters": [
+								"\"DEFEAT\""
+							]
 						}
 					],
 					"sid": 296331944375739

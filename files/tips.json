@@ -1,0 +1,30 @@
+{
+    "c2array": true,
+    "size": [
+        1,
+        6,
+        1
+    ],
+    "data": [
+        [
+            [
+                "\"The faster you are the harder it is to controll the drone\""
+            ],
+            [
+                "\"Press RMB to break\""
+            ],
+            [
+                "\"Further you are with the mosue, the more you accelerate\""
+            ],
+            [
+                "\"The fog is bad\""
+            ],
+            [
+                "\"The bullets from the enemies are no good\""
+            ],
+            [
+                "\"Triangles are cool\""
+            ]
+        ]
+    ]
+}

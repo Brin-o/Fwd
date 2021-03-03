@@ -193,20 +193,64 @@
 			"sid": 526289251925584,
 			"children": [
 				{
+					"eventType": "variable",
+					"name": "tipPicker",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 304974465953292
+				},
+				{
 					"eventType": "block",
 					"conditions": [
 						{
 							"id": "compare-two-values",
 							"objectClass": "System",
-							"sid": 835097933939529,
+							"sid": 472987505473664,
 							"parameters": {
-								"first-value": "UI_Mid_Type",
+								"first-value": "type",
 								"comparison": 0,
 								"second-value": "\"DEFEAT\""
 							}
 						}
 					],
-					"actions": [],
+					"actions": [
+						{
+							"id": "set-text",
+							"objectClass": "UI_Mid_Text_Top",
+							"sid": 439636611250073,
+							"parameters": {
+								"text": "\"Escape failed\""
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 332321977172173,
+							"parameters": {
+								"variable": "tipPicker",
+								"value": "round(random(0,5))"
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "UI_Load_Text1",
+							"sid": 365572484246341,
+							"parameters": {
+								"text": "TipsArray.At(0,tipPicker)"
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "UI_Load_Text2",
+							"sid": 401620913515802,
+							"parameters": {
+								"text": "\"\""
+							}
+						}
+					],
 					"sid": 437356698485911
 				},
 				{
@@ -215,15 +259,23 @@
 						{
 							"id": "compare-two-values",
 							"objectClass": "System",
-							"sid": 122611383099395,
+							"sid": 280991844179671,
 							"parameters": {
-								"first-value": "UI_Mid_Type",
+								"first-value": "type",
 								"comparison": 0,
 								"second-value": "\"WIN\""
 							}
 						}
 					],
 					"actions": [
+						{
+							"id": "set-text",
+							"objectClass": "UI_Text_LVL_Top",
+							"sid": 506941474104539,
+							"parameters": {
+								"text": "\"you escaped\""
+							}
+						},
 						{
 							"id": "set-text",
 							"objectClass": "UI_Load_Text1",
@@ -494,14 +546,6 @@
 						{
 							"type": "comment",
 							"text": "RMB Event"
-						},
-						{
-							"id": "go-to-layout-by-name",
-							"objectClass": "System",
-							"sid": 335371010362706,
-							"parameters": {
-								"layout": "LevelSettings.nextLevel"
-							}
 						}
 					],
 					"sid": 262158223116182,
@@ -585,6 +629,27 @@
 						}
 					],
 					"sid": 454641302579043
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-tick",
+							"objectClass": "System",
+							"sid": 309599774602703
+						}
+					],
+					"actions": [
+						{
+							"id": "set-text",
+							"objectClass": "dbg_Player",
+							"sid": 719707828302329,
+							"parameters": {
+								"text": "UI_Mid_Type"
+							}
+						}
+					],
+					"sid": 846407749103998
 				}
 			],
 			"sid": 973006835945043

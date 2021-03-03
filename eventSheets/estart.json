@@ -113,6 +113,24 @@
 				{
 					"callFunction": "Mid Level UI - Close",
 					"sid": 499574630353801
+				},
+				{
+					"id": "set-layer-visible",
+					"objectClass": "System",
+					"sid": 126813258738343,
+					"parameters": {
+						"layer": "\"UI\"",
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "request-project-file",
+					"objectClass": "AJAX",
+					"sid": 785152770823709,
+					"parameters": {
+						"tag": "\"tips\"",
+						"file": "tips.json"
+					}
 				}
 			],
 			"sid": 854601553035486,
@@ -162,6 +180,30 @@
 					"sid": 493576813564848
 				}
 			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-completed",
+					"objectClass": "AJAX",
+					"sid": 569014202370585,
+					"parameters": {
+						"tag": "\"tips\"\n"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "load",
+					"objectClass": "TipsArray",
+					"sid": 222532794918896,
+					"parameters": {
+						"json": "AJAX.LastData"
+					}
+				}
+			],
+			"sid": 599971411839092
 		},
 		{
 			"eventType": "block",
@@ -487,6 +529,43 @@
 										}
 									],
 									"sid": 719913200065000
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 100323678769832
+										}
+									],
+									"actions": [
+										{
+											"id": "set-opacity",
+											"objectClass": "UI_Tooltip",
+											"sid": 623812768884976,
+											"parameters": {
+												"opacity": "0"
+											}
+										},
+										{
+											"id": "set-opacity",
+											"objectClass": "UI_Tooltip_Time",
+											"sid": 692671505801289,
+											"parameters": {
+												"opacity": "0"
+											}
+										},
+										{
+											"id": "set-opacity",
+											"objectClass": "UI_Tooltip_Name",
+											"sid": 415164927958609,
+											"parameters": {
+												"opacity": "0"
+											}
+										}
+									],
+									"sid": 486853555726460
 								}
 							]
 						},

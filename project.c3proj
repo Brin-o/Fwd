@@ -56,6 +56,14 @@
 		},
 		{
 			"type": "plugin",
+			"id": "AJAX",
+			"name": "AJAX",
+			"author": "Scirra",
+			"version": "r234.4",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
 			"id": "Particles",
 			"name": "Particles",
 			"author": "Scirra",
@@ -114,6 +122,14 @@
 			"type": "plugin",
 			"id": "Spritefont2",
 			"name": "Sprite font",
+			"author": "Scirra",
+			"version": "r234.4",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Arr",
+			"name": "Array",
 			"author": "Scirra",
 			"version": "r234.4",
 			"bundled": false
@@ -270,7 +286,8 @@
 			"UI_Mid_Text_Top",
 			"UI_Load_Text1",
 			"UI_Load_Text2",
-			"UI_Load_Text3"
+			"UI_Load_Text3",
+			"TipsArray"
 		],
 		"subfolders": [
 			{
@@ -284,7 +301,8 @@
 					"LevelSettings",
 					"LocalStorage",
 					"GameData",
-					"MenuSettings"
+					"MenuSettings",
+					"AJAX"
 				],
 				"subfolders": [],
 				"name": "System"
@@ -427,7 +445,8 @@
 			"Start",
 			"1_Level_Selector",
 			"Cricle",
-			"Layout 1"
+			"Layout 1",
+			"Credits"
 		],
 		"subfolders": [
 			{
@@ -471,7 +490,8 @@
 			"eUI",
 			"eFog",
 			"eSFXMusic",
-			"eStart"
+			"eStart",
+			"eCredits"
 		],
 		"subfolders": []
 	},
@@ -637,7 +657,7 @@
 		"general": {
 			"items": [
 				{
-					"name": "InitalLevelData.json",
+					"name": "tips.json",
 					"type": "application/json",
 					"sid": 666799027198252
 				}
@@ -658,7 +678,7 @@
 	},
 	"properties": {
 		"description": "",
-		"version": "0.1.0.0",
+		"version": "1",
 		"author": "Brin",
 		"authorEmail": "brin@zvan.cc",
 		"authorWebsite": "",

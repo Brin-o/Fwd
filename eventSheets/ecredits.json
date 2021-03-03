@@ -1,0 +1,59 @@
+{
+	"name": "eCredits",
+	"events": [
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "every-tick",
+					"objectClass": "System",
+					"sid": 539795010408973
+				}
+			],
+			"actions": [
+				{
+					"id": "set-image-offset-x",
+					"objectClass": "UI_MidBar_L",
+					"sid": 222110834592210,
+					"parameters": {
+						"offset-x": "Self.ImageOffsetX + (dt*10)"
+					}
+				},
+				{
+					"id": "set-image-offset-x",
+					"objectClass": "UI_MidBar_R",
+					"sid": 587175043740481,
+					"parameters": {
+						"offset-x": "Self.ImageOffsetX - (dt*10)"
+					}
+				}
+			],
+			"sid": 555804110229201
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-button-released",
+					"objectClass": "Mouse",
+					"sid": 820525748249223,
+					"parameters": {
+						"mouse-button": "right"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "go-to-layout",
+					"objectClass": "System",
+					"sid": 406491036142520,
+					"parameters": {
+						"layout": "Start"
+					}
+				}
+			],
+			"sid": 186587005293177
+		}
+	],
+	"sid": 528168641661418
+}

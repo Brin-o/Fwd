@@ -2608,7 +2608,7 @@
 					"uid": 1111,
 					"instanceVariables": {
 						"currentTime": 0,
-						"nextLevel": "Circle",
+						"nextLevel": "Credits",
 						"levelName": "The Circle",
 						"levelNum": 9
 					},
