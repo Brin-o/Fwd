@@ -301,6 +301,15 @@
 								"instance-variable": "targetAngle",
 								"value": "angle(Self.X, Self.Y, oPlayer.X, oPlayer.Y) + random(-45,45)"
 							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Fog_Spawn",
+							"sid": 224328526037787,
+							"parameters": {
+								"instance-variable": "speed",
+								"value": "random(50,100)"
+							}
 						}
 					],
 					"sid": 301989452391608
@@ -409,8 +418,7 @@
 							}
 						}
 					],
-					"sid": 391213296644408,
-					"disabled": true
+					"sid": 391213296644408
 				},
 				{
 					"eventType": "block",
@@ -630,7 +638,8 @@
 					}
 				}
 			],
-			"sid": 306116660611031
+			"sid": 306116660611031,
+			"disabled": true
 		}
 	],
 	"sid": 793534722171760

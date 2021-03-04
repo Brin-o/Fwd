@@ -184,6 +184,7 @@
 					"id": "set-eventvar-value",
 					"objectClass": "System",
 					"sid": 912470783165673,
+					"disabled": true,
 					"parameters": {
 						"variable": "UI_Mid_Type",
 						"value": "type"
