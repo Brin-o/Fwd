@@ -629,6 +629,19 @@
 							}
 						}
 					},
+					"sceneGraphData": {
+						"uid": 972,
+						"flags": {
+							"x": true,
+							"y": true,
+							"z": true,
+							"w": true,
+							"h": true,
+							"a": true,
+							"d": true,
+							"sm": "normal"
+						}
+					},
 					"world": {
 						"x": 2076,
 						"y": 1146,
@@ -663,6 +676,19 @@
 								"enabled": true,
 								"tags": ""
 							}
+						}
+					},
+					"sceneGraphData": {
+						"uid": 973,
+						"flags": {
+							"x": true,
+							"y": true,
+							"z": true,
+							"w": true,
+							"h": true,
+							"a": true,
+							"d": true,
+							"sm": "normal"
 						}
 					},
 					"world": {
@@ -3364,7 +3390,7 @@
 						"enable-collisions": true,
 						"live-preview": false
 					},
-					"uid": 974,
+					"uid": 1033,
 					"instanceVariables": {
 						"attackTimer": 0.15,
 						"actionTimer": 2,
@@ -3408,7 +3434,7 @@
 						}
 					},
 					"sceneGraphData": {
-						"uid": 974,
+						"uid": 1033,
 						"flags": {
 							"x": true,
 							"y": true,
@@ -3446,7 +3472,7 @@
 						"enable-collisions": true,
 						"live-preview": false
 					},
-					"uid": 976,
+					"uid": 1580,
 					"instanceVariables": {
 						"attackTimer": 0.15,
 						"actionTimer": 2,
@@ -3490,7 +3516,7 @@
 						}
 					},
 					"sceneGraphData": {
-						"uid": 976,
+						"uid": 1580,
 						"flags": {
 							"x": true,
 							"y": true,
@@ -3528,7 +3554,7 @@
 						"enable-collisions": true,
 						"live-preview": false
 					},
-					"uid": 978,
+					"uid": 1581,
 					"instanceVariables": {
 						"attackTimer": 0.15,
 						"actionTimer": 2,
@@ -3572,7 +3598,7 @@
 						}
 					},
 					"sceneGraphData": {
-						"uid": 978,
+						"uid": 1581,
 						"flags": {
 							"x": true,
 							"y": true,
@@ -3610,7 +3636,7 @@
 						"enable-collisions": true,
 						"live-preview": false
 					},
-					"uid": 979,
+					"uid": 1470,
 					"instanceVariables": {
 						"attackTimer": 0.15,
 						"actionTimer": 2,
@@ -3654,7 +3680,7 @@
 						}
 					},
 					"sceneGraphData": {
-						"uid": 979,
+						"uid": 1470,
 						"flags": {
 							"x": true,
 							"y": true,
@@ -4174,6 +4200,88 @@
 						"angle": 3.165686645445111,
 						"zElevation": 0
 					}
+				},
+				{
+					"type": "primTris_P",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 1601,
+					"instanceVariables": {
+						"attackTimer": 0.15,
+						"actionTimer": 2,
+						"pauseTime": 1,
+						"actionRNG": 0,
+						"HP": 20,
+						"eHP": 0,
+						"bullSpeed": 100,
+						"bullAcc": -20,
+						"bullMin": 75,
+						"targeted": false,
+						"wasAttacked": false,
+						"hit": false,
+						"targetSFX": false
+					},
+					"behaviors": {
+						"Timer": {
+							"properties": {}
+						},
+						"Tween": {
+							"properties": {
+								"enabled": true
+							}
+						},
+						"Flash": {
+							"properties": {}
+						},
+						"Sine": {
+							"properties": {
+								"movement": "horizontal",
+								"wave": "sine",
+								"period": 4,
+								"period-random": 0,
+								"period-offset": 0,
+								"period-offset-random": 0,
+								"magnitude": 50,
+								"magnitude-random": 0,
+								"enabled": false,
+								"live-preview": false
+							}
+						}
+					},
+					"sceneGraphData": {
+						"uid": 1601,
+						"flags": {
+							"x": true,
+							"y": true,
+							"z": true,
+							"w": true,
+							"h": true,
+							"a": true,
+							"d": true,
+							"sm": "normal"
+						}
+					},
+					"world": {
+						"x": 3444,
+						"y": 3002,
+						"width": 14,
+						"height": 15,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 3.165686645445111,
+						"zElevation": 0
+					}
 				}
 			],
 			"sid": 758408116048694,
@@ -4228,7 +4336,8 @@
 						"wasAttacked": false,
 						"hit": false,
 						"targetSFX": false,
-						"bodyType": "static"
+						"bodyType": "static",
+						"bulletsFollow": false
 					},
 					"behaviors": {
 						"Timer": {
