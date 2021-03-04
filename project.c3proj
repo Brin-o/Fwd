@@ -231,6 +231,14 @@
 			"bundled": false
 		},
 		{
+			"type": "behavior",
+			"id": "Orbit",
+			"name": "Orbit",
+			"author": "Scirra",
+			"version": "r234.4",
+			"bundled": false
+		},
+		{
 			"type": "effect",
 			"id": "hsladjust",
 			"name": "Adjust HSL",
@@ -290,7 +298,8 @@
 			"StringArray",
 			"GameManager",
 			"uMusic_Transition",
-			"UI_MiddleText"
+			"UI_MiddleText",
+			"Wall_Orbiting"
 		],
 		"subfolders": [
 			{

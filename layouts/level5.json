@@ -1053,7 +1053,8 @@
 						"wasAttacked": false,
 						"hit": false,
 						"targetSFX": false,
-						"bodyType": "static"
+						"bodyType": "static",
+						"bulletsFollow": false
 					},
 					"behaviors": {
 						"Timer": {
@@ -5101,7 +5102,8 @@
 						"wasAttacked": false,
 						"hit": false,
 						"targetSFX": false,
-						"bodyType": "static"
+						"bodyType": "static",
+						"bulletsFollow": false
 					},
 					"behaviors": {
 						"Timer": {
@@ -5171,7 +5173,8 @@
 						"wasAttacked": false,
 						"hit": false,
 						"targetSFX": false,
-						"bodyType": "static"
+						"bodyType": "static",
+						"bulletsFollow": false
 					},
 					"behaviors": {
 						"Timer": {
@@ -5241,7 +5244,8 @@
 						"wasAttacked": false,
 						"hit": false,
 						"targetSFX": false,
-						"bodyType": "static"
+						"bodyType": "static",
+						"bulletsFollow": false
 					},
 					"behaviors": {
 						"Timer": {
@@ -5311,7 +5315,8 @@
 						"wasAttacked": false,
 						"hit": false,
 						"targetSFX": false,
-						"bodyType": "static"
+						"bodyType": "static",
+						"bulletsFollow": false
 					},
 					"behaviors": {
 						"Timer": {
@@ -5381,7 +5386,8 @@
 						"wasAttacked": false,
 						"hit": false,
 						"targetSFX": false,
-						"bodyType": "static"
+						"bodyType": "static",
+						"bulletsFollow": false
 					},
 					"behaviors": {
 						"Timer": {
@@ -5451,7 +5457,8 @@
 						"wasAttacked": false,
 						"hit": false,
 						"targetSFX": false,
-						"bodyType": "static"
+						"bodyType": "static",
+						"bulletsFollow": false
 					},
 					"behaviors": {
 						"Timer": {
@@ -5521,7 +5528,8 @@
 						"wasAttacked": false,
 						"hit": false,
 						"targetSFX": false,
-						"bodyType": "static"
+						"bodyType": "static",
+						"bulletsFollow": false
 					},
 					"behaviors": {
 						"Timer": {
@@ -5591,7 +5599,8 @@
 						"wasAttacked": false,
 						"hit": false,
 						"targetSFX": false,
-						"bodyType": "static"
+						"bodyType": "static",
+						"bulletsFollow": false
 					},
 					"behaviors": {
 						"Timer": {

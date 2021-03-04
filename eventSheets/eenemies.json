@@ -270,6 +270,13 @@
 							"initialValue": "10",
 							"comment": "",
 							"sid": 930562735870079
+						},
+						{
+							"name": "copyEnemyAngle",
+							"type": "boolean",
+							"initialValue": "false",
+							"comment": "",
+							"sid": 946659864977837
 						}
 					],
 					"eventType": "function-block",
@@ -381,6 +388,10 @@
 							],
 							"actions": [
 								{
+									"type": "comment",
+									"text": "sfx"
+								},
+								{
 									"callFunction": "Enemy - Shoot",
 									"sid": 746131715537249,
 									"parameters": [
@@ -390,6 +401,50 @@
 								}
 							],
 							"sid": 790692076837715
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 602458656973989,
+									"parameters": {
+										"variable": "copyEnemyAngle"
+									}
+								},
+								{
+									"id": "pick-nearestfurthest",
+									"objectClass": "Wall_Orbiting",
+									"sid": 393184035081842,
+									"parameters": {
+										"which": "nearest",
+										"x": "eBullet.X",
+										"y": "eBullet.Y"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "eBullet",
+									"sid": 946005035822221,
+									"parameters": {
+										"instance-variable": "copyEnemyAngle",
+										"value": "true"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "eBullet",
+									"sid": 818038551179007,
+									"parameters": {
+										"instance-variable": "enemyIDD",
+										"value": "Wall_Orbiting.IID"
+									}
+								}
+							],
+							"sid": 463089452049911
 						}
 					]
 				},
@@ -476,6 +531,14 @@
 							"parameters": {
 								"object": "Walls"
 							}
+						},
+						{
+							"id": "on-collision-with-another-object",
+							"objectClass": "eBullet",
+							"sid": 691374968771086,
+							"parameters": {
+								"object": "Walls_9p"
+							}
 						}
 					],
 					"actions": [
@@ -483,9 +546,54 @@
 							"id": "destroy",
 							"objectClass": "eBullet",
 							"sid": 485366399045426
+						},
+						{
+							"id": "spawn-another-object",
+							"objectClass": "eBullet",
+							"sid": 718142934367722,
+							"parameters": {
+								"object": "GenericImpact",
+								"layer": "eBullet.LayerName",
+								"image-point": "0",
+								"create-hierarchy": false
+							}
+						},
+						{
+							"id": "set-rate",
+							"objectClass": "GenericImpact",
+							"sid": 471295168167280,
+							"parameters": {
+								"rate": "4 + random(3)"
+							}
 						}
 					],
-					"sid": 986061825719398
+					"sid": 986061825719398,
+					"isOrBlock": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "eBullet",
+							"sid": 343633667606330,
+							"parameters": {
+								"instance-variable": "copyEnemyAngle"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-angle-of-motion",
+							"objectClass": "eBullet",
+							"sid": 687383103315586,
+							"behaviorType": "Bullet",
+							"parameters": {
+								"angle": "Wall_Orbiting(Self.enemyIDD).angle + 90"
+							}
+						}
+					],
+					"sid": 265741015916974
 				}
 			],
 			"sid": 704784864370946
@@ -596,7 +704,8 @@
 								"90",
 								"eCrosser.bulletSpeed",
 								"eCrosser.bulletAcc",
-								"eCrosser.bulletMinSpeed"
+								"eCrosser.bulletMinSpeed",
+								false
 							]
 						},
 						{
@@ -617,7 +726,8 @@
 								"180",
 								"eCrosser.bulletSpeed",
 								"eCrosser.bulletAcc",
-								"eCrosser.bulletMinSpeed"
+								"eCrosser.bulletMinSpeed",
+								false
 							]
 						},
 						{
@@ -634,7 +744,8 @@
 								"180",
 								"eCrosser.bulletSpeed",
 								"eCrosser.bulletAcc",
-								"eCrosser.bulletMinSpeed"
+								"eCrosser.bulletMinSpeed",
+								false
 							]
 						}
 					],
@@ -726,25 +837,77 @@
 							}
 						}
 					],
-					"actions": [
+					"actions": [],
+					"sid": 157955121644870,
+					"children": [
 						{
-							"callFunction": "ShootBullets",
-							"sid": 268575713752187,
-							"parameters": [
-								"Enemy_P.X",
-								"Enemy_P.Y",
-								"Enemy_P.LayerNumber",
-								"Enemy_P.Width/2",
-								"1",
-								"Enemy_P.Angle",
-								"0",
-								"Enemy_P.bullSpeed",
-								"Enemy_P.bullAcc",
-								"Enemy_P.bullMin"
-							]
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "Enemy_P",
+									"sid": 748843672464756,
+									"parameters": {
+										"instance-variable": "bulletsFollow"
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "ShootBullets",
+									"sid": 212361720200763,
+									"parameters": [
+										"Enemy_P.X",
+										"Enemy_P.Y",
+										"Enemy_P.LayerNumber",
+										"Enemy_P.Width/2",
+										"1",
+										"Enemy_P.Angle",
+										"0",
+										"Enemy_P.bullSpeed",
+										"Enemy_P.bullAcc",
+										"Enemy_P.bullMin",
+										false
+									]
+								}
+							],
+							"sid": 580489235339003
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "Enemy_P",
+									"sid": 290285611311098,
+									"parameters": {
+										"instance-variable": "bulletsFollow"
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "ShootBullets",
+									"sid": 964672985957021,
+									"parameters": [
+										"Enemy_P.X",
+										"Enemy_P.Y",
+										"Enemy_P.LayerNumber",
+										"Enemy_P.Width/2",
+										"1",
+										"Enemy_P.Angle",
+										"0",
+										"Enemy_P.bullSpeed",
+										"Enemy_P.bullAcc",
+										"Enemy_P.bullMin",
+										true
+									]
+								}
+							],
+							"sid": 155228602114529
 						}
-					],
-					"sid": 157955121644870
+					]
 				},
 				{
 					"eventType": "block",

@@ -9,6 +9,12 @@
 			"type": "string",
 			"desc": "Types: static/follow/circle",
 			"sid": 588151210843169
+		},
+		{
+			"name": "bulletsFollow",
+			"type": "boolean",
+			"desc": "",
+			"sid": 845554969208657
 		}
 	],
 	"behaviorTypes": [],

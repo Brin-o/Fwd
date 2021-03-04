@@ -1,0 +1,55 @@
+{
+	"name": "Wall_Orbiting",
+	"plugin-id": "NinePatch",
+	"sid": 655519388513112,
+	"isGlobal": false,
+	"instanceVariables": [
+		{
+			"name": "moveAtAngle",
+			"type": "boolean",
+			"desc": "",
+			"sid": 552557370079526
+		}
+	],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Sin",
+			"name": "Sine",
+			"sid": 765182621338678
+		},
+		{
+			"behaviorId": "solid",
+			"name": "Solid",
+			"sid": 994825867899095
+		},
+		{
+			"behaviorId": "Orbit",
+			"name": "Orbit",
+			"sid": 475442516693219
+		}
+	],
+	"effectTypes": [],
+	"image": {
+		"width": 14,
+		"height": 14,
+		"originX": 0.5,
+		"originY": 0.5,
+		"originalSource": "",
+		"exportFormat": "png",
+		"exportQuality": 0.8,
+		"imageSpriteId": 4282682,
+		"collisionPoly": {
+			"points": [
+				0.03571428571428571,
+				0.03571428571428571,
+				0.9642857142857143,
+				0.03571428571428571,
+				0.9642857142857143,
+				0.9642857142857143,
+				0.03571428571428571,
+				0.9642857142857143
+			]
+		},
+		"useCollisionPoly": true
+	}
+}

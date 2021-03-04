@@ -21,6 +21,18 @@
 			"type": "boolean",
 			"desc": "",
 			"sid": 804661840673438
+		},
+		{
+			"name": "copyEnemyAngle",
+			"type": "boolean",
+			"desc": "",
+			"sid": 658818098261282
+		},
+		{
+			"name": "enemyIDD",
+			"type": "number",
+			"desc": "",
+			"sid": 859455519726581
 		}
 	],
 	"behaviorTypes": [

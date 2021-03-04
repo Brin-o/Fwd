@@ -198,7 +198,9 @@
 					"instanceVariables": {
 						"minSpeed": 0,
 						"killTime": 10,
-						"bounced": false
+						"bounced": false,
+						"copyEnemyAngle": false,
+						"enemyIDD": 0
 					},
 					"behaviors": {
 						"Bullet": {
