@@ -1003,7 +1003,6 @@
 			"isActiveOnStart": true,
 			"children": [
 				{
-					"breakpoint": true,
 					"eventType": "block",
 					"conditions": [
 						{
@@ -1017,7 +1016,7 @@
 						{
 							"id": "is-boolean-instance-variable-set",
 							"objectClass": "uCombat_Zone",
-							"sid": 823533262472909,
+							"sid": 818113354589268,
 							"parameters": {
 								"instance-variable": "locked"
 							},
@@ -1025,15 +1024,6 @@
 						}
 					],
 					"actions": [
-						{
-							"callFunction": "CameraLock",
-							"sid": 814806544468426,
-							"parameters": [
-								"CameraLockZone.X",
-								"CameraLockZone.Y",
-								"CameraLockZone.zoomRatio"
-							]
-						},
 						{
 							"type": "comment",
 							"text": "Output the X and Y for debug"
@@ -1048,10 +1038,37 @@
 							}
 						}
 					],
-					"sid": 582533787769044
+					"sid": 582533787769044,
+					"children": [
+						{
+							"breakpoint": true,
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "uCombat_Zone",
+									"sid": 381973965321525,
+									"parameters": {
+										"instance-variable": "locked",
+										"value": "true"
+									}
+								},
+								{
+									"callFunction": "CameraLock",
+									"sid": 602086743176909,
+									"parameters": [
+										"uCombat_Zone.X",
+										"uCombat_Zone.Y",
+										"uCombat_Zone.zoomRatio"
+									]
+								}
+							],
+							"sid": 822855660767126
+						}
+					]
 				},
 				{
-					"breakpoint": true,
 					"eventType": "block",
 					"conditions": [
 						{
@@ -1063,39 +1080,104 @@
 							}
 						},
 						{
-							"id": "is-overlapping-another-object",
+							"id": "is-boolean-instance-variable-set",
 							"objectClass": "uCombat_Zone",
-							"sid": 942974354034076,
+							"sid": 458527519216642,
 							"parameters": {
-								"object": "oPlayer"
+								"instance-variable": "enemiesInside"
 							},
 							"isInverted": true
 						},
 						{
 							"id": "is-boolean-instance-variable-set",
 							"objectClass": "uCombat_Zone",
-							"sid": 963030845272733,
+							"sid": 967595193299056,
 							"parameters": {
 								"instance-variable": "unlockedAfterEnemies"
 							}
 						}
 					],
-					"actions": [
+					"actions": [],
+					"sid": 309297665224973,
+					"children": [
 						{
-							"id": "set-boolean-instvar",
+							"breakpoint": true,
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "uCombat_Zone",
+									"sid": 354360776947465,
+									"parameters": {
+										"instance-variable": "locked",
+										"value": "false"
+									}
+								},
+								{
+									"callFunction": "CameraUnlock",
+									"sid": 828069127420664
+								}
+							],
+							"sid": 839025191248592
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-boolean-instance-variable-set",
 							"objectClass": "uCombat_Zone",
-							"sid": 877562071955730,
+							"sid": 217625891113249,
 							"parameters": {
-								"instance-variable": "locked",
-								"value": "false"
+								"instance-variable": "locked"
 							}
 						},
 						{
-							"callFunction": "CameraUnlock",
-							"sid": 798719120982119
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "uCombat_Zone",
+							"sid": 439024607256633,
+							"parameters": {
+								"instance-variable": "unlockedAfterEnemies"
+							},
+							"isInverted": true
+						},
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "uCombat_Zone",
+							"sid": 779416970178266,
+							"parameters": {
+								"object": "oPlayer"
+							},
+							"isInverted": true
 						}
 					],
-					"sid": 309297665224973
+					"actions": [],
+					"sid": 224603579659459,
+					"children": [
+						{
+							"breakpoint": true,
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "uCombat_Zone",
+									"sid": 128307080152969,
+									"parameters": {
+										"instance-variable": "locked",
+										"value": "false"
+									}
+								},
+								{
+									"callFunction": "CameraUnlock",
+									"sid": 987833998922209
+								}
+							],
+							"sid": 969737940228656
+						}
+					]
 				},
 				{
 					"eventType": "block",
@@ -1126,23 +1208,27 @@
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "else",
-							"objectClass": "System",
-							"sid": 552450072822937
+							"id": "is-overlapping-another-object",
+							"objectClass": "uCombat_Zone",
+							"sid": 361096942910093,
+							"parameters": {
+								"object": "fEnemies"
+							},
+							"isInverted": true
 						}
 					],
 					"actions": [
 						{
 							"id": "set-boolean-instvar",
 							"objectClass": "uCombat_Zone",
-							"sid": 746308371686146,
+							"sid": 406821045039638,
 							"parameters": {
 								"instance-variable": "enemiesInside",
 								"value": "false"
 							}
 						}
 					],
-					"sid": 980727187570174
+					"sid": 282280089812489
 				},
 				{
 					"eventType": "comment",
@@ -1317,7 +1403,6 @@
 					]
 				},
 				{
-					"breakpoint": true,
 					"eventType": "block",
 					"conditions": [
 						{
@@ -1336,24 +1421,43 @@
 								"instance-variable": "enemiesInside"
 							},
 							"isInverted": true
-						}
-					],
-					"actions": [
-						{
-							"id": "set-boolean-instvar",
-							"objectClass": "uCombat_Zone",
-							"sid": 781495895611672,
-							"parameters": {
-								"instance-variable": "locked",
-								"value": "false"
-							}
 						},
 						{
-							"callFunction": "CameraUnlock",
-							"sid": 698772160928175
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "uCombat_Zone",
+							"sid": 650599985843154,
+							"parameters": {
+								"instance-variable": "locked"
+							}
 						}
 					],
-					"sid": 934371929744368
+					"actions": [],
+					"sid": 934371929744368,
+					"disabled": true,
+					"children": [
+						{
+							"breakpoint": true,
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "uCombat_Zone",
+									"sid": 796802954085147,
+									"parameters": {
+										"instance-variable": "locked",
+										"value": "false"
+									}
+								},
+								{
+									"callFunction": "CameraUnlock",
+									"sid": 212027909459903
+								}
+							],
+							"sid": 496595735666105,
+							"disabled": true
+						}
+					]
 				}
 			],
 			"sid": 948095345456248

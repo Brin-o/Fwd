@@ -12,6 +12,16 @@
 			"sid": 741662201991584
 		},
 		{
+			"eventType": "variable",
+			"name": "init_lvlUnlocked",
+			"type": "number",
+			"initialValue": "1",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": true,
+			"sid": 213775020305707
+		},
+		{
 			"eventType": "block",
 			"conditions": [
 				{
@@ -259,10 +269,10 @@
 				{
 					"id": "add-key",
 					"objectClass": "GameData",
-					"sid": 222969540565666,
+					"sid": 692215240054151,
 					"parameters": {
 						"key": "\"levelsCompleted\"",
-						"value": "9"
+						"value": "init_lvlUnlocked"
 					}
 				},
 				{
@@ -288,134 +298,153 @@
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "mouse-button-is-down",
-							"objectClass": "Mouse",
-							"sid": 826478830496372,
-							"parameters": {
-								"mouse-button": "left"
-							}
-						},
-						{
-							"id": "is-boolean-instance-variable-set",
-							"objectClass": "UI_LoadBar",
-							"sid": 744275743866856,
-							"parameters": {
-								"instance-variable": "complete"
-							},
-							"isInverted": true
-						}
-					],
-					"actions": [
-						{
-							"id": "set-width",
-							"objectClass": "UI_LoadBar",
-							"sid": 464583606592994,
-							"parameters": {
-								"width": "lerp(Self.Width, Self.maxSize+20, dt*4)"
-							}
-						}
-					],
-					"sid": 623112046789359
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "else",
-							"objectClass": "System",
-							"sid": 107763313408076
-						},
-						{
-							"id": "is-boolean-instance-variable-set",
-							"objectClass": "UI_LoadBar",
-							"sid": 285310911970933,
-							"parameters": {
-								"instance-variable": "complete"
-							},
-							"isInverted": true
-						}
-					],
-					"actions": [
-						{
-							"id": "set-width",
-							"objectClass": "UI_LoadBar",
-							"sid": 783950127071201,
-							"parameters": {
-								"width": "Self.Width - (dt*Self.unFillSpeed)"
-							}
-						}
-					],
-					"sid": 348112540625321
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "compare-width",
-							"objectClass": "UI_LoadBar",
-							"sid": 588378170316529,
-							"parameters": {
-								"comparison": 5,
-								"width": "Self.maxSize"
-							}
-						},
-						{
-							"id": "is-boolean-instance-variable-set",
-							"objectClass": "UI_LoadBar",
-							"sid": 965290016779946,
-							"parameters": {
-								"instance-variable": "complete"
-							},
-							"isInverted": true
-						}
-					],
-					"actions": [
-						{
-							"id": "set-boolean-instvar",
-							"objectClass": "UI_LoadBar",
-							"sid": 505301586902522,
-							"parameters": {
-								"instance-variable": "complete",
-								"value": "true"
-							}
-						},
-						{
-							"callFunction": "Start - Hide",
-							"sid": 376139687947523
-						},
-						{
-							"id": "wait",
-							"objectClass": "System",
-							"sid": 826516424159181,
-							"parameters": {
-								"seconds": "0.3"
-							}
-						},
-						{
-							"id": "set-eventvar-value",
-							"objectClass": "System",
-							"sid": 470769760953716,
-							"disabled": true,
-							"parameters": {
-								"variable": "menu_STATE",
-								"value": "\"LEVEL\""
-							}
-						},
-						{
-							"callFunction": "LevelSelect - Set up",
-							"sid": 340100908559583
-						},
-						{
-							"id": "set-instvar-value",
+							"id": "compare-instance-variable",
 							"objectClass": "MenuSettings",
-							"sid": 669803504729456,
+							"sid": 570426223085295,
 							"parameters": {
 								"instance-variable": "menuState",
-								"value": "\"LEVEL\""
+								"comparison": 0,
+								"value": "\"START\""
 							}
 						}
 					],
-					"sid": 319621928727981
+					"actions": [],
+					"sid": 524744832491819,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "mouse-button-is-down",
+									"objectClass": "Mouse",
+									"sid": 550386188142607,
+									"parameters": {
+										"mouse-button": "left"
+									}
+								},
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "UI_LoadBar",
+									"sid": 285442226641902,
+									"parameters": {
+										"instance-variable": "complete"
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "set-width",
+									"objectClass": "UI_LoadBar",
+									"sid": 570022514199958,
+									"parameters": {
+										"width": "lerp(Self.Width, Self.maxSize+20, dt*4)"
+									}
+								}
+							],
+							"sid": 429848486365248
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 661624983325099
+								},
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "UI_LoadBar",
+									"sid": 724243385246549,
+									"parameters": {
+										"instance-variable": "complete"
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "set-width",
+									"objectClass": "UI_LoadBar",
+									"sid": 128062116626490,
+									"parameters": {
+										"width": "Self.Width - (dt*Self.unFillSpeed)"
+									}
+								}
+							],
+							"sid": 937560879713527
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-width",
+									"objectClass": "UI_LoadBar",
+									"sid": 337105532999718,
+									"parameters": {
+										"comparison": 5,
+										"width": "Self.maxSize"
+									}
+								},
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "UI_LoadBar",
+									"sid": 733354744466813,
+									"parameters": {
+										"instance-variable": "complete"
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "UI_LoadBar",
+									"sid": 607841462168372,
+									"parameters": {
+										"instance-variable": "complete",
+										"value": "true"
+									}
+								},
+								{
+									"callFunction": "Start - Hide",
+									"sid": 374493032735052
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 204636239394940,
+									"parameters": {
+										"seconds": "0.3"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 112997149669978,
+									"disabled": true,
+									"parameters": {
+										"variable": "menu_STATE",
+										"value": "\"LEVEL\""
+									}
+								},
+								{
+									"callFunction": "LevelSelect - Set up",
+									"sid": 415198907596929
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "MenuSettings",
+									"sid": 148798130482485,
+									"parameters": {
+										"instance-variable": "menuState",
+										"value": "\"LEVEL\""
+									}
+								}
+							],
+							"sid": 702261059712650
+						}
+					]
 				}
 			],
 			"sid": 393599527098402

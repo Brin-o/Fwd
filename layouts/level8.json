@@ -4348,7 +4348,6 @@
 						"wasAttacked": false,
 						"hit": false,
 						"targetSFX": false,
-						"bodyType": "static",
 						"bulletsFollow": false
 					},
 					"behaviors": {
@@ -4575,8 +4574,8 @@
 					"uid": 1060,
 					"instanceVariables": {
 						"currentTime": 0,
-						"nextLevel": "Circle",
-						"levelName": "The Circle",
+						"nextLevel": "Level8",
+						"levelName": "Just Race",
 						"levelNum": 8
 					},
 					"behaviors": {

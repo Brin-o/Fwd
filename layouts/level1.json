@@ -339,9 +339,9 @@
 						}
 					},
 					"world": {
-						"x": 601.3636363636364,
+						"x": 599.8241620089443,
 						"y": 464.5,
-						"width": 119.2727272727272,
+						"width": 122.35167598211143,
 						"height": 210,
 						"originX": 0.5,
 						"originY": 0.5,
@@ -993,7 +993,6 @@
 						"wasAttacked": false,
 						"hit": false,
 						"targetSFX": false,
-						"bodyType": "static",
 						"bulletsFollow": false
 					},
 					"behaviors": {
@@ -2277,10 +2276,10 @@
 						}
 					},
 					"world": {
-						"x": 498.93787729914857,
-						"y": 412.5436048651316,
+						"x": 529.3204856342759,
+						"y": 401.4099464031963,
 						"width": 317.95519693342465,
-						"height": 32.55930478332127,
+						"height": 97.27595611797466,
 						"originX": 0.5,
 						"originY": 0.5,
 						"color": [
@@ -2649,7 +2648,6 @@
 						"wasAttacked": false,
 						"hit": false,
 						"targetSFX": false,
-						"bodyType": "static",
 						"bulletsFollow": false
 					},
 					"behaviors": {

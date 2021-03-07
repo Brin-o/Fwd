@@ -3862,7 +3862,6 @@
 						"wasAttacked": false,
 						"hit": false,
 						"targetSFX": false,
-						"bodyType": "static",
 						"bulletsFollow": false
 					},
 					"behaviors": {
@@ -3933,7 +3932,6 @@
 						"wasAttacked": false,
 						"hit": false,
 						"targetSFX": false,
-						"bodyType": "static",
 						"bulletsFollow": false
 					},
 					"behaviors": {
@@ -4004,7 +4002,6 @@
 						"wasAttacked": false,
 						"hit": false,
 						"targetSFX": false,
-						"bodyType": "static",
 						"bulletsFollow": false
 					},
 					"behaviors": {

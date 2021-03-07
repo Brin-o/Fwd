@@ -3114,12 +3114,12 @@
 												{
 													"id": "tween-value",
 													"objectClass": "Cam3D",
-													"sid": 100424082983099,
+													"sid": 679150267413723,
 													"behaviorType": "Tween",
 													"parameters": {
 														"tags": "\"zoom\"",
 														"start-value": "Cam3D.zoom",
-														"end-value": "1.15",
+														"end-value": "1.05",
 														"time": "0.075",
 														"ease": "default",
 														"destroy-on-complete": "no",

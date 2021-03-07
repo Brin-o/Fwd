@@ -297,7 +297,7 @@
 						"dmg": 100,
 						"targetX": 0,
 						"targetY": 0,
-						"rotationSpeed": 500,
+						"rotationSpeed": 750,
 						"minSpeed": 120
 					},
 					"behaviors": {

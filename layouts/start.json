@@ -681,7 +681,7 @@
 				{
 					"type": "UI_Load_Text3",
 					"properties": {
-						"text": "[RMB] - Return to the map",
+						"text": "[R] - Restart\n[RMB] - Return to the map",
 						"enable-bbcode": false,
 						"character-width": 8,
 						"character-height": 16,
@@ -707,9 +707,9 @@
 					},
 					"world": {
 						"x": 159.99999999999997,
-						"y": 171.60092090880096,
+						"y": 162.28710106291362,
 						"width": 234.36154543674434,
-						"height": 19.75479816952395,
+						"height": 38.3824378612986,
 						"originX": 0.5,
 						"originY": 0.5,
 						"color": [
