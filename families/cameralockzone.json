@@ -1,0 +1,37 @@
+{
+	"name": "CameraLockZone",
+	"plugin-id": "Sprite",
+	"sid": 454282340028600,
+	"instanceVariables": [
+		{
+			"name": "zoomRatio",
+			"type": "number",
+			"desc": "",
+			"sid": 740230718220760
+		},
+		{
+			"name": "locked",
+			"type": "boolean",
+			"desc": "",
+			"sid": 409173624616972
+		},
+		{
+			"name": "enemiesInside",
+			"type": "boolean",
+			"desc": "",
+			"sid": 486392720873320
+		},
+		{
+			"name": "unlockedAfterEnemies",
+			"type": "boolean",
+			"desc": "",
+			"sid": 140400822590915
+		}
+	],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"members": [
+		"uCombat_Zone",
+		"uCombat_Boss"
+	]
+}

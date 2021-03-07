@@ -1,5 +1,5 @@
 {
-	"name": "UI_MidBar_R",
+	"name": "UI_MidBar_RMB",
 	"plugin-id": "TiledBg",
 	"sid": 815868011844342,
 	"isGlobal": false,
@@ -27,6 +27,12 @@
 			"type": "boolean",
 			"desc": "",
 			"sid": 439036162741709
+		},
+		{
+			"name": "prog",
+			"type": "number",
+			"desc": "",
+			"sid": 861873601258364
 		}
 	],
 	"behaviorTypes": [

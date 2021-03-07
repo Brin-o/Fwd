@@ -27,6 +27,30 @@
 			"type": "number",
 			"desc": "",
 			"sid": 900387653563699
+		},
+		{
+			"name": "offScreenKillTime",
+			"type": "number",
+			"desc": "",
+			"sid": 754857264596721
+		},
+		{
+			"name": "fpsModeKillTime",
+			"type": "number",
+			"desc": "",
+			"sid": 868859121242695
+		},
+		{
+			"name": "fpsModeTimeOut",
+			"type": "number",
+			"desc": "",
+			"sid": 937735434720528
+		},
+		{
+			"name": "dynamicSpawnArea",
+			"type": "boolean",
+			"desc": "",
+			"sid": 868670562915736
 		}
 	],
 	"behaviorTypes": [
@@ -34,6 +58,11 @@
 			"behaviorId": "Pathfinding",
 			"name": "Pathfinding",
 			"sid": 605619270539471
+		},
+		{
+			"behaviorId": "LOS",
+			"name": "LineOfSight",
+			"sid": 149524207251218
 		}
 	],
 	"effectTypes": [],

@@ -1,48 +1,54 @@
 {
-	"name": "uCombat_Zone",
+	"name": "Fog_SpawnerR",
 	"plugin-id": "Sprite",
-	"sid": 783721295780949,
+	"sid": 863395616507503,
 	"isGlobal": false,
 	"instanceVariables": [
 		{
-			"name": "zoomRatioOLD",
+			"name": "hitX",
 			"type": "number",
-			"desc": "the ratio to which the zoom will be set to when you enter this position",
-			"sid": 777125655716108
-		},
-		{
-			"name": "lockedOLD",
-			"type": "boolean",
 			"desc": "",
-			"sid": 890600165768177
+			"sid": 974427118908625
 		},
 		{
-			"name": "enemiesInsideOLD",
-			"type": "boolean",
-			"desc": "true until all enemies are kileld",
-			"sid": 586478200983795
+			"name": "hitY",
+			"type": "number",
+			"desc": "",
+			"sid": 350539755312059
+		},
+		{
+			"name": "hitDist",
+			"type": "number",
+			"desc": "",
+			"sid": 461707692787235
 		}
 	],
-	"behaviorTypes": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "LOS",
+			"name": "LineOfSight",
+			"sid": 525379554194992
+		}
+	],
 	"effectTypes": [],
 	"animations": {
 		"items": [
 			{
 				"frames": [
 					{
-						"width": 94,
-						"height": 94,
+						"width": 40,
+						"height": 40,
 						"originX": 0.5,
-						"originY": 0.5212765957446809,
+						"originY": 0.5,
 						"originalSource": "",
 						"exportFormat": "png",
 						"exportQuality": 0.8,
-						"imageSpriteId": 6250894,
+						"imageSpriteId": 5141957,
 						"useCollisionPoly": true,
 						"duration": 1
 					}
 				],
-				"sid": 815856387767718,
+				"sid": 549524157822411,
 				"name": "Animation 1",
 				"isLooping": false,
 				"isPingPong": false,

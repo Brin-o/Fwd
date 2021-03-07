@@ -1296,7 +1296,6 @@
 					"functionReturnType": "none",
 					"functionIsAsync": false,
 					"functionParameters": [],
-					"breakpoint": true,
 					"eventType": "function-block",
 					"conditions": [],
 					"actions": [
@@ -1350,7 +1349,6 @@
 							"sid": 391781856381086
 						}
 					],
-					"breakpoint": true,
 					"eventType": "function-block",
 					"conditions": [],
 					"actions": [

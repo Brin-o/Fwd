@@ -223,7 +223,11 @@
 						"minSize": 50,
 						"maxSize": 130,
 						"minSpeed": 0.5,
-						"maxSpeed": 1
+						"maxSpeed": 1,
+						"offScreenKillTime": 5,
+						"fpsModeKillTime": 2,
+						"fpsModeTimeOut": 5,
+						"dynamicSpawnArea": false
 					},
 					"behaviors": {
 						"Pathfinding": {
@@ -238,6 +242,14 @@
 								"rotate-object": true,
 								"diagonals": true,
 								"enabled": true
+							}
+						},
+						"LineOfSight": {
+							"properties": {
+								"obstacles": "solids",
+								"range": 10000,
+								"cone-of-view": 360,
+								"use-collision-cells": true
 							}
 						}
 					},
@@ -2684,7 +2696,8 @@
 						"targetAngle": 0,
 						"graceCurrent": 0,
 						"speed": 20,
-						"offScreenTime": 0
+						"offScreenTime": 0,
+						"aliveTime": 0
 					},
 					"behaviors": {
 						"Tween": {

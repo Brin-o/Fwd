@@ -64,6 +64,30 @@
 		},
 		{
 			"type": "plugin",
+			"id": "Arr",
+			"name": "Array",
+			"author": "Scirra",
+			"version": "r234.4",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Audio",
+			"name": "Audio",
+			"author": "Scirra",
+			"version": "r234.4",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "NinePatch",
+			"name": "9-patch",
+			"author": "Scirra",
+			"version": "r234.4",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
 			"id": "Particles",
 			"name": "Particles",
 			"author": "Scirra",
@@ -104,32 +128,8 @@
 		},
 		{
 			"type": "plugin",
-			"id": "NinePatch",
-			"name": "9-patch",
-			"author": "Scirra",
-			"version": "r234.4",
-			"bundled": false
-		},
-		{
-			"type": "plugin",
-			"id": "Audio",
-			"name": "Audio",
-			"author": "Scirra",
-			"version": "r234.4",
-			"bundled": false
-		},
-		{
-			"type": "plugin",
 			"id": "Spritefont2",
 			"name": "Sprite font",
-			"author": "Scirra",
-			"version": "r234.4",
-			"bundled": false
-		},
-		{
-			"type": "plugin",
-			"id": "Arr",
-			"name": "Array",
 			"author": "Scirra",
 			"version": "r234.4",
 			"bundled": false
@@ -168,8 +168,32 @@
 		},
 		{
 			"type": "behavior",
+			"id": "Sin",
+			"name": "Sine",
+			"author": "Scirra",
+			"version": "r234.4",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "Orbit",
+			"name": "Orbit",
+			"author": "Scirra",
+			"version": "r234.4",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
 			"id": "Pathfinding",
 			"name": "Pathfinding",
+			"author": "Scirra",
+			"version": "r234.4",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "LOS",
+			"name": "Line of sight",
 			"author": "Scirra",
 			"version": "r234.4",
 			"bundled": false
@@ -208,32 +232,8 @@
 		},
 		{
 			"type": "behavior",
-			"id": "LOS",
-			"name": "Line of sight",
-			"author": "Scirra",
-			"version": "r234.4",
-			"bundled": false
-		},
-		{
-			"type": "behavior",
 			"id": "Flash",
 			"name": "Flash",
-			"author": "Scirra",
-			"version": "r234.4",
-			"bundled": false
-		},
-		{
-			"type": "behavior",
-			"id": "Sin",
-			"name": "Sine",
-			"author": "Scirra",
-			"version": "r234.4",
-			"bundled": false
-		},
-		{
-			"type": "behavior",
-			"id": "Orbit",
-			"name": "Orbit",
 			"author": "Scirra",
 			"version": "r234.4",
 			"bundled": false
@@ -267,39 +267,10 @@
 	"objectTypes": {
 		"items": [
 			"Background",
-			"Wall",
-			"WinArea",
-			"UI_Timer",
-			"uCombat_Laser",
-			"uCombat_Zone",
-			"Audio",
 			"TiledBackground",
-			"Wall_Moving",
-			"uFogTrigger",
-			"UI_Text_StartTOP",
-			"UI_LoadingBorder",
-			"UI_GameSpeed",
-			"UI_LoadBar",
-			"UI_Text_StartMiddle",
-			"UI_LevelPoint",
-			"UI_LevelPointSelected",
-			"UI_LevelPoint_Trail",
-			"UI_Text_LVL_Top",
-			"UI_Tooltip_Time",
-			"UI_Tooltip",
-			"UI_Tooltip_Name",
-			"UI_HealthBar",
-			"UI_MidBar_L",
-			"UI_MidBar_R",
-			"UI_Mid_Text_Top",
-			"UI_Load_Text1",
-			"UI_Load_Text2",
-			"UI_Load_Text3",
-			"StringArray",
-			"GameManager",
-			"uMusic_Transition",
-			"UI_MiddleText",
-			"Wall_Orbiting"
+			"bossSpawn1",
+			"bossSpawn2",
+			"bossSpawn3"
 		],
 		"subfolders": [
 			{
@@ -314,7 +285,10 @@
 					"LocalStorage",
 					"GameData",
 					"MenuSettings",
-					"AJAX"
+					"AJAX",
+					"StringArray",
+					"GameManager",
+					"Audio"
 				],
 				"subfolders": [],
 				"name": "System"
@@ -327,7 +301,11 @@
 					"oExample_P",
 					"primTris_P",
 					"primCube_P",
-					"primCube_Stack"
+					"primCube_Stack",
+					"Wall",
+					"Wall_Moving",
+					"Wall_Orbiting",
+					"WinArea"
 				],
 				"subfolders": [],
 				"name": "Primitives"
@@ -339,14 +317,20 @@
 					"Enemy_P",
 					"eTargeting_Indicator",
 					"eTurret_Stack_Body",
-					"Enemy_Stack"
+					"Enemy_Stack",
+					"uCombat_Boss",
+					"uCombat_Laser",
+					"uCombat_Zone",
+					"uCombat_Boss_Laser"
 				],
 				"subfolders": [
 					{
 						"items": [
 							"Fog_Spawn",
 							"Fog_Spawner",
-							"Fog_Spawn_Shadow"
+							"Fog_Spawn_Shadow",
+							"Fog_SpawnerL",
+							"Fog_SpawnerR"
 						],
 						"subfolders": [],
 						"name": "Fog"
@@ -374,7 +358,27 @@
 					"UI_MidText",
 					"PlayerHP",
 					"UI_GameFrame",
-					"TiledBackground3"
+					"TiledBackground3",
+					"UI_Load_Text1",
+					"UI_Load_Text2",
+					"UI_Load_Text3",
+					"UI_GameSpeed",
+					"UI_HealthBar",
+					"UI_LevelPoint",
+					"UI_LevelPoint_Trail",
+					"UI_LevelPointSelected",
+					"UI_LoadBar",
+					"UI_LoadingBorder",
+					"UI_Mid_Text_Top",
+					"UI_MidBar_RMB",
+					"UI_MiddleText",
+					"UI_Text_LVL_Top",
+					"UI_Text_StartMiddle",
+					"UI_Text_StartTOP",
+					"UI_Timer",
+					"UI_Tooltip",
+					"UI_Tooltip_Name",
+					"UI_Tooltip_Time"
 				],
 				"subfolders": [
 					{
@@ -404,7 +408,9 @@
 			},
 			{
 				"items": [
-					"uSpeedAdjuster"
+					"uSpeedAdjuster",
+					"uMusic_Transition",
+					"uFogTrigger"
 				],
 				"subfolders": [],
 				"name": "Bunnies"
@@ -437,6 +443,21 @@
 				"UI_LevelPointSelected"
 			],
 			"selectMode": "normal"
+		},
+		{
+			"members": [
+				"Fog_Spawner",
+				"Fog_SpawnerL",
+				"Fog_SpawnerR"
+			],
+			"selectMode": "normal"
+		},
+		{
+			"members": [
+				"uCombat_Boss",
+				"uCombat_Boss_Laser"
+			],
+			"selectMode": "normal"
 		}
 	],
 	"families": {
@@ -446,7 +467,8 @@
 			"Walls",
 			"fEnemies",
 			"DebuggingTXT",
-			"Walls_9p"
+			"Walls_9p",
+			"CameraLockZone"
 		],
 		"subfolders": []
 	},

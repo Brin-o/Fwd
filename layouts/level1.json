@@ -3074,7 +3074,8 @@
 						"targetAngle": 0,
 						"graceCurrent": 0,
 						"speed": 20,
-						"offScreenTime": 0
+						"offScreenTime": 0,
+						"aliveTime": 0
 					},
 					"behaviors": {
 						"Tween": {

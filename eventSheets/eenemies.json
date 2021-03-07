@@ -1003,12 +1003,13 @@
 			"isActiveOnStart": true,
 			"children": [
 				{
+					"breakpoint": true,
 					"eventType": "block",
 					"conditions": [
 						{
 							"id": "on-collision-with-another-object",
 							"objectClass": "uCombat_Zone",
-							"sid": 933742741398287,
+							"sid": 863947148588831,
 							"parameters": {
 								"object": "oPlayer"
 							}
@@ -1016,7 +1017,7 @@
 						{
 							"id": "is-boolean-instance-variable-set",
 							"objectClass": "uCombat_Zone",
-							"sid": 917776763118219,
+							"sid": 823533262472909,
 							"parameters": {
 								"instance-variable": "locked"
 							},
@@ -1025,21 +1026,12 @@
 					],
 					"actions": [
 						{
-							"id": "set-boolean-instvar",
-							"objectClass": "uCombat_Zone",
-							"sid": 780927444867360,
-							"parameters": {
-								"instance-variable": "locked",
-								"value": "true"
-							}
-						},
-						{
 							"callFunction": "CameraLock",
-							"sid": 235922977879253,
+							"sid": 814806544468426,
 							"parameters": [
-								"uCombat_Zone.X",
-								"uCombat_Zone.Y",
-								"uCombat_Zone.zoomRatio"
+								"CameraLockZone.X",
+								"CameraLockZone.Y",
+								"CameraLockZone.zoomRatio"
 							]
 						},
 						{
@@ -1059,12 +1051,13 @@
 					"sid": 582533787769044
 				},
 				{
+					"breakpoint": true,
 					"eventType": "block",
 					"conditions": [
 						{
 							"id": "is-boolean-instance-variable-set",
 							"objectClass": "uCombat_Zone",
-							"sid": 195737799201076,
+							"sid": 645974760373165,
 							"parameters": {
 								"instance-variable": "locked"
 							}
@@ -1072,18 +1065,26 @@
 						{
 							"id": "is-overlapping-another-object",
 							"objectClass": "uCombat_Zone",
-							"sid": 663627216890555,
+							"sid": 942974354034076,
 							"parameters": {
 								"object": "oPlayer"
 							},
 							"isInverted": true
+						},
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "uCombat_Zone",
+							"sid": 963030845272733,
+							"parameters": {
+								"instance-variable": "unlockedAfterEnemies"
+							}
 						}
 					],
 					"actions": [
 						{
 							"id": "set-boolean-instvar",
 							"objectClass": "uCombat_Zone",
-							"sid": 111979575850823,
+							"sid": 877562071955730,
 							"parameters": {
 								"instance-variable": "locked",
 								"value": "false"
@@ -1102,31 +1103,46 @@
 						{
 							"id": "is-overlapping-another-object",
 							"objectClass": "uCombat_Zone",
-							"sid": 923606803753363,
+							"sid": 744544240823472,
 							"parameters": {
 								"object": "fEnemies"
-							},
-							"isInverted": true
+							}
 						}
 					],
 					"actions": [
 						{
-							"id": "destroy",
-							"objectClass": "uCombat_Laser",
-							"sid": 904462553638945,
-							"disabled": true
-						},
+							"id": "set-boolean-instvar",
+							"objectClass": "uCombat_Zone",
+							"sid": 818957072823955,
+							"parameters": {
+								"instance-variable": "enemiesInside",
+								"value": "true"
+							}
+						}
+					],
+					"sid": 104697531790063
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 552450072822937
+						}
+					],
+					"actions": [
 						{
 							"id": "set-boolean-instvar",
 							"objectClass": "uCombat_Zone",
-							"sid": 674381917187991,
+							"sid": 746308371686146,
 							"parameters": {
 								"instance-variable": "enemiesInside",
 								"value": "false"
 							}
 						}
 					],
-					"sid": 104697531790063
+					"sid": 980727187570174
 				},
 				{
 					"eventType": "comment",
@@ -1138,10 +1154,18 @@
 						{
 							"id": "is-boolean-instance-variable-set",
 							"objectClass": "uCombat_Zone",
-							"sid": 620951049432711,
+							"sid": 605433636711107,
 							"parameters": {
 								"instance-variable": "enemiesInside"
 							},
+							"isInverted": true
+						},
+						{
+							"id": "is-any-playing",
+							"objectClass": "uCombat_Laser",
+							"sid": 217639465740712,
+							"disabled": true,
+							"behaviorType": "Tween",
 							"isInverted": true
 						}
 					],
@@ -1162,6 +1186,23 @@
 							"parameters": {
 								"visibility": "invisible"
 							}
+						},
+						{
+							"id": "tween-one-property",
+							"objectClass": "uCombat_Laser",
+							"sid": 434895136378421,
+							"disabled": true,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"\"",
+								"property": "offsetHeight",
+								"end-value": "0",
+								"time": "0.3",
+								"ease": "easeincubic",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no"
+							}
 						}
 					],
 					"sid": 375028360478825,
@@ -1171,16 +1212,16 @@
 							"conditions": [
 								{
 									"id": "is-boolean-instance-variable-set",
-									"objectClass": "uCombat_Zone",
-									"sid": 498713035228159,
+									"objectClass": "CameraLockZone",
+									"sid": 834032100362506,
 									"parameters": {
-										"instance-variable": "unlockAfterEnemies"
+										"instance-variable": "unlockedAfterEnemies"
 									}
 								},
 								{
 									"id": "is-boolean-instance-variable-set",
-									"objectClass": "uCombat_Zone",
-									"sid": 348624325695516,
+									"objectClass": "CameraLockZone",
+									"sid": 749421573581642,
 									"parameters": {
 										"instance-variable": "locked"
 									}
@@ -1189,8 +1230,8 @@
 							"actions": [
 								{
 									"id": "set-boolean-instvar",
-									"objectClass": "uCombat_Zone",
-									"sid": 772267343206905,
+									"objectClass": "CameraLockZone",
+									"sid": 791109383453687,
 									"parameters": {
 										"instance-variable": "locked",
 										"value": "false"
@@ -1201,9 +1242,118 @@
 									"sid": 568171880059008
 								}
 							],
-							"sid": 330479712992196
+							"sid": 330479712992196,
+							"disabled": true
 						}
 					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "uCombat_Zone",
+							"sid": 664206578582553,
+							"parameters": {
+								"instance-variable": "enemiesInside"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "set-enabled",
+							"objectClass": "uCombat_Laser",
+							"sid": 437590879008255,
+							"behaviorType": "Solid",
+							"parameters": {
+								"state": "disabled"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "uCombat_Laser",
+							"sid": 369123426816800,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						}
+					],
+					"sid": 929471046192946,
+					"disabled": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-any-playing",
+									"objectClass": "uCombat_Laser",
+									"sid": 281975701683187,
+									"behaviorType": "Tween",
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "tween-one-property",
+									"objectClass": "uCombat_Laser",
+									"sid": 357526427660462,
+									"behaviorType": "Tween",
+									"parameters": {
+										"tags": "\"\"",
+										"property": "offsetHeight",
+										"end-value": "0",
+										"time": "0.3",
+										"ease": "easeincubic",
+										"destroy-on-complete": "no",
+										"loop": "no",
+										"ping-pong": "no"
+									}
+								}
+							],
+							"sid": 396963663264635,
+							"disabled": true
+						}
+					]
+				},
+				{
+					"breakpoint": true,
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "uCombat_Zone",
+							"sid": 496240314796688,
+							"parameters": {
+								"instance-variable": "unlockedAfterEnemies"
+							}
+						},
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "uCombat_Zone",
+							"sid": 875514075203042,
+							"parameters": {
+								"instance-variable": "enemiesInside"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "uCombat_Zone",
+							"sid": 781495895611672,
+							"parameters": {
+								"instance-variable": "locked",
+								"value": "false"
+							}
+						},
+						{
+							"callFunction": "CameraUnlock",
+							"sid": 698772160928175
+						}
+					],
+					"sid": 934371929744368
 				}
 			],
 			"sid": 948095345456248
@@ -1545,6 +1695,747 @@
 				}
 			],
 			"sid": 157175107585260
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Boss",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-created",
+							"objectClass": "Wall_Orbiting",
+							"sid": 424407725622541
+						},
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "uCombat_Boss",
+							"sid": 927272958254504,
+							"parameters": {
+								"object": "Wall_Orbiting"
+							}
+						},
+						{
+							"id": "pick-children",
+							"objectClass": "Wall_Orbiting",
+							"sid": 796780979904535,
+							"parameters": {
+								"child": "bossSpawn1",
+								"which": "own"
+							}
+						},
+						{
+							"id": "pick-children",
+							"objectClass": "Wall_Orbiting",
+							"sid": 707562480715361,
+							"parameters": {
+								"child": "bossSpawn2",
+								"which": "own"
+							}
+						},
+						{
+							"id": "pick-children",
+							"objectClass": "Wall_Orbiting",
+							"sid": 469840135075139,
+							"parameters": {
+								"child": "bossSpawn3",
+								"which": "own"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-position",
+							"objectClass": "Wall_Orbiting",
+							"sid": 503852385479582,
+							"parameters": {
+								"x": "uCombat_Boss.X",
+								"y": "uCombat_Boss.Y"
+							}
+						}
+					],
+					"sid": 684389054869605
+				},
+				{
+					"functionName": "Boss - Go To Phase",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "stage",
+							"type": "number",
+							"initialValue": "1",
+							"comment": "1",
+							"sid": 617993336231010
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [],
+					"sid": 333678268362063,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 806576069480541,
+									"parameters": {
+										"first-value": "stage",
+										"comparison": 0,
+										"second-value": "1"
+									}
+								},
+								{
+									"id": "for-each",
+									"objectClass": "System",
+									"sid": 243011423618613,
+									"parameters": {
+										"object": "Wall_Orbiting"
+									}
+								},
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "uCombat_Boss",
+									"sid": 673494218328828,
+									"parameters": {
+										"object": "Wall_Orbiting"
+									}
+								},
+								{
+									"id": "pick-children",
+									"objectClass": "Wall_Orbiting",
+									"sid": 664227391350674,
+									"parameters": {
+										"child": "bossSpawn1",
+										"which": "own"
+									}
+								},
+								{
+									"id": "pick-children",
+									"objectClass": "Wall_Orbiting",
+									"sid": 652013273717268,
+									"parameters": {
+										"child": "bossSpawn2",
+										"which": "own"
+									}
+								},
+								{
+									"id": "pick-children",
+									"objectClass": "Wall_Orbiting",
+									"sid": 255304840854733,
+									"parameters": {
+										"child": "bossSpawn3",
+										"which": "own"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 288853395714193,
+									"parameters": {
+										"object-to-create": "Enemy_P",
+										"layer": "\"Whiteblock\"",
+										"x": "bossSpawn3.X",
+										"y": "bossSpawn3.Y",
+										"create-hierarchy": false
+									}
+								},
+								{
+									"id": "add-child",
+									"objectClass": "Wall_Orbiting",
+									"sid": 261122644818845,
+									"parameters": {
+										"child": "Enemy_P",
+										"transform-x": true,
+										"transform-y": true,
+										"transform-w": true,
+										"transform-h": true,
+										"transform-a": true,
+										"transform-z-elevation": true,
+										"destroy-with-parent": false
+									}
+								},
+								{
+									"id": "set-magnitude",
+									"objectClass": "Enemy_P",
+									"sid": 671072697730371,
+									"behaviorType": "Sine",
+									"parameters": {
+										"magnitude": "0"
+									}
+								},
+								{
+									"id": "set-angle",
+									"objectClass": "Enemy_P",
+									"sid": 201167166525457,
+									"parameters": {
+										"angle": "Wall_Orbiting.Angle-90"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Enemy_P",
+									"sid": 431380198308402,
+									"parameters": {
+										"instance-variable": "bullAcc",
+										"value": "uCombat_Boss.p1BulletAccel"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Enemy_P",
+									"sid": 949266406840400,
+									"parameters": {
+										"instance-variable": "bullSpeed",
+										"value": "uCombat_Boss.p1BulletSpeed"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Enemy_P",
+									"sid": 227296075998623,
+									"parameters": {
+										"instance-variable": "pauseTime",
+										"value": "uCombat_Boss.p1PauseTime"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Enemy_P",
+									"sid": 697737722489059,
+									"parameters": {
+										"instance-variable": "attackTimer",
+										"value": "uCombat_Boss.p1ShootingSpeed"
+									}
+								},
+								{
+									"id": "tween-value",
+									"objectClass": "uCombat_Boss",
+									"sid": 810491958960096,
+									"behaviorType": "Tween",
+									"parameters": {
+										"tags": "\"orbit\"",
+										"start-value": "uCombat_Boss.orbitSpeed",
+										"end-value": "60",
+										"time": "0.5",
+										"ease": "easeinsine",
+										"destroy-on-complete": "no",
+										"loop": "no",
+										"ping-pong": "no"
+									}
+								}
+							],
+							"sid": 543605309770946
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 314845332492997,
+									"parameters": {
+										"first-value": "stage",
+										"comparison": 0,
+										"second-value": "2"
+									}
+								},
+								{
+									"id": "for-each",
+									"objectClass": "System",
+									"sid": 685270224625647,
+									"parameters": {
+										"object": "Wall_Orbiting"
+									}
+								},
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "uCombat_Boss",
+									"sid": 815508350007230,
+									"parameters": {
+										"object": "Wall_Orbiting"
+									}
+								},
+								{
+									"id": "pick-children",
+									"objectClass": "Wall_Orbiting",
+									"sid": 553522130515183,
+									"parameters": {
+										"child": "bossSpawn1",
+										"which": "own"
+									}
+								},
+								{
+									"id": "pick-children",
+									"objectClass": "Wall_Orbiting",
+									"sid": 950330650077709,
+									"parameters": {
+										"child": "bossSpawn2",
+										"which": "own"
+									}
+								},
+								{
+									"id": "pick-children",
+									"objectClass": "Wall_Orbiting",
+									"sid": 958517099893093,
+									"parameters": {
+										"child": "bossSpawn3",
+										"which": "own"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 172361693837159,
+									"parameters": {
+										"object-to-create": "Enemy_P",
+										"layer": "\"Whiteblock\"",
+										"x": "bossSpawn1.X",
+										"y": "bossSpawn1.Y",
+										"create-hierarchy": false
+									}
+								},
+								{
+									"id": "add-child",
+									"objectClass": "Wall_Orbiting",
+									"sid": 701966385099598,
+									"parameters": {
+										"child": "Enemy_P",
+										"transform-x": true,
+										"transform-y": true,
+										"transform-w": true,
+										"transform-h": true,
+										"transform-a": true,
+										"transform-z-elevation": true,
+										"destroy-with-parent": false
+									}
+								},
+								{
+									"id": "set-magnitude",
+									"objectClass": "Enemy_P",
+									"sid": 510362493945470,
+									"behaviorType": "Sine",
+									"parameters": {
+										"magnitude": "0"
+									}
+								},
+								{
+									"id": "set-angle",
+									"objectClass": "Enemy_P",
+									"sid": 715173677783799,
+									"parameters": {
+										"angle": "Wall_Orbiting.Angle+90"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Enemy_P",
+									"sid": 244138795611378,
+									"parameters": {
+										"instance-variable": "bullAcc",
+										"value": "uCombat_Boss.p2BulletAccel"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Enemy_P",
+									"sid": 209759416893665,
+									"parameters": {
+										"instance-variable": "bullSpeed",
+										"value": "uCombat_Boss.p2BulletSpeed"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Enemy_P",
+									"sid": 572342156506379,
+									"parameters": {
+										"instance-variable": "pauseTime",
+										"value": "uCombat_Boss.p2PauseTime"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Enemy_P",
+									"sid": 845672785018466,
+									"parameters": {
+										"instance-variable": "attackTimer",
+										"value": "uCombat_Boss.p2ShootingSpeed"
+									}
+								},
+								{
+									"id": "tween-value",
+									"objectClass": "uCombat_Boss",
+									"sid": 727665431897546,
+									"behaviorType": "Tween",
+									"parameters": {
+										"tags": "\"orbit\"",
+										"start-value": "uCombat_Boss.orbitSpeed",
+										"end-value": "30",
+										"time": "0.5",
+										"ease": "easeinsine",
+										"destroy-on-complete": "no",
+										"loop": "no",
+										"ping-pong": "no"
+									}
+								}
+							],
+							"sid": 598582173871121
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 761009520298214,
+									"parameters": {
+										"first-value": "stage",
+										"comparison": 0,
+										"second-value": "3"
+									}
+								},
+								{
+									"id": "for-each",
+									"objectClass": "System",
+									"sid": 280152999025949,
+									"parameters": {
+										"object": "Wall_Orbiting"
+									}
+								},
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "uCombat_Boss",
+									"sid": 955931208495342,
+									"parameters": {
+										"object": "Wall_Orbiting"
+									}
+								},
+								{
+									"id": "pick-children",
+									"objectClass": "Wall_Orbiting",
+									"sid": 805919463321194,
+									"parameters": {
+										"child": "bossSpawn1",
+										"which": "own"
+									}
+								},
+								{
+									"id": "pick-children",
+									"objectClass": "Wall_Orbiting",
+									"sid": 378083724581957,
+									"parameters": {
+										"child": "bossSpawn2",
+										"which": "own"
+									}
+								},
+								{
+									"id": "pick-children",
+									"objectClass": "Wall_Orbiting",
+									"sid": 855954953664267,
+									"parameters": {
+										"child": "bossSpawn3",
+										"which": "own"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 287860837395422,
+									"parameters": {
+										"object-to-create": "Enemy_P",
+										"layer": "\"Whiteblock\"",
+										"x": "bossSpawn3.X",
+										"y": "bossSpawn3.Y",
+										"create-hierarchy": false
+									}
+								},
+								{
+									"id": "add-child",
+									"objectClass": "Wall_Orbiting",
+									"sid": 770561663077132,
+									"parameters": {
+										"child": "Enemy_P",
+										"transform-x": true,
+										"transform-y": true,
+										"transform-w": true,
+										"transform-h": true,
+										"transform-a": true,
+										"transform-z-elevation": true,
+										"destroy-with-parent": false
+									}
+								},
+								{
+									"id": "set-magnitude",
+									"objectClass": "Enemy_P",
+									"sid": 494235476519193,
+									"behaviorType": "Sine",
+									"parameters": {
+										"magnitude": "0"
+									}
+								},
+								{
+									"id": "set-angle",
+									"objectClass": "Enemy_P",
+									"sid": 592883031869092,
+									"parameters": {
+										"angle": "Self.Angle-90"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Enemy_P",
+									"sid": 777454071604935,
+									"parameters": {
+										"instance-variable": "bullAcc",
+										"value": "uCombat_Boss.p3BulletAccel"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Enemy_P",
+									"sid": 456440844235919,
+									"parameters": {
+										"instance-variable": "bullSpeed",
+										"value": "uCombat_Boss.p3BulletSpeed"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Enemy_P",
+									"sid": 500215588662658,
+									"parameters": {
+										"instance-variable": "pauseTime",
+										"value": "uCombat_Boss.p3PauseTime"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Enemy_P",
+									"sid": 259420875296263,
+									"parameters": {
+										"instance-variable": "attackTimer",
+										"value": "uCombat_Boss.p3ShootingSpeed"
+									}
+								},
+								{
+									"id": "tween-value",
+									"objectClass": "uCombat_Boss",
+									"sid": 704852841197619,
+									"behaviorType": "Tween",
+									"parameters": {
+										"tags": "\"orbit\"",
+										"start-value": "uCombat_Boss.orbitSpeed",
+										"end-value": "40",
+										"time": "0.5",
+										"ease": "easeinsine",
+										"destroy-on-complete": "no",
+										"loop": "no",
+										"ping-pong": "no"
+									}
+								}
+							],
+							"sid": 712289467032350,
+							"disabled": true
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "uCombat_Boss",
+							"sid": 344497913625939,
+							"parameters": {
+								"object": "Enemy_P"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "add-to-instvar",
+							"objectClass": "uCombat_Boss",
+							"sid": 854934185028957,
+							"parameters": {
+								"instance-variable": "stage",
+								"value": "1"
+							}
+						}
+					],
+					"sid": 142418293401280,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "uCombat_Boss",
+									"sid": 813232348766919,
+									"parameters": {
+										"instance-variable": "stage",
+										"comparison": 4,
+										"value": "2"
+									}
+								},
+								{
+									"id": "is-playing",
+									"objectClass": "uCombat_Boss_Laser",
+									"sid": 742642186352786,
+									"behaviorType": "Tween",
+									"parameters": {
+										"tags": "\"destroy\""
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "destroy",
+									"objectClass": "uCombat_Boss",
+									"sid": 882767107465266,
+									"disabled": true
+								},
+								{
+									"id": "tween-one-property",
+									"objectClass": "uCombat_Boss_Laser",
+									"sid": 316795896167871,
+									"behaviorType": "Tween",
+									"parameters": {
+										"tags": "\"destroy\"",
+										"property": "offsetHeight",
+										"end-value": "0",
+										"time": "0.3",
+										"ease": "easeincubic",
+										"destroy-on-complete": "yes",
+										"loop": "no",
+										"ping-pong": "no"
+									}
+								}
+							],
+							"sid": 252689799901081
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 804003120141289
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "Boss - Go To Phase",
+									"sid": 708802983737422,
+									"parameters": [
+										"uCombat_Boss.stage"
+									]
+								}
+							],
+							"sid": 189148625655700
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-tick",
+							"objectClass": "System",
+							"sid": 971712641292732
+						},
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "uCombat_Boss",
+							"sid": 988270319195982,
+							"parameters": {
+								"object": "Wall_Orbiting"
+							}
+						},
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 524549783945337,
+							"parameters": {
+								"object": "Wall_Orbiting"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-speed",
+							"objectClass": "Wall_Orbiting",
+							"sid": 123840587636948,
+							"behaviorType": "Orbit",
+							"parameters": {
+								"speed": "uCombat_Boss.orbitSpeed"
+							}
+						},
+						{
+							"id": "set-magnitude",
+							"objectClass": "Wall_Orbiting",
+							"sid": 726740561367427,
+							"behaviorType": "Sine",
+							"parameters": {
+								"magnitude": "uCombat_Boss.inOutMag"
+							}
+						},
+						{
+							"id": "set-period",
+							"objectClass": "Wall_Orbiting",
+							"sid": 790794691891621,
+							"behaviorType": "Sine",
+							"parameters": {
+								"period": "uCombat_Boss.inOutSpeed"
+							}
+						}
+					],
+					"sid": 681003695521764
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-playing",
+							"objectClass": "uCombat_Boss",
+							"sid": 231546524683533,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"orbit\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "uCombat_Boss",
+							"sid": 992026449987523,
+							"parameters": {
+								"instance-variable": "orbitSpeed",
+								"value": "uCombat_Boss.Tween.Value(\"orbit\")"
+							}
+						}
+					],
+					"sid": 961928178720123
+				}
+			],
+			"sid": 631431469807434
 		}
 	],
 	"sid": 625380407266723

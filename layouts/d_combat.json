@@ -169,10 +169,13 @@
 					},
 					"uid": 478,
 					"instanceVariables": {
-						"zoomRatio": 0.75,
+						"zoomRatio": 0.7,
 						"locked": false,
-						"enemiesInside": true,
-						"unlockAfterEnemies": true
+						"enemiesInside": false,
+						"unlockedAfterEnemies": true,
+						"zoomRatioOLD": 0.75,
+						"lockedOLD": false,
+						"enemiesInsideOLD": true
 					},
 					"behaviors": {},
 					"world": {
@@ -1423,6 +1426,11 @@
 							"properties": {
 								"enabled": true,
 								"tags": ""
+							}
+						},
+						"Tween": {
+							"properties": {
+								"enabled": true
 							}
 						}
 					},

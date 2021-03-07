@@ -13,15 +13,7 @@
 			"actions": [
 				{
 					"id": "set-image-offset-x",
-					"objectClass": "UI_MidBar_L",
-					"sid": 222110834592210,
-					"parameters": {
-						"offset-x": "Self.ImageOffsetX + (dt*10)"
-					}
-				},
-				{
-					"id": "set-image-offset-x",
-					"objectClass": "UI_MidBar_R",
+					"objectClass": "UI_MidBar_RMB",
 					"sid": 587175043740481,
 					"parameters": {
 						"offset-x": "Self.ImageOffsetX - (dt*10)"

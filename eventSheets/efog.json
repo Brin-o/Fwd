@@ -9,6 +9,16 @@
 			"isActiveOnStart": true,
 			"children": [
 				{
+					"eventType": "variable",
+					"name": "wallCheckerMaxDist",
+					"type": "number",
+					"initialValue": "100",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 666029899883769
+				},
+				{
 					"eventType": "block",
 					"conditions": [
 						{
@@ -18,6 +28,70 @@
 						}
 					],
 					"actions": [
+						{
+							"id": "set-angle",
+							"objectClass": "Fog_Spawner",
+							"sid": 979284252661854,
+							"parameters": {
+								"angle": "0"
+							}
+						},
+						{
+							"type": "comment",
+							"text": "Set up left raycast target"
+						},
+						{
+							"id": "set-position",
+							"objectClass": "Fog_SpawnerL",
+							"sid": 496179827505841,
+							"parameters": {
+								"x": "Fog_Spawner.X",
+								"y": "Fog_Spawner.Y + wallCheckerMaxDist"
+							}
+						},
+						{
+							"id": "add-child",
+							"objectClass": "Fog_Spawner",
+							"sid": 321363226222959,
+							"parameters": {
+								"child": "Fog_SpawnerL",
+								"transform-x": true,
+								"transform-y": true,
+								"transform-w": true,
+								"transform-h": true,
+								"transform-a": true,
+								"transform-z-elevation": true,
+								"destroy-with-parent": true
+							}
+						},
+						{
+							"type": "comment",
+							"text": "Set up right raycast target"
+						},
+						{
+							"id": "set-position",
+							"objectClass": "Fog_SpawnerR",
+							"sid": 378572959464696,
+							"parameters": {
+								"x": "Fog_Spawner.X",
+								"y": "Fog_Spawner.Y - wallCheckerMaxDist"
+							}
+						},
+						{
+							"id": "add-child",
+							"objectClass": "Fog_Spawner",
+							"sid": 614181540885608,
+							"parameters": {
+								"child": "Fog_SpawnerR",
+								"transform-x": true,
+								"transform-y": true,
+								"transform-w": true,
+								"transform-h": true,
+								"transform-a": true,
+								"transform-z-elevation": true,
+								"destroy-with-parent": true
+							}
+						},
 						{
 							"id": "add-obstacle",
 							"objectClass": "Fog_Spawner",
@@ -40,9 +114,9 @@
 						{
 							"id": "set-rate",
 							"objectClass": "Fog_Spawner",
-							"sid": 931115576356685,
+							"sid": 742995139223349,
 							"parameters": {
-								"rate": "50"
+								"rate": "25"
 							}
 						}
 					],
@@ -81,6 +155,115 @@
 				{
 					"eventType": "group",
 					"disabled": false,
+					"title": "Death",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "every-tick",
+									"objectClass": "System",
+									"sid": 971364116202553
+								}
+							],
+							"actions": [
+								{
+									"id": "add-to-instvar",
+									"objectClass": "Fog_Spawn",
+									"sid": 422891024914152,
+									"parameters": {
+										"instance-variable": "aliveTime",
+										"value": "dt"
+									}
+								}
+							],
+							"sid": 701385428766792
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Fog_Spawn",
+									"sid": 669961876207817,
+									"parameters": {
+										"instance-variable": "aliveTime",
+										"comparison": 4,
+										"value": "4"
+									}
+								},
+								{
+									"id": "is-playing",
+									"objectClass": "Fog_Spawn",
+									"sid": 587741056440581,
+									"behaviorType": "Tween",
+									"parameters": {
+										"tags": "\"death\""
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [],
+							"sid": 695229009115724,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-on-screen",
+											"objectClass": "Fog_Spawn",
+											"sid": 634472019514519
+										}
+									],
+									"actions": [
+										{
+											"id": "tween-two-properties",
+											"objectClass": "Fog_Spawn",
+											"sid": 322536725194392,
+											"behaviorType": "Tween",
+											"parameters": {
+												"tags": "\"death\"",
+												"property": "size",
+												"end-x": "0",
+												"end-y": "0",
+												"time": "1",
+												"ease": "easeinsine",
+												"destroy-on-complete": "yes",
+												"loop": "no",
+												"ping-pong": "no"
+											}
+										}
+									],
+									"sid": 961536056856924
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 797125752034971
+										}
+									],
+									"actions": [
+										{
+											"id": "destroy",
+											"objectClass": "Fog_Spawn",
+											"sid": 710831700244553
+										}
+									],
+									"sid": 819319621892608
+								}
+							]
+						}
+					],
+					"sid": 501296362573785
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
 					"title": "Offscreen Killer",
 					"description": "",
 					"isActiveOnStart": true,
@@ -114,19 +297,47 @@
 										{
 											"id": "compare-instance-variable",
 											"objectClass": "Fog_Spawn",
-											"sid": 466499681332718,
+											"sid": 792742689595404,
 											"parameters": {
 												"instance-variable": "offScreenTime",
 												"comparison": 5,
-												"value": "5"
+												"value": "Fog_Spawner.offScreenKillTime"
 											}
+										},
+										{
+											"id": "is-playing",
+											"objectClass": "Fog_Spawn",
+											"sid": 387884677771435,
+											"behaviorType": "Tween",
+											"parameters": {
+												"tags": "\"death\""
+											},
+											"isInverted": true
 										}
 									],
 									"actions": [
 										{
 											"id": "destroy",
 											"objectClass": "Fog_Spawn",
-											"sid": 920512123302594
+											"sid": 920512123302594,
+											"disabled": true
+										},
+										{
+											"id": "tween-two-properties",
+											"objectClass": "Fog_Spawn",
+											"sid": 558484948331136,
+											"behaviorType": "Tween",
+											"parameters": {
+												"tags": "\"death\"",
+												"property": "size",
+												"end-x": "0",
+												"end-y": "0",
+												"time": "1",
+												"ease": "easeinsine",
+												"destroy-on-complete": "yes",
+												"loop": "no",
+												"ping-pong": "no"
+											}
 										}
 									],
 									"sid": 281350050757798
@@ -305,10 +516,10 @@
 						{
 							"id": "set-instvar-value",
 							"objectClass": "Fog_Spawn",
-							"sid": 224328526037787,
+							"sid": 807702903583610,
 							"parameters": {
 								"instance-variable": "speed",
-								"value": "random(50,100)"
+								"value": "random(20,30)"
 							}
 						}
 					],
@@ -551,14 +762,14 @@
 						{
 							"id": "tween-two-properties",
 							"objectClass": "Fog_Spawn",
-							"sid": 501165196680165,
+							"sid": 355162056792568,
 							"disabled": true,
 							"behaviorType": "Tween",
 							"parameters": {
 								"tags": "\"wallStopper\"",
 								"property": "size",
-								"end-x": "Self.Width*0.7",
-								"end-y": "Self.Height*0.7",
+								"end-x": "Self.Width*0.3",
+								"end-y": "Self.Height*0.3",
 								"time": "5",
 								"ease": "easeoutquint",
 								"destroy-on-complete": "no",
@@ -620,26 +831,394 @@
 			"sid": 782657013389672
 		},
 		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Calculate Fog Spawn area",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "variable",
+					"name": "distanceToR",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 726207580029972
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-tick",
+							"objectClass": "System",
+							"sid": 884108244809850
+						}
+					],
+					"actions": [
+						{
+							"id": "set-text",
+							"objectClass": "dbg_Player",
+							"sid": 837020804766922,
+							"parameters": {
+								"text": "fps"
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "dbg_Walls",
+							"sid": 607755165329420,
+							"parameters": {
+								"text": "\"X-rng: \" & Fog_Spawner.XRandom"
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "dbg_Walls",
+							"sid": 666886285490132,
+							"parameters": {
+								"text": "dbg_Walls.Text & newline & \"Y-rng: \" & Fog_Spawner.YRandom"
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "dbg_Walls",
+							"sid": 759601996619685,
+							"disabled": true,
+							"parameters": {
+								"text": "dbg_Walls.Text & newline & \"L-hit: \" & newline & \"x: \" & round(Fog_SpawnerL.hitX)& newline & \"y: \" & round(Fog_SpawnerL.hitY)"
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "dbg_Walls",
+							"sid": 603989415141060,
+							"parameters": {
+								"text": "dbg_Walls.Text & newline & \"L-dist: \" & Fog_SpawnerL.hitDist"
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "dbg_Walls",
+							"sid": 541063947345523,
+							"disabled": true,
+							"parameters": {
+								"text": "dbg_Walls.Text & newline & \"R-hit: \" & newline & \"x: \" & round(Fog_SpawnerR.hitX)& newline & \"y: \" & round(Fog_SpawnerR.hitY)"
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "dbg_Walls",
+							"sid": 523541741947541,
+							"parameters": {
+								"text": "dbg_Walls.Text & newline & \"R-dist: \" & Fog_SpawnerR.hitDist"
+							}
+						}
+					],
+					"sid": 633565592487796,
+					"disabled": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "Fog_Spawner",
+							"sid": 747501643848194,
+							"parameters": {
+								"instance-variable": "dynamicSpawnArea"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "cast-ray",
+							"objectClass": "Fog_SpawnerL",
+							"sid": 658168678552098,
+							"behaviorType": "LineOfSight",
+							"parameters": {
+								"from-x": "Fog_Spawner.X",
+								"from-y": "Fog_Spawner.Y",
+								"to-x": "Self.X",
+								"to-y": "Self.Y",
+								"use-collision-cells": true
+							}
+						},
+						{
+							"id": "cast-ray",
+							"objectClass": "Fog_SpawnerR",
+							"sid": 522355216032648,
+							"behaviorType": "LineOfSight",
+							"parameters": {
+								"from-x": "Fog_Spawner.X",
+								"from-y": "Fog_Spawner.Y",
+								"to-x": "Self.X",
+								"to-y": "Self.Y",
+								"use-collision-cells": true
+							}
+						},
+						{
+							"id": "set-y-randomiser",
+							"objectClass": "Fog_Spawner",
+							"sid": 540137385240829,
+							"parameters": {
+								"y-randomiser": "Fog_SpawnerL.hitDist + Fog_SpawnerR.hitDist"
+							}
+						}
+					],
+					"sid": 826080093597535,
+					"children": [
+						{
+							"eventType": "comment",
+							"text": "LEFT RAYCAST: Set X/Y position of the raycast hit if they are hitting something"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 839457730698122,
+									"parameters": {
+										"first-value": "Fog_SpawnerL.LineOfSight.HitX ",
+										"comparison": 1,
+										"second-value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Fog_SpawnerL",
+									"sid": 996340312367655,
+									"parameters": {
+										"instance-variable": "hitX",
+										"value": "Fog_SpawnerL.LineOfSight.HitX"
+									}
+								}
+							],
+							"sid": 849796409779372
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 568633659863990,
+									"parameters": {
+										"first-value": "Fog_SpawnerL.LineOfSight.HitY",
+										"comparison": 1,
+										"second-value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Fog_SpawnerL",
+									"sid": 836328314770827,
+									"parameters": {
+										"instance-variable": "hitY",
+										"value": "Fog_SpawnerL.LineOfSight.HitY"
+									}
+								}
+							],
+							"sid": 152185617988679
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "every-tick",
+									"objectClass": "System",
+									"sid": 470328153308414
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Fog_SpawnerL",
+									"sid": 845454052557443,
+									"parameters": {
+										"instance-variable": "hitDist",
+										"value": "round(distance(Fog_Spawner.X, Fog_Spawner.Y, Self.hitX, Self.hitY))"
+									}
+								}
+							],
+							"sid": 118854715721842
+						},
+						{
+							"eventType": "comment",
+							"text": "RIGHT RAYCAST: Set X/Y position of the raycast hit if they are hitting something"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 212537040590913,
+									"parameters": {
+										"first-value": "Fog_SpawnerR.LineOfSight.HitX ",
+										"comparison": 1,
+										"second-value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Fog_SpawnerR",
+									"sid": 708535969915565,
+									"parameters": {
+										"instance-variable": "hitX",
+										"value": "Fog_SpawnerR.LineOfSight.HitX"
+									}
+								}
+							],
+							"sid": 862946716169184
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 466870020316321,
+									"parameters": {
+										"first-value": "Fog_SpawnerR.LineOfSight.HitY",
+										"comparison": 1,
+										"second-value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Fog_SpawnerR",
+									"sid": 864495012918019,
+									"parameters": {
+										"instance-variable": "hitY",
+										"value": "Fog_SpawnerR.LineOfSight.HitY"
+									}
+								}
+							],
+							"sid": 611830917794276
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "every-tick",
+									"objectClass": "System",
+									"sid": 964136849627788
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Fog_SpawnerR",
+									"sid": 309534100181885,
+									"parameters": {
+										"instance-variable": "hitDist",
+										"value": "round(distance(Fog_Spawner.X, Fog_Spawner.Y, Self.hitX, Self.hitY))"
+									}
+								}
+							],
+							"sid": 754577424286548
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "ray-intersected",
+							"objectClass": "Fog_SpawnerL",
+							"sid": 728695637594374,
+							"behaviorType": "LineOfSight"
+						}
+					],
+					"actions": [],
+					"sid": 405804227567578,
+					"disabled": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "ray-intersected",
+							"objectClass": "Fog_SpawnerR",
+							"sid": 668808719614829,
+							"behaviorType": "LineOfSight"
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 265812972540317,
+							"parameters": {
+								"variable": "distanceToR",
+								"value": "Fog_SpawnerR.LineOfSight.HitDistance"
+							}
+						}
+					],
+					"sid": 219768274818559,
+					"disabled": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "ray-intersected",
+							"objectClass": "Fog_Spawner",
+							"sid": 450768090871558,
+							"behaviorType": "LineOfSight"
+						}
+					],
+					"actions": [],
+					"sid": 464845567799184
+				}
+			],
+			"sid": 219539821074765
+		},
+		{
 			"eventType": "block",
 			"conditions": [
 				{
-					"id": "every-tick",
+					"id": "compare-two-values",
 					"objectClass": "System",
-					"sid": 432210974948411
+					"sid": 279623337899722,
+					"parameters": {
+						"first-value": "fps",
+						"comparison": 2,
+						"second-value": "45"
+					}
 				}
 			],
 			"actions": [
 				{
-					"id": "set-text",
-					"objectClass": "dbg_Player",
-					"sid": 344564462664241,
+					"id": "set-instvar-value",
+					"objectClass": "Fog_Spawner",
+					"sid": 429411577601553,
 					"parameters": {
-						"text": "fps"
+						"instance-variable": "offScreenKillTime",
+						"value": "Self.fpsModeKillTime"
+					}
+				},
+				{
+					"id": "set-timeout",
+					"objectClass": "Fog_Spawner",
+					"sid": 737168683291272,
+					"parameters": {
+						"timeout": "Self.fpsModeTimeOut"
 					}
 				}
 			],
-			"sid": 306116660611031,
-			"disabled": true
+			"sid": 796857667872036
 		}
 	],
 	"sid": 793534722171760

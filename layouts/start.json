@@ -489,64 +489,7 @@
 					}
 				},
 				{
-					"type": "UI_MidBar_L",
-					"properties": {
-						"initially-visible": true,
-						"origin": "left",
-						"wrap-horizontal": "repeat",
-						"wrap-vertical": "repeat",
-						"image-offset-x": 0,
-						"image-offset-y": 0,
-						"image-scale-x": 1,
-						"image-scale-y": 1,
-						"image-angle": 0
-					},
-					"uid": 1441,
-					"instanceVariables": {
-						"maxSize": 320,
-						"unFillSpeed": 40,
-						"fillSpeed": 200,
-						"complete": false
-					},
-					"behaviors": {
-						"Tween": {
-							"properties": {
-								"enabled": true
-							}
-						}
-					},
-					"sceneGraphData": {
-						"uid": 1441,
-						"flags": {
-							"x": true,
-							"y": true,
-							"z": true,
-							"w": false,
-							"h": false,
-							"a": true,
-							"d": true,
-							"sm": "normal"
-						}
-					},
-					"world": {
-						"x": 0,
-						"y": 196,
-						"width": 90.12425299054186,
-						"height": 16,
-						"originX": 0,
-						"originY": 0.5,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"angle": 0,
-						"zElevation": 0
-					}
-				},
-				{
-					"type": "UI_MidBar_R",
+					"type": "UI_MidBar_RMB",
 					"properties": {
 						"initially-visible": true,
 						"origin": "right",
@@ -563,7 +506,8 @@
 						"maxSize": 320,
 						"unFillSpeed": 40,
 						"fillSpeed": 200,
-						"complete": false
+						"complete": false,
+						"prog": 0
 					},
 					"behaviors": {
 						"Tween": {
@@ -737,7 +681,7 @@
 				{
 					"type": "UI_Load_Text3",
 					"properties": {
-						"text": "[LMB] - Contiue [RMB] - Map",
+						"text": "[RMB] - Return to the map",
 						"enable-bbcode": false,
 						"character-width": 8,
 						"character-height": 16,
@@ -786,7 +730,7 @@
 					"name": "Outline",
 					"instance": {
 						"parameters": {
-							"width": 1,
+							"width": 2,
 							"cl": [
 								0.10588235294117647,
 								0.12549019607843137,
@@ -893,9 +837,9 @@
 					"behaviors": {},
 					"world": {
 						"x": 251.04019604054824,
-						"y": 60.76376873031615,
+						"y": 105.80293488515022,
 						"width": 110.13594689245807,
-						"height": 83.68935625888182,
+						"height": 173.76768856854997,
 						"originX": 0.5,
 						"originY": 0.5,
 						"color": [
@@ -2021,9 +1965,9 @@
 					},
 					"uid": 1422,
 					"instanceVariables": {
-						"levelToLoad": 8,
+						"levelToLoad": 9,
 						"completed": false,
-						"nextLvl": 9,
+						"nextLvl": 10,
 						"canEnter": false,
 						"bestTime": 99,
 						"offsetX": 0,
@@ -2066,8 +2010,8 @@
 					"instanceVariables": {},
 					"behaviors": {},
 					"world": {
-						"x": 242.1827674105581,
-						"y": 119.1876596303784,
+						"x": 211.22247295636845,
+						"y": 126.78169411914193,
 						"width": 16,
 						"height": 16,
 						"originX": 0.5,
@@ -2131,7 +2075,7 @@
 					"instanceVariables": {
 						"levelToLoad": 10,
 						"completed": false,
-						"nextLvl": 9,
+						"nextLvl": 11,
 						"canEnter": false,
 						"bestTime": 99,
 						"offsetX": 0,

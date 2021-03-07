@@ -473,9 +473,9 @@
 								{
 									"id": "set-function-return-value",
 									"objectClass": "Functions",
-									"sid": 823917788501499,
+									"sid": 133818033707211,
 									"parameters": {
-										"value": "left(numberString, len(numberString) - decAmount) & \".\" & right(numberString, decAmount)"
+										"value": "left(numberString, len(numberString) - decAmount)  & right(numberString, decAmount)"
 									}
 								}
 							],

@@ -8,6 +8,7 @@
 	"members": [
 		"Wall_Moving",
 		"uCombat_Laser",
-		"Wall_Orbiting"
+		"Wall_Orbiting",
+		"uCombat_Boss_Laser"
 	]
 }

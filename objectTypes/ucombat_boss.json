@@ -1,0 +1,158 @@
+{
+	"name": "uCombat_Boss",
+	"plugin-id": "Sprite",
+	"sid": 130025225825716,
+	"isGlobal": false,
+	"instanceVariables": [
+		{
+			"name": "stage",
+			"type": "number",
+			"desc": "",
+			"sid": 204470770719855
+		},
+		{
+			"name": "p1enemyNum",
+			"type": "number",
+			"desc": "",
+			"sid": 433894356220443
+		},
+		{
+			"name": "p1ShootingSpeed",
+			"type": "number",
+			"desc": "",
+			"sid": 599544627989088
+		},
+		{
+			"name": "p1PauseTime",
+			"type": "number",
+			"desc": "",
+			"sid": 791163803999010
+		},
+		{
+			"name": "p1BulletSpeed",
+			"type": "number",
+			"desc": "",
+			"sid": 784664568826577
+		},
+		{
+			"name": "p1BulletAccel",
+			"type": "number",
+			"desc": "",
+			"sid": 741216402879059
+		},
+		{
+			"name": "p2enemyNum",
+			"type": "number",
+			"desc": "",
+			"sid": 621734662603007
+		},
+		{
+			"name": "p2ShootingSpeed",
+			"type": "number",
+			"desc": "",
+			"sid": 161140966033741
+		},
+		{
+			"name": "p2PauseTime",
+			"type": "number",
+			"desc": "",
+			"sid": 487370731111448
+		},
+		{
+			"name": "p2BulletSpeed",
+			"type": "number",
+			"desc": "",
+			"sid": 920667656359797
+		},
+		{
+			"name": "p2BulletAccel",
+			"type": "number",
+			"desc": "",
+			"sid": 288049641433816
+		},
+		{
+			"name": "p3enemyNum",
+			"type": "number",
+			"desc": "",
+			"sid": 681900679574480
+		},
+		{
+			"name": "p3ShootingSpeed",
+			"type": "number",
+			"desc": "",
+			"sid": 256657777389437
+		},
+		{
+			"name": "p3PauseTime",
+			"type": "number",
+			"desc": "",
+			"sid": 990581120992930
+		},
+		{
+			"name": "p3BulletSpeed",
+			"type": "number",
+			"desc": "",
+			"sid": 516344035047499
+		},
+		{
+			"name": "p3BulletAccel",
+			"type": "number",
+			"desc": "",
+			"sid": 253452807249587
+		},
+		{
+			"name": "orbitSpeed",
+			"type": "number",
+			"desc": "",
+			"sid": 838143359765506
+		},
+		{
+			"name": "inOutSpeed",
+			"type": "number",
+			"desc": "",
+			"sid": 818348991405768
+		},
+		{
+			"name": "inOutMag",
+			"type": "number",
+			"desc": "",
+			"sid": 310466184225917
+		}
+	],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Tween",
+			"name": "Tween",
+			"sid": 718159483033380
+		}
+	],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 94,
+						"height": 94,
+						"originX": 0.5,
+						"originY": 0.5212765957446809,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 1144726,
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 512643466948536,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}

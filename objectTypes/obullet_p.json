@@ -21,6 +21,18 @@
 			"type": "number",
 			"desc": "",
 			"sid": 164378152549382
+		},
+		{
+			"name": "rotationSpeed",
+			"type": "number",
+			"desc": "",
+			"sid": 456196417976703
+		},
+		{
+			"name": "minSpeed",
+			"type": "number",
+			"desc": "",
+			"sid": 420795754413362
 		}
 	],
 	"behaviorTypes": [

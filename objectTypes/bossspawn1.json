@@ -1,7 +1,7 @@
 {
-	"name": "UI_LevelPointSelected",
+	"name": "bossSpawn1",
 	"plugin-id": "Sprite",
-	"sid": 100256462524835,
+	"sid": 540727527732616,
 	"isGlobal": false,
 	"instanceVariables": [],
 	"behaviorTypes": [],
@@ -11,31 +11,19 @@
 			{
 				"frames": [
 					{
-						"width": 16,
-						"height": 16,
+						"width": 250,
+						"height": 250,
 						"originX": 0.5,
 						"originY": 0.5,
 						"originalSource": "",
 						"exportFormat": "png",
 						"exportQuality": 0.8,
-						"imageSpriteId": 2552093,
-						"collisionPoly": {
-							"points": [
-								0.1875,
-								0.1875,
-								0.8125,
-								0.1875,
-								0.8125,
-								0.8125,
-								0.1875,
-								0.8125
-							]
-						},
+						"imageSpriteId": 3075572,
 						"useCollisionPoly": true,
 						"duration": 1
 					}
 				],
-				"sid": 132117694865342,
+				"sid": 125200791238066,
 				"name": "Animation 1",
 				"isLooping": false,
 				"isPingPong": false,

@@ -220,7 +220,6 @@
 			"sid": 555190631266007
 		},
 		{
-			"breakpoint": true,
 			"eventType": "block",
 			"conditions": [
 				{
@@ -245,7 +244,6 @@
 			"sid": 538747777530012
 		},
 		{
-			"breakpoint": true,
 			"eventType": "block",
 			"conditions": [
 				{
@@ -261,10 +259,10 @@
 				{
 					"id": "add-key",
 					"objectClass": "GameData",
-					"sid": 987415920069895,
+					"sid": 222969540565666,
 					"parameters": {
 						"key": "\"levelsCompleted\"",
-						"value": "1"
+						"value": "9"
 					}
 				},
 				{

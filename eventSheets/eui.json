@@ -189,6 +189,14 @@
 						"variable": "UI_Mid_Type",
 						"value": "type"
 					}
+				},
+				{
+					"id": "set-width",
+					"objectClass": "UI_MidBar_RMB",
+					"sid": 521491739979305,
+					"parameters": {
+						"width": "0"
+					}
 				}
 			],
 			"sid": 526289251925584,
@@ -300,6 +308,15 @@
 										"comparison": 2,
 										"second-value": "GameData.Get(\"level\" & LevelSettings.levelNum & \"time\")"
 									}
+								},
+								{
+									"id": "has-key",
+									"objectClass": "GameData",
+									"sid": 508517285595605,
+									"parameters": {
+										"key": "\"level\" & LevelSettings.levelNum & \"time\""
+									},
+									"isInverted": true
 								}
 							],
 							"actions": [
@@ -312,7 +329,8 @@
 									}
 								}
 							],
-							"sid": 902017143186925
+							"sid": 902017143186925,
+							"isOrBlock": true
 						},
 						{
 							"eventType": "block",
@@ -384,6 +402,14 @@
 						"variable": "UI_Mid_Enabled",
 						"value": "false"
 					}
+				},
+				{
+					"id": "set-width",
+					"objectClass": "UI_MidBar_RMB",
+					"sid": 706838291457285,
+					"parameters": {
+						"width": "0"
+					}
 				}
 			],
 			"sid": 572021180430251
@@ -399,144 +425,9 @@
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "mouse-button-is-down",
-							"objectClass": "Mouse",
-							"sid": 200829048187161,
-							"parameters": {
-								"mouse-button": "left"
-							}
-						},
-						{
-							"id": "mouse-button-is-down",
-							"objectClass": "Mouse",
-							"sid": 514270369132771,
-							"parameters": {
-								"mouse-button": "right"
-							}
-						}
-					],
-					"actions": [],
-					"sid": 654996978181866,
-					"children": [
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-boolean-eventvar",
-									"objectClass": "System",
-									"sid": 610996810898706,
-									"parameters": {
-										"variable": "UI_Mid_Enabled"
-									}
-								},
-								{
-									"id": "mouse-button-is-down",
-									"objectClass": "Mouse",
-									"sid": 882841685885201,
-									"parameters": {
-										"mouse-button": "left"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-width",
-									"objectClass": "UI_MidBar_L",
-									"sid": 887204423266548,
-									"parameters": {
-										"width": "lerp(Self.Width, Self.maxSize+20, dt*4)"
-									}
-								},
-								{
-									"id": "set-width",
-									"objectClass": "UI_MidBar_R",
-									"sid": 677037440433443,
-									"parameters": {
-										"width": "clamp(Self.Width - (dt*600),0, 320)"
-									}
-								}
-							],
-							"sid": 985388588568918
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-boolean-eventvar",
-									"objectClass": "System",
-									"sid": 456452395975394,
-									"parameters": {
-										"variable": "UI_Mid_Enabled"
-									}
-								},
-								{
-									"id": "mouse-button-is-down",
-									"objectClass": "Mouse",
-									"sid": 969275606525732,
-									"parameters": {
-										"mouse-button": "right"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-width",
-									"objectClass": "UI_MidBar_R",
-									"sid": 586810848122642,
-									"parameters": {
-										"width": "lerp(Self.Width, Self.maxSize+20, dt*4)"
-									}
-								},
-								{
-									"id": "set-width",
-									"objectClass": "UI_MidBar_L",
-									"sid": 564249461316802,
-									"parameters": {
-										"width": "clamp(Self.Width - (dt*600), 0, 320)"
-									}
-								}
-							],
-							"sid": 927692028657506
-						}
-					],
-					"isOrBlock": true
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "else",
-							"objectClass": "System",
-							"sid": 906835023644280
-						}
-					],
-					"actions": [
-						{
-							"id": "set-width",
-							"objectClass": "UI_MidBar_L",
-							"sid": 803737885789244,
-							"parameters": {
-								"width": "Self.Width - (dt*Self.unFillSpeed)"
-							}
-						},
-						{
-							"id": "set-width",
-							"objectClass": "UI_MidBar_R",
-							"sid": 226523104792231,
-							"parameters": {
-								"width": "Self.Width - (dt*Self.unFillSpeed)"
-							}
-						}
-					],
-					"sid": 935392301312273
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
 							"id": "compare-width",
-							"objectClass": "UI_MidBar_L",
-							"sid": 969519752219190,
+							"objectClass": "UI_MidBar_RMB",
+							"sid": 544866791777442,
 							"parameters": {
 								"comparison": 5,
 								"width": "320"
@@ -549,95 +440,89 @@
 							"text": "RMB Event"
 						}
 					],
-					"sid": 262158223116182,
+					"sid": 246997121415387,
 					"children": [
 						{
 							"eventType": "block",
 							"conditions": [
 								{
-									"id": "compare-two-values",
-									"objectClass": "System",
-									"sid": 520733164783606,
+									"id": "compare-instance-variable",
+									"objectClass": "LevelSettings",
+									"sid": 603126640471989,
 									"parameters": {
-										"first-value": "UI_Mid_Type",
+										"instance-variable": "levelNum",
 										"comparison": 0,
-										"second-value": "\"WIN\""
+										"value": "9"
 									}
 								}
 							],
 							"actions": [
 								{
-									"id": "go-to-layout-by-name",
+									"id": "go-to-layout",
 									"objectClass": "System",
-									"sid": 494036532914837,
+									"sid": 903184778797260,
 									"parameters": {
-										"layout": "LevelSettings.nextLevel"
+										"layout": "Credits"
 									}
 								}
 							],
-							"sid": 437114958825271
+							"sid": 220902122167138
 						},
 						{
 							"eventType": "block",
 							"conditions": [
 								{
-									"id": "compare-two-values",
+									"id": "else",
 									"objectClass": "System",
-									"sid": 483419724358423,
-									"parameters": {
-										"first-value": "UI_Mid_Type",
-										"comparison": 0,
-										"second-value": "\"DEFEAT\""
-									}
+									"sid": 760409306769549
 								}
 							],
 							"actions": [
 								{
-									"id": "restart-layout",
+									"id": "go-to-layout",
 									"objectClass": "System",
-									"sid": 189171174081636
+									"sid": 779414255716576,
+									"parameters": {
+										"layout": "Start"
+									}
 								}
 							],
-							"sid": 390544960928182
+							"sid": 492216565478930
 						}
 					]
 				},
 				{
+					"breakpoint": true,
 					"eventType": "block",
-					"conditions": [
-						{
-							"id": "compare-width",
-							"objectClass": "UI_MidBar_R",
-							"sid": 928063320868795,
-							"parameters": {
-								"comparison": 5,
-								"width": "320"
-							}
-						}
-					],
+					"conditions": [],
 					"actions": [
 						{
 							"type": "comment",
-							"text": "RMB Event"
+							"text": "LMB Event"
 						},
 						{
 							"id": "go-to-layout",
 							"objectClass": "System",
-							"sid": 838685972934837,
+							"sid": 736488400326455,
+							"disabled": true,
 							"parameters": {
 								"layout": "Start"
 							}
 						}
 					],
-					"sid": 454641302579043
+					"sid": 199655186148562,
+					"disabled": true
 				},
 				{
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "every-tick",
+							"id": "compare-boolean-eventvar",
 							"objectClass": "System",
-							"sid": 309599774602703
+							"sid": 329315430525886,
+							"parameters": {
+								"variable": "UI_Mid_Enabled"
+							}
 						}
 					],
 					"actions": [
@@ -650,7 +535,121 @@
 							}
 						}
 					],
-					"sid": 846407749103998
+					"sid": 846407749103998,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "mouse-button-is-down",
+									"objectClass": "Mouse",
+									"sid": 985899262370759,
+									"parameters": {
+										"mouse-button": "left"
+									}
+								},
+								{
+									"id": "mouse-button-is-down",
+									"objectClass": "Mouse",
+									"sid": 836516886996972,
+									"parameters": {
+										"mouse-button": "right"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 881625383015423,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 711718219130739,
+											"parameters": {
+												"variable": "UI_Mid_Enabled"
+											}
+										},
+										{
+											"id": "mouse-button-is-down",
+											"objectClass": "Mouse",
+											"sid": 126308069594118,
+											"parameters": {
+												"mouse-button": "left"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-width",
+											"objectClass": "UI_MidBar_RMB",
+											"sid": 605396311155719,
+											"parameters": {
+												"width": "clamp(lerp(Self.Width, -20, dt*8),0,320)"
+											}
+										}
+									],
+									"sid": 348794371954613,
+									"disabled": true
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 181641741174684,
+											"parameters": {
+												"variable": "UI_Mid_Enabled"
+											}
+										},
+										{
+											"id": "mouse-button-is-down",
+											"objectClass": "Mouse",
+											"sid": 661159948096936,
+											"parameters": {
+												"mouse-button": "right"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-width",
+											"objectClass": "UI_MidBar_RMB",
+											"sid": 212959079446959,
+											"parameters": {
+												"width": "clamp(lerp(Self.Width, Self.maxSize+20, dt*4),0,320)"
+											}
+										}
+									],
+									"sid": 772799129968385
+								}
+							],
+							"isOrBlock": true
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 932538655114001
+								}
+							],
+							"actions": [
+								{
+									"id": "set-width",
+									"objectClass": "UI_MidBar_RMB",
+									"sid": 609374698724230,
+									"parameters": {
+										"width": "Self.Width - (dt*Self.unFillSpeed)"
+									}
+								}
+							],
+							"sid": 374781696267599
+						}
+					]
 				}
 			],
 			"sid": 973006835945043

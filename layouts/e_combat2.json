@@ -171,8 +171,11 @@
 					"instanceVariables": {
 						"zoomRatio": 0.7,
 						"locked": false,
-						"enemiesInside": true,
-						"unlockAfterEnemies": true
+						"enemiesInside": false,
+						"unlockedAfterEnemies": true,
+						"zoomRatioOLD": 0.7,
+						"lockedOLD": false,
+						"enemiesInsideOLD": true
 					},
 					"behaviors": {},
 					"world": {
@@ -222,7 +225,11 @@
 						"minSize": 50,
 						"maxSize": 130,
 						"minSpeed": 0.5,
-						"maxSpeed": 1
+						"maxSpeed": 1,
+						"offScreenKillTime": 5,
+						"fpsModeKillTime": 2,
+						"fpsModeTimeOut": 5,
+						"dynamicSpawnArea": false
 					},
 					"behaviors": {
 						"Pathfinding": {
@@ -237,6 +244,14 @@
 								"rotate-object": true,
 								"diagonals": true,
 								"enabled": true
+							}
+						},
+						"LineOfSight": {
+							"properties": {
+								"obstacles": "solids",
+								"range": 10000,
+								"cone-of-view": 360,
+								"use-collision-cells": true
 							}
 						}
 					},
@@ -3798,6 +3813,11 @@
 							"properties": {
 								"enabled": true,
 								"tags": "laser"
+							}
+						},
+						"Tween": {
+							"properties": {
+								"enabled": true
 							}
 						}
 					},

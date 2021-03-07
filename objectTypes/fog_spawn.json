@@ -57,6 +57,12 @@
 			"type": "number",
 			"desc": "countTimeWhenOffscreen",
 			"sid": 543283541675232
+		},
+		{
+			"name": "aliveTime",
+			"type": "number",
+			"desc": "",
+			"sid": 165600028806753
 		}
 	],
 	"behaviorTypes": [

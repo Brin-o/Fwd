@@ -568,26 +568,7 @@
 							"sid": 874931017970456
 						}
 					],
-					"sid": 889337526503925,
-					"children": [
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-instance-variable",
-									"objectClass": "oPlayer",
-									"sid": 984968658540470,
-									"parameters": {
-										"instance-variable": "HP",
-										"comparison": 3,
-										"value": "0"
-									}
-								}
-							],
-							"actions": [],
-							"sid": 281029213565031
-						}
-					]
+					"sid": 889337526503925
 				},
 				{
 					"eventType": "block",
@@ -733,7 +714,135 @@
 							}
 						}
 					],
-					"sid": 430454362122039
+					"sid": 430454362122039,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "oPlayer",
+									"sid": 253534751816383,
+									"parameters": {
+										"instance-variable": "HP",
+										"comparison": 0,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "CameraLock",
+									"sid": 400901422521350,
+									"parameters": [
+										"oPlayer.X",
+										"oPlayer.Y",
+										"0.75"
+									]
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "oPlayer",
+									"sid": 453366472781274,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "oDroneStack",
+									"sid": 811789485738731,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-collisions-enabled",
+									"objectClass": "oPlayer",
+									"sid": 563953198232080,
+									"parameters": {
+										"collisions": "disabled"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "oPlayer_MouseLine",
+									"sid": 934429773323689,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "oPlayer_DirectionMovement",
+									"sid": 279072885778869,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "eGenericShadow",
+									"sid": 454502508857650,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "oPlayerTrail",
+									"sid": 107884248763937,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "spawn-another-object",
+									"objectClass": "oPlayer",
+									"sid": 946032584517182,
+									"parameters": {
+										"object": "GenericImpact",
+										"layer": "\"3D\"",
+										"image-point": "0",
+										"create-hierarchy": false
+									}
+								},
+								{
+									"id": "set-default-color",
+									"objectClass": "GenericImpact",
+									"sid": 443768865074809,
+									"parameters": {
+										"color": "rgb(103, 142, 122)"
+									}
+								},
+								{
+									"id": "set-rate",
+									"objectClass": "GenericImpact",
+									"sid": 851151041667081,
+									"parameters": {
+										"rate": "20+random(8)"
+									}
+								},
+								{
+									"id": "set-timeout",
+									"objectClass": "GenericImpact",
+									"sid": 535437664617078,
+									"parameters": {
+										"timeout": "1"
+									}
+								},
+								{
+									"id": "set-grow-rate",
+									"objectClass": "GenericImpact",
+									"sid": 340366925324589,
+									"parameters": {
+										"grow-rate": "-7"
+									}
+								}
+							],
+							"sid": 193926101185235
+						}
+					]
 				},
 				{
 					"functionName": "Player Immunity Activate",
@@ -2732,7 +2841,42 @@
 							}
 						}
 					],
-					"sid": 612367797418878
+					"sid": 612367797418878,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-nearestfurthest",
+									"objectClass": "fEnemies",
+									"sid": 116944822709194,
+									"parameters": {
+										"which": "nearest",
+										"x": "endX",
+										"y": "endY"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "add-child",
+									"objectClass": "fEnemies",
+									"sid": 951805363492932,
+									"parameters": {
+										"child": "oBullet_P",
+										"transform-x": false,
+										"transform-y": false,
+										"transform-w": false,
+										"transform-h": false,
+										"transform-a": false,
+										"transform-z-elevation": false,
+										"destroy-with-parent": false
+									}
+								}
+							],
+							"sid": 507823914737321
+						}
+					]
 				},
 				{
 					"eventType": "comment",
@@ -2745,15 +2889,42 @@
 							"id": "every-tick",
 							"objectClass": "System",
 							"sid": 315424561200340
+						},
+						{
+							"id": "pick-parent",
+							"objectClass": "oBullet_P",
+							"sid": 282151196238999,
+							"parameters": {
+								"parent": "fEnemies",
+								"which": "own"
+							}
 						}
 					],
 					"actions": [
 						{
+							"id": "set-instvar-value",
+							"objectClass": "oBullet_P",
+							"sid": 760036764218630,
+							"parameters": {
+								"instance-variable": "targetX",
+								"value": "fEnemies.X"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "oBullet_P",
+							"sid": 706997569946627,
+							"parameters": {
+								"instance-variable": "targetY",
+								"value": "fEnemies.Y"
+							}
+						},
+						{
 							"id": "rotate-toward-position",
 							"objectClass": "oBullet_P",
-							"sid": 944164680271423,
+							"sid": 809538534307713,
 							"parameters": {
-								"degrees": "10",
+								"degrees": "Self.rotationSpeed*dt",
 								"x": "Self.targetX",
 								"y": "Self.targetY"
 							}
@@ -2768,7 +2939,45 @@
 							}
 						}
 					],
-					"sid": 494980784514485
+					"sid": 494980784514485,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-speed",
+									"objectClass": "oBullet_P",
+									"sid": 206095396722998,
+									"behaviorType": "Bullet",
+									"parameters": {
+										"comparison": 2,
+										"speed": "Self.minSpeed"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-speed",
+									"objectClass": "oBullet_P",
+									"sid": 178861982801484,
+									"behaviorType": "Bullet",
+									"parameters": {
+										"speed": "Self.minSpeed"
+									}
+								},
+								{
+									"id": "set-acceleration",
+									"objectClass": "oBullet_P",
+									"sid": 984330885233298,
+									"behaviorType": "Bullet",
+									"parameters": {
+										"acceleration": "0"
+									}
+								}
+							],
+							"sid": 892024473622052
+						}
+					]
 				},
 				{
 					"eventType": "group",
