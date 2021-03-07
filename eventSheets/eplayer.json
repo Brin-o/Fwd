@@ -2753,6 +2753,16 @@
 							"parameters": {
 								"count": "amount"
 							}
+						},
+						{
+							"id": "pick-nearestfurthest",
+							"objectClass": "fEnemies",
+							"sid": 116944822709194,
+							"parameters": {
+								"which": "nearest",
+								"x": "endX",
+								"y": "endY"
+							}
 						}
 					],
 					"actions": [
@@ -2839,41 +2849,29 @@
 							"parameters": {
 								"speed": "Self.Bullet.Speed*random(0.98, 1.02)"
 							}
+						},
+						{
+							"id": "add-child",
+							"objectClass": "fEnemies",
+							"sid": 796401948608743,
+							"parameters": {
+								"child": "oBullet_P",
+								"transform-x": false,
+								"transform-y": false,
+								"transform-w": false,
+								"transform-h": false,
+								"transform-a": false,
+								"transform-z-elevation": false,
+								"destroy-with-parent": false
+							}
 						}
 					],
 					"sid": 612367797418878,
 					"children": [
 						{
 							"eventType": "block",
-							"conditions": [
-								{
-									"id": "pick-nearestfurthest",
-									"objectClass": "fEnemies",
-									"sid": 116944822709194,
-									"parameters": {
-										"which": "nearest",
-										"x": "endX",
-										"y": "endY"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "add-child",
-									"objectClass": "fEnemies",
-									"sid": 951805363492932,
-									"parameters": {
-										"child": "oBullet_P",
-										"transform-x": false,
-										"transform-y": false,
-										"transform-w": false,
-										"transform-h": false,
-										"transform-a": false,
-										"transform-z-elevation": false,
-										"destroy-with-parent": false
-									}
-								}
-							],
+							"conditions": [],
+							"actions": [],
 							"sid": 507823914737321
 						}
 					]
@@ -2920,9 +2918,18 @@
 							}
 						},
 						{
+							"id": "set-instvar-value",
+							"objectClass": "oBullet_P",
+							"sid": 382448109581517,
+							"parameters": {
+								"instance-variable": "angleDiff",
+								"value": "anglediff(oBullet_P.Angle, angle(oBullet_P.X, oBullet_P.Y, oBullet_P.targetX, oBullet_P.Y))"
+							}
+						},
+						{
 							"id": "rotate-toward-position",
 							"objectClass": "oBullet_P",
-							"sid": 809538534307713,
+							"sid": 228282568346309,
 							"parameters": {
 								"degrees": "Self.rotationSpeed*dt",
 								"x": "Self.targetX",
@@ -2932,7 +2939,7 @@
 						{
 							"id": "set-angle-of-motion",
 							"objectClass": "oBullet_P",
-							"sid": 450695821347533,
+							"sid": 145450579730926,
 							"behaviorType": "Bullet",
 							"parameters": {
 								"angle": "oBullet_P.Angle"
@@ -2941,6 +2948,23 @@
 					],
 					"sid": 494980784514485,
 					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "oBullet_P",
+									"sid": 186012371543918,
+									"parameters": {
+										"instance-variable": "angleDiff",
+										"comparison": 4,
+										"value": "2"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 207432446084391
+						},
 						{
 							"eventType": "block",
 							"conditions": [

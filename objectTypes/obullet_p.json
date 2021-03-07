@@ -33,6 +33,12 @@
 			"type": "number",
 			"desc": "",
 			"sid": 420795754413362
+		},
+		{
+			"name": "angleDiff",
+			"type": "number",
+			"desc": "difference of angle between the bullet and the target",
+			"sid": 376732501824551
 		}
 	],
 	"behaviorTypes": [

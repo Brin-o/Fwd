@@ -5,7 +5,7 @@
 			"eventType": "variable",
 			"name": "Vol_SFX",
 			"type": "number",
-			"initialValue": "-18",
+			"initialValue": "-30",
 			"comment": "",
 			"isStatic": false,
 			"isConstant": false,
@@ -15,7 +15,7 @@
 			"eventType": "variable",
 			"name": "Vol_Music",
 			"type": "number",
-			"initialValue": "-10",
+			"initialValue": "-18",
 			"comment": "",
 			"isStatic": false,
 			"isConstant": false,
@@ -700,10 +700,10 @@
 						{
 							"id": "set-eventvar-value",
 							"objectClass": "System",
-							"sid": 447419317622474,
+							"sid": 659285592674839,
 							"parameters": {
 								"variable": "motorVolume",
-								"value": "Functions.Remap(oPlayer.speedPercNormal, 0, 1, -22, -5)"
+								"value": "Functions.Remap(oPlayer.speedPercNormal, 0, 1, Vol_SFX-10, Vol_SFX-2)"
 							}
 						},
 						{

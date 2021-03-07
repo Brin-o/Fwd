@@ -1041,7 +1041,6 @@
 					"sid": 582533787769044,
 					"children": [
 						{
-							"breakpoint": true,
 							"eventType": "block",
 							"conditions": [],
 							"actions": [
@@ -1101,7 +1100,6 @@
 					"sid": 309297665224973,
 					"children": [
 						{
-							"breakpoint": true,
 							"eventType": "block",
 							"conditions": [],
 							"actions": [
@@ -1157,7 +1155,6 @@
 					"sid": 224603579659459,
 					"children": [
 						{
-							"breakpoint": true,
 							"eventType": "block",
 							"conditions": [],
 							"actions": [

@@ -5405,7 +5405,7 @@
 						"actionTimer": 1,
 						"pauseTime": 1,
 						"actionRNG": 0,
-						"HP": 100,
+						"HP": 20,
 						"eHP": 0,
 						"bullSpeed": 200,
 						"bullAcc": -300,
@@ -5444,8 +5444,8 @@
 						}
 					},
 					"world": {
-						"x": 1267,
-						"y": 945,
+						"x": 1258.7057915825528,
+						"y": 912.7057915825527,
 						"width": 22,
 						"height": 22,
 						"originX": 0.5,

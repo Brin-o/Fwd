@@ -298,7 +298,8 @@
 						"targetX": 0,
 						"targetY": 0,
 						"rotationSpeed": 750,
-						"minSpeed": 120
+						"minSpeed": 120,
+						"angleDiff": 0
 					},
 					"behaviors": {
 						"Bullet": {
