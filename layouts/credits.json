@@ -75,10 +75,10 @@
 						}
 					},
 					"world": {
-						"x": 285.99939262605125,
-						"y": 241.73562587006253,
-						"width": 240.27431838484665,
-						"height": 16,
+						"x": -1,
+						"y": 185,
+						"width": 325.27431838484665,
+						"height": 3.5815735388168832,
 						"originX": 1,
 						"originY": 0.5,
 						"color": [
@@ -87,7 +87,7 @@
 							1,
 							1
 						],
-						"angle": 1.5707963267948966,
+						"angle": 3.141592653589793,
 						"zElevation": 0
 					}
 				},
@@ -110,17 +110,19 @@
 						"origin": "center"
 					},
 					"uid": 1448,
-					"instanceVariables": {},
+					"instanceVariables": {
+						"animationDelay": 0
+					},
 					"behaviors": {
-						"Tween": {
+						"RegularTween": {
 							"properties": {
 								"enabled": true
 							}
 						}
 					},
 					"world": {
-						"x": 159.8601731747454,
-						"y": 36.56291456646585,
+						"x": 160,
+						"y": 41,
 						"width": 320,
 						"height": 30,
 						"originX": 0.5,
@@ -138,7 +140,7 @@
 				{
 					"type": "UI_Text_StartTOP",
 					"properties": {
-						"text": "created by\nbrin - design, code, art\njames - sound, music\n\nspecial thanks to:\nFer the frend\nsalman's discord\neggplant community",
+						"text": "brin - design, code, art",
 						"enable-bbcode": false,
 						"character-width": 8,
 						"character-height": 16,
@@ -154,19 +156,21 @@
 						"origin": "center"
 					},
 					"uid": 1449,
-					"instanceVariables": {},
+					"instanceVariables": {
+						"animationDelay": 2
+					},
 					"behaviors": {
-						"Tween": {
+						"RegularTween": {
 							"properties": {
 								"enabled": true
 							}
 						}
 					},
 					"world": {
-						"x": 159.854746042525,
-						"y": 130.2344020669412,
+						"x": 160,
+						"y": 103,
 						"width": 320,
-						"height": 134.4276770599488,
+						"height": 20,
 						"originX": 0.5,
 						"originY": 0.5,
 						"color": [
@@ -182,7 +186,7 @@
 				{
 					"type": "UI_Text_StartTOP",
 					"properties": {
-						"text": "[rmb] - map",
+						"text": "james - sound, music\n",
 						"enable-bbcode": false,
 						"character-width": 8,
 						"character-height": 16,
@@ -197,8 +201,147 @@
 						"initially-visible": true,
 						"origin": "center"
 					},
+					"uid": 1743,
+					"instanceVariables": {
+						"animationDelay": 3
+					},
+					"behaviors": {
+						"RegularTween": {
+							"properties": {
+								"enabled": true
+							}
+						}
+					},
+					"world": {
+						"x": 160,
+						"y": 125,
+						"width": 320,
+						"height": 20,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							0.9137254901960784,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "UI_Text_StartTOP",
+					"properties": {
+						"text": "created by\n",
+						"enable-bbcode": false,
+						"character-width": 8,
+						"character-height": 16,
+						"character-set": "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789.,;:?!-_~#\"'&()[]{}^|`/\\@°+=*%€$£¢<>©®",
+						"spacing-data": "",
+						"scale": 1,
+						"character-spacing": 0,
+						"line-height": 0,
+						"horizontal-alignment": "center",
+						"vertical-alignment": "center",
+						"wrapping": "word",
+						"initially-visible": true,
+						"origin": "center"
+					},
+					"uid": 1744,
+					"instanceVariables": {
+						"animationDelay": 1
+					},
+					"behaviors": {
+						"RegularTween": {
+							"properties": {
+								"enabled": true
+							}
+						}
+					},
+					"world": {
+						"x": 160,
+						"y": 79,
+						"width": 320,
+						"height": 26.04868248962339,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							0.9137254901960784,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "UI_Text_StartTOP",
+					"properties": {
+						"text": "[ESC] - Go to map",
+						"enable-bbcode": false,
+						"character-width": 8,
+						"character-height": 16,
+						"character-set": "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789.,;:?!-_~#\"'&()[]{}^|`/\\@°+=*%€$£¢<>©®",
+						"spacing-data": "",
+						"scale": 1,
+						"character-spacing": 0,
+						"line-height": 0,
+						"horizontal-alignment": "center",
+						"vertical-alignment": "center",
+						"wrapping": "word",
+						"initially-visible": true,
+						"origin": "center"
+					},
+					"uid": 1745,
+					"instanceVariables": {
+						"animationDelay": 8
+					},
+					"behaviors": {
+						"RegularTween": {
+							"properties": {
+								"enabled": true
+							}
+						}
+					},
+					"world": {
+						"x": 160,
+						"y": 206,
+						"width": 320,
+						"height": 30,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							0.9137254901960784,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "UI_MidBar_RMB",
+					"properties": {
+						"initially-visible": true,
+						"origin": "right",
+						"wrap-horizontal": "repeat",
+						"wrap-vertical": "repeat",
+						"image-offset-x": -200,
+						"image-offset-y": 0,
+						"image-scale-x": 1,
+						"image-scale-y": 1,
+						"image-angle": 0
+					},
 					"uid": 1450,
-					"instanceVariables": {},
+					"instanceVariables": {
+						"maxSize": 320,
+						"unFillSpeed": 40,
+						"fillSpeed": 200,
+						"complete": false,
+						"prog": 0
+					},
 					"behaviors": {
 						"Tween": {
 							"properties": {
@@ -206,11 +349,70 @@
 							}
 						}
 					},
+					"sceneGraphData": {
+						"uid": 1450,
+						"flags": {
+							"x": true,
+							"y": true,
+							"z": true,
+							"w": false,
+							"h": false,
+							"a": true,
+							"d": true,
+							"sm": "normal"
+						}
+					},
 					"world": {
-						"x": 159.36497840040488,
-						"y": 216.94131926589006,
+						"x": 321.9979441859471,
+						"y": 230.4886935871811,
+						"width": 325.27431838484665,
+						"height": 3.5815735388168832,
+						"originX": 1,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "UI_Text_StartTOP",
+					"properties": {
+						"text": "Fer - Level Design Assistance",
+						"enable-bbcode": false,
+						"character-width": 8,
+						"character-height": 16,
+						"character-set": "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789.,;:?!-_~#\"'&()[]{}^|`/\\@°+=*%€$£¢<>©®",
+						"spacing-data": "",
+						"scale": 1,
+						"character-spacing": 0,
+						"line-height": 0,
+						"horizontal-alignment": "center",
+						"vertical-alignment": "center",
+						"wrapping": "word",
+						"initially-visible": true,
+						"origin": "center"
+					},
+					"uid": 1748,
+					"instanceVariables": {
+						"animationDelay": 4
+					},
+					"behaviors": {
+						"RegularTween": {
+							"properties": {
+								"enabled": true
+							}
+						}
+					},
+					"world": {
+						"x": 160,
+						"y": 147,
 						"width": 320,
-						"height": 30,
+						"height": 20,
 						"originX": 0.5,
 						"originY": 0.5,
 						"color": [

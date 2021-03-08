@@ -998,7 +998,7 @@
 					"children": [
 						{
 							"eventType": "group",
-							"disabled": true,
+							"disabled": false,
 							"title": "Movement - Debugging",
 							"description": "",
 							"isActiveOnStart": true,
@@ -1032,6 +1032,14 @@
 										{
 											"id": "set-text",
 											"objectClass": "dbg_Player",
+											"sid": 419061234826771,
+											"parameters": {
+												"text": "dbg_Player.Text & newline & \"acc: \" & oPlayer.acceleration"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "dbg_Player",
 											"sid": 827168297069967,
 											"disabled": true,
 											"parameters": {
@@ -1060,6 +1068,7 @@
 											"id": "set-text",
 											"objectClass": "dbg_Player",
 											"sid": 850540450571597,
+											"disabled": true,
 											"parameters": {
 												"text": "dbg_Player.Text  & newline & \"mxSped: \" & Functions.RoundDec(oPlayer.maxSpeed,1)"
 											}
@@ -1068,6 +1077,7 @@
 											"id": "set-text",
 											"objectClass": "dbg_Player",
 											"sid": 152943038545757,
+											"disabled": true,
 											"parameters": {
 												"text": "dbg_Player.Text  & newline & \"dyMax: \" & Functions.RoundDec(dynamic_MAXSPEED,1)"
 											}
@@ -1100,8 +1110,7 @@
 											}
 										}
 									],
-									"sid": 226740888884184,
-									"disabled": true
+									"sid": 226740888884184
 								}
 							],
 							"sid": 571036628313347
@@ -1133,7 +1142,7 @@
 								{
 									"id": "accelerate-toward-angle",
 									"objectClass": "oPlayer",
-									"sid": 506852155740274,
+									"sid": 431128264136677,
 									"behaviorType": "Custom",
 									"parameters": {
 										"acceleration": "oPlayer.acceleration*dt*TARGET_FPS",
@@ -1425,6 +1434,72 @@
 								}
 							],
 							"sid": 501944121106581
+						},
+						{
+							"eventType": "group",
+							"disabled": false,
+							"title": "Soft Max Speed Adjsutment",
+							"description": "Make the acceleration slower after a certiant point",
+							"isActiveOnStart": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-speed",
+											"objectClass": "oPlayer",
+											"sid": 328375387042066,
+											"behaviorType": "Custom",
+											"parameters": {
+												"which": "overall",
+												"comparison": 5,
+												"speed": "oPlayer.maxSpeedSoft"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "oPlayer",
+											"sid": 903606584731133,
+											"parameters": {
+												"instance-variable": "accelerationMod",
+												"value": "oPlayer.accelerationSoftMod"
+											}
+										}
+									],
+									"sid": 222533214972679
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-speed",
+											"objectClass": "oPlayer",
+											"sid": 166734002884330,
+											"behaviorType": "Custom",
+											"parameters": {
+												"which": "overall",
+												"comparison": 2,
+												"speed": "oPlayer.maxSpeedSoft"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "oPlayer",
+											"sid": 610214728594192,
+											"parameters": {
+												"instance-variable": "accelerationMod",
+												"value": "1"
+											}
+										}
+									],
+									"sid": 179417136868720
+								}
+							],
+							"sid": 745232136755170
 						}
 					],
 					"sid": 409789801760202
@@ -1616,10 +1691,10 @@
 								{
 									"id": "set-instvar-value",
 									"objectClass": "oPlayer",
-									"sid": 568867864357735,
+									"sid": 524082529202764,
 									"parameters": {
 										"instance-variable": "acceleration",
-										"value": "default_ACCELERATION + oPlayer.accelerationSlider*accelerationMod"
+										"value": "(default_ACCELERATION + oPlayer.accelerationSlider*accelerationMod)*oPlayer.accelerationMod"
 									}
 								}
 							],

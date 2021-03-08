@@ -248,19 +248,19 @@
 		},
 		{
 			"type": "effect",
-			"id": "scanlines",
-			"name": "Scan lines",
-			"author": "Scirra",
-			"version": "r234.4",
-			"bundled": false
-		},
-		{
-			"type": "effect",
 			"id": "outline",
 			"name": "Outline",
 			"author": "Richard Lems",
 			"version": "1.0.0.0",
 			"bundled": true
+		},
+		{
+			"type": "effect",
+			"id": "scanlines",
+			"name": "Scan lines",
+			"author": "Scirra",
+			"version": "r234.4",
+			"bundled": false
 		}
 	],
 	"uniqueId": "vgwcd7yo1io",
@@ -270,7 +270,10 @@
 			"TiledBackground",
 			"bossSpawn1",
 			"bossSpawn2",
-			"bossSpawn3"
+			"bossSpawn3",
+			"UI_TranisitonIn",
+			"UI_TransitionOut",
+			"LoaderAnimation"
 		],
 		"subfolders": [
 			{
@@ -468,7 +471,8 @@
 			"fEnemies",
 			"DebuggingTXT",
 			"Walls_9p",
-			"CameraLockZone"
+			"CameraLockZone",
+			"AnimatableElements"
 		],
 		"subfolders": []
 	},
@@ -478,7 +482,9 @@
 			"ObjectRepository",
 			"Start",
 			"Cricle",
-			"Credits"
+			"Credits",
+			"Trailer",
+			"Loader"
 		],
 		"subfolders": [
 			{
@@ -523,7 +529,9 @@
 			"eFog",
 			"eSFXMusic",
 			"eStart",
-			"eCredits"
+			"eCredits",
+			"eTransition",
+			"eLoader"
 		],
 		"subfolders": []
 	},
@@ -534,66 +542,6 @@
 		},
 		"sound": {
 			"items": [
-				{
-					"name": "OLD_Long Break.mp3",
-					"type": "audio/mpeg",
-					"sid": 859615623674845
-				},
-				{
-					"name": "OLD_Motor v1.mp3",
-					"type": "audio/mpeg",
-					"sid": 521769429246509
-				},
-				{
-					"name": "OLD_Player Hit.mp3",
-					"type": "audio/mpeg",
-					"sid": 909710413384239
-				},
-				{
-					"name": "OLD_Player Shoot.mp3",
-					"type": "audio/mpeg",
-					"sid": 967480791602583
-				},
-				{
-					"name": "OLD_Short Break.mp3",
-					"type": "audio/mpeg",
-					"sid": 537257085816526
-				},
-				{
-					"name": "OLD_Target Enemy.mp3",
-					"type": "audio/mpeg",
-					"sid": 303385352604486
-				},
-				{
-					"name": "OLD_UI_Error.mp3",
-					"type": "audio/mpeg",
-					"sid": 320203461520962
-				},
-				{
-					"name": "OLD_UI_SelectLevel.mp3",
-					"type": "audio/mpeg",
-					"sid": 232894894810870
-				},
-				{
-					"name": "OLD_Enemy Shooting.mp3",
-					"type": "audio/mpeg",
-					"sid": 692797408183836
-				},
-				{
-					"name": "OLD_Enemy_Destroyed.mp3",
-					"type": "audio/mpeg",
-					"sid": 548125220347021
-				},
-				{
-					"name": "old_Enemy_Rotating.mp3",
-					"type": "audio/mpeg",
-					"sid": 683157378502397
-				},
-				{
-					"name": "OLD_Enemy_ShootingSingle.mp3",
-					"type": "audio/mpeg",
-					"sid": 308867872828104
-				},
 				{
 					"name": "EnemyRotation.mp3",
 					"type": "audio/mpeg",
@@ -653,17 +601,17 @@
 					"name": "EnemyDestroyed.mp3",
 					"type": "audio/mpeg",
 					"sid": 895506476792801
+				},
+				{
+					"name": "Break_Loop.mp3",
+					"type": "audio/mpeg",
+					"sid": 467161082692388
 				}
 			],
 			"subfolders": []
 		},
 		"music": {
 			"items": [
-				{
-					"name": "Draft.mp3",
-					"type": "audio/mpeg",
-					"sid": 937308550109447
-				},
 				{
 					"name": "Music_Main.mp3",
 					"type": "audio/mpeg",
@@ -817,5 +765,5 @@
 	},
 	"viewportWidth": 320,
 	"viewportHeight": 240,
-	"firstLayout": "Start"
+	"firstLayout": "Loader"
 }

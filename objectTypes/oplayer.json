@@ -17,6 +17,12 @@
 			"sid": 247998571976150
 		},
 		{
+			"name": "maxSpeedSoft",
+			"type": "number",
+			"desc": "",
+			"sid": 617404262288371
+		},
+		{
 			"name": "bonusSpeed",
 			"type": "number",
 			"desc": "",
@@ -39,6 +45,18 @@
 			"type": "number",
 			"desc": "",
 			"sid": 325764357718105
+		},
+		{
+			"name": "accelerationMod",
+			"type": "number",
+			"desc": "",
+			"sid": 877613548433652
+		},
+		{
+			"name": "accelerationSoftMod",
+			"type": "number",
+			"desc": "",
+			"sid": 845060367796924
 		},
 		{
 			"name": "break",

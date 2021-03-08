@@ -1,0 +1,781 @@
+{
+	"name": "Trailer",
+	"layers": [
+		{
+			"name": "Background",
+			"overriden": 0,
+			"instances": [
+				{
+					"type": "Enemy_Stack",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 1740,
+					"instanceVariables": {
+						"stackIndex": 0
+					},
+					"behaviors": {
+						"Pin": {
+							"properties": {
+								"destroy": false
+							}
+						}
+					},
+					"world": {
+						"x": 1454,
+						"y": -219,
+						"width": 37.125,
+						"height": 25.02941176470588,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				}
+			],
+			"sid": 321416784628229,
+			"effectTypes": [],
+			"isInitiallyVisible": false,
+			"color": [
+				1,
+				1,
+				1,
+				1
+			],
+			"backgroundColor": [
+				0.10588235294117647,
+				0.12549019607843137,
+				0.1607843137254902,
+				1
+			],
+			"isTransparent": false,
+			"parallaxX": 1,
+			"parallaxY": 1,
+			"scaleRate": 1,
+			"forceOwnTexture": false,
+			"useRenderCells": false,
+			"blendMode": "normal",
+			"global": false
+		},
+		{
+			"name": "Effects",
+			"overriden": 0,
+			"instances": [
+				{
+					"type": "TiledBackground",
+					"properties": {
+						"initially-visible": true,
+						"origin": "top-left",
+						"wrap-horizontal": "repeat",
+						"wrap-vertical": "repeat",
+						"image-offset-x": 0,
+						"image-offset-y": 0,
+						"image-scale-x": 1,
+						"image-scale-y": 1,
+						"image-angle": 0
+					},
+					"uid": 1742,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 0,
+						"y": 0,
+						"width": 3000,
+						"height": 1440,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0,
+						"blendMode": "destination-in"
+					}
+				}
+			],
+			"sid": 443537018238632,
+			"effectTypes": [],
+			"isInitiallyVisible": true,
+			"color": [
+				1,
+				1,
+				1,
+				1
+			],
+			"backgroundColor": [
+				0.3686274509803922,
+				0.3686274509803922,
+				0.3686274509803922,
+				1
+			],
+			"isTransparent": true,
+			"parallaxX": 1,
+			"parallaxY": 1,
+			"scaleRate": 1,
+			"forceOwnTexture": false,
+			"useRenderCells": false,
+			"blendMode": "normal",
+			"global": false
+		},
+		{
+			"name": "Gizmos",
+			"overriden": 0,
+			"instances": [],
+			"sid": 223525487777163,
+			"effectTypes": [],
+			"isInitiallyVisible": true,
+			"color": [
+				1,
+				1,
+				1,
+				1
+			],
+			"backgroundColor": [
+				0.3686274509803922,
+				0.3686274509803922,
+				0.3686274509803922,
+				1
+			],
+			"isTransparent": true,
+			"parallaxX": 1,
+			"parallaxY": 1,
+			"scaleRate": 1,
+			"forceOwnTexture": false,
+			"useRenderCells": false,
+			"blendMode": "normal",
+			"global": false
+		},
+		{
+			"name": "Whiteblock",
+			"overriden": 0,
+			"instances": [],
+			"sid": 966818198340487,
+			"effectTypes": [
+				{
+					"effectId": "outline",
+					"name": "Outline",
+					"instance": {
+						"parameters": {
+							"width": 1,
+							"cl": [
+								1,
+								1,
+								0.9137254901960784,
+								1
+							],
+							"diag": 0.7071
+						}
+					}
+				},
+				{
+					"effectId": "outline",
+					"name": "Outline2",
+					"instance": {
+						"parameters": {
+							"width": 4,
+							"cl": [
+								0.10588235294117647,
+								0.12549019607843137,
+								0.1607843137254902,
+								1
+							],
+							"diag": 0.7071
+						}
+					}
+				}
+			],
+			"isInitiallyVisible": true,
+			"color": [
+				1,
+				1,
+				1,
+				1
+			],
+			"backgroundColor": [
+				0.3686274509803922,
+				0.3686274509803922,
+				0.3686274509803922,
+				1
+			],
+			"isTransparent": true,
+			"parallaxX": 1,
+			"parallaxY": 1,
+			"scaleRate": 1,
+			"forceOwnTexture": false,
+			"useRenderCells": false,
+			"blendMode": "normal",
+			"global": false
+		},
+		{
+			"name": "3D",
+			"overriden": 0,
+			"instances": [
+				{
+					"type": "primTris_Stack",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 1747,
+					"instanceVariables": {
+						"stackIndex": 0
+					},
+					"behaviors": {
+						"Pin": {
+							"properties": {
+								"destroy": false
+							}
+						}
+					},
+					"world": {
+						"x": 1408,
+						"y": -221,
+						"width": 19.000000000000053,
+						"height": 14,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "oDroneStack",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 1758,
+					"instanceVariables": {
+						"stackIndex": 0
+					},
+					"behaviors": {
+						"Pin": {
+							"properties": {
+								"destroy": false
+							}
+						}
+					},
+					"world": {
+						"x": 140.83059684298735,
+						"y": -29.527296903794067,
+						"width": 16,
+						"height": 13,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				}
+			],
+			"sid": 969604220951311,
+			"effectTypes": [],
+			"isInitiallyVisible": true,
+			"color": [
+				1,
+				1,
+				1,
+				1
+			],
+			"backgroundColor": [
+				0.3686274509803922,
+				0.3686274509803922,
+				0.3686274509803922,
+				1
+			],
+			"isTransparent": true,
+			"parallaxX": 1,
+			"parallaxY": 1,
+			"scaleRate": 1,
+			"forceOwnTexture": false,
+			"useRenderCells": false,
+			"blendMode": "normal",
+			"global": false
+		},
+		{
+			"name": "3D_Outlined",
+			"overriden": 0,
+			"instances": [],
+			"sid": 587569210978266,
+			"effectTypes": [
+				{
+					"effectId": "outline",
+					"name": "Outline",
+					"instance": {
+						"parameters": {
+							"width": 1,
+							"cl": [
+								0.403921568627451,
+								0.5529411764705883,
+								0.47843137254901963,
+								1
+							],
+							"diag": 0.7071
+						}
+					}
+				}
+			],
+			"isInitiallyVisible": true,
+			"color": [
+				1,
+				1,
+				1,
+				1
+			],
+			"backgroundColor": [
+				0.3686274509803922,
+				0.3686274509803922,
+				0.3686274509803922,
+				1
+			],
+			"isTransparent": true,
+			"parallaxX": 1,
+			"parallaxY": 1,
+			"scaleRate": 1,
+			"forceOwnTexture": false,
+			"useRenderCells": false,
+			"blendMode": "normal",
+			"global": false
+		},
+		{
+			"name": "Controllers",
+			"overriden": 0,
+			"instances": [
+				{
+					"type": "LevelSettings",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 1761,
+					"instanceVariables": {
+						"currentTime": 0,
+						"nextLevel": "Circle",
+						"levelName": "The Circle",
+						"levelNum": 1
+					},
+					"behaviors": {
+						"Timer": {
+							"properties": {}
+						}
+					},
+					"world": {
+						"x": 11.986859358281379,
+						"y": -16.29269772824869,
+						"width": 20,
+						"height": 20,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				}
+			],
+			"sid": 576224068869430,
+			"effectTypes": [],
+			"isInitiallyVisible": true,
+			"color": [
+				1,
+				1,
+				1,
+				1
+			],
+			"backgroundColor": [
+				0.3686274509803922,
+				0.3686274509803922,
+				0.3686274509803922,
+				1
+			],
+			"isTransparent": true,
+			"parallaxX": 1,
+			"parallaxY": 1,
+			"scaleRate": 1,
+			"forceOwnTexture": false,
+			"useRenderCells": false,
+			"blendMode": "normal",
+			"global": false
+		},
+		{
+			"name": "UI_World",
+			"overriden": 0,
+			"instances": [],
+			"sid": 638263977803553,
+			"effectTypes": [],
+			"isInitiallyVisible": true,
+			"color": [
+				1,
+				1,
+				1,
+				1
+			],
+			"backgroundColor": [
+				0.3686274509803922,
+				0.3686274509803922,
+				0.3686274509803922,
+				1
+			],
+			"isTransparent": true,
+			"parallaxX": 1,
+			"parallaxY": 1,
+			"scaleRate": 0,
+			"forceOwnTexture": false,
+			"useRenderCells": false,
+			"blendMode": "normal",
+			"global": false
+		},
+		{
+			"name": "UI",
+			"overriden": 1,
+			"instances": [
+				{
+					"type": "UI_MidText",
+					"properties": {
+						"text": "Defeated",
+						"enable-bbcode": true,
+						"font": "Arial",
+						"size": 12,
+						"line-height": 0,
+						"bold": false,
+						"italic": false,
+						"color": [
+							0,
+							0,
+							0,
+							1
+						],
+						"horizontal-alignment": "center",
+						"vertical-alignment": "center",
+						"wrapping": "word",
+						"initially-visible": false,
+						"origin": "center"
+					},
+					"uid": 1786,
+					"instanceVariables": {},
+					"behaviors": {
+						"Tween": {
+							"properties": {
+								"enabled": true
+							}
+						}
+					},
+					"world": {
+						"x": 160,
+						"y": 120,
+						"width": 320,
+						"height": 132.08387405231883,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "UI_Timer",
+					"properties": {
+						"text": "Completion timer ",
+						"enable-bbcode": true,
+						"font": "Arial",
+						"size": 12,
+						"line-height": 0,
+						"bold": false,
+						"italic": false,
+						"color": [
+							0,
+							0,
+							0,
+							1
+						],
+						"horizontal-alignment": "left",
+						"vertical-alignment": "top",
+						"wrapping": "word",
+						"initially-visible": true,
+						"origin": "top-left"
+					},
+					"uid": 1787,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 3.7906978939005285,
+						"y": 4.197705932703414,
+						"width": 141.26084283860393,
+						"height": 30,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				}
+			],
+			"sid": 816465733920494,
+			"effectTypes": [
+				{
+					"effectId": "outline",
+					"name": "Outline",
+					"instance": {
+						"parameters": {
+							"width": 1,
+							"cl": [
+								0.9803921568627451,
+								0.9803921568627451,
+								0.9803921568627451,
+								1
+							],
+							"diag": 0.7071
+						}
+					}
+				}
+			],
+			"isInitiallyVisible": true,
+			"color": [
+				1,
+				1,
+				1,
+				1
+			],
+			"backgroundColor": [
+				0.3686274509803922,
+				0.3686274509803922,
+				0.3686274509803922,
+				1
+			],
+			"isTransparent": true,
+			"parallaxX": 0,
+			"parallaxY": 0,
+			"scaleRate": 0,
+			"forceOwnTexture": false,
+			"useRenderCells": false,
+			"blendMode": "normal",
+			"global": false
+		},
+		{
+			"name": "DebugInfo",
+			"overriden": 1,
+			"instances": [
+				{
+					"type": "dbg_Player",
+					"properties": {
+						"text": "Move Debugging",
+						"enable-bbcode": true,
+						"font": "Arial",
+						"size": 9,
+						"line-height": 0,
+						"bold": false,
+						"italic": false,
+						"color": [
+							0,
+							0,
+							0,
+							1
+						],
+						"horizontal-alignment": "left",
+						"vertical-alignment": "top",
+						"wrapping": "word",
+						"initially-visible": true,
+						"origin": "top-left"
+					},
+					"uid": 1788,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 16.20630747688554,
+						"y": 14.85072271070544,
+						"width": 103,
+						"height": 88.37976309123812,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "dbg_Walls",
+					"properties": {
+						"text": "Ray Debuggign",
+						"enable-bbcode": true,
+						"font": "Arial",
+						"size": 9,
+						"line-height": 0,
+						"bold": false,
+						"italic": false,
+						"color": [
+							0,
+							0,
+							0,
+							1
+						],
+						"horizontal-alignment": "left",
+						"vertical-alignment": "top",
+						"wrapping": "word",
+						"initially-visible": true,
+						"origin": "center"
+					},
+					"uid": 1789,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 252.73718659080956,
+						"y": 54.75589773323827,
+						"width": 118.0278578547429,
+						"height": 83.68935625888182,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "dbg_Acc",
+					"properties": {
+						"text": "Wall Friction Debugging",
+						"enable-bbcode": true,
+						"font": "Arial",
+						"size": 9,
+						"line-height": 0,
+						"bold": false,
+						"italic": false,
+						"color": [
+							0,
+							0,
+							0,
+							1
+						],
+						"horizontal-alignment": "left",
+						"vertical-alignment": "top",
+						"wrapping": "word",
+						"initially-visible": true,
+						"origin": "center"
+					},
+					"uid": 1790,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 256.83526732300004,
+						"y": 81.23283704682356,
+						"width": 118.0278578547429,
+						"height": 83.68935625888182,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				}
+			],
+			"sid": 112278247927532,
+			"effectTypes": [
+				{
+					"effectId": "outline",
+					"name": "Outline",
+					"instance": {
+						"parameters": {
+							"width": 1,
+							"cl": [
+								0.9803921568627451,
+								0.9803921568627451,
+								0.9803921568627451,
+								1
+							],
+							"diag": 0.7071
+						}
+					}
+				}
+			],
+			"isInitiallyVisible": true,
+			"color": [
+				1,
+				1,
+				1,
+				1
+			],
+			"backgroundColor": [
+				0.3686274509803922,
+				0.3686274509803922,
+				0.3686274509803922,
+				1
+			],
+			"isTransparent": true,
+			"parallaxX": 0,
+			"parallaxY": 0,
+			"scaleRate": 0,
+			"forceOwnTexture": false,
+			"useRenderCells": false,
+			"blendMode": "normal",
+			"global": false
+		}
+	],
+	"sid": 561535251322671,
+	"nonworld-instances": [],
+	"effectTypes": [],
+	"width": 5000,
+	"height": 5000,
+	"unboundedScrolling": false,
+	"eventSheet": "eMain"
+}

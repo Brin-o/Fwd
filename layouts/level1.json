@@ -177,8 +177,8 @@
 						}
 					},
 					"world": {
-						"x": 330.8180452154907,
-						"y": 449.7810941875555,
+						"x": 328.16743510066266,
+						"y": 458.6164612369822,
 						"width": 120,
 						"height": 120,
 						"originX": 0.5,
@@ -2802,11 +2802,14 @@
 					"uid": 702,
 					"instanceVariables": {
 						"minSpeed": 40,
-						"maxSpeed": 275,
+						"maxSpeed": 330,
+						"maxSpeedSoft": 275,
 						"bonusSpeed": 0,
 						"deceleration": 50,
 						"acceleration": 50,
 						"accelerationSlider": 100,
+						"accelerationMod": 1,
+						"accelerationSoftMod": 0.075,
 						"break": 150,
 						"speedPercNormal": 0,
 						"speedPercAbs": 0,
@@ -2846,8 +2849,8 @@
 						}
 					},
 					"world": {
-						"x": 328.8180452154907,
-						"y": 446.7810941875555,
+						"x": 328.52353298050986,
+						"y": 459.15060805675296,
 						"width": 10,
 						"height": 9,
 						"originX": 0.5,
@@ -2916,8 +2919,8 @@
 					},
 					"behaviors": {},
 					"world": {
-						"x": 330.0262960180316,
-						"y": 443.51919267809575,
+						"x": 353.58727481650305,
+						"y": 458.5393166621213,
 						"width": 130,
 						"height": 61.9726794617855,
 						"originX": 0.5,

@@ -5,7 +5,7 @@
 			"eventType": "variable",
 			"name": "Vol_SFX",
 			"type": "number",
-			"initialValue": "-30",
+			"initialValue": "-20",
 			"comment": "",
 			"isStatic": false,
 			"isConstant": false,
@@ -15,7 +15,7 @@
 			"eventType": "variable",
 			"name": "Vol_Music",
 			"type": "number",
-			"initialValue": "-18",
+			"initialValue": "-14",
 			"comment": "",
 			"isStatic": false,
 			"isConstant": false,
@@ -49,11 +49,11 @@
 						{
 							"id": "compare-two-values",
 							"objectClass": "System",
-							"sid": 300898310997475,
+							"sid": 910778286773155,
 							"parameters": {
 								"first-value": "LayoutName",
 								"comparison": 0,
-								"second-value": "\"Level1\""
+								"second-value": "\"Start\""
 							}
 						}
 					],
@@ -96,6 +96,15 @@
 									"sid": 917212575070567,
 									"parameters": {
 										"tag": "\"musicHanger\""
+									},
+									"isInverted": true
+								},
+								{
+									"id": "is-tag-playing",
+									"objectClass": "Audio",
+									"sid": 651318907507126,
+									"parameters": {
+										"tag": "\"music\""
 									},
 									"isInverted": true
 								}
@@ -222,6 +231,7 @@
 					],
 					"actions": [],
 					"sid": 224967409519814,
+					"disabled": true,
 					"children": [
 						{
 							"eventType": "block",
@@ -248,7 +258,8 @@
 									}
 								}
 							],
-							"sid": 955332070809876
+							"sid": 955332070809876,
+							"disabled": true
 						}
 					]
 				}
@@ -420,19 +431,7 @@
 					"functionParameters": [],
 					"eventType": "function-block",
 					"conditions": [],
-					"actions": [
-						{
-							"id": "play",
-							"objectClass": "Audio",
-							"sid": 860980513996827,
-							"parameters": {
-								"audio-file": "OLD_Long Break",
-								"loop": "not-looping",
-								"volume": "0",
-								"tag-optional": "\"\""
-							}
-						}
-					],
+					"actions": [],
 					"sid": 771480085156412
 				},
 				{
@@ -700,10 +699,10 @@
 						{
 							"id": "set-eventvar-value",
 							"objectClass": "System",
-							"sid": 659285592674839,
+							"sid": 362367898280235,
 							"parameters": {
 								"variable": "motorVolume",
-								"value": "Functions.Remap(oPlayer.speedPercNormal, 0, 1, Vol_SFX-10, Vol_SFX-2)"
+								"value": "Functions.Remap(oPlayer.speedPercNormal, 0, 1, Vol_SFX-15, Vol_SFX-4)"
 							}
 						},
 						{
@@ -782,6 +781,98 @@
 				}
 			],
 			"sid": 757254762776124
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Ajdust Music Volume",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "variable",
+					"name": "vol_Adjustment",
+					"type": "number",
+					"initialValue": "-5",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 603697875695362
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 107796820712791,
+							"parameters": {
+								"first-value": "LayoutName",
+								"comparison": 0,
+								"second-value": "\"Start\""
+							}
+						},
+						{
+							"id": "is-tag-playing",
+							"objectClass": "Audio",
+							"sid": 478900541158208,
+							"disabled": true,
+							"parameters": {
+								"tag": "\"music\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-volume",
+							"objectClass": "Audio",
+							"sid": 758266060911119,
+							"parameters": {
+								"tag": "\"music\"",
+								"db": "lerp(Audio.Volume(\"music\"), Vol_Music + vol_Adjustment, dt*5)"
+							}
+						}
+					],
+					"sid": 534694385613645
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 265698325148266,
+							"parameters": {
+								"first-value": "LayoutName",
+								"comparison": 1,
+								"second-value": "\"Start\""
+							}
+						},
+						{
+							"id": "is-tag-playing",
+							"objectClass": "Audio",
+							"sid": 181481969466409,
+							"disabled": true,
+							"parameters": {
+								"tag": "\"music\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-volume",
+							"objectClass": "Audio",
+							"sid": 493253481554531,
+							"parameters": {
+								"tag": "\"music\"",
+								"db": "lerp(Audio.Volume(\"music\"), Vol_Music, dt*5)"
+							}
+						}
+					],
+					"sid": 494626892289528
+				}
+			],
+			"sid": 741746656456549
 		}
 	],
 	"sid": 725877451486781

@@ -1,0 +1,68 @@
+{
+	"name": "eLoader",
+	"events": [
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-loader-layout-complete",
+					"objectClass": "System",
+					"sid": 135624830716428
+				}
+			],
+			"actions": [
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 579496400369411,
+					"parameters": {
+						"seconds": "0.75"
+					}
+				},
+				{
+					"id": "tween-one-property",
+					"objectClass": "LoaderAnimation",
+					"sid": 506139405321089,
+					"behaviorType": "Tween",
+					"parameters": {
+						"tags": "\"start\"",
+						"property": "offsetOpacity",
+						"end-value": "0",
+						"time": "0.2",
+						"ease": "default",
+						"destroy-on-complete": "no",
+						"loop": "no",
+						"ping-pong": "no"
+					}
+				}
+			],
+			"sid": 724073928121850
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-tweens-finished",
+					"objectClass": "LoaderAnimation",
+					"sid": 291943422267676,
+					"behaviorType": "Tween",
+					"parameters": {
+						"tags": "\"start\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "go-to-layout",
+					"objectClass": "System",
+					"sid": 115896123073840,
+					"parameters": {
+						"layout": "Start"
+					}
+				}
+			],
+			"sid": 162433078440166
+		}
+	],
+	"sid": 671350317490760
+}

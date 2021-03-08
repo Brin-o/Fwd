@@ -1329,132 +1329,6 @@
 							"disabled": true
 						}
 					]
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "is-boolean-instance-variable-set",
-							"objectClass": "uCombat_Zone",
-							"sid": 664206578582553,
-							"parameters": {
-								"instance-variable": "enemiesInside"
-							},
-							"isInverted": true
-						}
-					],
-					"actions": [
-						{
-							"id": "set-enabled",
-							"objectClass": "uCombat_Laser",
-							"sid": 437590879008255,
-							"behaviorType": "Solid",
-							"parameters": {
-								"state": "disabled"
-							}
-						},
-						{
-							"id": "set-visible",
-							"objectClass": "uCombat_Laser",
-							"sid": 369123426816800,
-							"parameters": {
-								"visibility": "invisible"
-							}
-						}
-					],
-					"sid": 929471046192946,
-					"disabled": true,
-					"children": [
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "is-any-playing",
-									"objectClass": "uCombat_Laser",
-									"sid": 281975701683187,
-									"behaviorType": "Tween",
-									"isInverted": true
-								}
-							],
-							"actions": [
-								{
-									"id": "tween-one-property",
-									"objectClass": "uCombat_Laser",
-									"sid": 357526427660462,
-									"behaviorType": "Tween",
-									"parameters": {
-										"tags": "\"\"",
-										"property": "offsetHeight",
-										"end-value": "0",
-										"time": "0.3",
-										"ease": "easeincubic",
-										"destroy-on-complete": "no",
-										"loop": "no",
-										"ping-pong": "no"
-									}
-								}
-							],
-							"sid": 396963663264635,
-							"disabled": true
-						}
-					]
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "is-boolean-instance-variable-set",
-							"objectClass": "uCombat_Zone",
-							"sid": 496240314796688,
-							"parameters": {
-								"instance-variable": "unlockedAfterEnemies"
-							}
-						},
-						{
-							"id": "is-boolean-instance-variable-set",
-							"objectClass": "uCombat_Zone",
-							"sid": 875514075203042,
-							"parameters": {
-								"instance-variable": "enemiesInside"
-							},
-							"isInverted": true
-						},
-						{
-							"id": "is-boolean-instance-variable-set",
-							"objectClass": "uCombat_Zone",
-							"sid": 650599985843154,
-							"parameters": {
-								"instance-variable": "locked"
-							}
-						}
-					],
-					"actions": [],
-					"sid": 934371929744368,
-					"disabled": true,
-					"children": [
-						{
-							"breakpoint": true,
-							"eventType": "block",
-							"conditions": [],
-							"actions": [
-								{
-									"id": "set-boolean-instvar",
-									"objectClass": "uCombat_Zone",
-									"sid": 796802954085147,
-									"parameters": {
-										"instance-variable": "locked",
-										"value": "false"
-									}
-								},
-								{
-									"callFunction": "CameraUnlock",
-									"sid": 212027909459903
-								}
-							],
-							"sid": 496595735666105,
-							"disabled": true
-						}
-					]
 				}
 			],
 			"sid": 948095345456248
@@ -1618,10 +1492,10 @@
 						{
 							"id": "spawn-another-object",
 							"objectClass": "fEnemies",
-							"sid": 913646250825978,
+							"sid": 479020192939750,
 							"parameters": {
 								"object": "eTargeting_Indicator",
-								"layer": "\"UI_World\"",
+								"layer": "\"Controllers\"",
 								"image-point": "0",
 								"create-hierarchy": false
 							}
@@ -1804,6 +1678,242 @@
 			"description": "",
 			"isActiveOnStart": true,
 			"children": [
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "Boss Zone",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-collision-with-another-object",
+									"objectClass": "uCombat_Boss",
+									"sid": 257363316584149,
+									"parameters": {
+										"object": "oPlayer"
+									}
+								},
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "uCombat_Boss",
+									"sid": 190081880416050,
+									"parameters": {
+										"instance-variable": "locked"
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"type": "comment",
+									"text": "Output the X and Y for debug"
+								},
+								{
+									"id": "set-text",
+									"objectClass": "dbg_Walls",
+									"sid": 334363848027906,
+									"disabled": true,
+									"parameters": {
+										"text": "\"x: \" & uCombat_Zone.X & newline & \"y: \" & uCombat_Zone.Y"
+									}
+								}
+							],
+							"sid": 156087715000856,
+							"children": [
+								{
+									"breakpoint": true,
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "uCombat_Boss",
+											"sid": 689974466309513,
+											"parameters": {
+												"instance-variable": "locked",
+												"value": "true"
+											}
+										},
+										{
+											"callFunction": "CameraLock",
+											"sid": 997688008030155,
+											"parameters": [
+												"uCombat_Boss.X",
+												"uCombat_Boss.Y",
+												"uCombat_Boss.zoomRatio"
+											]
+										}
+									],
+									"sid": 670528766178415
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "uCombat_Boss",
+									"sid": 620042485765136,
+									"parameters": {
+										"instance-variable": "locked"
+									}
+								},
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "uCombat_Boss",
+									"sid": 301319288901193,
+									"parameters": {
+										"instance-variable": "enemiesInside"
+									},
+									"isInverted": true
+								},
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "uCombat_Boss",
+									"sid": 187460644203860,
+									"parameters": {
+										"instance-variable": "unlockedAfterEnemies"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 156407745461747,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "uCombat_Boss",
+											"sid": 387793596195142,
+											"parameters": {
+												"instance-variable": "locked",
+												"value": "false"
+											}
+										},
+										{
+											"callFunction": "CameraUnlock",
+											"sid": 405557779107439
+										}
+									],
+									"sid": 384333836052030
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "uCombat_Boss",
+									"sid": 621041337631746,
+									"parameters": {
+										"instance-variable": "locked"
+									}
+								},
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "uCombat_Boss",
+									"sid": 109583905883980,
+									"parameters": {
+										"instance-variable": "unlockedAfterEnemies"
+									},
+									"isInverted": true
+								},
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "uCombat_Boss",
+									"sid": 251745894181070,
+									"parameters": {
+										"object": "oPlayer"
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [],
+							"sid": 642091908652514,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "uCombat_Boss",
+											"sid": 564008656050569,
+											"parameters": {
+												"instance-variable": "locked",
+												"value": "false"
+											}
+										},
+										{
+											"callFunction": "CameraUnlock",
+											"sid": 235253321922114
+										}
+									],
+									"sid": 177634315695738
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "uCombat_Boss",
+									"sid": 174356078675389,
+									"parameters": {
+										"object": "fEnemies"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "uCombat_Boss",
+									"sid": 495910058179798,
+									"parameters": {
+										"instance-variable": "enemiesInside",
+										"value": "true"
+									}
+								}
+							],
+							"sid": 921503392085358
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-clockwise-from",
+									"objectClass": "uCombat_Boss",
+									"sid": 606489976125086,
+									"parameters": {
+										"angle": "0"
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "uCombat_Boss",
+									"sid": 598774186892772,
+									"parameters": {
+										"instance-variable": "enemiesInside",
+										"value": "false"
+									}
+								}
+							],
+							"sid": 755531730475530
+						}
+					],
+					"sid": 826494136722413
+				},
 				{
 					"eventType": "block",
 					"conditions": [

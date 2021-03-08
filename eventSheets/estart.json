@@ -2,6 +2,14 @@
 	"name": "eStart",
 	"events": [
 		{
+			"eventType": "include",
+			"includeSheet": "eSFXMusic"
+		},
+		{
+			"eventType": "include",
+			"includeSheet": "eTransition"
+		},
+		{
 			"eventType": "variable",
 			"name": "menu_STATE",
 			"type": "string",
@@ -20,6 +28,16 @@
 			"isStatic": false,
 			"isConstant": true,
 			"sid": 213775020305707
+		},
+		{
+			"eventType": "variable",
+			"name": "loading_Next",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 187068689951347
 		},
 		{
 			"eventType": "block",
@@ -128,6 +146,15 @@
 					"parameters": {
 						"tag": "\"tips\"",
 						"file": "tips.json"
+					}
+				},
+				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 949186201453477,
+					"parameters": {
+						"variable": "loading_Next",
+						"value": "false"
 					}
 				}
 			],
@@ -1053,24 +1080,59 @@
 									"parameters": {
 										"instance-variable": "canEnter"
 									}
+								},
+								{
+									"id": "is-playing",
+									"objectClass": "UI_LevelPoint",
+									"sid": 862719667432594,
+									"behaviorType": "Tween",
+									"parameters": {
+										"tags": "\"enter\""
+									},
+									"isInverted": true
 								}
 							],
 							"actions": [
 								{
-									"id": "go-to-layout-by-name",
-									"objectClass": "System",
-									"sid": 938875419155193,
+									"id": "tween-one-property",
+									"objectClass": "UI_LevelPoint",
+									"sid": 265785606371471,
+									"behaviorType": "Tween",
 									"parameters": {
-										"layout": "\"Level\" & UI_LevelPoint.levelToLoad"
+										"tags": "\"\"",
+										"property": "offsetAngle",
+										"end-value": "random(30,60) * sign(random(-1,1))",
+										"time": "0.2",
+										"ease": "easeoutback",
+										"destroy-on-complete": "no",
+										"loop": "no",
+										"ping-pong": "no"
 									}
 								},
 								{
-									"callFunction": "UI - Select Level",
-									"sid": 455541430807156
+									"id": "tween-two-properties",
+									"objectClass": "UI_LevelPoint",
+									"sid": 784512013471669,
+									"behaviorType": "Tween",
+									"parameters": {
+										"tags": "\"\"",
+										"property": "size",
+										"end-x": "0",
+										"end-y": "0",
+										"time": "0.25+random(0.1)",
+										"ease": "easeoutcubic",
+										"destroy-on-complete": "no",
+										"loop": "no",
+										"ping-pong": "no"
+									}
 								},
 								{
-									"callFunction": "GameUI_Activate",
-									"sid": 759117830096180
+									"callFunction": "LoadLevelAnimated",
+									"sid": 973277053638322,
+									"parameters": [
+										"\"Level\" & UI_LevelPoint.levelToLoad",
+										"1"
+									]
 								}
 							],
 							"sid": 842898488781033
@@ -1104,7 +1166,60 @@
 									"sid": 420996752810149
 								}
 							],
-							"sid": 792027210025276
+							"sid": 792027210025276,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-playing",
+											"objectClass": "UI_LevelPoint",
+											"sid": 120517935025016,
+											"behaviorType": "Tween",
+											"parameters": {
+												"tags": "\"error\""
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "tween-two-properties",
+											"objectClass": "UI_LevelPoint",
+											"sid": 123616839297376,
+											"behaviorType": "Tween",
+											"parameters": {
+												"tags": "\"error\"",
+												"property": "scale",
+												"end-x": "1.4",
+												"end-y": "1.4",
+												"time": "0.2 + random(0.1)",
+												"ease": "easeincubic",
+												"destroy-on-complete": "no",
+												"loop": "no",
+												"ping-pong": "yes"
+											}
+										},
+										{
+											"id": "tween-one-property",
+											"objectClass": "UI_LevelPoint",
+											"sid": 395097472106188,
+											"behaviorType": "Tween",
+											"parameters": {
+												"tags": "\"\"",
+												"property": "offsetAngle",
+												"end-value": "Self.Angle + random(-60,60)",
+												"time": "0.1",
+												"ease": "easeoutback",
+												"destroy-on-complete": "no",
+												"loop": "no",
+												"ping-pong": "yes"
+											}
+										}
+									],
+									"sid": 918781245622149
+								}
+							]
 						}
 					]
 				}
@@ -1432,7 +1547,7 @@
 							"id": "tween-one-property",
 							"objectClass": "UI_Text_StartTOP",
 							"sid": 819195106734119,
-							"behaviorType": "Tween",
+							"behaviorType": "RegularTween",
 							"parameters": {
 								"tags": "\"\"",
 								"property": "offsetY",
@@ -1449,6 +1564,305 @@
 				}
 			],
 			"sid": 615404550021500
+		},
+		{
+			"functionName": "LoadLevelAnimated",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "LevelToLoad",
+					"type": "string",
+					"initialValue": "",
+					"comment": "",
+					"sid": 973624718552509
+				},
+				{
+					"name": "speed",
+					"type": "number",
+					"initialValue": "1",
+					"comment": "",
+					"sid": 140624821946461
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [
+				{
+					"id": "compare-two-values",
+					"objectClass": "System",
+					"sid": 546624916406795,
+					"parameters": {
+						"first-value": "UI_TranisitonIn.Count",
+						"comparison": 0,
+						"second-value": "0"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 168308636853182,
+					"parameters": {
+						"variable": "loading_Next",
+						"value": "true"
+					}
+				}
+			],
+			"sid": 829473898072594,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 106279737053858,
+							"parameters": {
+								"first-value": "LayoutName",
+								"comparison": 0,
+								"second-value": "\"Start\"\n"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 344367984516605,
+							"parameters": {
+								"object-to-create": "UI_TranisitonIn",
+								"layer": "\"LevelSelectExtras\"",
+								"x": "ViewportWidth(7)/2",
+								"y": "ViewportWidth(7)/2",
+								"create-hierarchy": false
+							}
+						}
+					],
+					"sid": 478214470445336
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 875140334733691,
+							"parameters": {
+								"first-value": "LayoutName",
+								"comparison": 0,
+								"second-value": "\"Credits\"\n"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 584048323016064,
+							"parameters": {
+								"object-to-create": "UI_TranisitonIn",
+								"layer": "2",
+								"x": "ViewportWidth(7)/2",
+								"y": "ViewportWidth(7)/2",
+								"create-hierarchy": false
+							}
+						}
+					],
+					"sid": 294002006944696
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 362828947274034,
+							"parameters": {
+								"first-value": "LayoutName",
+								"comparison": 1,
+								"second-value": "\"Credits\"\n"
+							}
+						},
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 656607301728728,
+							"parameters": {
+								"first-value": "LayoutName",
+								"comparison": 1,
+								"second-value": "\"Start\"\n"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 417201282233884,
+							"parameters": {
+								"object-to-create": "UI_TranisitonIn",
+								"layer": "\"UI\"",
+								"x": "ViewportWidth(7)/2",
+								"y": "ViewportWidth(7)/2",
+								"create-hierarchy": false
+							}
+						}
+					],
+					"sid": 530861144217343
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "UI_TranisitonIn",
+							"sid": 522675037921277,
+							"parameters": {
+								"instance-variable": "speed",
+								"value": "speed"
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 243374438855172,
+							"parameters": {
+								"seconds": "0.35*speed"
+							}
+						},
+						{
+							"id": "go-to-layout-by-name",
+							"objectClass": "System",
+							"sid": 885572057298366,
+							"parameters": {
+								"layout": "LevelToLoad"
+							}
+						}
+					],
+					"sid": 313312830063010
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 905293476069374,
+							"parameters": {
+								"first-value": "LayoutName",
+								"comparison": 0,
+								"second-value": "\"Start\"\n"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "UI - Select Level",
+							"sid": 181874312338729
+						},
+						{
+							"callFunction": "GameUI_Activate",
+							"sid": 204696239857286
+						}
+					],
+					"sid": 308664451557394
+				}
+			]
+		},
+		{
+			"functionName": "RestartLevelAnimated",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "LevelToLoad",
+					"type": "string",
+					"initialValue": "",
+					"comment": "",
+					"sid": 580563251105963
+				},
+				{
+					"name": "speed",
+					"type": "number",
+					"initialValue": "1",
+					"comment": "",
+					"sid": 131043987989957
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [
+				{
+					"id": "compare-two-values",
+					"objectClass": "System",
+					"sid": 130468240540332,
+					"parameters": {
+						"first-value": "UI_TranisitonIn.Count",
+						"comparison": 0,
+						"second-value": "0"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 791998336175339,
+					"parameters": {
+						"variable": "loading_Next",
+						"value": "true"
+					}
+				},
+				{
+					"id": "create-object",
+					"objectClass": "System",
+					"sid": 284567634366916,
+					"parameters": {
+						"object-to-create": "UI_TranisitonIn",
+						"layer": "\"UI\"",
+						"x": "ViewportWidth(7)/2",
+						"y": "ViewportWidth(7)/2",
+						"create-hierarchy": false
+					}
+				},
+				{
+					"id": "set-instvar-value",
+					"objectClass": "UI_TranisitonIn",
+					"sid": 402547330341452,
+					"parameters": {
+						"instance-variable": "speed",
+						"value": "speed"
+					}
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 354421634389001,
+					"parameters": {
+						"seconds": "0.35*speed"
+					}
+				},
+				{
+					"id": "restart-layout",
+					"objectClass": "System",
+					"sid": 584351532452949
+				},
+				{
+					"id": "set-time-scale",
+					"objectClass": "System",
+					"sid": 156455931307617,
+					"parameters": {
+						"time-scale": "1"
+					}
+				}
+			],
+			"sid": 886631012182966,
+			"disabled": true
 		}
 	],
 	"sid": 328680817600631

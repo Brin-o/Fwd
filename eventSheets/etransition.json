@@ -1,0 +1,268 @@
+{
+	"name": "eTransition",
+	"events": [
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Load Transition Animation",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-created",
+							"objectClass": "UI_TranisitonIn",
+							"sid": 292700410925017
+						}
+					],
+					"actions": [
+						{
+							"id": "set-size",
+							"objectClass": "UI_TranisitonIn",
+							"sid": 612526617333239,
+							"parameters": {
+								"width": "0",
+								"height": "0"
+							}
+						},
+						{
+							"id": "tween-one-property",
+							"objectClass": "UI_TranisitonIn",
+							"sid": 797570976775465,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"\"",
+								"property": "offsetAngle",
+								"end-value": "random(360)",
+								"time": "0.2 *Self.speed",
+								"ease": "easeoutback",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no"
+							}
+						},
+						{
+							"id": "tween-two-properties",
+							"objectClass": "UI_TranisitonIn",
+							"sid": 959112831913280,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"firstGrow\"",
+								"property": "size",
+								"end-x": "50 + random(10)",
+								"end-y": "50 + random(10)",
+								"time": "0.2*Self.speed",
+								"ease": "easeoutback",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no"
+							}
+						}
+					],
+					"sid": 590681814275433
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-tweens-finished",
+							"objectClass": "UI_TranisitonIn",
+							"sid": 574932721097199,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"firstGrow\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "tween-two-properties",
+							"objectClass": "UI_TranisitonIn",
+							"sid": 892113238383662,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"\"",
+								"property": "size",
+								"end-x": "520",
+								"end-y": "520",
+								"time": "0.4*Self.speed",
+								"ease": "easeoutcubic",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no"
+							}
+						}
+					],
+					"sid": 586092862722724
+				}
+			],
+			"sid": 995725245871103
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 898970055339395
+				}
+			],
+			"actions": [],
+			"sid": 393328153624888,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 481985880959648,
+							"parameters": {
+								"first-value": "LayoutName",
+								"comparison": 0,
+								"second-value": "\"Start\"\n"
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "MenuSettings",
+							"sid": 812710202751965,
+							"parameters": {
+								"instance-variable": "menuState",
+								"comparison": 0,
+								"value": "\"LEVEL\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 527355783812691,
+							"parameters": {
+								"object-to-create": "UI_TransitionOut",
+								"layer": "\"LevelSelectExtras\"",
+								"x": "ViewportWidth(7)/2",
+								"y": "ViewportWidth(7)/2",
+								"create-hierarchy": false
+							}
+						}
+					],
+					"sid": 535225183037944
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 581705105541746,
+							"parameters": {
+								"first-value": "LayoutName",
+								"comparison": 0,
+								"second-value": "\"Credits\"\n"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 664182363376628,
+							"parameters": {
+								"object-to-create": "UI_TransitionOut",
+								"layer": "2",
+								"x": "ViewportWidth(7)/2",
+								"y": "ViewportWidth(7)/2",
+								"create-hierarchy": false
+							}
+						}
+					],
+					"sid": 772235055970738
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 931621433512182,
+							"parameters": {
+								"first-value": "LayoutName",
+								"comparison": 1,
+								"second-value": "\"Credits\"\n"
+							}
+						},
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 638076646020262,
+							"parameters": {
+								"first-value": "LayoutName",
+								"comparison": 1,
+								"second-value": "\"Start\"\n"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 815637798835673,
+							"parameters": {
+								"object-to-create": "UI_TransitionOut",
+								"layer": "\"UI\"",
+								"x": "ViewportWidth(7)/2",
+								"y": "ViewportWidth(7)/2",
+								"create-hierarchy": false
+							}
+						}
+					],
+					"sid": 191542121878359
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-created",
+					"objectClass": "UI_TransitionOut",
+					"sid": 875172434885865
+				}
+			],
+			"actions": [
+				{
+					"id": "set-size",
+					"objectClass": "UI_TransitionOut",
+					"sid": 928611543919616,
+					"parameters": {
+						"width": "600",
+						"height": "600"
+					}
+				},
+				{
+					"id": "tween-two-properties",
+					"objectClass": "UI_TransitionOut",
+					"sid": 315268431324198,
+					"behaviorType": "Tween",
+					"parameters": {
+						"tags": "\"\"",
+						"property": "size",
+						"end-x": "0",
+						"end-y": "0",
+						"time": "0.3",
+						"ease": "easeinsine",
+						"destroy-on-complete": "yes",
+						"loop": "no",
+						"ping-pong": "no"
+					}
+				}
+			],
+			"sid": 438180491472701
+		}
+	],
+	"sid": 455580337504604
+}

@@ -635,6 +635,132 @@
 						"angle": 0,
 						"zElevation": 0
 					}
+				},
+				{
+					"type": "UI_TranisitonIn",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 1741,
+					"instanceVariables": {
+						"speed": 1
+					},
+					"behaviors": {
+						"Tween": {
+							"properties": {
+								"enabled": true
+							}
+						}
+					},
+					"effects": {
+						"Outline": {
+							"parameters": {
+								"width": 1,
+								"cl": [
+									1,
+									1,
+									0.9137254901960784,
+									1
+								],
+								"diag": 0.7071
+							}
+						},
+						"Outline2": {
+							"parameters": {
+								"width": 3,
+								"cl": [
+									0.10588235294117647,
+									0.12549019607843137,
+									0.1607843137254902,
+									1
+								],
+								"diag": 0.7071
+							}
+						}
+					},
+					"world": {
+						"x": 433,
+						"y": 110,
+						"width": 44,
+						"height": 44,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "UI_TransitionOut",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 1746,
+					"instanceVariables": {
+						"speed": 1
+					},
+					"behaviors": {
+						"Tween": {
+							"properties": {
+								"enabled": true
+							}
+						}
+					},
+					"effects": {
+						"Outline": {
+							"parameters": {
+								"width": 1,
+								"cl": [
+									1,
+									1,
+									0.9137254901960784,
+									1
+								],
+								"diag": 0.7071
+							}
+						},
+						"Outline2": {
+							"parameters": {
+								"width": 3,
+								"cl": [
+									0.10588235294117647,
+									0.12549019607843137,
+									0.1607843137254902,
+									1
+								],
+								"diag": 0.7071
+							}
+						}
+					},
+					"world": {
+						"x": 520,
+						"y": 109,
+						"width": 44,
+						"height": 44,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
 				}
 			],
 			"sid": 882800371794805,

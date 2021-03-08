@@ -2,6 +2,16 @@
 	"name": "eCredits",
 	"events": [
 		{
+			"eventType": "variable",
+			"name": "goingToStart",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 216766362699472
+		},
+		{
 			"eventType": "block",
 			"conditions": [
 				{
@@ -26,25 +36,144 @@
 			"eventType": "block",
 			"conditions": [
 				{
-					"id": "on-button-released",
-					"objectClass": "Mouse",
-					"sid": 820525748249223,
-					"parameters": {
-						"mouse-button": "right"
-					}
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 472917579300844
 				}
 			],
 			"actions": [
 				{
+					"id": "set-opacity",
+					"objectClass": "UI_Text_StartTOP",
+					"sid": 883196573834474,
+					"parameters": {
+						"opacity": "0"
+					}
+				},
+				{
+					"id": "tween-one-property",
+					"objectClass": "UI_Text_StartTOP",
+					"sid": 311418140557984,
+					"behaviorType": "RegularTween",
+					"parameters": {
+						"tags": "\"\"",
+						"property": "offsetOpacity",
+						"end-value": "100",
+						"time": "0.5 + Self.animationDelay*0.25",
+						"ease": "easeoutcubic",
+						"destroy-on-complete": "no",
+						"loop": "no",
+						"ping-pong": "no"
+					}
+				},
+				{
+					"id": "set-width",
+					"objectClass": "UI_MidBar_RMB",
+					"sid": 564401928322527,
+					"parameters": {
+						"width": "0"
+					}
+				},
+				{
+					"id": "tween-one-property",
+					"objectClass": "UI_MidBar_RMB",
+					"sid": 130361734884480,
+					"behaviorType": "Tween",
+					"parameters": {
+						"tags": "\"\"",
+						"property": "offsetWidth",
+						"end-value": "400",
+						"time": "0.4 + random(0.3)",
+						"ease": "easeoutcubic",
+						"destroy-on-complete": "no",
+						"loop": "no",
+						"ping-pong": "no"
+					}
+				}
+			],
+			"sid": 813186040015574
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-button-released",
+					"objectClass": "Mouse",
+					"sid": 805069543938137,
+					"parameters": {
+						"mouse-button": "left"
+					}
+				},
+				{
+					"id": "compare-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 639268719817229,
+					"parameters": {
+						"variable": "goingToStart"
+					},
+					"isInverted": true
+				}
+			],
+			"actions": [
+				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 197429857740692,
+					"parameters": {
+						"variable": "goingToStart",
+						"value": "true"
+					}
+				},
+				{
+					"id": "tween-one-property",
+					"objectClass": "UI_Text_StartTOP",
+					"sid": 707930728296873,
+					"behaviorType": "RegularTween",
+					"parameters": {
+						"tags": "\"\"",
+						"property": "offsetOpacity",
+						"end-value": "0",
+						"time": "0.3 + Self.animationDelay*0.2",
+						"ease": "easeoutcubic",
+						"destroy-on-complete": "no",
+						"loop": "no",
+						"ping-pong": "no"
+					}
+				},
+				{
+					"id": "tween-one-property",
+					"objectClass": "UI_MidBar_RMB",
+					"sid": 843355557595465,
+					"behaviorType": "Tween",
+					"parameters": {
+						"tags": "\"\"",
+						"property": "offsetWidth",
+						"end-value": "0",
+						"time": "0.4 + random(0.3)",
+						"ease": "easeoutcubic",
+						"destroy-on-complete": "no",
+						"loop": "no",
+						"ping-pong": "no"
+					}
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 592433726535726,
+					"parameters": {
+						"seconds": "1.2"
+					}
+				},
+				{
 					"id": "go-to-layout",
 					"objectClass": "System",
-					"sid": 406491036142520,
+					"sid": 293028226490844,
 					"parameters": {
 						"layout": "Start"
 					}
 				}
 			],
-			"sid": 186587005293177
+			"sid": 550783647352883
 		}
 	],
 	"sid": 528168641661418

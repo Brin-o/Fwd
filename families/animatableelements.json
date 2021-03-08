@@ -1,0 +1,18 @@
+{
+	"name": "AnimatableElements",
+	"plugin-id": "Spritefont2",
+	"sid": 595900708980242,
+	"instanceVariables": [
+		{
+			"name": "animationDelay",
+			"type": "number",
+			"desc": "",
+			"sid": 555080868135199
+		}
+	],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"members": [
+		"UI_Text_StartTOP"
+	]
+}

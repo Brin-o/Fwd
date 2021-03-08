@@ -7,7 +7,7 @@
 	"behaviorTypes": [
 		{
 			"behaviorId": "Tween",
-			"name": "Tween",
+			"name": "RegularTween",
 			"sid": 689521507790890
 		}
 	],

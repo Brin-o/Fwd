@@ -8,7 +8,7 @@
 			"initialValue": "60",
 			"comment": "",
 			"isStatic": false,
-			"isConstant": true,
+			"isConstant": false,
 			"sid": 370110501780982
 		},
 		{
@@ -34,6 +34,10 @@
 		{
 			"eventType": "include",
 			"includeSheet": "eSFXMusic"
+		},
+		{
+			"eventType": "include",
+			"includeSheet": "eTransition"
 		},
 		{
 			"eventType": "group",
@@ -105,17 +109,12 @@
 			],
 			"actions": [
 				{
-					"id": "restart-layout",
-					"objectClass": "System",
-					"sid": 675058772508595
-				},
-				{
-					"id": "set-time-scale",
-					"objectClass": "System",
-					"sid": 384569235239614,
-					"parameters": {
-						"time-scale": "1"
-					}
+					"callFunction": "LoadLevelAnimated",
+					"sid": 927854303622299,
+					"parameters": [
+						"LayoutName",
+						"1"
+					]
 				}
 			],
 			"sid": 965468859785745
@@ -134,27 +133,73 @@
 			],
 			"actions": [
 				{
-					"id": "set-time-scale",
-					"objectClass": "System",
-					"sid": 173153270323153,
-					"parameters": {
-						"time-scale": "1"
-					}
-				},
-				{
-					"id": "go-to-layout",
-					"objectClass": "System",
-					"sid": 235468493872375,
-					"parameters": {
-						"layout": "Start"
-					}
-				},
-				{
-					"callFunction": "SFX - Stop Motor",
-					"sid": 903552769866140
+					"callFunction": "LoadLevelAnimated",
+					"sid": 187622709259317,
+					"parameters": [
+						"\"Start\"",
+						"0.8"
+					]
 				}
 			],
 			"sid": 768907304641744
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-key-pressed",
+					"objectClass": "Keyboard",
+					"sid": 457799538234299,
+					"parameters": {
+						"key": 70
+					}
+				}
+			],
+			"actions": [],
+			"sid": 654515913626684,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-fullscreen",
+							"objectClass": "Browser",
+							"sid": 595022908997079
+						}
+					],
+					"actions": [
+						{
+							"id": "cancel-fullscreen",
+							"objectClass": "Browser",
+							"sid": 837967423730828
+						}
+					],
+					"sid": 396127921277641
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-fullscreen",
+							"objectClass": "Browser",
+							"sid": 402380402079161,
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "request-fullscreen",
+							"objectClass": "Browser",
+							"sid": 738162929867589,
+							"parameters": {
+								"mode": "stretch-integer-letterbox-scale",
+								"navigation-ui": "auto"
+							}
+						}
+					],
+					"sid": 763112385580217
+				}
+			]
 		},
 		{
 			"eventType": "group",
@@ -654,6 +699,7 @@
 								{
 									"callFunction": "SlowMo",
 									"sid": 375609139726996,
+									"disabled": true,
 									"parameters": [
 										"0.1",
 										"1",
@@ -667,6 +713,17 @@
 									"parameters": {
 										"opacity": "100"
 									}
+								},
+								{
+									"id": "start-timer",
+									"objectClass": "LevelSettings",
+									"sid": 627765125996575,
+									"behaviorType": "Timer",
+									"parameters": {
+										"duration": "1.2",
+										"type": "once",
+										"tag": "\"enter\""
+									}
 								}
 							],
 							"sid": 761032255584011
@@ -677,10 +734,10 @@
 								{
 									"id": "on-timer",
 									"objectClass": "LevelSettings",
-									"sid": 645485101827809,
+									"sid": 854449340406516,
 									"behaviorType": "Timer",
 									"parameters": {
-										"tag": "\"slowMoEnter\""
+										"tag": "\"enter\""
 									}
 								}
 							],
@@ -995,6 +1052,28 @@
 				}
 			],
 			"sid": 512957399410663
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "every-tick",
+					"objectClass": "System",
+					"sid": 507522252937977
+				}
+			],
+			"actions": [
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 248310713899453,
+					"parameters": {
+						"variable": "TARGET_FPS",
+						"value": "fps"
+					}
+				}
+			],
+			"sid": 708524574779560
 		}
 	],
 	"sid": 458086170270198

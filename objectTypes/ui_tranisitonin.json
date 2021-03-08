@@ -1,0 +1,71 @@
+{
+	"name": "UI_TranisitonIn",
+	"plugin-id": "Sprite",
+	"sid": 797904512357935,
+	"isGlobal": false,
+	"instanceVariables": [
+		{
+			"name": "speed",
+			"type": "number",
+			"desc": "",
+			"sid": 508749427504458
+		}
+	],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Tween",
+			"name": "Tween",
+			"sid": 625678848891393
+		}
+	],
+	"effectTypes": [
+		{
+			"effectId": "outline",
+			"name": "Outline"
+		},
+		{
+			"effectId": "outline",
+			"name": "Outline2"
+		}
+	],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 44,
+						"height": 44,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 7558956,
+						"collisionPoly": {
+							"points": [
+								0.045454545454545456,
+								0.045454545454545456,
+								0.9545454545454546,
+								0.045454545454545456,
+								0.9545454545454546,
+								0.9545454545454546,
+								0.045454545454545456,
+								0.9545454545454546
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 238093141133137,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}
