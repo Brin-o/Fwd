@@ -40,6 +40,10 @@
 			"includeSheet": "eTransition"
 		},
 		{
+			"eventType": "include",
+			"includeSheet": "eSaveSystem"
+		},
+		{
 			"eventType": "group",
 			"disabled": false,
 			"title": "Set Up",
@@ -545,7 +549,7 @@
 							"sid": 792764715872449,
 							"parameters": {
 								"key": "\"gameData\"",
-								"value": "GameData.AsJSON"
+								"value": "SaveData.AsJSON"
 							}
 						}
 					],
@@ -809,7 +813,7 @@
 									"conditions": [
 										{
 											"id": "has-key",
-											"objectClass": "GameData",
+											"objectClass": "SaveData",
 											"sid": 123884068789827,
 											"parameters": {
 												"key": "\"level\" & LevelSettings.levelNum & \"time\""
@@ -817,7 +821,7 @@
 										},
 										{
 											"id": "compare-value",
-											"objectClass": "GameData",
+											"objectClass": "SaveData",
 											"sid": 219246468635602,
 											"parameters": {
 												"key": "\"level\" & LevelSettings.levelNum & \"time\"",
@@ -829,7 +833,7 @@
 									"actions": [
 										{
 											"id": "add-key",
-											"objectClass": "GameData",
+											"objectClass": "SaveData",
 											"sid": 616715720361193,
 											"parameters": {
 												"key": "\"level\" & LevelSettings.levelNum & \"time\"",
@@ -844,7 +848,7 @@
 									"conditions": [
 										{
 											"id": "has-key",
-											"objectClass": "GameData",
+											"objectClass": "SaveData",
 											"sid": 960288004386333,
 											"parameters": {
 												"key": "\"level\" & LevelSettings.levelNum & \"time\""
@@ -855,7 +859,7 @@
 									"actions": [
 										{
 											"id": "add-key",
-											"objectClass": "GameData",
+											"objectClass": "SaveData",
 											"sid": 411156438850739,
 											"parameters": {
 												"key": "\"level\" & LevelSettings.levelNum & \"time\"",
@@ -870,7 +874,7 @@
 									"conditions": [
 										{
 											"id": "compare-value",
-											"objectClass": "GameData",
+											"objectClass": "SaveData",
 											"sid": 582961300582644,
 											"parameters": {
 												"key": "\"levelsCompleted\"",
@@ -881,16 +885,22 @@
 									],
 									"actions": [
 										{
-											"id": "add-key",
-											"objectClass": "GameData",
-											"sid": 505485578427945,
-											"parameters": {
-												"key": "\"levelsCompleted\"",
-												"value": "GameData.Get(\"levelsCompleted\") + 1"
-											}
+											"callFunction": "Data - Advance Level",
+											"sid": 169322309637103
 										}
 									],
 									"sid": 111913820372865
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"callFunction": "Data - Save Values",
+											"sid": 784174787213410
+										}
+									],
+									"sid": 325972525903634
 								}
 							]
 						}

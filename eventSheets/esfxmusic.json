@@ -153,7 +153,6 @@
 					],
 					"actions": [],
 					"sid": 192089019572429,
-					"disabled": true,
 					"children": [
 						{
 							"eventType": "block",
@@ -161,35 +160,15 @@
 								{
 									"id": "is-tag-playing",
 									"objectClass": "Audio",
-									"sid": 352116440871722,
+									"sid": 266427325618990,
 									"parameters": {
-										"tag": "\"music\""
+										"tag": "\"musicHanger\""
 									}
-								}
-							],
-							"actions": [
-								{
-									"id": "fade-volume",
-									"objectClass": "Audio",
-									"sid": 850050567444524,
-									"parameters": {
-										"tag": "\"music\"",
-										"db": "Vol_Music",
-										"duration": "1",
-										"ending": "stop"
-									}
-								}
-							],
-							"sid": 500581930859454,
-							"disabled": true
-						},
-						{
-							"eventType": "block",
-							"conditions": [
+								},
 								{
 									"id": "is-tag-playing",
 									"objectClass": "Audio",
-									"sid": 697273986548741,
+									"sid": 947607382039363,
 									"parameters": {
 										"tag": "\"music\""
 									},
@@ -198,20 +177,30 @@
 							],
 							"actions": [
 								{
+									"id": "fade-volume",
+									"objectClass": "Audio",
+									"sid": 803908817533370,
+									"parameters": {
+										"tag": "\"musicHanger\"",
+										"db": "Vol_Music",
+										"duration": "1",
+										"ending": "stop"
+									}
+								},
+								{
 									"id": "play-by-name",
 									"objectClass": "Audio",
-									"sid": 958350096825025,
+									"sid": 140567174727800,
 									"parameters": {
 										"folder": "music",
 										"audio-file-name": "\"Music_Main\"",
 										"loop": "looping",
-										"volume": "-15",
+										"volume": "Vol_Music",
 										"tag-optional": "\"music\""
 									}
 								}
 							],
-							"sid": 485917278536948,
-							"disabled": true
+							"sid": 500581930859454
 						}
 					]
 				},

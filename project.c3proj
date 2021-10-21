@@ -286,7 +286,7 @@
 					"M_Cursor_Start",
 					"LevelSettings",
 					"LocalStorage",
-					"GameData",
+					"SaveData",
 					"MenuSettings",
 					"AJAX",
 					"StringArray",
@@ -532,7 +532,8 @@
 			"eStart",
 			"eCredits",
 			"eTransition",
-			"eLoader"
+			"eLoader",
+			"eSaveSystem"
 		],
 		"subfolders": []
 	},
