@@ -306,12 +306,12 @@
 									"parameters": {
 										"first-value": "LevelSettings.currentTime",
 										"comparison": 2,
-										"second-value": "GameData.Get(\"level\" & LevelSettings.levelNum & \"time\")"
+										"second-value": "SaveData.Get(\"level\" & LevelSettings.levelNum & \"time\")"
 									}
 								},
 								{
 									"id": "has-key",
-									"objectClass": "GameData",
+									"objectClass": "SaveData",
 									"sid": 508517285595605,
 									"parameters": {
 										"key": "\"level\" & LevelSettings.levelNum & \"time\""
@@ -347,7 +347,7 @@
 									"objectClass": "UI_Load_Text2",
 									"sid": 612847927482267,
 									"parameters": {
-										"text": "\"Best time: \" & GameData.Get(\"level\" & LevelSettings.levelNum & \"time\")"
+										"text": "\"Best time: \" & SaveData.Get(\"level\" & LevelSettings.levelNum & \"time\")"
 									}
 								}
 							],

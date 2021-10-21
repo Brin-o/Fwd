@@ -1,0 +1,159 @@
+{
+	"name": "eSaveSystem",
+	"events": [
+		{
+			"functionName": "Data - Init/Load",
+			"functionDescription": "Checks if save data exists, if it doesn't it creates it.",
+			"functionCategory": "Utilities",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "check-item-exists",
+					"objectClass": "LocalStorage",
+					"sid": 784513678122053,
+					"parameters": {
+						"key": "\"SaveData\""
+					}
+				}
+			],
+			"sid": 859980408354704
+		},
+		{
+			"breakpoint": true,
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-item-missing",
+					"objectClass": "LocalStorage",
+					"sid": 832011975680237,
+					"parameters": {
+						"key": "\"SaveData\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"type": "script",
+					"script": "console.log(\"No data exists, creating new save key!\")"
+				},
+				{
+					"id": "add-key",
+					"objectClass": "SaveData",
+					"sid": 912076779302299,
+					"parameters": {
+						"key": "\"levelsCompleted\"",
+						"value": "init_lvlUnlocked"
+					}
+				},
+				{
+					"id": "load",
+					"objectClass": "SaveData",
+					"sid": 885630484309626,
+					"parameters": {
+						"json": "LocalStorage.Key"
+					}
+				},
+				{
+					"id": "set-item",
+					"objectClass": "LocalStorage",
+					"sid": 439491026563977,
+					"parameters": {
+						"key": "\"SaveData\"",
+						"value": "SaveData.AsJSON"
+					}
+				}
+			],
+			"sid": 449739629481012
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-item-exists",
+					"objectClass": "LocalStorage",
+					"sid": 236377182566912,
+					"parameters": {
+						"key": "\"SaveData\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "load",
+					"objectClass": "SaveData",
+					"sid": 520728732008848,
+					"parameters": {
+						"json": "LocalStorage.ItemValue"
+					}
+				}
+			],
+			"sid": 748340991327604
+		},
+		{
+			"functionName": "Data - Advance Level",
+			"functionDescription": "Saves game's data. By default saves ONLY save count!",
+			"functionCategory": "Utilities",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"type": "script",
+					"script": "console.log(\"Saving the game!\")"
+				},
+				{
+					"id": "add-key",
+					"objectClass": "SaveData",
+					"sid": 151153556002854,
+					"parameters": {
+						"key": "\"levelsCompleted\"",
+						"value": "SaveData.Get(\"levelsCompleted\") + 1"
+					}
+				},
+				{
+					"id": "set-item",
+					"objectClass": "LocalStorage",
+					"sid": 395399150845016,
+					"parameters": {
+						"key": "\"SaveData\"",
+						"value": "SaveData.AsJSON"
+					}
+				}
+			],
+			"sid": 862373711830413
+		},
+		{
+			"functionName": "Data - Save Values",
+			"functionDescription": "Saves game's data. By default saves ONLY save count!",
+			"functionCategory": "Utilities",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"type": "script",
+					"script": "console.log(\"Saving the game!\")"
+				},
+				{
+					"id": "set-item",
+					"objectClass": "LocalStorage",
+					"sid": 399290974733681,
+					"parameters": {
+						"key": "\"SaveData\"",
+						"value": "SaveData.AsJSON"
+					}
+				}
+			],
+			"sid": 445223821675136
+		}
+	],
+	"sid": 363475803198861
+}

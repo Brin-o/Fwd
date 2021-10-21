@@ -10,6 +10,10 @@
 			"includeSheet": "eTransition"
 		},
 		{
+			"eventType": "include",
+			"includeSheet": "eSaveSystem"
+		},
+		{
 			"eventType": "variable",
 			"name": "menu_STATE",
 			"type": "string",
@@ -70,6 +74,14 @@
 				}
 			],
 			"actions": [
+				{
+					"type": "script",
+					"script": "console.log(\"Test1312!\")"
+				},
+				{
+					"callFunction": "Data - Init/Load",
+					"sid": 464030367619117
+				},
 				{
 					"callFunction": "SpawnMenuState",
 					"sid": 148211103167114
@@ -229,90 +241,6 @@
 				}
 			],
 			"sid": 599971411839092
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "on-start-of-layout",
-					"objectClass": "System",
-					"sid": 361291621503136
-				},
-				{
-					"id": "is-empty",
-					"objectClass": "GameData",
-					"sid": 216360230851140
-				}
-			],
-			"actions": [
-				{
-					"id": "check-item-exists",
-					"objectClass": "LocalStorage",
-					"sid": 816458360154730,
-					"parameters": {
-						"key": "\"gameData\""
-					}
-				}
-			],
-			"sid": 555190631266007
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "on-item-exists",
-					"objectClass": "LocalStorage",
-					"sid": 336580792044275,
-					"parameters": {
-						"key": "\"gameData\""
-					}
-				}
-			],
-			"actions": [
-				{
-					"id": "load",
-					"objectClass": "GameData",
-					"sid": 758461425372257,
-					"parameters": {
-						"json": "LocalStorage.ItemValue"
-					}
-				}
-			],
-			"sid": 538747777530012
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "on-item-missing",
-					"objectClass": "LocalStorage",
-					"sid": 921582740930203,
-					"parameters": {
-						"key": "\"gameData\""
-					}
-				}
-			],
-			"actions": [
-				{
-					"id": "add-key",
-					"objectClass": "GameData",
-					"sid": 692215240054151,
-					"parameters": {
-						"key": "\"levelsCompleted\"",
-						"value": "init_lvlUnlocked"
-					}
-				},
-				{
-					"id": "set-item",
-					"objectClass": "LocalStorage",
-					"sid": 533222478920849,
-					"parameters": {
-						"key": "GameData.AsJSON",
-						"value": "\"gameData\""
-					}
-				}
-			],
-			"sid": 467199900406134
 		},
 		{
 			"eventType": "group",
@@ -737,7 +665,7 @@
 							"sid": 660691990222434,
 							"parameters": {
 								"instance-variable": "bestTime",
-								"value": "GameData.Get(\"level\" & UI_LevelPoint.levelToLoad & \"time\")"
+								"value": "SaveData.Get(\"level\" & UI_LevelPoint.levelToLoad & \"time\")"
 							}
 						}
 					],
@@ -785,7 +713,7 @@
 											"parameters": {
 												"instance-variable": "levelToLoad",
 												"comparison": 4,
-												"value": "GameData.Get(\"levelsCompleted\")"
+												"value": "SaveData.Get(\"levelsCompleted\")"
 											}
 										}
 									],
@@ -841,7 +769,7 @@
 											"parameters": {
 												"instance-variable": "levelToLoad",
 												"comparison": 2,
-												"value": "GameData.Get(\"levelsCompleted\")"
+												"value": "SaveData.Get(\"levelsCompleted\")"
 											}
 										}
 									],
@@ -881,7 +809,7 @@
 											"parameters": {
 												"instance-variable": "levelToLoad",
 												"comparison": 0,
-												"value": "GameData.Get(\"levelsCompleted\") "
+												"value": "SaveData.Get(\"levelsCompleted\") "
 											}
 										}
 									],
