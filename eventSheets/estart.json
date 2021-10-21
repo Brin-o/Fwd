@@ -75,10 +75,6 @@
 			],
 			"actions": [
 				{
-					"type": "script",
-					"script": "console.log(\"Test1312!\")"
-				},
-				{
 					"callFunction": "Data - Init/Load",
 					"sid": 464030367619117
 				},
@@ -167,15 +163,6 @@
 					"parameters": {
 						"variable": "loading_Next",
 						"value": "false"
-					}
-				},
-				{
-					"id": "set-instvar-value",
-					"objectClass": "UI_LevelPoint",
-					"sid": 274497268718091,
-					"parameters": {
-						"instance-variable": "bestTime",
-						"value": "SaveData.Get(\"level\" & UI_LevelPoint.levelToLoad & \"time\")"
 					}
 				}
 			],
@@ -505,6 +492,15 @@
 											"parameters": {
 												"text": "\"Level \" & UI_LevelPoint.levelToLoad"
 											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "UI_LevelPoint",
+											"sid": 274497268718091,
+											"parameters": {
+												"instance-variable": "bestTime",
+												"value": "SaveData.Get(\"level\" & UI_LevelPoint.levelToLoad & \"time\")"
+											}
 										}
 									],
 									"sid": 719913200065000
@@ -672,7 +668,6 @@
 							"id": "set-instvar-value",
 							"objectClass": "UI_LevelPoint",
 							"sid": 660691990222434,
-							"disabled": true,
 							"parameters": {
 								"instance-variable": "bestTime",
 								"value": "SaveData.Get(\"level\" & UI_LevelPoint.levelToLoad & \"time\")"
@@ -1801,6 +1796,64 @@
 			],
 			"sid": 886631012182966,
 			"disabled": true
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-key-pressed",
+					"objectClass": "Keyboard",
+					"sid": 764254473463177,
+					"parameters": {
+						"key": 70
+					}
+				}
+			],
+			"actions": [],
+			"sid": 909542294379082,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-fullscreen",
+							"objectClass": "Browser",
+							"sid": 733936275955491
+						}
+					],
+					"actions": [
+						{
+							"id": "cancel-fullscreen",
+							"objectClass": "Browser",
+							"sid": 747924504284848
+						}
+					],
+					"sid": 419325295988636
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-fullscreen",
+							"objectClass": "Browser",
+							"sid": 398784662892952,
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "request-fullscreen",
+							"objectClass": "Browser",
+							"sid": 178198214471585,
+							"parameters": {
+								"mode": "stretch-integer-letterbox-scale",
+								"navigation-ui": "auto"
+							}
+						}
+					],
+					"sid": 939244321268116
+				}
+			]
 		}
 	],
 	"sid": 328680817600631

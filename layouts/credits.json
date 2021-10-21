@@ -89,8 +89,8 @@
 						}
 					},
 					"world": {
-						"x": -1,
-						"y": 185,
+						"x": -0.9999999999999996,
+						"y": 192.24649761810676,
 						"width": 325.27431838484665,
 						"height": 3.5815735388168832,
 						"originX": 1,
@@ -136,7 +136,7 @@
 					},
 					"world": {
 						"x": 160,
-						"y": 41,
+						"y": 25.97513167641332,
 						"width": 320,
 						"height": 30,
 						"originX": 0.5,
@@ -182,7 +182,7 @@
 					},
 					"world": {
 						"x": 160,
-						"y": 103,
+						"y": 76.54134334564701,
 						"width": 320,
 						"height": 20,
 						"originX": 0.5,
@@ -228,7 +228,7 @@
 					},
 					"world": {
 						"x": 160,
-						"y": 125,
+						"y": 95.54134334564701,
 						"width": 320,
 						"height": 20,
 						"originX": 0.5,
@@ -274,7 +274,7 @@
 					},
 					"world": {
 						"x": 160,
-						"y": 79,
+						"y": 57.54134334564701,
 						"width": 320,
 						"height": 26.04868248962339,
 						"originX": 0.5,
@@ -389,7 +389,7 @@
 					},
 					"world": {
 						"x": 321.9979441859471,
-						"y": 230.4886935871811,
+						"y": 224.42189327294324,
 						"width": 325.27431838484665,
 						"height": 3.5815735388168832,
 						"originX": 1,
@@ -435,9 +435,55 @@
 					},
 					"world": {
 						"x": 160,
-						"y": 147,
+						"y": 116.54134334564701,
 						"width": 320,
 						"height": 20,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							0.9137254901960784,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "UI_Text_StartTOP",
+					"properties": {
+						"text": "Special thanks: \nNYU Game Center's Playtesting",
+						"enable-bbcode": false,
+						"character-width": 8,
+						"character-height": 16,
+						"character-set": "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789.,;:?!-_~#\"'&()[]{}^|`/\\@°+=*%€$£¢<>©®",
+						"spacing-data": "",
+						"scale": 1,
+						"character-spacing": 0,
+						"line-height": 0,
+						"horizontal-alignment": "center",
+						"vertical-alignment": "center",
+						"wrapping": "word",
+						"initially-visible": true,
+						"origin": "center"
+					},
+					"uid": 1886,
+					"instanceVariables": {
+						"animationDelay": 4
+					},
+					"behaviors": {
+						"RegularTween": {
+							"properties": {
+								"enabled": true
+							}
+						}
+					},
+					"world": {
+						"x": 159.9999827230167,
+						"y": 156.0396688325239,
+						"width": 320,
+						"height": 34.29368936384327,
 						"originX": 0.5,
 						"originY": 0.5,
 						"color": [

@@ -6800,8 +6800,8 @@
 					"uid": 1111,
 					"instanceVariables": {
 						"currentTime": 0,
-						"nextLevel": "Credits",
-						"levelName": "Final Sprial",
+						"nextLevel": "Level10",
+						"levelName": "Sprial",
 						"levelNum": 9
 					},
 					"behaviors": {

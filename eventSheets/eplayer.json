@@ -998,7 +998,7 @@
 					"children": [
 						{
 							"eventType": "group",
-							"disabled": false,
+							"disabled": true,
 							"title": "Movement - Debugging",
 							"description": "",
 							"isActiveOnStart": true,
@@ -1110,7 +1110,8 @@
 											}
 										}
 									],
-									"sid": 226740888884184
+									"sid": 226740888884184,
+									"disabled": true
 								}
 							],
 							"sid": 571036628313347
