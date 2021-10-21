@@ -512,7 +512,8 @@
 					"Level10",
 					"Level11",
 					"Level12",
-					"Level13"
+					"Level13",
+					"Level14"
 				],
 				"subfolders": [],
 				"name": "Levels"
@@ -758,7 +759,7 @@
 		"renderingMode": "auto",
 		"anisotropicFiltering": "auto",
 		"maxSpriteSheetSize": 2048,
-		"loaderStyle": "percent",
+		"loaderStyle": "splash",
 		"preloadSounds": true,
 		"cordovaiOSScheme": "app",
 		"cordovaAndroidScheme": "file"
