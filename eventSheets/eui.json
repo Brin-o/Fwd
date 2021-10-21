@@ -292,6 +292,15 @@
 							"parameters": {
 								"text": "\"Your time: \" & Functions.DecimalDisplay( Functions.RoundDec(LevelSettings.currentTime,2), 2, \"\")"
 							}
+						},
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 872118606154564,
+							"parameters": {
+								"variable": "immune",
+								"value": "true"
+							}
 						}
 					],
 					"sid": 490792677489458,

@@ -1854,6 +1854,27 @@
 					"sid": 939244321268116
 				}
 			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-key-pressed",
+					"objectClass": "Keyboard",
+					"sid": 182214634061827,
+					"parameters": {
+						"key": 27
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "close",
+					"objectClass": "Browser",
+					"sid": 746987889015960
+				}
+			],
+			"sid": 771095217429416
 		}
 	],
 	"sid": 328680817600631

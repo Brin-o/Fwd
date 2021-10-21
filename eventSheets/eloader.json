@@ -14,21 +14,21 @@
 				{
 					"id": "wait",
 					"objectClass": "System",
-					"sid": 579496400369411,
+					"sid": 721464879107816,
 					"parameters": {
-						"seconds": "0.75"
+						"seconds": "1.5"
 					}
 				},
 				{
 					"id": "tween-one-property",
 					"objectClass": "LoaderAnimation",
-					"sid": 506139405321089,
+					"sid": 976027609186566,
 					"behaviorType": "Tween",
 					"parameters": {
 						"tags": "\"start\"",
 						"property": "offsetOpacity",
 						"end-value": "0",
-						"time": "0.2",
+						"time": "0.5",
 						"ease": "default",
 						"destroy-on-complete": "no",
 						"loop": "no",

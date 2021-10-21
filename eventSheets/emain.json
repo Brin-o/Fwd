@@ -92,6 +92,15 @@
 								"layer": "\"UI\"",
 								"visibility": "visible"
 							}
+						},
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 393687071420157,
+							"parameters": {
+								"variable": "immune",
+								"value": "false"
+							}
 						}
 					],
 					"sid": 191892460045298
