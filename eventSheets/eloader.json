@@ -74,6 +74,15 @@
 			],
 			"actions": [
 				{
+					"id": "set-animation",
+					"objectClass": "LoaderAnimation",
+					"sid": 964554884941953,
+					"parameters": {
+						"animation": "str(round(random(3) + 1))",
+						"from": "beginning"
+					}
+				},
+				{
 					"id": "request-fullscreen",
 					"objectClass": "Browser",
 					"sid": 517178466861163,

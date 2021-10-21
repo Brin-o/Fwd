@@ -6801,7 +6801,7 @@
 					"instanceVariables": {
 						"currentTime": 0,
 						"nextLevel": "Level10",
-						"levelName": "Sprial",
+						"levelName": "Spiral",
 						"levelNum": 9
 					},
 					"behaviors": {

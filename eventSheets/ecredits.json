@@ -43,6 +43,15 @@
 			],
 			"actions": [
 				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 419011347589388,
+					"parameters": {
+						"variable": "goingToStart",
+						"value": "false"
+					}
+				},
+				{
 					"id": "set-opacity",
 					"objectClass": "UI_Text_StartTOP",
 					"sid": 883196573834474,
@@ -97,11 +106,11 @@
 			"eventType": "block",
 			"conditions": [
 				{
-					"id": "on-button-released",
-					"objectClass": "Mouse",
-					"sid": 805069543938137,
+					"id": "on-key-pressed",
+					"objectClass": "Keyboard",
+					"sid": 747099417400639,
 					"parameters": {
-						"mouse-button": "left"
+						"key": 27
 					}
 				},
 				{

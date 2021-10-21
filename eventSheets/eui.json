@@ -448,11 +448,11 @@
 								{
 									"id": "compare-instance-variable",
 									"objectClass": "LevelSettings",
-									"sid": 603126640471989,
+									"sid": 888427089024532,
 									"parameters": {
 										"instance-variable": "levelNum",
 										"comparison": 0,
-										"value": "9"
+										"value": "10"
 									}
 								}
 							],

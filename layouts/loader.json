@@ -9,7 +9,7 @@
 					"type": "LoaderAnimation",
 					"properties": {
 						"initially-visible": true,
-						"initial-animation": "Animation 1",
+						"initial-animation": "1",
 						"initial-frame": 0,
 						"enable-collisions": true,
 						"live-preview": false
@@ -25,7 +25,7 @@
 					},
 					"world": {
 						"x": 160,
-						"y": 120,
+						"y": 137,
 						"width": 320,
 						"height": 240,
 						"originX": 0.5,
