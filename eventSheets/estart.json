@@ -168,6 +168,15 @@
 						"variable": "loading_Next",
 						"value": "false"
 					}
+				},
+				{
+					"id": "set-instvar-value",
+					"objectClass": "UI_LevelPoint",
+					"sid": 274497268718091,
+					"parameters": {
+						"instance-variable": "bestTime",
+						"value": "SaveData.Get(\"level\" & UI_LevelPoint.levelToLoad & \"time\")"
+					}
 				}
 			],
 			"sid": 854601553035486,
@@ -663,6 +672,7 @@
 							"id": "set-instvar-value",
 							"objectClass": "UI_LevelPoint",
 							"sid": 660691990222434,
+							"disabled": true,
 							"parameters": {
 								"instance-variable": "bestTime",
 								"value": "SaveData.Get(\"level\" & UI_LevelPoint.levelToLoad & \"time\")"
